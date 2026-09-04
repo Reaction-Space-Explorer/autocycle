@@ -193,8 +193,12 @@ def draw_nodes(
                 continue
             m = nodes[v.index]
             is_seed = seed is not None and v.index == seed
-            if st_.node_circle:
-                edge = f"stroke='{GAIN}' stroke-width='0.022'" if is_seed else "stroke='none'"
+            if st_.node_circle and (is_seed or st_.circle_ring_nodes):
+                edge = (
+                    f"stroke='{GAIN}' stroke-width='0.022'"
+                    if is_seed and st_.seed_ring
+                    else "stroke='none'"
+                )
                 out.append(
                     f"<circle cx='{px:.4f}' cy='{py:.4f}' r='{half * 0.95:.4f}' fill='{st_.node_fill}' "
                     f"fill-opacity='{st_.node_alpha}' {edge}/>"
@@ -210,8 +214,10 @@ def draw_nodes(
                 f"stroke='#7a5c10' stroke-width='0.006'/>"
             )
             lines = _step_lines(step, st_)
-            dx, dy = L.polar(st_.rxn_size + 0.26, v.angle)
-            lx, ly = _p(v.x + dx, v.y + dy)
+            reach = st_.rxn_size + 0.26 + 0.10 * len(lines)
+            dx, dy = L.polar(reach, v.angle)
+            sign = -1.0 if st_.label_inward else 1.0
+            lx, ly = _p(v.x + sign * dx, v.y + sign * dy)
             for j, line in enumerate(lines):
                 out.append(
                     text(lx, ly + j * st_.label_size * 1.2, line, st_.label_size, "middle",
@@ -272,11 +278,18 @@ def straight_arrow(x0, y0, x1, y1, w, head_w=2.5, head_len=None) -> str:
     return _path(pts)
 
 
-def _trim(a, b, ta, tb):
-    """Shorten the segment a->b by ta at the start and tb at the end."""
+def _trim(a, b, ta, tb, square=False):
+    """Shorten the segment a->b by ta at the start and tb at the end.
+
+    With `square`, the trim reaches the edge of a box of half-width ta/tb rather than
+    its inscribed circle, so a diagonal arrow does not start inside the box.
+    """
     vx, vy = b[0] - a[0], b[1] - a[1]
     d = math.hypot(vx, vy) or 1.0
     ux, uy = vx / d, vy / d
+    if square:
+        scale = max(abs(ux), abs(uy)) or 1.0
+        ta, tb = ta / scale, tb / scale
     return (a[0] + ux * ta, a[1] + uy * ta), (b[0] - ux * tb, b[1] - uy * tb)
 
 
@@ -300,11 +313,12 @@ def draw_route(pw, lay: T.TreeLayout, span: float, st_: Style, mode: str) -> lis
             col = GREY if node.step.filtered else st_.ring_grey
         op = 0.35 if node.step.filtered else 1.0
 
+        boxed = st_.node_circle
         for pre in node.precursors:
             m = lay.mol(pre)
-            a, b = _trim((m.x, m.y), (r.x, r.y), m.half * 0.95, r.half * 2.4)
+            a, b = _trim((m.x, m.y), (r.x, r.y), m.half * 0.95, r.half * 2.4, square=boxed)
             out.append(f"<path d='{straight_arrow(*a, *b, w)}' fill='{col}' opacity='{op}'/>")
-        a, b = _trim((r.x, r.y), (prod.x, prod.y), r.half * 2.4, prod.half * 0.95)
+        a, b = _trim((r.x, r.y), (prod.x, prod.y), r.half * 2.4, prod.half * 0.95, square=boxed)
         out.append(f"<path d='{straight_arrow(*a, *b, w)}' fill='{col}' opacity='{op}'/>")
     return out
 
@@ -318,6 +332,8 @@ def draw_route_sides(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
         r = lay.rxn(node)
         for side, group in (("in", node.step.consumes), ("out", node.step.produces)):
             for k, sp in enumerate(group):
+                if st_.water_as_text and sp.smiles == WATER:
+                    continue
                 ax, ay = T.side_anchor(r, side, k)
                 if side == "in":
                     curve, head = bezier_arrow(ax, ay, r.x, r.y, bow=0.1, trim=r.half * 2.6)
@@ -361,8 +377,8 @@ def draw_route_nodes(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
                 "unknown": None,  # do not invent a label
             }.get(node.terminal)
         if tag:
-            out.append(text(px, py + half * 0.80 + st_.label_size * 1.3, tag[0], st_.label_size,
-                            "middle", tag[1], tag[2]))
+            off = (half + st_.label_size * 1.3) if st_.node_circle else (half * 0.80 + st_.label_size * 1.3)
+            out.append(text(px, py + off, tag[0], st_.label_size, "middle", tag[1], tag[2]))
 
         if node.step:
             r = lay.rxn(node)

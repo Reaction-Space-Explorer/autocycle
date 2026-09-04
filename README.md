@@ -99,19 +99,37 @@ A network search returns thousands of cycles, most of them not worth a figure. `
 
 ## Styles
 
-`--style paper` (default) follows *Chem. Sci.* 2022, **13**, 4838 Fig. 7: bare structures,
-ochre reaction squares, dark-grey flow arrows, pale-grey side arrows, bare ΔG numbers.
+Every style renders both a cycle and a route. `--style` picks one.
 
-`--style annotated` is the network-search convention: gold ring molecules, magenta feeders,
-reaction ids with energies, water balance annotated rather than drawn, and a rule list under
-the figure. This is what the gallery above uses.
+<table>
+<tr><th width="180">Style</th><th>Cycle</th><th>Route</th></tr>
+<tr>
+<td><b><code>paper</code></b><br>default<br><br>Bare structures, ochre reaction
+squares, dark-grey flow arrows, pale-grey side arrows, bare ΔG numbers.
+Follows <i>Chem. Sci.</i> 2022, <b>13</b>, 4838 Fig. 7.</td>
+<td><img src="examples/styles/cycle_paper.png" width="330"></td>
+<td><img src="examples/styles/route_paper.png" width="330"></td>
+</tr>
+<tr>
+<td><b><code>annotated</code></b><br><br>Discs mark <i>roles</i>: gold for the
+autocatalyst or target, magenta for off-cycle feeders and products, nothing for
+intermediates. Reaction ids with energies inside the ring, water balance as text
+rather than drawn, rules listed underneath.</td>
+<td><img src="examples/styles/cycle_annotated.png" width="330"></td>
+<td><img src="examples/styles/route_annotated.png" width="330"></td>
+</tr>
+<tr>
+<td><b><code>rich</code></b><br><br>The spare ink becomes data: arrow
+<b>width</b> = magnitude (<code>--mode linear|log|multiples</code>),
+<b>hue</b> = ΔG, <b>concentric pair</b> = reversible, <b>green band</b> = the
+gain step. Adds a legend with the ΔG scale and cycle total.</td>
+<td><img src="examples/styles/cycle_rich.png" width="330"></td>
+<td><img src="examples/styles/route_rich.png" width="330"></td>
+</tr>
+</table>
 
-`--style rich` turns the spare ink into data: arrow **width** = magnitude
-(`--mode linear|log|multiples`), **hue** = ΔG, **concentric pair** = reversible,
-**green band** = the gain step.
-
-Neither style is a pixel reproduction of a published figure: the layout and encodings match,
-the structures are drawn by RDKit or obabel rather than by the original code.
+No style is a pixel reproduction of a published figure: the layout and encodings match, the
+structures are drawn by RDKit or obabel rather than by the original code.
 
 ### Structure depictions
 

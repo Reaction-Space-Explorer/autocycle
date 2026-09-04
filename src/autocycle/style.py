@@ -8,6 +8,9 @@ from dataclasses import dataclass, replace
 @dataclass(frozen=True)
 class Style:
     node_circle: bool = False
+    circle_ring_nodes: bool = True   # False: only the autocatalyst gets a disc
+    seed_ring: bool = True           # green outline on the autocatalyst
+    label_inward: bool = False       # step labels inside the ring, not outside
     node_fill: str = "#fdf6e3"
     node_alpha: float = 1.0
     side_fill: str = "#f4ecf7"
@@ -44,12 +47,18 @@ ANNOTATED = Style(
     rxn_fill="#b8860b",
     ring_grey="#696969",
     side_grey="#d3d3d3",
+    circle_ring_nodes=False,
+    seed_ring=False,
+    label_inward=True,
     step_label="id_dg_units",
     water_as_text=True,
     rule_legend=True,
     centre_label=True,
-    label_size=0.115,
-    side_out=2.5,
+    label_size=0.125,
+    mol_scale=1.12,
+    uniform_width=0.055,
+    rxn_size=0.085,
+    side_out=2.8,
 )
 
 RICH = Style(
