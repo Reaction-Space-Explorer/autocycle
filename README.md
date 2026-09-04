@@ -45,6 +45,29 @@ verify(cycle).summary() # 'candidate (seed_identified=yes, ... extra_yield=unkno
 
 `verify` also flags a spec that declares a gain step its conditions cannot support.
 
+### Steady state
+
+`verify` reads the coefficients a source states. `sna` reads the cycle as Clarke does, as a
+stoichiometric matrix with a current `v`:
+
+```
+$ autocycle verify examples/canonical/acetyl_coa_sol0.yaml
+status     autocatalytic
+seed yield n = 2
+overall    2 O=C(O)O  ->  1 *SC(C)=O
+atoms      * +1, S +1, O -5, H -1
+currents   2 (not a single extreme current)
+```
+
+- **intermediates balance**: a ring molecule the drawing never returns is named, exit 1.
+- **atoms balance**: products minus reactants. Carbon is the load-bearing one; suppressing
+  water and protons leaves a residual in H and O. This found a missing carboxylation in two
+  of the specs here.
+- **one extreme current, or a sum**: Sol 0 of Abel et al. is two, an allocatalytic ring plus
+  a loop through the shunt that carries all the autocatalysis.
+
+`flux` is that current; `mag` only sets arrow width.
+
 ## Whole searches
 
 Frequency by cycle length, stratified by distinct feeder count, with example cycles.
@@ -142,8 +165,8 @@ A search returns thousands. `list` and `bench` report what decides it:
 
 - **distinct feeder count**: one feeder is a stronger result than three. `--rank` orders by
   fewest feeders, then lightest, then earliest generation.
-- **cycle centrality**: `select.cycle_centrality`, the lowest centrality on the ring, for
-  when feeder count cannot separate candidates.
+- **cycle centrality**: `select.cycle_centrality`, the lowest closeness centrality on the
+  ring, which is Zubarev's definition, for when feeder count cannot separate candidates.
 - **restricted molecules on the ring**: methanol is hard to oxidise or reduce without a
   catalyst, so a cycle running through it is hard to interpret. Flagged, never dropped.
 
@@ -222,6 +245,17 @@ The simple versus autocatalytic distinction is Orgel's, as stated in:
 
 > Peretó, J. **Out of fuzzy chemistry: from prebiotic chemistry to metabolic networks.**
 > *Chem. Soc. Rev.* **2012**, *41*, 5394. [doi:10.1039/C2CS35054H](https://doi.org/10.1039/C2CS35054H)
+
+The steady-state reading, `nu.v = 0` with `v >= 0` and its cone of extreme currents, is:
+
+> Clarke, B. L. **Stoichiometric Network Analysis.** *Cell Biophys.* **1988**, *12*,
+> 237–253.
+
+Cycle centrality, the lowest closeness centrality on a ring, is:
+
+> Zubarev, D. Y.; Rappoport, D.; Aspuru-Guzik, A. **Uncertainty of Prebiotic Scenarios: The
+> Case of the Non-Enzymatic Reverse Tricarboxylic Acid Cycle.** *Sci. Rep.* **2015**, *5*,
+> 8009. [doi:10.1038/srep08009](https://doi.org/10.1038/srep08009)
 
 On the relationship between the frameworks the survey compares:
 

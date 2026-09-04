@@ -63,3 +63,24 @@ def test_methanol_on_the_ring_is_flagged():
 def test_restricted_set_is_configurable():
     c = _cycle(["OCC=O", "OCC(O)C=O"])
     assert role_violations(c, restricted=("OCC=O",)) == [canonical("OCC=O")]
+
+
+def test_cycle_centrality_is_the_lowest_on_the_ring():
+    from autocycle.select import centrality, cycle_centrality
+
+    g = {"a": ["b"], "b": ["c"], "c": ["a"], "d": ["a"]}
+    cent = centrality(g)
+    c = _cycle(["OCC=O", "OCC(O)C=O"])
+    named = {m.smiles: cent[k] for m, k in zip(c.nodes, ["a", "d"], strict=True)}
+    assert cycle_centrality(c, named) == min(named.values())
+
+
+def test_closeness_is_the_default_measure():
+    """Zubarev's cycle centrality is defined on closeness, not degree."""
+    import networkx as nx
+
+    from autocycle.select import centrality
+
+    g = {"a": ["b"], "b": ["c"], "c": ["a"], "d": ["a"]}
+    assert centrality(g) == nx.closeness_centrality(nx.DiGraph(g))
+    assert centrality(g, "degree") != centrality(g)

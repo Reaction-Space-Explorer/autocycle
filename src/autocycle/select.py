@@ -47,11 +47,17 @@ def role_violations(cycle: Cycle, restricted=ROLE_RESTRICTED) -> list[str]:
     return [m.smiles for m in cycle.nodes if m.smiles in bad]
 
 
-def centrality(graph, measure: str = "degree") -> dict[str, float]:
-    """Node centrality over the whole network. Degree is cheap; betweenness is not."""
+def centrality(graph, measure: str = "closeness") -> dict[str, float]:
+    """Node centrality over the whole network.
+
+    Closeness is the measure Zubarev uses (Sci. Rep. 5, 8009, 2015, citing Sabidussi
+    1966), so it is the default here. Degree is cheap; betweenness is not.
+    """
     import networkx as nx
 
     g = nx.DiGraph(graph)
+    if measure == "closeness":
+        return nx.closeness_centrality(g)
     if measure == "degree":
         return nx.degree_centrality(g)
     if measure == "betweenness":
