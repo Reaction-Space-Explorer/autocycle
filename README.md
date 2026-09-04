@@ -94,6 +94,11 @@ open("cycle.svg", "w").write(render(c))
 | **`annotated`**<br>Discs mark roles, reaction ids with energies inside the ring, water balance as text, rules listed underneath. | <img src="examples/styles/cycle_annotated.png" width="290"> | <img src="examples/styles/route_annotated.png" width="290"> |
 | **`rich`**<br>Arrow **width** = magnitude (`--mode linear\|log\|multiples`), **hue** = ΔG, **concentric** = reversible, **green band** = gain. | <img src="examples/styles/cycle_rich.png" width="290"> | <img src="examples/styles/route_rich.png" width="290"> |
 
+CoA thioesters and other R-groups work: a pseudo-atom such as the `[CoA]` stub used by
+MØD parses directly, so SMILES can be pasted from a paper's supplementary data and the
+stub is drawn as `CoA—S—`. See
+[examples/canonical/malyl_coa_arm.yaml](examples/canonical/malyl_coa_arm.yaml).
+
 No style is a pixel reproduction of a published figure: the layout and encodings match, the
 structures are drawn by RDKit, or by Open Babel with `--backend obabel`, which renders small
 molecules more legibly (`O = CH₂` rather than a bare `=O`).

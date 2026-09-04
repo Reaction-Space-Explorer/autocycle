@@ -23,7 +23,7 @@ def have_obabel() -> bool:
 
 
 @lru_cache(maxsize=512)
-def mol_svg(smiles: str, px: int = PX, backend: str = "rdkit") -> str:
+def mol_svg(smiles: str, px: int = PX, backend: str = "rdkit", rgroup: str | None = None) -> str:
     if backend == "obabel":
         return _obabel_svg(smiles)
     if backend != "rdkit":
@@ -33,6 +33,10 @@ def mol_svg(smiles: str, px: int = PX, backend: str = "rdkit") -> str:
         raise ValueError(f"bad SMILES: {smiles!r}")
     d = rdMolDraw2D.MolDraw2DSVG(px, px)
     o = d.drawOptions()
+    if rgroup:
+        for a in mol.GetAtoms():
+            if a.GetAtomicNum() == 0:
+                o.atomLabels[a.GetIdx()] = rgroup
     o.clearBackground = False
     o.bondLineWidth = 2
     o.padding = 0.02
@@ -63,8 +67,9 @@ def viewbox(backend: str) -> int:
     return OBABEL_VB if backend == "obabel" else PX
 
 
-def embed(smiles: str, x: float, y: float, size: float, backend: str = "rdkit") -> str:
-    svg = re.sub(r"<\?xml[^>]*\?>", "", mol_svg(smiles, PX, backend)).strip()
+def embed(smiles: str, x: float, y: float, size: float, backend: str = "rdkit",
+          rgroup: str | None = None) -> str:
+    svg = re.sub(r"<\?xml[^>]*\?>", "", mol_svg(smiles, PX, backend, rgroup)).strip()
     vb = viewbox(backend)
     head = (
         f"<svg x='{x:.4f}' y='{y:.4f}' width='{size:.4f}' height='{size:.4f}' "

@@ -266,7 +266,8 @@ def _water_balance(step) -> str | None:
 def _species(mol, px: float, py: float, half: float, st_: Style) -> str:
     """A depiction when the species has a structure, otherwise its name."""
     if getattr(mol, "structure", True):
-        return embed(mol.smiles, px - half, py - half, half * 2, st_.backend)
+        return embed(mol.smiles, px - half, py - half, half * 2, st_.backend,
+                     getattr(mol, "rgroup", None))
     name = getattr(mol, "label", None) or mol.smiles
     return text(px, py + half * 0.12, name, min(half * 0.55, 0.42), "middle", "#111")
 

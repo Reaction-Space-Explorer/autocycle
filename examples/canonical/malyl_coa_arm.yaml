@@ -1,0 +1,25 @@
+# The malyl-CoA / glyoxylate arm of Fig. 3 of Abel et al., npj Syst. Biol. Appl. 2026
+# (doi 10.1038/s41540-025-00641-8), read off that figure. SMILES are taken verbatim from
+# that paper's Supplementary Information, including its [CoA] pseudo-atom for coenzyme A.
+#
+# This is one arm, NOT the full solution. The published cycle is 11 steps with an inflow of
+# one acetyl-CoA and an outflow of two (Table 3), so n = 2; this arm alone returns one
+# acetyl-CoA plus glyoxylate, n = 1. The ordered step list for each of the three solutions
+# is not published in machine-readable form, so it is not encoded here.
+title: Malyl-CoA arm (Fig. 3 solution core)
+seed: 0
+stoichiometry_complete: true
+nodes:
+  - {smiles: "CC(=O)S[CoA]", label: acetyl-CoA}
+  - {smiles: "C(C(=O)O)C(=O)S[CoA]", label: malonyl-CoA}
+  - {smiles: "C(C(=O)C(=O)O)C(=O)O", label: oxaloacetate}
+  - {smiles: "C(C(C(=O)O)O)C(=O)O", label: malate}
+  - {smiles: "C(C(C(=O)O)O)C(=O)S[CoA]", label: malyl-CoA}
+steps:
+  - {id: r16, rule: Acetyl-CoA carboxylase, consumes: [{smiles: "O=C=O", count: 1}]}
+  - {id: r-oaa, rule: Reduction to oxaloacetate}
+  - {id: r5, rule: Malate dehydrogenase}
+  - {id: r23, rule: Malyl-CoA synthetase}
+  - id: r-lyase
+    rule: Malyl-CoA lyase
+    produces: [{smiles: "C(=O)C(=O)O", count: 1}]

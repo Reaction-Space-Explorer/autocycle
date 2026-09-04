@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 
 from rdkit import Chem, RDLogger
@@ -16,11 +17,25 @@ UNTRACED = "untraced"  # ran out: nothing produces this
 UNKNOWN = "unknown"    # the source did not say
 
 
-def canonical(smi: str) -> str:
+# a bracket token that is not an atom, e.g. the [CoA] stub used for coenzyme A
+_PSEUDO = re.compile(r"\[([A-Za-z][A-Za-z0-9]{1,7})\]")
+
+
+def parse_smiles(smi: str) -> tuple[str, str | None]:
+    """Canonical SMILES, plus an R-group label if the source used a pseudo-atom."""
     m = Chem.MolFromSmiles(smi)
-    if m is None:
-        raise SpecError(f"bad SMILES: {smi!r}")
-    return Chem.MolToSmiles(m)
+    if m is not None:
+        return Chem.MolToSmiles(m), None
+    labels = _PSEUDO.findall(smi)
+    if labels:
+        m = Chem.MolFromSmiles(_PSEUDO.sub("[*]", smi))
+        if m is not None:
+            return Chem.MolToSmiles(m), labels[0]
+    raise SpecError(f"bad SMILES: {smi!r}")
+
+
+def canonical(smi: str) -> str:
+    return parse_smiles(smi)[0]
 
 
 @dataclass
@@ -29,10 +44,12 @@ class Mol:
     label: str | None = None
     generation: int | None = None
     structure: bool = True   # False for abstract species, drawn as a name
+    rgroup: str | None = None
 
     def __post_init__(self):
         if self.structure:
-            self.smiles = canonical(self.smiles)
+            self.smiles, found = parse_smiles(self.smiles)
+            self.rgroup = self.rgroup or found
 
 
 @dataclass
@@ -41,10 +58,12 @@ class Side:
     count: int = 1
     generation: int | None = None
     structure: bool = True
+    rgroup: str | None = None
 
     def __post_init__(self):
         if self.structure:
-            self.smiles = canonical(self.smiles)
+            self.smiles, found = parse_smiles(self.smiles)
+            self.rgroup = self.rgroup or found
         if self.count < 1:
             raise SpecError(f"count must be >= 1, got {self.count}")
 
