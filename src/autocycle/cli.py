@@ -63,6 +63,8 @@ def main(argv: list[str] | None = None) -> int:
     e.add_argument("--max-len", type=int, default=12)
     e.add_argument("--cut", type=float, default=0.0, help="dg below this counts as spontaneous")
     e.add_argument("--gain-at", type=int, default=None, help="step index producing the gain")
+    e.add_argument("--rank", action="store_true",
+                   help="order cycles for presentation: fewest feeders, then lightest feeder")
 
     b = sub.add_parser("bench", help="run the renderer over a directory of Cypher result CSVs")
     b.add_argument("dir")
@@ -121,18 +123,28 @@ def main(argv: list[str] | None = None) -> int:
             return 1
 
         if a.cmd == "list":
+            from autocycle.select import feeders, role_violations
             for i, c in enumerate(cycles):
                 dgs = [
                     min(e.values(), key=lambda x: (x["dg"] is None, x["dg"] or 0.0))["dg"]
                     for e in (g.get_edge_data(c[j], c[(j + 1) % len(c)]) for j in range(len(c)))
                 ]
                 tot = "n/a" if any(d is None for d in dgs) else f"{sum(dgs):+.1f}"
-                print(f"{i:4d}  len={len(c):2d}  total_dg={tot:>8}  {' -> '.join(c)}")
+                cyc = ingest.to_cycle(g, c)
+                bad = role_violations(cyc)
+                flag = f"  ring-role: {','.join(bad)}" if bad else ""
+                print(
+                    f"{i:4d}  len={len(c):2d}  feeders={len(feeders(cyc))}  "
+                    f"total_dg={tot:>8}{flag}"
+                )
             if a.csv_out:
                 ingest.summary_csv(g, cycles, a.csv_out)
                 print(f"wrote {a.csv_out}")
             return 0
 
+        if getattr(a, "rank", False):
+            from autocycle.select import rank_key
+            cycles.sort(key=lambda ring: rank_key(ingest.to_cycle(g, ring)))
         targets = range(len(cycles)) if a.all else [a.cycle]
         for i in targets:
             if not 0 <= i < len(cycles):
@@ -258,6 +270,7 @@ def _bench(a) -> int:
     from autocycle.check import collisions
     from autocycle.io_cypher import from_cypher_row, read_rows
     from autocycle.pick import farthest_first, tokens
+    from autocycle.select import feeders, role_violations
 
     files = sorted(Path(a.dir).rglob("*.csv"))
     if not files:
@@ -270,6 +283,8 @@ def _bench(a) -> int:
     render_fail: Counter[str] = Counter()
     collided = 0
     worst = []
+    role_bad = 0
+    feeder_hist: Counter[int] = Counter()
     candidates: list = []
 
     for path in files:
@@ -287,6 +302,8 @@ def _bench(a) -> int:
                 rejected[str(exc).split(":")[0]] += 1
                 continue
             lengths[len(cycle.nodes)] += 1
+            feeder_hist[len(feeders(cycle))] += 1
+            role_bad += bool(role_violations(cycle))
             hits = collisions(cycle)
             if hits:
                 collided += 1
@@ -313,6 +330,8 @@ def _bench(a) -> int:
         for name, n in render_fail.most_common():
             print(f"  {n:6d}  {name}")
     print(f"ring lengths     {dict(sorted(lengths.items()))}")
+    print(f"distinct feeders {dict(sorted(feeder_hist.items()))}")
+    print(f"restricted molecule on the ring  {role_bad} / {ok} cycles")
     print(f"overlapping depictions  {collided} / {ok} figures")
     for frac, name, pair in sorted(worst, reverse=True)[:5]:
         print(f"  {frac:.2f}  {name}  {pair[0][:28]} vs {pair[1][:28]}")

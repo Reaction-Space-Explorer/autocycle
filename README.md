@@ -10,15 +10,26 @@ Two layouts behind one spec:
 | `Cycle` | ring | the step where the autocatalyst returns, and the thermodynamic bottleneck |
 | `Pathway` | layered, target on the right | where a route bottoms out in seeds, and where it merely stopped |
 
-Cycle *finders* are well covered ([CatReNet](https://github.com/husonlab/catrenet), `autogato`,
-MØD). `autocycle` is only the renderer, and is meant to sit behind any of them.
-
 ![cycle](examples/gallery/cycle_03.png)
 
 ## Install
 
+Needs Python >= 3.10.
+
 ```bash
-pip install -e ".[dev]"
+uv pip install git+https://github.com/Reaction-Space-Explorer/autocycle
+```
+
+From a checkout, or to run the tests:
+
+```bash
+uv venv --python 3.12 && uv pip install -e ".[dev]" && pytest -q
+```
+
+Or without installing anything:
+
+```bash
+uvx --python 3.12 --from git+https://github.com/Reaction-Space-Explorer/autocycle autocycle --help
 ```
 
 ## Examples
@@ -71,6 +82,17 @@ autocycle bench cycles_dir/ --sample 5                  # Cypher ring-query CSVs
 autocycle bench-routes routes_dir/ --seeds products.tsv --rels rels.tsv --sample 5
 ```
 
+## Choosing which cycle to show
+
+A network search returns thousands of cycles, most of them not worth a figure. `list` and
+`bench` report two things that decide it:
+
+- **distinct feeder count** — a cycle fed by one molecule is a stronger result than one
+  needing three. `from-edges --rank` orders by fewest feeders, then lightest feeder.
+- **restricted molecules on the ring** — formaldehyde and methanol are hard to oxidise or
+  reduce without a catalyst, so a cycle running *through* them is usually an artefact of the
+  search rather than plausible chemistry. They are flagged, never dropped.
+
 ## Styles
 
 `paper` (default) reproduces *Chem. Sci.* 2022, **13**, 4838 Fig. 7: bare structures, ochre
@@ -91,15 +113,28 @@ reaction squares, dark-grey flow arrows, pale-grey side arrows, bare ΔG numbers
 - `bench-routes` counts targets whose file has a header but no tree. No route found is a
   result, not something to skip.
 
-## Credits
+## Citing
+
+The cycle layout, the feeder/consumer convention and the thermodynamic annotation follow:
+
+> Arya, A.; Ray, J.; Sharma, S.; Cruz Simbron, R.; Lozano, A.; Smith, H. B.; Andersen, J. L.;
+> Chen, H.; Meringer, M.; Cleaves, H. J. **An open source computational workflow for the
+> discovery of autocatalytic networks in abiotic reactions.** *Chem. Sci.* **2022**, *13*,
+> 4838–4853. [doi:10.1039/D2SC00256F](https://doi.org/10.1039/D2SC00256F)
+
+> Cruz-Simbron, R.; Sharma, S.; Arya, A.; Ray, J.; Lozano, A.; Andersen, J. L.; Chen, H.;
+> Cleaves, H. J. **Combined Network and High Resolution Mass Spectrometry Analysis of the
+> Formose Reaction Reveals Mechanisms for Emergent Behaviors.** *ChemRxiv* **2024**.
+> [doi:10.26434/chemrxiv-2024-nj0p6](https://doi.org/10.26434/chemrxiv-2024-nj0p6)
 
 Arrow width encoding magnitude, with an explicit linear/log choice, and reversible steps as
-concentric pairs, are from Catacycle — McFarlane, Henderson, Donnecke & McIndoe,
-*Organometallics* 2019, **38**, 4051 ([code](https://github.com/brettrhenderson/Catacycle_Web), MIT).
-The geometry here is an independent SVG implementation.
+concentric arrow pairs, are from Catacycle:
 
-The cycle layout and thermodynamic annotation follow Arya, Ray, Sharma, Cruz Simbron,
-Lozano, Smith, Andersen, Chen, Meringer & Cleaves, *An open source computational workflow
-for the discovery of autocatalytic networks in abiotic reactions*, *Chem. Sci.* 2022, **13**, 4838.
+> McFarlane, J.; Henderson, B.; Donnecke, S.; McIndoe, J. S. **An Information-Rich Graphical
+> Representation of Catalytic Cycles.** *Organometallics* **2019**, *38*, 4051–4053.
+> [doi:10.1021/acs.organomet.9b00563](https://doi.org/10.1021/acs.organomet.9b00563)
+> · [code](https://github.com/brettrhenderson/Catacycle_Web) (MIT)
+
+The geometry here is an independent SVG implementation of that design.
 
 MIT.
