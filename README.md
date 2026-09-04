@@ -215,7 +215,7 @@ The cycle layout, the feeder/consumer convention and the thermodynamic annotatio
 The formal criterion, `(A) + m x -> n x + (W)` with n > m, is Definition 1 of:
 
 > Andersen, J. L.; Flamm, C.; Merkle, D.; Stadler, P. F. **Defining Autocatalysis in
-> Chemical Reaction Networks.** *J. Syst. Chem.* **2020**.
+> Chemical Reaction Networks.** *J. Syst. Chem.* **2020**, *8*, 121–133.
 > [arXiv:2107.03086](https://arxiv.org/abs/2107.03086)
 
 The simple versus autocatalytic distinction is Orgel's, as stated in:
