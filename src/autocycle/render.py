@@ -100,11 +100,14 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
     for r, _, anc in anchors:
         h = L.mol_half(r) * st.mol_scale
         pad += [(x + dx * h, y + dy * h) for _, _, _, (x, y) in anc for dx, dy in ((1, 1), (-1, -1))]
-    if cycle.shunt is not None:
-        rr = ring.radius + L.mol_half(ring) * 1.25 + 0.45
+    if cycle.shunt is not None and cycle.seed is not None:
+        h = L.mol_half(ring) * st.mol_scale
+        rr, _, _ = L.shunt_arc(ring, cycle.shunt.from_node, cycle.seed,
+                               len(cycle.shunt.nodes), h)
+        rr += h * 1.2
         pad += [
             (ring.cx + L.polar(rr, ang)[0], ring.cy + L.polar(rr, ang)[1])
-            for ang in range(0, 360, 15)
+            for ang in range(0, 360, 10)
         ]
     x0, y0, x1, y1 = L.bounds([ring] + [sr for sr, _ in subs], pad, PAD)
     rules = _rule_lines(cycle) if st.rule_legend else []
@@ -121,7 +124,9 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
 
 def _rule_lines(cycle) -> list[str]:
     seen, out = set(), []
-    for st_ in cycle.steps + [x for sub in cycle.subs for x in sub.steps]:
+    every = cycle.steps + [x for sub in cycle.subs for x in sub.steps]
+    every += cycle.shunt.steps if cycle.shunt else []
+    for st_ in every:
         if st_.rule and st_.rid not in seen:
             seen.add(st_.rid)
             out.append(f"{st_.rid}  :  {st_.rule}")

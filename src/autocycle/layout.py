@@ -178,6 +178,27 @@ def side_points(
     return out
 
 
+def shunt_arc(ring: Ring, from_node: int, seed: int, n_nodes: int, half: float):
+    """Radius, start angle and angular span for a shunt arc outside the ring.
+
+    Routed the long way round when it carries intermediates, so the arc is long enough
+    to hold them, and widened until they fit.
+    """
+    a = ring.verts[(2 * from_node) % ring.n].angle
+    b = ring.verts[(2 * seed) % ring.n].angle
+    short = (b - a) % 360.0
+    if short > 180.0:
+        short -= 360.0
+    span = short
+    if n_nodes:
+        span = short - 360.0 if short > 0 else short + 360.0
+    r = ring.radius + half * 1.5
+    if n_nodes:
+        need = n_nodes * 2.5 * half
+        r = max(r, need / abs(math.radians(span)))
+    return r, a, span
+
+
 def bounds(rings, points, pad: float):
     xs, ys = [], []
     for ring in rings:

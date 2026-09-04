@@ -68,10 +68,15 @@ def test_glyoxylate_is_internal_not_a_feeder(cycle):
     assert any(sp.smiles == gly for st in cycle.shunt.steps for sp in st.consumes)
 
 
-def test_it_renders(cycle):
+def test_the_shunt_intermediates_are_drawn(cycle):
     svg = render(cycle, style="annotated")
     assert svg.startswith("<svg")
-    assert "shunt" in svg
+    for mol in cycle.shunt.nodes:
+        assert f">{mol.label}<" in svg
+    for step in cycle.shunt.steps:
+        assert f">r:{step.rid}<" in svg
+    # 11 depictions: 5 ring molecules, 5 shunt intermediates, plus side species
+    assert svg.count("<svg x='") >= 10
 
 
 def test_a_shunt_without_from_node_is_named(tmp_path):

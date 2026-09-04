@@ -156,31 +156,86 @@ def draw_ring(ring: L.Ring, steps, span: float, st_: Style, mode: str, cw: bool 
 
 
 def draw_shunt(ring: L.Ring, cycle, st_: Style) -> list[str]:
-    """The bridging arc from a ring molecule back to the seed, drawn outside the ring."""
-    if cycle.shunt is None or cycle.seed is None:
+    """The bridging path from a ring molecule back to the seed, drawn outside the ring."""
+    sh = getattr(cycle, "shunt", None)
+    if sh is None or cycle.seed is None:
         return []
-    a = ring.verts[(2 * cycle.shunt.from_node) % ring.n].angle
-    b = ring.verts[(2 * cycle.seed) % ring.n].angle
-    delta = (b - a) % 360.0
-    if delta > 180.0:
-        delta -= 360.0
-    if abs(delta) < 1e-6:
+    half = L.mol_half(ring) * st_.mol_scale
+    r, a0, span = L.shunt_arc(ring, sh.from_node, cycle.seed, len(sh.nodes), half)
+    if abs(span) < 1e-6:
         return []
-    gap = L.node_gap(ring) * 0.8
-    step = math.copysign(gap, delta)
-    a0, a1 = a + step, a + delta - step
-    r = ring.radius + L.mol_half(ring) * 1.25
     w = (st_.uniform_width or 0.075) * 0.8
-    out = [
-        f"<path d='{annular_arrow(ring.cx, ring.cy, r, a0, a1, w)}' "
-        f"fill='{st_.ring_grey}' opacity='0.9'/>"
-    ]
-    if st_.step_label != "none" and cycle.shunt.steps:
-        mid = a + delta / 2
-        dx, dy = L.polar(r + 0.34, mid)
-        lx, ly = _p(ring.cx + dx, ring.cy + dy)
-        ids = ", ".join(st.rid for st in cycle.shunt.steps)
-        out.append(text(lx, ly, f"shunt {ids}", st_.label_size * 0.9, "middle", "#444"))
+    col = st_.ring_grey
+    out: list[str] = []
+
+    if not sh.nodes:
+        gap = L.node_gap(ring) * 0.8
+        step = math.copysign(gap, span)
+        out.append(
+            f"<path d='{annular_arrow(ring.cx, ring.cy, r, a0 + step, a0 + span - step, w)}' "
+            f"fill='{col}' opacity='0.9'/>"
+        )
+        if st_.step_label != "none" and sh.steps:
+            dx, dy = L.polar(r + 0.34, a0 + span / 2)
+            lx, ly = _p(ring.cx + dx, ring.cy + dy)
+            ids = ", ".join(st.rid for st in sh.steps)
+            out.append(text(lx, ly, f"shunt {ids}", st_.label_size * 0.9, "middle", "#444"))
+        return out
+
+    # vertices alternate reaction, molecule, ... reaction, strictly between the two
+    # ring molecules the shunt joins
+    n_v = len(sh.steps) + len(sh.nodes)
+    slots = [a0 + span * (k + 1) / (n_v + 1) for k in range(n_v)]
+    pos = []
+    for ang in slots:
+        dx, dy = L.polar(r, ang)
+        pos.append((ring.cx + dx, ring.cy + dy, ang))
+
+    vf = ring.verts[(2 * sh.from_node) % ring.n]
+    vs = ring.verts[(2 * cycle.seed) % ring.n]
+
+    # connectors from the ring out to the arc and back
+    curve, head = bezier_arrow(vf.x, vf.y, pos[0][0], pos[0][1], bow=0.08,
+                               trim=st_.rxn_size * 2.2)
+    out.append(f"<path d='{curve}' fill='none' stroke='{col}' stroke-width='{w:.4f}'/>")
+    out.append(f"<path d='{head}' fill='{col}'/>")
+    curve, head = bezier_arrow(pos[-1][0], pos[-1][1], vs.x, vs.y, bow=0.08, trim=half * 0.95)
+    out.append(f"<path d='{curve}' fill='none' stroke='{col}' stroke-width='{w:.4f}'/>")
+    out.append(f"<path d='{head}' fill='{col}'/>")
+
+    # arrows along the arc, one per gap between consecutive vertices
+    for k in range(n_v - 1):
+        a1, a2 = slots[k], slots[k + 1]
+        g = math.copysign(abs(a2 - a1) * 0.18, span)
+        out.append(
+            f"<path d='{annular_arrow(ring.cx, ring.cy, r, a1 + g, a2 - g, w)}' "
+            f"fill='{col}' opacity='0.9'/>"
+        )
+
+    # molecules on the even slots, reaction squares on the odd ones
+    for k, (x, y, ang) in enumerate(pos):
+        px_, py_ = _p(x, y)
+        if k % 2 == 0:
+            v = L.Vertex("rxn", 0, x, y, ang, st_.rxn_size)
+            step = sh.steps[k // 2]
+            out.append(
+                f"<path d='{glyph(v, st_.rxn_size, st_.rxn_glyph)}' fill='{st_.rxn_fill}' "
+                f"stroke='#7a5c10' stroke-width='0.006'/>"
+            )
+            lines = _step_lines(step, st_)
+            reach = st_.rxn_size + 0.26 + 0.10 * len(lines)
+            dx, dy = L.polar(reach, ang)
+            lx, ly = _p(x - dx, y - dy)
+            for j, line in enumerate(lines):
+                out.append(text(lx, ly + j * st_.label_size * 1.2, line, st_.label_size * 0.9,
+                                "middle", "#222"))
+        else:
+            mol = sh.nodes[(k - 1) // 2]
+            out.append(_species(mol, px_, py_, half, st_))
+            if mol.label:
+                dx, dy = L.polar(half * 1.3, ang)
+                lx, ly = _p(x + dx, y + dy)
+                out.append(text(lx, ly, mol.label, st_.label_size * 0.9, "middle", "#333"))
     return out
 
 
