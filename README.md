@@ -5,20 +5,35 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 
 Publication figures for reaction **cycles** and synthetic **routes**, from a YAML spec or
-straight out of a network search. Structures are drawn inline at one constant bond length.
+straight out of a network search. Structures are drawn inline, every one at the same bond
+length.
 
-<p align="center"><img src="examples/canonical/formose_core.png" width="560"></p>
+<p align="center"><img src="examples/canonical/acetyl_coa_sol0.png" width="620"></p>
 
-The formose core cycle, from [examples/canonical/formose_core.yaml](examples/canonical/formose_core.yaml).
-A disc marks a role: **gold** the autocatalyst, **magenta** the off-cycle feeders and
-products, nothing the intermediates. One turn consumes one glycolaldehyde and two
-formaldehyde and returns two glycolaldehyde, so the gain step is labelled and
-`verify` calls it autocatalytic.
+The shortest autocatalytic acetyl-CoA cycle of
+[Abel et al. 2026](https://doi.org/10.1038/s41540-025-00641-8), Fig. 3 Solution 0, from
+[one spec](examples/canonical/acetyl_coa_sol0.yaml). A disc marks a role: **gold** the
+autocatalyst, **magenta** off-cycle feeders and products, nothing the intermediates. Five
+molecules on the inner ring, a six-step **shunt** on the outer arc carrying its own
+intermediates, 11 steps in total — reproducing that paper's objective value and its
+acetyl-CoA balance of one in, two out.
 
-A whole search becomes one figure: frequency by cycle length stratified by feeder count,
-composed with example cycles.
+### It says whether a cycle actually qualifies
 
-<p align="center"><img src="examples/figure_panel.png" width="880"></p>
+| | |
+|---|---|
+| <img src="examples/canonical/formose_core.png" width="330"> | <img src="examples/canonical/krebs_tca.png" width="330"> |
+| **`autocatalytic`** — the formose core cycle returns two glycolaldehyde for one, so n = 2. | **`simple`** — each turn of the TCA cycle regenerates one oxaloacetate, so n = 1. |
+
+Same style, same code path, opposite verdicts. Orgel's distinction is a stoichiometric
+coefficient, and `verify` reports the conditions rather than guessing.
+
+### A whole search becomes one figure
+
+Frequency by cycle length, stratified by distinct feeder count, composed with example
+cycles.
+
+<p align="center"><img src="examples/figure_panel.png" width="860"></p>
 
 ## Install
 
@@ -107,27 +122,24 @@ molecules more legibly (`O = CH₂` rather than a bare `=O`).
 
 Orgel's distinction, as stated by Peretó: a **simple** cycle regenerates one reactant
 stoichiometrically, so the molecule produced replaces the one consumed; an
-**autocatalytic** cycle "exhibits an additional yield of the feeder", n > 1. The
-distinction is a stoichiometric coefficient, so `verify` reports conditions, not a boolean.
+**autocatalytic** cycle "exhibits an additional yield of the feeder", n > 1. That is a
+stoichiometric coefficient, so `verify` reports conditions rather than a boolean.
 
 ```python
 verify(cycle).status    # autocatalytic | topological | simple | candidate | incomplete
 verify(cycle).summary() # 'candidate (seed_identified=yes, ... extra_yield=unknown)'
 ```
 
-- **`autocatalytic`** — an extra copy of the seed is stated. `examples/canonical/formose_core.yaml`.
-- **`topological`** — a *shunt* bridges a ring molecule back to the seed. Side species on
-  the shunt count toward the yield, which is usually where the extra copy is made:
-  [`examples/canonical/acetyl_coa_sol0.yaml`](examples/canonical/acetyl_coa_sol0.yaml) is a
-  5-molecule ring plus a 6-step shunt, 11 steps in total, and comes out `autocatalytic`
-  with a seed yield of 2. A shunt is drawn as a concentric outer arc carrying its own
-  intermediates and reaction glyphs. The published
-  search treats that as the minimal criterion for n > 1, while noting it carries no flow
-  constraint for mass balance. All 2100 cycles in the glucose corpus are this.
+- **`autocatalytic`** — an extra copy of the seed is stated, as in the formose cycle at
+  the top of this page.
+  Side species on a shunt count, which is usually where the extra copy is made.
+- **`topological`** — a shunt bridges a ring molecule back to the seed but no coefficient
+  is recorded. The published search treats that as the minimal criterion for n > 1, while
+  noting it carries no flow constraint for mass balance. Every one of the 2100 cycles in
+  the glucose corpus is this.
 - **`simple`** — stoichiometry is stated and there is no extra copy, n = 1.
-  `examples/canonical/krebs_tca.yaml`, which Peretó gives as a simple cycle.
-- **`candidate`** — the structure holds but nothing settles the yield. Never asserted, never
-  dismissed.
+- **`candidate`** — the structure holds but nothing settles the yield. Never asserted,
+  never dismissed.
 
 `verify` also flags a spec that declares a gain step its conditions cannot support.
 
@@ -141,6 +153,10 @@ A search returns thousands. `list` and `bench` report what decides it:
   when the feeder count cannot separate candidates.
 - **restricted molecules on the ring** — methanol is hard to oxidise or reduce without a
   catalyst, so a cycle running *through* it is hard to interpret. Flagged, never dropped.
+
+Straight out of a network search, no hand editing — fused seven-membered rings and all:
+
+<p align="center"><img src="examples/gallery/cycle_03.png" width="520"></p>
 
 ## What it will not do
 
