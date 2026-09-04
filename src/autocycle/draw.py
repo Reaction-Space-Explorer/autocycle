@@ -11,9 +11,8 @@ from autocycle.encode import GREY, dg_colour, widths
 from autocycle.style import Style
 
 FONT = "Helvetica, Arial, sans-serif"
-NODE_FILL = "#fdf6e3"
 NODE_EDGE = "#8a8a8a"
-SIDE_FILL = "#f4ecf7"
+WATER = "O"
 RXN_FILL = "#8a6d3b"
 FLOW = "#4a4a4a"
 GAIN = "#1a7f37"
@@ -161,6 +160,8 @@ def draw_sides(ring: L.Ring, steps, st_: Style, anchors=None) -> list[str]:
     half = L.mol_half(ring) * st_.mol_scale
     anchors = L.side_points(ring, steps) if anchors is None else anchors
     for i, side, sp, (ax, ay) in anchors:
+        if st_.water_as_text and sp.smiles == WATER:
+            continue
         v = ring.verts[(2 * i + 1) % ring.n]
         if side == "in":
             curve, head = bezier_arrow(ax, ay, v.x, v.y, bow=0.16, trim=st_.rxn_size * 2.4)
@@ -171,10 +172,10 @@ def draw_sides(ring: L.Ring, steps, st_: Style, anchors=None) -> list[str]:
         px, py = _p(ax, ay)
         if st_.node_circle:
             out.append(
-                f"<circle cx='{px:.4f}' cy='{py:.4f}' r='{half:.4f}' fill='{SIDE_FILL}' "
-                f"stroke='{NODE_EDGE}' stroke-width='0.008'/>"
+                f"<circle cx='{px:.4f}' cy='{py:.4f}' r='{half * 0.95:.4f}' fill='{st_.side_fill}' "
+                f"fill-opacity='{st_.side_alpha}' stroke='none'/>"
             )
-        out.append(embed(sp.smiles, px - half, py - half, half * 2))
+        out.append(embed(sp.smiles, px - half, py - half, half * 2, st_.backend))
         if sp.count > 1:
             out.append(text(px + half * 1.05, py - half * 0.9, f"{sp.count}x", 0.07, "start"))
     return out
@@ -193,12 +194,12 @@ def draw_nodes(
             m = nodes[v.index]
             is_seed = seed is not None and v.index == seed
             if st_.node_circle:
+                edge = f"stroke='{GAIN}' stroke-width='0.022'" if is_seed else "stroke='none'"
                 out.append(
-                    f"<circle cx='{px:.4f}' cy='{py:.4f}' r='{half:.4f}' fill='{NODE_FILL}' "
-                    f"stroke='{GAIN if is_seed else NODE_EDGE}' "
-                    f"stroke-width='{0.022 if is_seed else 0.009}'/>"
+                    f"<circle cx='{px:.4f}' cy='{py:.4f}' r='{half * 0.95:.4f}' fill='{st_.node_fill}' "
+                    f"fill-opacity='{st_.node_alpha}' {edge}/>"
                 )
-            out.append(embed(m.smiles, px - half, py - half, half * 2))
+            out.append(embed(m.smiles, px - half, py - half, half * 2, st_.backend))
             if m.label and not st_.centre_label:
                 out.append(text(px, py + half + 0.1, m.label, 0.072))
         else:
@@ -219,14 +220,29 @@ def draw_nodes(
     return out
 
 
+def _water_balance(step) -> str | None:
+    """Water consumed or produced, annotated rather than drawn."""
+    n_in = sum(sp.count for sp in step.consumes if sp.smiles == WATER)
+    n_out = sum(sp.count for sp in step.produces if sp.smiles == WATER)
+    net = n_in - n_out
+    return None if net == 0 else f"{net:+d} H2O"
+
+
 def _step_lines(step, st_: Style) -> list[str]:
     if st_.step_label == "none":
         return ["gain"] if step.gain else []
     lines = []
-    if st_.step_label == "id_dg" or step.dg is None:
-        lines.append(step.rid)  # never leave a reaction node unlabelled
+    if st_.step_label in ("id_dg", "id_dg_units") or step.dg is None:
+        lines.append(f"r:{step.rid}" if st_.step_label == "id_dg_units" else step.rid)
     if step.dg is not None:
-        lines.append(f"{step.dg:.1f}" if st_.step_label == "dg" else f"{step.dg:+.1f} kJ/mol")
+        if st_.step_label == "dg":
+            lines.append(f"{step.dg:.1f}")
+        elif st_.step_label == "id_dg_units":
+            lines.append(f"{step.dg:.2f} kJ/mol")
+        else:
+            lines.append(f"{step.dg:+.1f} kJ/mol")
+    if st_.water_as_text and (w := _water_balance(step)):
+        lines.append(w)
     if step.gain:
         lines.append("gain")
     return lines
@@ -312,7 +328,7 @@ def draw_route_sides(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
                 )
                 out.append(f"<path d='{head}' fill='{st_.side_grey}'/>")
                 px, py = _p(ax, ay)
-                out.append(embed(sp.smiles, px - half, py - half, half * 2))
+                out.append(embed(sp.smiles, px - half, py - half, half * 2, st_.backend))
                 if sp.count > 1:
                     out.append(text(px + half * 1.05, py - half * 0.9, f"{sp.count}x", 0.07, "start"))
     return out
@@ -328,11 +344,12 @@ def draw_route_nodes(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
         if st_.node_circle:
             out.append(
                 f"<rect x='{px - half:.4f}' y='{py - half:.4f}' width='{2 * half:.4f}' "
-                f"height='{2 * half:.4f}' rx='0.12' fill='{NODE_FILL}' "
+                f"height='{2 * half:.4f}' rx='0.12' fill='{st_.node_fill}' "
+                f"fill-opacity='{st_.node_alpha}' "
                 f"stroke='{GAIN if is_target else NODE_EDGE}' "
                 f"stroke-width='{0.022 if is_target else 0.009}'/>"
             )
-        out.append(embed(node.mol.smiles, px - half, py - half, half * 2))
+        out.append(embed(node.mol.smiles, px - half, py - half, half * 2, st_.backend))
 
         tag = None
         if is_target:

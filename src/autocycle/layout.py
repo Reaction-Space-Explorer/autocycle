@@ -150,14 +150,16 @@ def side_anchor(
     return p
 
 
-def side_points(ring: Ring, steps, avoid=None) -> list[tuple[int, str, object, tuple[float, float]]]:
+def side_points(
+    ring: Ring, steps, avoid=None, out0: float = 1.5
+) -> list[tuple[int, str, object, tuple[float, float]]]:
     """(step, side, species, anchor). Used by both the renderer and the bounds."""
     out = []
     for i, st in enumerate(steps):
         v = ring.verts[(2 * i + 1) % ring.n]
         for side, group in (("in", st.consumes), ("out", st.produces)):
             for k, sp in enumerate(group):
-                out.append((i, side, sp, side_anchor(ring, v, side, 1.5 + 1.9 * k, avoid=avoid)))
+                out.append((i, side, sp, side_anchor(ring, v, side, out0 + 1.9 * k, avoid=avoid)))
     return out
 
 

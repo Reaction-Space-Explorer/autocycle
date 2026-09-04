@@ -70,8 +70,11 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
     span = dg_span([s.dg for s in list(cycle.steps) + [x for sc in cycle.subs for x in sc.steps]])
 
     keep_out = (ring.cx, ring.cy, ring.radius + L.node_radius() * 2.4)
-    anchors = [(ring, cycle.steps, L.side_points(ring, cycle.steps))]
-    anchors += [(sr, s.steps, L.side_points(sr, s.steps, avoid=keep_out)) for sr, s in subs]
+    anchors = [(ring, cycle.steps, L.side_points(ring, cycle.steps, out0=st.side_out))]
+    anchors += [
+        (sr, s.steps, L.side_points(sr, s.steps, avoid=keep_out, out0=st.side_out))
+        for sr, s in subs
+    ]
 
     body = draw_ring(ring, cycle.steps, span, st, mode)
     for sr, sub in subs:
@@ -95,9 +98,25 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
         h = L.mol_half(r) * st.mol_scale
         pad += [(x + dx * h, y + dy * h) for _, _, _, (x, y) in anc for dx, dy in ((1, 1), (-1, -1))]
     x0, y0, x1, y1 = L.bounds([ring] + [sr for sr, _ in subs], pad, PAD)
+    rules = _rule_lines(cycle) if st.rule_legend else []
+    if rules:
+        y0 -= 0.30 + 0.155 * len(rules)
+        body += [
+            text(x0 + 0.3, -(y0 + 0.30 + 0.155 * (len(rules) - 1 - i)), line, 0.13, "start", "#222")
+            for i, line in enumerate(rules)
+        ]
     if show_legend:
         y0 -= 0.72
     return _wrap(body, x0, y0, x1, y1, cycle, span, mode, show_legend)
+
+
+def _rule_lines(cycle) -> list[str]:
+    seen, out = set(), []
+    for st_ in cycle.steps + [x for sub in cycle.subs for x in sub.steps]:
+        if st_.rule and st_.rid not in seen:
+            seen.add(st_.rid)
+            out.append(f"{st_.rid}  :  {st_.rule}")
+    return out
 
 
 def _wrap(body, x0, y0, x1, y1, obj, span, mode, show_legend, target_px=TARGET_PX) -> str:

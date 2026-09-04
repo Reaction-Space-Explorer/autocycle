@@ -13,14 +13,19 @@ from autocycle.io_spec import (
 )
 from autocycle.render import render
 from autocycle.spec import SpecError, drop_side
+from autocycle.style import get
 
 MODES = ("linear", "log", "multiples")
+
+
+def _style(a):
+    return get(a.style, backend=a.backend) if getattr(a, "backend", None) else a.style
 
 
 def _write(cycle, a) -> None:
     if getattr(a, "drop", None):
         drop_side(cycle, a.drop)
-    Path(a.out).write_text(render(cycle, mode=a.mode, style=a.style, legend=a.legend))
+    Path(a.out).write_text(render(cycle, mode=a.mode, style=_style(a), legend=a.legend))
     print(f"wrote {a.out}")
 
 
@@ -33,7 +38,9 @@ def main(argv: list[str] | None = None) -> int:
     common.add_argument("--mode", choices=MODES, default="linear", help="arrow width scaling")
     common.add_argument("--drop", action="append", default=[],
                         help="side species SMILES to omit, repeatable (e.g. --drop O)")
-    common.add_argument("--style", choices=("paper", "rich"), default="paper")
+    common.add_argument("--style", choices=("paper", "annotated", "rich"), default="paper")
+    common.add_argument("--backend", choices=("rdkit", "obabel"), default=None,
+                        help="structure depiction engine (default rdkit)")
     common.add_argument("--legend", dest="legend", action="store_true", default=None)
     common.add_argument("--no-legend", dest="legend", action="store_false")
 
@@ -71,7 +78,8 @@ def main(argv: list[str] | None = None) -> int:
     b.add_argument("--limit", type=int, default=0, help="stop after N rows (0 = all)")
     b.add_argument("--sample", type=int, default=0, help="write this many example SVGs")
     b.add_argument("--sample-dir", default="bench_out")
-    b.add_argument("--style", choices=("paper", "rich"), default="paper")
+    b.add_argument("--style", choices=("paper", "annotated", "rich"), default="paper")
+    b.add_argument("--backend", choices=("rdkit", "obabel"), default=None)
 
     br = sub.add_parser(
         "bench-routes", help="run the renderer over a directory of treelib pathway files"
@@ -82,7 +90,8 @@ def main(argv: list[str] | None = None) -> int:
     br.add_argument("--limit", type=int, default=0)
     br.add_argument("--sample", type=int, default=0)
     br.add_argument("--sample-dir", default="bench_routes_out")
-    br.add_argument("--style", choices=("paper", "rich"), default="paper")
+    br.add_argument("--style", choices=("paper", "annotated", "rich"), default="paper")
+    br.add_argument("--backend", choices=("rdkit", "obabel"), default=None)
 
     ls = sub.add_parser("list", help="list cycles in an edge list, optionally to CSV")
     ls.add_argument("csv")
@@ -224,7 +233,7 @@ def _bench_routes(a) -> int:
             if collisions(pw):
                 collided += 1
             try:
-                svg = render(pw, style=a.style)
+                svg = render(pw, style=_style(a))
             except Exception as exc:  # noqa: BLE001 - a bench reports, never crashes
                 failed[type(exc).__name__] += 1
                 continue
@@ -309,7 +318,7 @@ def _bench(a) -> int:
                 collided += 1
                 worst.append((hits[0][2], path.name, hits[0][:2]))
             try:
-                svg = render(cycle, style=a.style)
+                svg = render(cycle, style=_style(a))
             except Exception as exc:  # noqa: BLE001 - a bench must report, not crash
                 render_fail[type(exc).__name__] += 1
                 continue

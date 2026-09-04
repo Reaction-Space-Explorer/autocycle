@@ -27,6 +27,7 @@ def canonical(smi: str) -> str:
 class Mol:
     smiles: str
     label: str | None = None
+    generation: int | None = None
 
     def __post_init__(self):
         self.smiles = canonical(self.smiles)
@@ -36,6 +37,7 @@ class Mol:
 class Side:
     smiles: str
     count: int = 1
+    generation: int | None = None
 
     def __post_init__(self):
         self.smiles = canonical(self.smiles)

@@ -12,6 +12,9 @@ Two layouts behind one spec:
 
 ![cycle](examples/gallery/cycle_03.png)
 
+*A cycle found in a reaction network: gold ring molecules, magenta feeders and products,
+reaction ids with ΔG, the autocatalyst ringed in green, rules listed underneath.*
+
 ## Install
 
 Needs Python >= 3.10.
@@ -89,17 +92,34 @@ A network search returns thousands of cycles, most of them not worth a figure. `
 
 - **distinct feeder count** — a cycle fed by one molecule is a stronger result than one
   needing three. `from-edges --rank` orders by fewest feeders, then lightest feeder.
-- **restricted molecules on the ring** — formaldehyde and methanol are hard to oxidise or
-  reduce without a catalyst, so a cycle running *through* them is usually an artefact of the
-  search rather than plausible chemistry. They are flagged, never dropped.
+- **restricted molecules on the ring** — a cycle running *through* formaldehyde or methanol
+  is usually not what you want to present: methanol in particular is hard to oxidise or
+  reduce without a catalyst, so such a cycle is hard to interpret. Flagged, never dropped,
+  and the set is configurable.
 
 ## Styles
 
-`paper` (default) reproduces *Chem. Sci.* 2022, **13**, 4838 Fig. 7: bare structures, ochre
-reaction squares, dark-grey flow arrows, pale-grey side arrows, bare ΔG numbers.
+`--style paper` (default) follows *Chem. Sci.* 2022, **13**, 4838 Fig. 7: bare structures,
+ochre reaction squares, dark-grey flow arrows, pale-grey side arrows, bare ΔG numbers.
 
-`rich` turns the spare ink into data: arrow **width** = magnitude (`--mode linear|log|multiples`),
-**hue** = ΔG, **concentric pair** = reversible, **green band** = the gain step.
+`--style annotated` is the network-search convention: gold ring molecules, magenta feeders,
+reaction ids with energies, water balance annotated rather than drawn, and a rule list under
+the figure. This is what the gallery above uses.
+
+`--style rich` turns the spare ink into data: arrow **width** = magnitude
+(`--mode linear|log|multiples`), **hue** = ΔG, **concentric pair** = reversible,
+**green band** = the gain step.
+
+Neither style is a pixel reproduction of a published figure: the layout and encodings match,
+the structures are drawn by RDKit or obabel rather than by the original code.
+
+### Structure depictions
+
+RDKit by default, which needs nothing extra. `--backend obabel` uses Open Babel if it is on
+your `PATH` (`brew install open-babel`, `apt install openbabel`), which draws small molecules
+more legibly — formaldehyde as `O = CH₂` rather than a bare `=O` — and matches the published
+figures more closely. Every depiction is drawn at one constant bond length either way, so a
+hexose and a water molecule keep their relative size.
 
 ## What it will not do
 

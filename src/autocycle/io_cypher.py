@@ -10,7 +10,7 @@ import ast
 import csv
 from pathlib import Path
 
-from autocycle.spec import Cycle, Mol, Side, SpecError, Step
+from autocycle.spec import Cycle, Mol, Side, SpecError, Step, canonical
 
 
 def read_rows(path: str | Path) -> list[dict]:
@@ -25,6 +25,25 @@ def _lit(row: dict, key: str):
         return ast.literal_eval(row[key])
     except (ValueError, SyntaxError) as exc:
         raise SpecError(f"column {key!r} is not a Python literal: {exc}") from exc
+
+
+def _generations(row: dict) -> dict[str, int]:
+    """SMILES -> generation_formed, from every node list the row carries."""
+    out: dict[str, int] = {}
+    keys = ("ringPathNodes", "attachedPathNodes", "branchedBeginMolPathNodes", "autocatPathNodes")
+    for key in keys:
+        if key not in row:
+            continue
+        try:
+            nodes = _lit(row, key)
+        except SpecError:
+            continue
+        for n in nodes if isinstance(nodes, list) else []:
+            smi = _smiles(n)
+            gen = n.get("generation_formed") if isinstance(n, dict) else None
+            if smi and gen is not None:
+                out.setdefault(canonical(smi), int(gen))
+    return out
 
 
 def _smiles(node) -> str | None:
@@ -43,6 +62,7 @@ def from_cypher_row(row: dict, title: str | None = None) -> Cycle:
         )
 
     n = len(mols)
+    gens = _generations(row)
     steps = [
         Step(
             rid=str(r.get("rxn_id") or f"rel{i}"),
@@ -66,16 +86,18 @@ def from_cypher_row(row: dict, title: str | None = None) -> Cycle:
         feeder = _smiles(_lit(row, "feederMol")) if "feederMol" in row else None
         consumer = _smiles(_lit(row, "consumerMol")) if "consumerMol" in row else None
         if feeder:
-            steps[(j - 1) % n].consumes.append(Side(feeder))
+            steps[(j - 1) % n].consumes.append(
+                Side(feeder, generation=gens.get(canonical(feeder)))
+            )
         if consumer:
-            steps[j].produces.append(Side(consumer))
+            steps[j].produces.append(Side(consumer, generation=gens.get(canonical(consumer))))
 
     exported = _smiles(_lit(row, "beginMolConsumer")) if "beginMolConsumer" in row else None
     if exported:
-        steps[seed].produces.append(Side(exported))
+        steps[seed].produces.append(Side(exported, generation=gens.get(canonical(exported))))
 
     return Cycle(
-        nodes=[Mol(m) for m in mols],
+        nodes=[Mol(m, generation=gens.get(canonical(m))) for m in mols],
         steps=steps,
         title=title,
         seed=seed,

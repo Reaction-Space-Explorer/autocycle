@@ -26,9 +26,20 @@ def min_feeder_weight(cycle: Cycle) -> float:
     return min(ws) if ws else float("inf")
 
 
+def min_feeder_generation(cycle: Cycle) -> float:
+    """Earliest generation any feeder first appears in, or inf if unrecorded."""
+    gens = [sp.generation for st in cycle.steps for sp in st.consumes if sp.generation is not None]
+    return min(gens) if gens else float("inf")
+
+
 def rank_key(cycle: Cycle) -> tuple:
-    """Fewest distinct feeders first, then lowest feeder weight, then shortest ring."""
-    return (len(feeders(cycle)), min_feeder_weight(cycle), len(cycle.nodes))
+    """Fewest feeders, then lightest feeder, then earliest feeder generation."""
+    return (
+        len(feeders(cycle)),
+        min_feeder_weight(cycle),
+        min_feeder_generation(cycle),
+        len(cycle.nodes),
+    )
 
 
 def role_violations(cycle: Cycle, restricted=ROLE_RESTRICTED) -> list[str]:
