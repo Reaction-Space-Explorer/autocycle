@@ -44,3 +44,21 @@ def test_drop_side_removes_water_everywhere():
     for group in [c.steps] + [s.steps for s in c.subs]:
         for st in group:
             assert all(x.smiles != "O" for x in st.consumes + st.produces)
+
+
+NODES = "nodes: ['OCC=O','OCC(O)C=O']\nsteps:\n"
+
+
+def test_a_mistyped_key_is_rejected(tmp_path):
+    """`flux` and `count` decide the stoichiometry, so a typo must not pass silently."""
+    p = tmp_path / "bad.yaml"
+    p.write_text(NODES + "  - {id: a, flx: 2}\n  - {id: b}\n")
+    with pytest.raises(SpecError, match="unknown key"):
+        load_yaml(p)
+
+
+def test_a_step_without_an_id_is_named_not_a_traceback(tmp_path):
+    p = tmp_path / "bad.yaml"
+    p.write_text(NODES + "  - {rule: x}\n  - {id: b}\n")
+    with pytest.raises(SpecError, match="needs an 'id'"):
+        load_yaml(p)

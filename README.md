@@ -95,6 +95,9 @@ uv venv --python 3.12 && uv pip install -e ".[dev]" && pytest -q
 autocycle draw examples/canonical/formose_core.yaml --style annotated -o cycle.svg
 autocycle route examples/ribose_route.yaml -o route.pdf
 
+# check the stoichiometry without drawing anything
+autocycle verify examples/canonical/formose_core.yaml
+
 # a cycle found in a source,target edge list
 autocycle list examples/edges.csv
 autocycle from-edges examples/edges.csv --cycle 0 --rank -o cycle.svg
@@ -134,6 +137,18 @@ open("cycle.svg", "w").write(render(c))
 | Cypher ring-query CSV | `bench`, `panel`: ring, shunt, feeders, generations |
 | treelib route files | `bench-routes`, with a seed table and reaction table |
 | CatReNet `.crs` | `from-crs`. Species are abstract names, so figures carry no chemistry |
+
+Unknown YAML keys are an error, so a typo cannot quietly change a verdict:
+
+| | Keys |
+|---|---|
+| top level | `title`, `seed`, `stoichiometry_complete`, `nodes`, `steps`, `subcycles`, `shunt` |
+| node | `smiles`, `label`, `generation`, `structure` |
+| step | `id`, `rule`, `dg`, `mag`, `flux`, `rev_mag`, `consumes`, `produces`, `gain`, `filtered`, `note` |
+| side species | `smiles`, `count`, `generation`, `structure` |
+| `shunt` | `from_node`, `nodes`, `steps` |
+| `subcycles` entry | `at_step`, `nodes`, `steps`, `label` |
+| route node | `mol`, `from`, `reaction`, `terminal`, `generation` |
 
 | Write | |
 |---|---|
@@ -183,6 +198,8 @@ Unedited search output, fused seven-membered rings included:
 - `bench-routes` counts targets whose file has a header but no tree. No route found is a result.
 - SBGN-PD has no glyph for a shunt or for stoichiometric gain, so that export records them
   as notes.
+- `verify` reads a ring and its shunt as one current. A fused sub-cycle is a separate
+  current, reported as a note rather than folded into the balance.
 
 ## Benchmark
 

@@ -6,6 +6,9 @@ extreme currents, and every steady state is a non-negative sum of them. Read on 
 drawn cycle this asks two questions `verify` does not: whether the intermediates on the
 ring actually balance, and whether the drawing is one extreme current or two cycles
 sharing a picture.
+
+The ring and its shunt are one current. A fused sub-cycle is a separate current sharing a
+molecule, so it is not folded in here; `autocycle verify` says so when one is present.
 """
 
 from __future__ import annotations

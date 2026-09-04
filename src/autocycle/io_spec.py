@@ -22,17 +22,47 @@ from autocycle.spec import (
 )
 
 
+# a mistyped key would otherwise be dropped in silence, and `flux` or `count` decide
+# the reported stoichiometry
+def _keys(d, allowed: set[str], what: str) -> dict:
+    if not isinstance(d, dict):
+        raise SpecError(f"{what}: expected a mapping, got {type(d).__name__}")
+    unknown = set(d) - allowed
+    if unknown:
+        raise SpecError(f"{what}: unknown key(s) {sorted(unknown)}; allowed {sorted(allowed)}")
+    return d
+
+
+def _index(v, what: str) -> int:
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        raise SpecError(f"{what} must be a node index, got {v!r}") from None
+
+
 def _sides(items) -> list[Side]:
     out = []
     for it in items or []:
         if isinstance(it, str):
             out.append(Side(it))
-        else:
-            out.append(Side(it["smiles"], int(it.get("count", 1))))
+            continue
+        _keys(it, {"smiles", "count", "generation", "structure"}, "side species")
+        out.append(
+            Side(
+                it["smiles"],
+                int(it.get("count", 1)),
+                generation=it.get("generation"),
+                structure=bool(it.get("structure", True)),
+            )
+        )
     return out
 
 
 def _step(d: dict) -> Step:
+    _keys(d, {"id", "rule", "dg", "mag", "flux", "rev_mag", "consumes", "produces",
+              "gain", "filtered", "note"}, f"step {d.get('id', '?')}")
+    if "id" not in d:
+        raise SpecError(f"step needs an 'id': {d}")
     return Step(
         rid=str(d["id"]),
         rule=d.get("rule"),
@@ -44,11 +74,22 @@ def _step(d: dict) -> Step:
         produces=_sides(d.get("produces")),
         gain=bool(d.get("gain", False)),
         filtered=bool(d.get("filtered", False)),
+        note=d.get("note"),
     )
 
 
 def _mol(d) -> Mol:
-    return Mol(d) if isinstance(d, str) else Mol(d["smiles"], d.get("label"))
+    if isinstance(d, str):
+        return Mol(d)
+    _keys(d, {"smiles", "label", "generation", "structure"}, "molecule")
+    if "smiles" not in d:
+        raise SpecError(f"molecule needs 'smiles': {d}")
+    return Mol(
+        d["smiles"],
+        d.get("label"),
+        generation=d.get("generation"),
+        structure=bool(d.get("structure", True)),
+    )
 
 
 def load_yaml(path: str | Path) -> Cycle:
@@ -58,9 +99,13 @@ def load_yaml(path: str | Path) -> Cycle:
     for key in ("nodes", "steps"):
         if key not in raw:
             raise SpecError(f"{path}: missing '{key}'")
+        if not isinstance(raw[key], list):
+            raise SpecError(f"{path}: '{key}' must be a list")
+    _keys(raw, {"title", "seed", "stoichiometry_complete", "nodes", "steps",
+                "subcycles", "shunt"}, str(path))
     subs = [
         Sub(
-            at_step=int(s["at_step"]),
+            at_step=int(_keys(s, {"at_step", "nodes", "steps", "label"}, "subcycle")["at_step"]),
             nodes=[_mol(m) for m in s["nodes"]],
             steps=[_step(x) for x in s["steps"]],
             label=s.get("label"),
@@ -69,11 +114,11 @@ def load_yaml(path: str | Path) -> Cycle:
     ]
     shunt = None
     if "shunt" in raw:
-        sh = raw["shunt"]
+        sh = _keys(raw["shunt"], {"from_node", "steps", "nodes"}, "shunt")
         if "from_node" not in sh:
             raise SpecError(f"{path}: shunt needs 'from_node'")
         shunt = Shunt(
-            from_node=int(sh["from_node"]),
+            from_node=_index(sh["from_node"], "shunt from_node"),
             steps=[_step(x) for x in sh.get("steps", [])],
             nodes=[_mol(m) for m in sh.get("nodes", [])],
         )
@@ -84,7 +129,7 @@ def load_yaml(path: str | Path) -> Cycle:
         subs=subs,
         shunt=shunt,
         title=raw.get("title"),
-        seed=None if raw.get("seed") is None else int(raw["seed"]),
+        seed=None if raw.get("seed") is None else _index(raw["seed"], "seed"),
         stoichiometry_complete=bool(raw.get("stoichiometry_complete", False)),
     )
 
@@ -126,6 +171,8 @@ def _node(d) -> PathNode:
         return PathNode(mol=Mol(d), terminal=SEED)
     if "mol" not in d and "smiles" not in d:
         raise SpecError(f"route node needs 'mol' or 'smiles': {d}")
+    _keys(d, {"mol", "smiles", "from", "reaction", "terminal", "seed", "generation"},
+          "route node")
     mol = _mol(d.get("mol", d.get("smiles")))
     pre = [_node(x) for x in d.get("from", [])]
     step = None
@@ -152,6 +199,7 @@ def load_pathway_yaml(path: str | Path) -> Pathway:
     raw = yaml.safe_load(Path(path).read_text())
     if not isinstance(raw, dict) or "target" not in raw:
         raise SpecError(f"{path}: a route needs a 'target' mapping at the top level")
+    _keys(raw, {"target", "title"}, str(path))
     return Pathway(root=_node(raw["target"]), title=raw.get("title"))
 
 

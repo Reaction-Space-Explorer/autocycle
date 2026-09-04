@@ -162,11 +162,13 @@ def _check(nodes: list[Mol], steps: list[Step]) -> None:
 
 
 def drop_side(obj, smiles: list[str]):
-    """Remove named side species from every step."""
+    """Remove named side species from every step, sub-cycle and shunt."""
     drop = {canonical(s) for s in smiles}
     steps = list(obj.steps)
     for sub in getattr(obj, "subs", []):
         steps += sub.steps
+    if getattr(obj, "shunt", None) is not None:
+        steps += obj.shunt.steps
     for st in steps:
         st.consumes = [x for x in st.consumes if x.smiles not in drop]
         st.produces = [x for x in st.produces if x.smiles not in drop]

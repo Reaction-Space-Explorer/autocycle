@@ -355,6 +355,9 @@ def _verify(a) -> int:
     print(f"atoms      {', '.join(f'{k} {v:+d}' for k, v in res.items()) if res else 'balanced'}")
     print(f"currents   {cur.cone_dim} "
           f"({'one extreme current' if cur.extreme else 'not a single extreme current'})")
+    if cycle.subs:
+        print(f"note       {len(cycle.subs)} fused sub-cycle(s) not included; "
+              "each is a separate current")
     if cur.imbalanced:
         print(f"imbalanced {', '.join(cur.imbalanced)}")
         return 1
