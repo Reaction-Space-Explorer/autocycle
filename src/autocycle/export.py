@@ -15,9 +15,11 @@ def write(svg_text: str, out: str | Path, width: int | None = None) -> Path:
         return out
     try:
         import cairosvg
-    except ImportError as exc:  # pragma: no cover - depends on the environment
+    except Exception as exc:  # noqa: BLE001 - cairocffi raises OSError without libcairo
         raise RuntimeError(
-            f"writing {out.suffix} needs cairosvg: pip install 'autocycle[raster]'"
+            f"writing {out.suffix} needs a working cairosvg "
+            f"(pip install 'autocycle[raster]', plus libcairo): "
+            f"{str(exc).splitlines()[0]}"
         ) from exc
     fn = cairosvg.svg2png if kind == "png" else cairosvg.svg2pdf
     kw = {"output_width": width} if (width and kind == "png") else {}
