@@ -22,9 +22,11 @@ two out.
 | | |
 |---|---|
 | <img src="examples/canonical/formose_core.png" width="330"> | <img src="examples/canonical/krebs_tca.png" width="330"> |
-| `autocatalytic`: the formose core returns two glycolaldehyde for one, n = 2. | `simple`: each turn of the TCA cycle regenerates one oxaloacetate, n = 1. |
+| `autocatalytic`: the formose core returns two glycolaldehyde for one, n = 2, the overall reaction `HOCH2CHO + 2 H2CO -> 2 HOCH2CHO` as stated by Andersen et al. | `simple`: each turn of the TCA cycle regenerates one oxaloacetate, n = 1. |
 
-Orgel's distinction is a stoichiometric coefficient, so `verify` reports conditions rather
+Orgel's distinction is a stoichiometric coefficient. Andersen, Flamm, Merkle and Stadler
+give the network form: a composite reaction is formally autocatalytic for x when it reads
+`(A) + m x -> n x + (W)` with n > m. `verify` reports the conditions behind that rather
 than a boolean:
 
 ```python
@@ -182,14 +184,16 @@ different method:
 |---|---|---|---|
 | Arya et al. 2022, glucose corpus | Cypher motif query | 2100 | 2100 `topological`, 0 coefficient-confirmed |
 | Abel et al. 2026, flow solutions | MØD with ILP | 15 | 15 `autocatalytic`, net gain 1 each |
-| CatReNet examples | RAF sets | 498 | 0 coefficient-confirmed; abstract species carry no stoichiometry |
+| CatReNet examples | RAF sets | 498 | 0 coefficient-confirmed; `.crs` species are abstract, so no coefficient is recorded |
 
 The difference is what each method records, not how good the cycles are. An ILP flow query
 constrains the target's outflow to exceed its inflow, so its solutions state a coefficient
 and the criterion is settled: `autocycle.io_flow` reads the balance straight off the
 Overall Data tables (11 steps for acetyl-CoA, 12 for malate, matching that paper's Table 1).
 A motif query matches a shunt instead, which is topological evidence without mass balance.
-RAF theory works over abstract species, so the question does not arise.
+The RAF row says nothing against RAF sets: Golnik et al. prove that under mild conditions
+any RAF is stoichiometrically autocatalytic. It records only that a `.crs` file carries no
+coefficients for `verify` to read.
 
 Reproduce with `bench`, `bench-routes`, `io_flow.read_flow_summary` on a summary exported
 by `pdftotext -layout`, and `from-crs` on a `.crs` file.
@@ -208,10 +212,26 @@ The cycle layout, the feeder/consumer convention and the thermodynamic annotatio
 > Formose Reaction Reveals Mechanisms for Emergent Behaviors.** *ChemRxiv* **2024**.
 > [doi:10.26434/chemrxiv-2024-nj0p6](https://doi.org/10.26434/chemrxiv-2024-nj0p6)
 
-The simple versus autocatalytic criterion is Orgel's, as stated in:
+The formal criterion, `(A) + m x -> n x + (W)` with n > m, is Definition 1 of:
+
+> Andersen, J. L.; Flamm, C.; Merkle, D.; Stadler, P. F. **Defining Autocatalysis in
+> Chemical Reaction Networks.** *J. Syst. Chem.* **2020**.
+> [arXiv:2107.03086](https://arxiv.org/abs/2107.03086)
+
+The simple versus autocatalytic distinction is Orgel's, as stated in:
 
 > Peretó, J. **Out of fuzzy chemistry: from prebiotic chemistry to metabolic networks.**
 > *Chem. Soc. Rev.* **2012**, *41*, 5394. [doi:10.1039/C2CS35054H](https://doi.org/10.1039/C2CS35054H)
+
+On the relationship between the frameworks the survey compares:
+
+> Blokhuis, A.; Lacoste, D.; Nghe, P. **Universal motifs and the diversity of autocatalytic
+> systems.** *PNAS* **2020**, *117*, 25230–25236.
+> [doi:10.1073/pnas.2013527117](https://doi.org/10.1073/pnas.2013527117)
+
+> Golnik, R.; Gatter, T.; Hordijk, W.; Stadler, P. F.; Vassena, N. **Bridging two
+> theoretical frameworks of autocatalysis: RAF sets and stoichiometric autocatalysis.**
+> **2026**. [arXiv:2605.25523](https://arxiv.org/abs/2605.25523)
 
 Arrow width encoding magnitude, with an explicit linear/log choice, and reversible steps as
 concentric arrow pairs, are from Catacycle:
