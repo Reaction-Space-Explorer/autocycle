@@ -6,7 +6,10 @@ import math
 
 from autocycle import layout as L
 from autocycle import tree as T
-from autocycle.depict import embed, formula
+from autocycle.depict import BOND_PX, embed, formula
+
+# bond length for the figure being drawn, set by render before any depiction
+BOND = [BOND_PX]
 from autocycle.encode import GREY, dg_colour, widths
 from autocycle.style import Style
 
@@ -322,7 +325,7 @@ def _species(mol, px: float, py: float, half: float, st_: Style) -> str:
     """A depiction when the species has a structure, otherwise its name."""
     if getattr(mol, "structure", True):
         return embed(mol.smiles, px - half, py - half, half * 2, st_.backend,
-                     getattr(mol, "rgroup", None))
+                     getattr(mol, "rgroup", None), BOND[0])
     name = getattr(mol, "label", None) or mol.smiles
     return text(px, py + half * 0.12, name, min(half * 0.55, 0.42), "middle", "#111")
 
@@ -437,7 +440,7 @@ def draw_route_sides(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
                 )
                 out.append(f"<path d='{head}' fill='{st_.side_grey}'/>")
                 px, py = _p(ax, ay)
-                out.append(embed(sp.smiles, px - half, py - half, half * 2, st_.backend))
+                out.append(_species(sp, px, py, half, st_))
                 if sp.count > 1:
                     out.append(text(px + half * 1.05, py - half * 0.9, f"{sp.count}x", 0.07, "start"))
     return out
@@ -458,7 +461,7 @@ def draw_route_nodes(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
                 f"stroke='{GAIN if is_target else NODE_EDGE}' "
                 f"stroke-width='{0.022 if is_target else 0.009}'/>"
             )
-        out.append(embed(node.mol.smiles, px - half, py - half, half * 2, st_.backend))
+        out.append(_species(node.mol, px, py, half, st_))
 
         tag = None
         if is_target:

@@ -26,20 +26,20 @@
 <text x='554.0' y='44.0' font-size='11' fill='#222'>One feeder</text>
 </g></svg>
 <text x='22.0' y='42.0' font-family='Helvetica, Arial, sans-serif' font-size='24' font-weight='bold' fill='#111'>A</text>
-<svg x='732.0' y='16.0' width='700.0' height='620.0' viewBox='0 0 1100.00 1170.36' preserveAspectRatio='xMidYMid meet'>
+<svg x='732.0' y='16.0' width='700.0' height='620.0' viewBox='0 0 1100.00 1180.49' preserveAspectRatio='xMidYMid meet'>
 
-<g transform='scale(91.6613) translate(4.8923,4.8923)'>
+<g transform='scale(85.0428) translate(6.2462,6.2462)'>
 <path d='M0.7366,-2.5442 L0.8303,-2.5152 L0.9229,-2.4827 L1.0142,-2.4469 L1.1041,-2.4076 L1.1925,-2.3651 L1.2792,-2.3193 L1.3642,-2.2704 L1.4473,-2.2183 L1.5284,-2.1632 L1.6075,-2.1052 L1.6843,-2.0442 L1.7589,-1.9804 L1.8310,-1.9140 L1.9006,-1.8449 L1.9282,-1.8717 L2.1693,-1.4714 L1.8335,-1.7797 L1.8611,-1.8066 L1.7930,-1.8742 L1.7223,-1.9393 L1.6494,-2.0017 L1.5741,-2.0614 L1.4967,-2.1183 L1.4173,-2.1723 L1.3359,-2.2232 L1.2526,-2.2712 L1.1677,-2.3160 L1.0811,-2.3576 L0.9931,-2.3961 L0.9037,-2.4312 L0.8131,-2.4630 L0.7214,-2.4914 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M2.6473,-0.0856 L2.6487,0.0125 L2.6464,0.1105 L2.6405,0.2084 L2.6310,0.3060 L2.6178,0.4032 L2.6011,0.4999 L2.5808,0.5958 L2.5570,0.6910 L2.5297,0.7852 L2.4989,0.8783 L2.4646,0.9702 L2.4270,1.0608 L2.3861,1.1499 L2.3419,1.2375 L2.3759,1.2554 L2.0697,1.6084 L2.2592,1.1938 L2.2932,1.2118 L2.3365,1.1260 L2.3766,1.0388 L2.4135,0.9501 L2.4470,0.8600 L2.4771,0.7689 L2.5039,0.6766 L2.5272,0.5835 L2.5471,0.4895 L2.5635,0.3949 L2.5763,0.2997 L2.5857,0.2041 L2.5915,0.1082 L2.5937,0.0122 L2.5924,-0.0838 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M0.8995,2.4913 L0.8066,2.5229 L0.7127,2.5510 L0.6177,2.5757 L0.5220,2.5968 L0.4255,2.6143 L0.3284,2.6283 L0.2309,2.6386 L0.1330,2.6454 L0.0350,2.6485 L-0.0631,2.6480 L-0.1611,2.6438 L-0.2589,2.6360 L-0.3563,2.6246 L-0.4532,2.6097 L-0.4598,2.6476 L-0.8902,2.4654 L-0.4372,2.5175 L-0.4438,2.5555 L-0.3489,2.5701 L-0.2535,2.5813 L-0.1578,2.5889 L-0.0618,2.5930 L0.0342,2.5935 L0.1302,2.5904 L0.2261,2.5838 L0.3216,2.5737 L0.4166,2.5600 L0.5111,2.5429 L0.6049,2.5222 L0.6979,2.4981 L0.7899,2.4705 L0.8808,2.4396 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M-2.0914,1.6253 L-2.1502,1.5468 L-2.2059,1.4661 L-2.2587,1.3834 L-2.3084,1.2989 L-2.3549,1.2125 L-2.3982,1.1245 L-2.4382,1.0349 L-2.4748,0.9440 L-2.5081,0.8517 L-2.5379,0.7582 L-2.5642,0.6638 L-2.5870,0.5684 L-2.6063,0.4722 L-2.6220,0.3754 L-2.6601,0.3808 L-2.6198,-0.0847 L-2.5294,0.3621 L-2.5675,0.3676 L-2.5522,0.4624 L-2.5333,0.5566 L-2.5110,0.6500 L-2.4852,0.7425 L-2.4560,0.8340 L-2.4234,0.9244 L-2.3875,1.0134 L-2.3484,1.1011 L-2.3060,1.1873 L-2.2605,1.2719 L-2.2118,1.3547 L-2.1601,1.4357 L-2.1055,1.5147 L-2.0480,1.5916 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M-2.1921,-1.4868 L-2.1355,-1.5669 L-2.0760,-1.6449 L-2.0137,-1.7207 L-1.9486,-1.7940 L-1.8809,-1.8649 L-1.8105,-1.9333 L-1.7377,-1.9990 L-1.6625,-2.0620 L-1.5850,-2.1221 L-1.5054,-2.1793 L-1.4237,-2.2336 L-1.3400,-2.2848 L-1.2545,-2.3328 L-1.1673,-2.3776 L-1.1842,-2.4122 L-0.7290,-2.5178 L-1.1261,-2.2937 L-1.1430,-2.3283 L-1.2284,-2.2844 L-1.3122,-2.2373 L-1.3941,-2.1872 L-1.4741,-2.1341 L-1.5521,-2.0780 L-1.6280,-2.0192 L-1.7016,-1.9575 L-1.7729,-1.8932 L-1.8418,-1.8262 L-1.9082,-1.7568 L-1.9719,-1.6849 L-2.0329,-1.6108 L-2.0912,-1.5344 L-2.1465,-1.4559 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
-<path d='M2.9505,2.5722 L3.0386,2.4675 L3.1230,2.3598 L3.2036,2.2492 L3.2802,2.1359 L3.3529,2.0199 L3.4214,1.9015 L3.4858,1.7807 L3.5459,1.6578 L3.6017,1.5329 L3.6531,1.4060 L3.7000,1.2775 L3.7424,1.1474 L3.7802,1.0159 L3.8134,0.8831 L3.8419,0.7493 L3.8658,0.6146 L3.8849,0.4791 L3.8992,0.3430 L3.9089,0.2065 L3.9137,0.0698 L3.9137,-0.0671 L3.9090,-0.2038 L3.8995,-0.3403 L3.8852,-0.4764 L3.8662,-0.6119 L3.8424,-0.7467 L3.8140,-0.8805 L3.7809,-1.0133 L3.7431,-1.1448 L3.7008,-1.2750 L3.6540,-1.4035 L3.6027,-1.5304 L3.5470,-1.6554 L3.4870,-1.7783 L3.4227,-1.8991 L3.3543,-2.0176 L3.2817,-2.1336 L3.2051,-2.2470 L3.1246,-2.3577 L3.0403,-2.4654 L2.9523,-2.5702 L2.8606,-2.6718 L2.7655,-2.7702 L2.6670,-2.8651 L2.5652,-2.9566 L2.4603,-3.0445 L2.3524,-3.1286 L2.2416,-3.2089 L2.1281,-3.2853 L2.0119,-3.3577 L1.8933,-3.4259 L1.7724,-3.4900 L1.6494,-3.5498 L1.5243,-3.6053 L1.5363,-3.6337 L0.8702,-3.7938 L1.4952,-3.5364 L1.5072,-3.5648 L1.6308,-3.5099 L1.7525,-3.4508 L1.8721,-3.3874 L1.9893,-3.3199 L2.1041,-3.2484 L2.2164,-3.1728 L2.3259,-3.0934 L2.4326,-3.0102 L2.5364,-2.9234 L2.6370,-2.8329 L2.7344,-2.7390 L2.8285,-2.6418 L2.9191,-2.5413 L3.0061,-2.4377 L3.0895,-2.3312 L3.1691,-2.2218 L3.2448,-2.1096 L3.3165,-1.9949 L3.3842,-1.8778 L3.4478,-1.7584 L3.5072,-1.6368 L3.5622,-1.5132 L3.6129,-1.3878 L3.6592,-1.2606 L3.7011,-1.1320 L3.7384,-1.0019 L3.7711,-0.8706 L3.7992,-0.7383 L3.8227,-0.6050 L3.8415,-0.4711 L3.8556,-0.3365 L3.8651,-0.2015 L3.8697,-0.0663 L3.8697,0.0690 L3.8649,0.2042 L3.8554,0.3392 L3.8412,0.4737 L3.8223,0.6077 L3.7987,0.7409 L3.7705,0.8732 L3.7377,1.0045 L3.7003,1.1345 L3.6584,1.2631 L3.6120,1.3902 L3.5612,1.5156 L3.5060,1.6392 L3.4466,1.7607 L3.3830,1.8801 L3.3152,1.9972 L3.2433,2.1119 L3.1675,2.2239 L3.0879,2.3333 L3.0044,2.4398 L2.9173,2.5433 Z' fill='#696969' opacity='0.9'/>
-<text x='4.0252' y='-1.3079' font-family='Helvetica, Arial, sans-serif' font-size='0.1125' text-anchor='middle' fill='#444' font-weight='normal'>shunt 40_1</text>
-<path d='M1.5407,-2.1206 Q2.4809,-2.2694 3.3278,-2.7041' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M3.3278,-2.7041 L3.2650,-2.6294 L3.2304,-2.6966 Z' fill='#d3d3d3'/>
-<circle cx='4.4645' cy='-3.0753' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='3.3257' y='-4.2142' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M3.2801,2.8596 L3.3780,2.7432 L3.4718,2.6234 L3.5614,2.5005 L3.6466,2.3745 L3.7274,2.2456 L3.8036,2.1139 L3.8752,1.9797 L3.9420,1.8430 L4.0040,1.7041 L4.0611,1.5631 L4.1133,1.4202 L4.1604,1.2756 L4.2024,1.1294 L4.2394,0.9818 L4.2711,0.8330 L4.2976,0.6832 L4.3188,0.5326 L4.3348,0.3813 L4.3455,0.2296 L4.3509,0.0776 L4.3509,-0.0746 L4.3457,-0.2266 L4.3351,-0.3783 L4.3192,-0.5296 L4.2981,-0.6803 L4.2716,-0.8301 L4.2400,-0.9789 L4.2032,-1.1265 L4.1613,-1.2727 L4.1143,-1.4174 L4.0622,-1.5603 L4.0052,-1.7013 L3.9433,-1.8403 L3.8765,-1.9770 L3.8051,-2.1113 L3.7289,-2.2430 L3.6483,-2.3720 L3.5631,-2.4980 L3.4736,-2.6210 L3.3799,-2.7408 L3.2820,-2.8573 L3.1802,-2.9703 L3.0744,-3.0796 L2.9649,-3.1852 L2.8518,-3.2869 L2.7351,-3.3845 L2.6152,-3.4781 L2.4920,-3.5674 L2.3658,-3.6523 L2.2367,-3.7327 L2.1048,-3.8086 L1.9704,-3.8799 L1.8336,-3.9464 L1.6946,-4.0081 L1.7066,-4.0364 L0.9679,-4.2200 L1.6654,-3.9392 L1.6774,-3.9675 L1.8151,-3.9065 L1.9505,-3.8406 L2.0836,-3.7701 L2.2141,-3.6950 L2.3419,-3.6153 L2.4668,-3.5313 L2.5887,-3.4429 L2.7075,-3.3503 L2.8229,-3.2536 L2.9349,-3.1530 L3.0433,-3.0485 L3.1480,-2.9402 L3.2489,-2.8284 L3.3457,-2.7131 L3.4385,-2.5945 L3.5271,-2.4728 L3.6114,-2.3480 L3.6912,-2.2203 L3.7666,-2.0899 L3.8373,-1.9570 L3.9034,-1.8217 L3.9647,-1.6841 L4.0211,-1.5445 L4.0727,-1.4030 L4.1192,-1.2598 L4.1607,-1.1151 L4.1972,-0.9690 L4.2285,-0.8217 L4.2546,-0.6734 L4.2755,-0.5243 L4.2912,-0.3745 L4.3017,-0.2243 L4.3069,-0.0738 L4.3069,0.0768 L4.3016,0.2273 L4.2910,0.3775 L4.2752,0.5272 L4.2541,0.6763 L4.2279,0.8246 L4.1965,0.9719 L4.1600,1.1180 L4.1183,1.2627 L4.0717,1.4058 L4.0201,1.5473 L3.9635,1.6869 L3.9021,1.8244 L3.8360,1.9596 L3.7652,2.0925 L3.6897,2.2228 L3.6098,2.3505 L3.5254,2.4752 L3.4367,2.5969 L3.3439,2.7154 L3.2469,2.8306 Z' fill='#696969' opacity='0.9'/>
+<text x='4.4410' y='-1.4430' font-family='Helvetica, Arial, sans-serif' font-size='0.1125' text-anchor='middle' fill='#444' font-weight='normal'>shunt 40_1</text>
+<path d='M1.5407,-2.1206 Q2.2853,-2.2046 2.9664,-2.5168' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M2.9664,-2.5168 L2.9003,-2.4449 L2.8688,-2.5137 Z' fill='#d3d3d3'/>
+<circle cx='4.1186' cy='-2.8370' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='2.9797' y='-3.9759' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 253.205 200"
@@ -67,10 +67,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M5.4195,-0.1362 Q3.9826,0.0869 2.6870,0.7472' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M2.6870,0.7472 L2.7500,0.6727 L2.7844,0.7400 Z' fill='#d3d3d3'/>
-<circle cx='5.4195' cy='-0.1362' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='4.2806' y='-1.2751' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M4.9995,-0.1257 Q3.7726,0.1213 2.6840,0.7387' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M2.6840,0.7387 L2.7437,0.6614 L2.7810,0.7271 Z' fill='#d3d3d3'/>
+<circle cx='4.9995' cy='-0.1257' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='3.8606' y='-1.2646' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 253.205 240"
@@ -96,10 +96,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M0.0000,2.6212 Q-0.6732,3.2942 -1.1028,4.1437' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M-1.1028,4.1437 L-1.0959,4.0463 L-1.0284,4.0804 Z' fill='#d3d3d3'/>
-<circle cx='-1.8043' cy='5.1122' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='-2.9432' y='3.9733' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M0.0000,2.6212 Q-0.5529,3.1268 -0.9205,3.7797' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M-0.9205,3.7797 L-0.9093,3.6828 L-0.8434,3.7199 Z' fill='#d3d3d3'/>
+<circle cx='-1.6645' cy='4.7160' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='-2.8034' y='3.5771' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 283.923 240"
@@ -263,26 +263,27 @@ x="10.000000" y="20.000000" ></text>
 <path d='M-1.5274,-2.2049 L-1.6250,-2.1340 L-1.5541,-2.0363 L-1.4564,-2.1073 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-1.2791' y='-1.7606' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:273_0</text>
 <text x='0.0000' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.26' text-anchor='middle' fill='#111' font-weight='normal'>C6H12O6</text>
-<text x='-4.5923' y='6.9560' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>130_0  :  Cannizarro 2, glucose (reduction)</text>
-<text x='-4.5923' y='7.1110' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>2054_0  :  Knoevenagel H (inv)</text>
-<text x='-4.5923' y='7.2660' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>1064_1  :  Knoevenagel H</text>
-<text x='-4.5923' y='7.4210' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>1335_0  :  Keto-enol migration twice</text>
-<text x='-4.5923' y='7.5760' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>273_0  :  Hydration of C(=O)C</text>
+<text x='-5.9462' y='6.5599' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>130_0  :  Cannizarro 2, glucose (reduction)</text>
+<text x='-5.9462' y='6.7149' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>2054_0  :  Knoevenagel H (inv)</text>
+<text x='-5.9462' y='6.8699' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>1064_1  :  Knoevenagel H</text>
+<text x='-5.9462' y='7.0249' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>1335_0  :  Keto-enol migration twice</text>
+<text x='-5.9462' y='7.1799' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>273_0  :  Hydration of C(=O)C</text>
+<text x='-5.9462' y='7.3349' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>40_1  :  Knoevenagel H</text>
 </g></svg>
 <text x='738.0' y='42.0' font-family='Helvetica, Arial, sans-serif' font-size='24' font-weight='bold' fill='#111'>B</text>
-<svg x='16.0' y='652.0' width='700.0' height='620.0' viewBox='0 0 1100.00 846.05' preserveAspectRatio='xMidYMid meet'>
+<svg x='16.0' y='652.0' width='700.0' height='620.0' viewBox='0 0 1100.00 1204.58' preserveAspectRatio='xMidYMid meet'>
 
-<g transform='scale(87.9215) translate(6.2556,4.3514)'>
+<g transform='scale(97.2801) translate(5.6538,5.6538)'>
 <path d='M0.7385,-2.0129 L0.8114,-1.9847 L0.8832,-1.9538 L0.9539,-1.9203 L1.0233,-1.8842 L1.0913,-1.8456 L1.1579,-1.8046 L1.2229,-1.7612 L1.2863,-1.7154 L1.3480,-1.6674 L1.4079,-1.6171 L1.4660,-1.5647 L1.5221,-1.5102 L1.5761,-1.4537 L1.6281,-1.3952 L1.6779,-1.3349 L1.7254,-1.2728 L1.7707,-1.2091 L1.8136,-1.1437 L1.8541,-1.0768 L1.8874,-1.0961 L1.9871,-0.7290 L1.7733,-1.0298 L1.8066,-1.0492 L1.7671,-1.1144 L1.7253,-1.1781 L1.6812,-1.2402 L1.6348,-1.3007 L1.5863,-1.3594 L1.5357,-1.4164 L1.4830,-1.4714 L1.4284,-1.5245 L1.3718,-1.5756 L1.3135,-1.6246 L1.2533,-1.6714 L1.1916,-1.7160 L1.1282,-1.7583 L1.0633,-1.7983 L0.9970,-1.8359 L0.9294,-1.8710 L0.8606,-1.9037 L0.7906,-1.9338 L0.7195,-1.9613 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M2.0129,0.7385 L1.9847,0.8114 L1.9538,0.8832 L1.9203,0.9539 L1.8842,1.0233 L1.8456,1.0913 L1.8046,1.1579 L1.7612,1.2229 L1.7154,1.2863 L1.6674,1.3480 L1.6171,1.4079 L1.5647,1.4660 L1.5102,1.5221 L1.4537,1.5761 L1.3952,1.6281 L1.3349,1.6779 L1.2728,1.7254 L1.2091,1.7707 L1.1437,1.8136 L1.0768,1.8541 L1.0961,1.8874 L0.7290,1.9871 L1.0298,1.7733 L1.0492,1.8066 L1.1144,1.7671 L1.1781,1.7253 L1.2402,1.6812 L1.3007,1.6348 L1.3594,1.5863 L1.4164,1.5357 L1.4714,1.4830 L1.5245,1.4284 L1.5756,1.3718 L1.6246,1.3135 L1.6714,1.2533 L1.7160,1.1916 L1.7583,1.1282 L1.7983,1.0633 L1.8359,0.9970 L1.8710,0.9294 L1.9037,0.8606 L1.9338,0.7906 L1.9613,0.7195 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M-0.7385,2.0129 L-0.8114,1.9847 L-0.8832,1.9538 L-0.9539,1.9203 L-1.0233,1.8842 L-1.0913,1.8456 L-1.1579,1.8046 L-1.2229,1.7612 L-1.2863,1.7154 L-1.3480,1.6674 L-1.4079,1.6171 L-1.4660,1.5647 L-1.5221,1.5102 L-1.5761,1.4537 L-1.6281,1.3952 L-1.6779,1.3349 L-1.7254,1.2728 L-1.7707,1.2091 L-1.8136,1.1437 L-1.8541,1.0768 L-1.8874,1.0961 L-1.9871,0.7290 L-1.7733,1.0298 L-1.8066,1.0492 L-1.7671,1.1144 L-1.7253,1.1781 L-1.6812,1.2402 L-1.6348,1.3007 L-1.5863,1.3594 L-1.5357,1.4164 L-1.4830,1.4714 L-1.4284,1.5245 L-1.3718,1.5756 L-1.3135,1.6246 L-1.2533,1.6714 L-1.1916,1.7160 L-1.1282,1.7583 L-1.0633,1.7983 L-0.9970,1.8359 L-0.9294,1.8710 L-0.8606,1.9037 L-0.7906,1.9338 L-0.7195,1.9613 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M-2.0129,-0.7385 L-1.9847,-0.8114 L-1.9538,-0.8832 L-1.9203,-0.9539 L-1.8842,-1.0233 L-1.8456,-1.0913 L-1.8046,-1.1579 L-1.7612,-1.2229 L-1.7154,-1.2863 L-1.6674,-1.3480 L-1.6171,-1.4079 L-1.5647,-1.4660 L-1.5102,-1.5221 L-1.4537,-1.5761 L-1.3952,-1.6281 L-1.3349,-1.6779 L-1.2728,-1.7254 L-1.2091,-1.7707 L-1.1437,-1.8136 L-1.0768,-1.8541 L-1.0961,-1.8874 L-0.7290,-1.9871 L-1.0298,-1.7733 L-1.0492,-1.8066 L-1.1144,-1.7671 L-1.1781,-1.7253 L-1.2402,-1.6812 L-1.3007,-1.6348 L-1.3594,-1.5863 L-1.4164,-1.5357 L-1.4714,-1.4830 L-1.5245,-1.4284 L-1.5756,-1.3718 L-1.6246,-1.3135 L-1.6714,-1.2533 L-1.7160,-1.1916 L-1.7583,-1.1282 L-1.7983,-1.0633 L-1.8359,-0.9970 L-1.8710,-0.9294 L-1.9037,-0.8606 L-1.9338,-0.7906 L-1.9613,-0.7195 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
-<path d='M0.9364,3.2408 L1.0504,3.2057 L1.1631,3.1665 L1.2743,3.1234 L1.3839,3.0764 L1.4918,3.0256 L1.5979,2.9710 L1.7019,2.9126 L1.8038,2.8506 L1.9035,2.7851 L2.0007,2.7160 L2.0955,2.6436 L2.1876,2.5679 L2.2771,2.4889 L2.3636,2.4069 L2.4472,2.3218 L2.5278,2.2338 L2.6052,2.1431 L2.6793,2.0496 L2.7501,1.9536 L2.8175,1.8552 L2.8813,1.7544 L2.9415,1.6515 L2.9980,1.5465 L3.0508,1.4395 L3.0998,1.3307 L3.1449,1.2203 L3.1861,1.1084 L3.2233,0.9951 L3.2565,0.8805 L3.2856,0.7648 L3.3105,0.6482 L3.3314,0.5307 L3.3481,0.4126 L3.3606,0.2940 L3.3689,0.1750 L3.3729,0.0558 L3.3728,-0.0635 L3.3684,-0.1827 L3.3599,-0.3016 L3.3471,-0.4202 L3.3302,-0.5383 L3.3091,-0.6557 L3.2838,-0.7723 L3.2545,-0.8879 L3.2210,-1.0024 L3.1836,-1.1156 L3.1422,-1.2275 L3.0968,-1.3378 L3.0476,-1.4464 L2.9945,-1.5533 L2.9377,-1.6581 L2.8773,-1.7610 L2.8132,-1.8616 L2.7457,-1.9599 L2.6747,-2.0557 L2.6003,-2.1490 L2.5227,-2.2396 L2.4420,-2.3274 L2.3582,-2.4122 L2.2714,-2.4941 L2.1818,-2.5728 L2.0895,-2.6484 L1.9946,-2.7206 L1.8971,-2.7894 L1.7973,-2.8547 L1.6953,-2.9165 L1.5911,-2.9746 L1.4850,-3.0290 L1.4985,-3.0566 L0.9303,-3.2197 L1.4521,-2.9618 L1.4656,-2.9895 L1.5704,-2.9358 L1.6732,-2.8784 L1.7739,-2.8175 L1.8724,-2.7530 L1.9686,-2.6851 L2.0622,-2.6138 L2.1534,-2.5393 L2.2418,-2.4616 L2.3274,-2.3808 L2.4101,-2.2970 L2.4898,-2.2104 L2.5664,-2.1210 L2.6398,-2.0289 L2.7099,-1.9343 L2.7765,-1.8373 L2.8398,-1.7380 L2.8994,-1.6365 L2.9555,-1.5330 L3.0078,-1.4276 L3.0564,-1.3203 L3.1012,-1.2114 L3.1421,-1.1011 L3.1790,-0.9893 L3.2120,-0.8763 L3.2410,-0.7622 L3.2659,-0.6471 L3.2867,-0.5313 L3.3035,-0.4147 L3.3161,-0.2977 L3.3245,-0.1803 L3.3288,-0.0626 L3.3289,0.0551 L3.3249,0.1727 L3.3167,0.2902 L3.3044,0.4072 L3.2879,0.5238 L3.2674,0.6397 L3.2427,0.7548 L3.2140,0.8690 L3.1813,0.9821 L3.1446,1.0939 L3.1039,1.2044 L3.0594,1.3134 L3.0110,1.4207 L2.9589,1.5263 L2.9031,1.6299 L2.8437,1.7316 L2.7807,1.8310 L2.7142,1.9282 L2.6444,2.0229 L2.5712,2.1151 L2.4948,2.2047 L2.4153,2.2915 L2.3328,2.3755 L2.2474,2.4565 L2.1591,2.5344 L2.0682,2.6091 L1.9746,2.6806 L1.8786,2.7487 L1.7803,2.8134 L1.6797,2.8746 L1.5770,2.9322 L1.4724,2.9861 L1.3659,3.0363 L1.2577,3.0827 L1.1479,3.1252 L1.0367,3.1639 L0.9242,3.1985 Z' fill='#696969' opacity='0.9'/>
-<text x='3.6914' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.1125' text-anchor='middle' fill='#444' font-weight='normal'>shunt 4795_0</text>
-<path d='M1.4967,-1.4967 Q2.4810,-1.4167 3.4411,-1.6479' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M3.4411,-1.6479 L3.3624,-1.5900 L3.3447,-1.6635 Z' fill='#d3d3d3'/>
-<circle cx='4.5992' cy='-1.7379' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='3.4929' y='-2.8443' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M1.0544,3.6489 L1.1827,3.6093 L1.3096,3.5653 L1.4348,3.5167 L1.5582,3.4638 L1.6797,3.4066 L1.7991,3.3450 L1.9162,3.2794 L2.0309,3.2096 L2.1431,3.1358 L2.2526,3.0580 L2.3594,2.9765 L2.4631,2.8912 L2.5638,2.8023 L2.6612,2.7099 L2.7554,2.6142 L2.8461,2.5151 L2.9332,2.4129 L3.0167,2.3077 L3.0964,2.1996 L3.1722,2.0888 L3.2441,1.9753 L3.3119,1.8594 L3.3755,1.7412 L3.4350,1.6208 L3.4901,1.4983 L3.5409,1.3740 L3.5873,1.2479 L3.6292,1.1203 L3.6665,0.9913 L3.6993,0.8611 L3.7274,0.7298 L3.7509,0.5976 L3.7696,0.4646 L3.7837,0.3310 L3.7930,0.1971 L3.7976,0.0628 L3.7975,-0.0715 L3.7926,-0.2057 L3.7829,-0.3396 L3.7686,-0.4731 L3.7495,-0.6061 L3.7257,-0.7382 L3.6973,-0.8695 L3.6642,-0.9997 L3.6266,-1.1286 L3.5844,-1.2561 L3.5378,-1.3820 L3.4867,-1.5062 L3.4313,-1.6285 L3.3716,-1.7488 L3.3077,-1.8669 L3.2396,-1.9827 L3.1675,-2.0960 L3.0914,-2.2067 L3.0114,-2.3146 L2.9277,-2.4196 L2.8404,-2.5216 L2.7494,-2.6204 L2.6551,-2.7160 L2.5574,-2.8081 L2.4565,-2.8968 L2.3526,-2.9818 L2.2457,-3.0631 L2.1360,-3.1406 L2.0237,-3.2142 L1.9088,-3.2837 L1.7915,-3.3491 L1.6720,-3.4104 L1.6855,-3.4380 L1.0483,-3.6277 L1.6390,-3.3432 L1.6526,-3.3708 L1.7707,-3.3103 L1.8866,-3.2456 L2.0002,-3.1769 L2.1113,-3.1042 L2.2197,-3.0276 L2.3253,-2.9473 L2.4281,-2.8632 L2.5278,-2.7756 L2.6243,-2.6845 L2.7176,-2.5900 L2.8075,-2.4924 L2.8938,-2.3915 L2.9766,-2.2877 L3.0556,-2.1811 L3.1308,-2.0717 L3.2021,-1.9597 L3.2693,-1.8453 L3.3325,-1.7286 L3.3916,-1.6097 L3.4463,-1.4888 L3.4968,-1.3660 L3.5429,-1.2415 L3.5846,-1.1155 L3.6218,-0.9881 L3.6545,-0.8594 L3.6826,-0.7297 L3.7061,-0.5990 L3.7249,-0.4677 L3.7391,-0.3357 L3.7486,-0.2033 L3.7535,-0.0706 L3.7536,0.0621 L3.7491,0.1948 L3.7399,0.3272 L3.7260,0.4592 L3.7074,0.5906 L3.6842,0.7213 L3.6564,0.8511 L3.6240,0.9799 L3.5871,1.1074 L3.5457,1.2335 L3.4999,1.3581 L3.4497,1.4810 L3.3952,1.6020 L3.3364,1.7210 L3.2735,1.8379 L3.2065,1.9525 L3.1355,2.0646 L3.0605,2.1742 L2.9817,2.2810 L2.8992,2.3850 L2.8131,2.4860 L2.7235,2.5839 L2.6304,2.6785 L2.5341,2.7699 L2.4346,2.8577 L2.3320,2.9420 L2.2266,3.0226 L2.1183,3.0994 L2.0074,3.1724 L1.8940,3.2414 L1.7782,3.3063 L1.6602,3.3671 L1.5402,3.4237 L1.4182,3.4760 L1.2944,3.5240 L1.1690,3.5675 L1.0421,3.6066 Z' fill='#696969' opacity='0.9'/>
+<text x='4.1162' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.1125' text-anchor='middle' fill='#444' font-weight='normal'>shunt 4795_0</text>
+<path d='M1.4967,-1.4967 Q2.1339,-1.3920 2.7720,-1.4913' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M2.7720,-1.4913 L2.6889,-1.4401 L2.6772,-1.5148 Z' fill='#d3d3d3'/>
+<circle cx='3.9336' cy='-1.4864' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='2.8273' y='-2.5927' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 218.564 140"
@@ -303,10 +304,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M4.5992,1.7379 Q3.1677,1.3933 1.7001,1.5125' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M1.7001,1.5125 L1.7867,1.4675 L1.7928,1.5429 Z' fill='#d3d3d3'/>
-<circle cx='4.5992' cy='1.7379' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='3.4929' y='0.6316' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M3.9336,1.4864 Q2.8164,1.3125 1.7007,1.4958' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M1.7007,1.4958 L1.7834,1.4439 L1.7956,1.5185 Z' fill='#d3d3d3'/>
+<circle cx='3.9336' cy='1.4864' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='2.8273' y='0.3800' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 253.205 240"
@@ -337,10 +338,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M-1.4967,1.4967 Q-2.4810,1.4167 -3.4411,1.6479' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M-3.4411,1.6479 L-3.3624,1.5900 L-3.3447,1.6635 Z' fill='#d3d3d3'/>
-<circle cx='-4.5992' cy='1.7379' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='-5.7056' y='0.6316' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-1.4967,1.4967 Q-2.1339,1.3920 -2.7720,1.4913' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M-2.7720,1.4913 L-2.6889,1.4401 L-2.6772,1.5148 Z' fill='#d3d3d3'/>
+<circle cx='-3.9336' cy='1.4864' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='-5.0400' y='0.3800' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 287.846 200"
@@ -485,26 +486,27 @@ x="10.000000" y="20.000000" ></text>
 <path d='M-1.4967,-1.5820 L-1.5820,-1.4967 L-1.4967,-1.4113 L-1.4113,-1.4967 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-1.1820' y='-1.1820' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:2168_0</text>
 <text x='0.0000' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.26' text-anchor='middle' fill='#111' font-weight='normal'>C6H8O5</text>
-<text x='-5.9556' y='4.5064' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>11568_0  :  Cannizarro 2, glucose (oxidation)</text>
-<text x='-5.9556' y='4.6614' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>9302_0  :  Retro Aldol</text>
-<text x='-5.9556' y='4.8164' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>6125_0  :  Aldol Condensation</text>
-<text x='-5.9556' y='4.9714' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>2168_0  :  Elimination + enol to keto</text>
+<text x='-5.3538' y='5.8088' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>11568_0  :  Cannizarro 2, glucose (oxidation)</text>
+<text x='-5.3538' y='5.9638' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>9302_0  :  Retro Aldol</text>
+<text x='-5.3538' y='6.1188' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>6125_0  :  Aldol Condensation</text>
+<text x='-5.3538' y='6.2738' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>2168_0  :  Elimination + enol to keto</text>
+<text x='-5.3538' y='6.4288' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>4795_0  :  Aldol Condensation</text>
 </g></svg>
 <text x='22.0' y='678.0' font-family='Helvetica, Arial, sans-serif' font-size='24' font-weight='bold' fill='#111'>C</text>
-<svg x='732.0' y='652.0' width='700.0' height='620.0' viewBox='0 0 1100.00 1172.28' preserveAspectRatio='xMidYMid meet'>
+<svg x='732.0' y='652.0' width='700.0' height='620.0' viewBox='0 0 1100.00 1229.12' preserveAspectRatio='xMidYMid meet'>
 
-<g transform='scale(90.5594) translate(5.9933,6.8852)'>
+<g transform='scale(88.0531) translate(6.2462,6.4826)'>
 <path d='M0.7366,-2.5442 L0.8303,-2.5152 L0.9229,-2.4827 L1.0142,-2.4469 L1.1041,-2.4076 L1.1925,-2.3651 L1.2792,-2.3193 L1.3642,-2.2704 L1.4473,-2.2183 L1.5284,-2.1632 L1.6075,-2.1052 L1.6843,-2.0442 L1.7589,-1.9804 L1.8310,-1.9140 L1.9006,-1.8449 L1.9282,-1.8717 L2.1693,-1.4714 L1.8335,-1.7797 L1.8611,-1.8066 L1.7930,-1.8742 L1.7223,-1.9393 L1.6494,-2.0017 L1.5741,-2.0614 L1.4967,-2.1183 L1.4173,-2.1723 L1.3359,-2.2232 L1.2526,-2.2712 L1.1677,-2.3160 L1.0811,-2.3576 L0.9931,-2.3961 L0.9037,-2.4312 L0.8131,-2.4630 L0.7214,-2.4914 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M2.6473,-0.0856 L2.6487,0.0125 L2.6464,0.1105 L2.6405,0.2084 L2.6310,0.3060 L2.6178,0.4032 L2.6011,0.4999 L2.5808,0.5958 L2.5570,0.6910 L2.5297,0.7852 L2.4989,0.8783 L2.4646,0.9702 L2.4270,1.0608 L2.3861,1.1499 L2.3419,1.2375 L2.3759,1.2554 L2.0697,1.6084 L2.2592,1.1938 L2.2932,1.2118 L2.3365,1.1260 L2.3766,1.0388 L2.4135,0.9501 L2.4470,0.8600 L2.4771,0.7689 L2.5039,0.6766 L2.5272,0.5835 L2.5471,0.4895 L2.5635,0.3949 L2.5763,0.2997 L2.5857,0.2041 L2.5915,0.1082 L2.5937,0.0122 L2.5924,-0.0838 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M0.8995,2.4913 L0.8066,2.5229 L0.7127,2.5510 L0.6177,2.5757 L0.5220,2.5968 L0.4255,2.6143 L0.3284,2.6283 L0.2309,2.6386 L0.1330,2.6454 L0.0350,2.6485 L-0.0631,2.6480 L-0.1611,2.6438 L-0.2589,2.6360 L-0.3563,2.6246 L-0.4532,2.6097 L-0.4598,2.6476 L-0.8902,2.4654 L-0.4372,2.5175 L-0.4438,2.5555 L-0.3489,2.5701 L-0.2535,2.5813 L-0.1578,2.5889 L-0.0618,2.5930 L0.0342,2.5935 L0.1302,2.5904 L0.2261,2.5838 L0.3216,2.5737 L0.4166,2.5600 L0.5111,2.5429 L0.6049,2.5222 L0.6979,2.4981 L0.7899,2.4705 L0.8808,2.4396 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M-2.0914,1.6253 L-2.1502,1.5468 L-2.2059,1.4661 L-2.2587,1.3834 L-2.3084,1.2989 L-2.3549,1.2125 L-2.3982,1.1245 L-2.4382,1.0349 L-2.4748,0.9440 L-2.5081,0.8517 L-2.5379,0.7582 L-2.5642,0.6638 L-2.5870,0.5684 L-2.6063,0.4722 L-2.6220,0.3754 L-2.6601,0.3808 L-2.6198,-0.0847 L-2.5294,0.3621 L-2.5675,0.3676 L-2.5522,0.4624 L-2.5333,0.5566 L-2.5110,0.6500 L-2.4852,0.7425 L-2.4560,0.8340 L-2.4234,0.9244 L-2.3875,1.0134 L-2.3484,1.1011 L-2.3060,1.1873 L-2.2605,1.2719 L-2.2118,1.3547 L-2.1601,1.4357 L-2.1055,1.5147 L-2.0480,1.5916 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M-2.1921,-1.4868 L-2.1355,-1.5669 L-2.0760,-1.6449 L-2.0137,-1.7207 L-1.9486,-1.7940 L-1.8809,-1.8649 L-1.8105,-1.9333 L-1.7377,-1.9990 L-1.6625,-2.0620 L-1.5850,-2.1221 L-1.5054,-2.1793 L-1.4237,-2.2336 L-1.3400,-2.2848 L-1.2545,-2.3328 L-1.1673,-2.3776 L-1.1842,-2.4122 L-0.7290,-2.5178 L-1.1261,-2.2937 L-1.1430,-2.3283 L-1.2284,-2.2844 L-1.3122,-2.2373 L-1.3941,-2.1872 L-1.4741,-2.1341 L-1.5521,-2.0780 L-1.6280,-2.0192 L-1.7016,-1.9575 L-1.7729,-1.8932 L-1.8418,-1.8262 L-1.9082,-1.7568 L-1.9719,-1.6849 L-2.0329,-1.6108 L-2.0912,-1.5344 L-2.1465,-1.4559 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
-<path d='M3.3581,-2.0112 L3.2855,-2.1277 L3.2089,-2.2416 L3.1283,-2.3527 L3.0439,-2.4609 L2.9558,-2.5661 L2.8640,-2.6682 L2.7687,-2.7670 L2.6700,-2.8623 L2.5680,-2.9542 L2.4629,-3.0424 L2.3547,-3.1268 L2.2436,-3.2075 L2.1298,-3.2842 L2.0134,-3.3568 L1.8944,-3.4253 L1.7732,-3.4896 L1.6498,-3.5497 L1.5243,-3.6053 L1.5363,-3.6337 L0.8702,-3.7938 L1.4952,-3.5364 L1.5072,-3.5648 L1.6312,-3.5098 L1.7533,-3.4504 L1.8731,-3.3868 L1.9907,-3.3191 L2.1059,-3.2472 L2.2184,-3.1714 L2.3282,-3.0917 L2.4352,-3.0082 L2.5391,-2.9210 L2.6400,-2.8301 L2.7376,-2.7358 L2.8318,-2.6382 L2.9226,-2.5373 L3.0097,-2.4333 L3.0932,-2.3263 L3.1728,-2.2164 L3.2486,-2.1038 L3.3203,-1.9886 Z' fill='#696969' opacity='0.9'/>
-<text x='2.4877' y='-3.4240' font-family='Helvetica, Arial, sans-serif' font-size='0.1125' text-anchor='middle' fill='#444' font-weight='normal'>shunt 1938_1</text>
-<path d='M1.5407,-2.1206 Q2.4809,-2.2694 3.3278,-2.7041' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M3.3278,-2.7041 L3.2650,-2.6294 L3.2304,-2.6966 Z' fill='#d3d3d3'/>
-<circle cx='4.4645' cy='-3.0753' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='3.3257' y='-4.2142' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M3.7332,-2.2359 L3.6525,-2.3654 L3.5674,-2.4920 L3.4778,-2.6155 L3.3840,-2.7358 L3.2860,-2.8528 L3.1839,-2.9662 L3.0780,-3.0760 L2.9683,-3.1821 L2.8549,-3.2842 L2.7380,-3.3822 L2.6177,-3.4761 L2.4943,-3.5658 L2.3677,-3.6510 L2.2383,-3.7318 L2.1061,-3.8080 L1.9713,-3.8795 L1.8340,-3.9462 L1.6946,-4.0081 L1.7066,-4.0364 L0.9679,-4.2200 L1.6654,-3.9392 L1.6774,-3.9675 L1.8155,-3.9063 L1.9513,-3.8402 L2.0848,-3.7695 L2.2156,-3.6941 L2.3438,-3.6141 L2.4690,-3.5297 L2.5913,-3.4410 L2.7103,-3.3480 L2.8260,-3.2510 L2.9382,-3.1499 L3.0469,-3.0449 L3.1517,-2.9362 L3.2527,-2.8239 L3.3497,-2.7082 L3.4426,-2.5891 L3.5313,-2.4668 L3.6156,-2.3415 L3.6955,-2.2133 Z' fill='#696969' opacity='0.9'/>
+<text x='2.7447' y='-3.7778' font-family='Helvetica, Arial, sans-serif' font-size='0.1125' text-anchor='middle' fill='#444' font-weight='normal'>shunt 1938_1</text>
+<path d='M1.5407,-2.1206 Q2.2853,-2.2046 2.9664,-2.5168' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M2.9664,-2.5168 L2.9003,-2.4449 L2.8688,-2.5137 Z' fill='#d3d3d3'/>
+<circle cx='4.1186' cy='-2.8370' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='2.9797' y='-3.9759' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 212.334 253.57"
@@ -536,10 +538,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M-4.3044,3.2957 Q-3.2731,2.2706 -2.6131,0.9749' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M-2.6131,0.9749 L-2.6202,1.0722 L-2.6876,1.0379 Z' fill='#d3d3d3'/>
-<circle cx='-4.3044' cy='3.2957' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='-5.4433' y='2.1568' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-3.9708,3.0403 Q-3.1234,2.1194 -2.6056,0.9801' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M-2.6056,0.9801 L-2.6084,1.0776 L-2.6773,1.0463 Z' fill='#d3d3d3'/>
+<circle cx='-3.9708' cy='3.0403' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='-5.1097' y='1.9014' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 287.846 240"
@@ -568,10 +570,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M-1.5407,-2.1206 Q-1.3917,-3.0608 -1.5434,-4.0005' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M-1.5434,-4.0005 L-1.4918,-3.9177 L-1.5664,-3.9056 Z' fill='#d3d3d3'/>
-<circle cx='-1.5452' cy='-5.1964' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='-2.6840' y='-6.3352' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-1.5407,-2.1206 Q-1.3906,-2.8547 -1.4769,-3.5990' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M-1.4769,-3.5990 L-1.4290,-3.5139 L-1.5041,-3.5052 Z' fill='#d3d3d3'/>
+<circle cx='-1.4254' cy='-4.7937' r='1.0819' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='-2.5643' y='-5.9326' width='2.2778' height='2.2778' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 249.282 220"
@@ -726,10 +728,11 @@ x="10.000000" y="20.000000" ></text>
 <path d='M-1.5274,-2.2049 L-1.6250,-2.1340 L-1.5541,-2.0363 L-1.4564,-2.1073 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-1.2791' y='-1.7606' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:5306_0</text>
 <text x='0.0000' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.26' text-anchor='middle' fill='#111' font-weight='normal'>C7H12O6</text>
-<text x='-5.6933' y='5.1396' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>9576_1  :  Knoevenagel C (inverse)</text>
-<text x='-5.6933' y='5.2946' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>723_0  :  Aldol Condensation</text>
-<text x='-5.6933' y='5.4496' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>8996_1  :  Knoevenagel C (inverse)</text>
-<text x='-5.6933' y='5.6046' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>1443_0  :  Cannizarro 2, glucose (oxidation)</text>
-<text x='-5.6933' y='5.7596' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>5306_0  :  Aldol Condensation</text>
+<text x='-5.9462' y='6.4012' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>9576_1  :  Knoevenagel C (inverse)</text>
+<text x='-5.9462' y='6.5562' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>723_0  :  Aldol Condensation</text>
+<text x='-5.9462' y='6.7112' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>8996_1  :  Knoevenagel C (inverse)</text>
+<text x='-5.9462' y='6.8662' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>1443_0  :  Cannizarro 2, glucose (oxidation)</text>
+<text x='-5.9462' y='7.0212' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>5306_0  :  Aldol Condensation</text>
+<text x='-5.9462' y='7.1762' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>1938_1  :  Knoevenagel H</text>
 </g></svg>
 <text x='738.0' y='678.0' font-family='Helvetica, Arial, sans-serif' font-size='24' font-weight='bold' fill='#111'>D</text></svg>

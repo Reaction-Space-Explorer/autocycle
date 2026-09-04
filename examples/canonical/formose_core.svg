@@ -1,15 +1,15 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='2176' viewBox='0 0 1100.00 2176.37'>
+<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='2048' viewBox='0 0 1100.00 2047.79'>
 <rect width='100%' height='100%' fill='white'/>
-<g transform='scale(162.0385) translate(3.3943,6.2556)'>
+<g transform='scale(169.2395) translate(3.2498,5.5900)'>
 <path d='M0.7385,-2.0129 L0.8114,-1.9847 L0.8832,-1.9538 L0.9539,-1.9203 L1.0233,-1.8842 L1.0913,-1.8456 L1.1579,-1.8046 L1.2229,-1.7612 L1.2863,-1.7154 L1.3480,-1.6674 L1.4079,-1.6171 L1.4660,-1.5647 L1.5221,-1.5102 L1.5761,-1.4537 L1.6281,-1.3952 L1.6779,-1.3349 L1.7254,-1.2728 L1.7707,-1.2091 L1.8136,-1.1437 L1.8541,-1.0768 L1.8874,-1.0961 L1.9871,-0.7290 L1.7733,-1.0298 L1.8066,-1.0492 L1.7671,-1.1144 L1.7253,-1.1781 L1.6812,-1.2402 L1.6348,-1.3007 L1.5863,-1.3594 L1.5357,-1.4164 L1.4830,-1.4714 L1.4284,-1.5245 L1.3718,-1.5756 L1.3135,-1.6246 L1.2533,-1.6714 L1.1916,-1.7160 L1.1282,-1.7583 L1.0633,-1.7983 L0.9970,-1.8359 L0.9294,-1.8710 L0.8606,-1.9037 L0.7906,-1.9338 L0.7195,-1.9613 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M2.0129,0.7385 L1.9847,0.8114 L1.9538,0.8832 L1.9203,0.9539 L1.8842,1.0233 L1.8456,1.0913 L1.8046,1.1579 L1.7612,1.2229 L1.7154,1.2863 L1.6674,1.3480 L1.6171,1.4079 L1.5647,1.4660 L1.5102,1.5221 L1.4537,1.5761 L1.3952,1.6281 L1.3349,1.6779 L1.2728,1.7254 L1.2091,1.7707 L1.1437,1.8136 L1.0768,1.8541 L1.0961,1.8874 L0.7290,1.9871 L1.0298,1.7733 L1.0492,1.8066 L1.1144,1.7671 L1.1781,1.7253 L1.2402,1.6812 L1.3007,1.6348 L1.3594,1.5863 L1.4164,1.5357 L1.4714,1.4830 L1.5245,1.4284 L1.5756,1.3718 L1.6246,1.3135 L1.6714,1.2533 L1.7160,1.1916 L1.7583,1.1282 L1.7983,1.0633 L1.8359,0.9970 L1.8710,0.9294 L1.9037,0.8606 L1.9338,0.7906 L1.9613,0.7195 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M-0.7385,2.0129 L-0.8114,1.9847 L-0.8832,1.9538 L-0.9539,1.9203 L-1.0233,1.8842 L-1.0913,1.8456 L-1.1579,1.8046 L-1.2229,1.7612 L-1.2863,1.7154 L-1.3480,1.6674 L-1.4079,1.6171 L-1.4660,1.5647 L-1.5221,1.5102 L-1.5761,1.4537 L-1.6281,1.3952 L-1.6779,1.3349 L-1.7254,1.2728 L-1.7707,1.2091 L-1.8136,1.1437 L-1.8541,1.0768 L-1.8874,1.0961 L-1.9871,0.7290 L-1.7733,1.0298 L-1.8066,1.0492 L-1.7671,1.1144 L-1.7253,1.1781 L-1.6812,1.2402 L-1.6348,1.3007 L-1.5863,1.3594 L-1.5357,1.4164 L-1.4830,1.4714 L-1.4284,1.5245 L-1.3718,1.5756 L-1.3135,1.6246 L-1.2533,1.6714 L-1.1916,1.7160 L-1.1282,1.7583 L-1.0633,1.7983 L-0.9970,1.8359 L-0.9294,1.8710 L-0.8606,1.9037 L-0.7906,1.9338 L-0.7195,1.9613 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
 <path d='M-2.0543,-0.7536 L-2.0257,-0.8274 L-1.9945,-0.9000 L-1.9606,-0.9715 L-1.9242,-1.0418 L-1.8853,-1.1106 L-1.8440,-1.1780 L-1.8002,-1.2439 L-1.7540,-1.3082 L-1.7056,-1.3707 L-1.6550,-1.4314 L-1.6022,-1.4903 L-1.5472,-1.5472 L-1.4903,-1.6022 L-1.4314,-1.6550 L-1.3707,-1.7056 L-1.3082,-1.7540 L-1.2439,-1.8002 L-1.1780,-1.8440 L-1.1106,-1.8853 L-1.0418,-1.9242 L-0.9715,-1.9606 L-0.9000,-1.9945 L-0.8274,-2.0257 L-0.7536,-2.0543 L-0.7044,-1.9200 L-0.7733,-1.8933 L-0.8412,-1.8641 L-0.9080,-1.8325 L-0.9737,-1.7985 L-1.0380,-1.7621 L-1.1010,-1.7234 L-1.1626,-1.6825 L-1.2227,-1.6394 L-1.2811,-1.5942 L-1.3379,-1.5468 L-1.3929,-1.4974 L-1.4461,-1.4461 L-1.4974,-1.3929 L-1.5468,-1.3379 L-1.5942,-1.2811 L-1.6394,-1.2227 L-1.6825,-1.1626 L-1.7234,-1.1010 L-1.7621,-1.0380 L-1.7985,-0.9737 L-1.8325,-0.9080 L-1.8641,-0.8412 L-1.8933,-0.7733 L-1.9200,-0.7044 Z' fill='#1a7f37' opacity='0.15'/>
 <path d='M-2.0129,-0.7385 L-1.9847,-0.8114 L-1.9538,-0.8832 L-1.9203,-0.9539 L-1.8842,-1.0233 L-1.8456,-1.0913 L-1.8046,-1.1579 L-1.7612,-1.2229 L-1.7154,-1.2863 L-1.6674,-1.3480 L-1.6171,-1.4079 L-1.5647,-1.4660 L-1.5102,-1.5221 L-1.4537,-1.5761 L-1.3952,-1.6281 L-1.3349,-1.6779 L-1.2728,-1.7254 L-1.2091,-1.7707 L-1.1437,-1.8136 L-1.0768,-1.8541 L-1.0961,-1.8874 L-0.7290,-1.9871 L-1.0298,-1.7733 L-1.0492,-1.8066 L-1.1144,-1.7671 L-1.1781,-1.7253 L-1.2402,-1.6812 L-1.3007,-1.6348 L-1.3594,-1.5863 L-1.4164,-1.5357 L-1.4714,-1.4830 L-1.5245,-1.4284 L-1.5756,-1.3718 L-1.6246,-1.3135 L-1.6714,-1.2533 L-1.7160,-1.1916 L-1.7583,-1.1282 L-1.7983,-1.0633 L-1.8359,-0.9970 L-1.8710,-0.9294 L-1.9037,-0.8606 L-1.9338,-0.7906 L-1.9613,-0.7195 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
-<path d='M1.7379,-4.5992 Q1.3933,-3.1677 1.5125,-1.7001' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M1.5125,-1.7001 L1.4675,-1.7867 L1.5429,-1.7928 Z' fill='#d3d3d3'/>
-<circle cx='1.7379' cy='-4.5992' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='0.6316' y='-5.7056' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M1.4864,-3.9336 Q1.3125,-2.8164 1.4958,-1.7007' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M1.4958,-1.7007 L1.4439,-1.7834 L1.5185,-1.7956 Z' fill='#d3d3d3'/>
+<circle cx='1.4864' cy='-3.9336' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='0.3800' y='-5.0400' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 120 80"
@@ -24,10 +24,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M-1.7379,4.5992 Q-1.3933,3.1677 -1.5125,1.7001' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M-1.5125,1.7001 L-1.4675,1.7867 L-1.5429,1.7928 Z' fill='#d3d3d3'/>
-<circle cx='-1.7379' cy='4.5992' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='-2.8443' y='3.4929' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-1.4864,3.9336 Q-1.3125,2.8164 -1.4958,1.7007' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M-1.4958,1.7007 L-1.4439,1.7834 L-1.5185,1.7956 Z' fill='#d3d3d3'/>
+<circle cx='-1.4864' cy='3.9336' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='-2.5927' y='2.8273' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 120 80"
@@ -42,10 +42,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M-1.4967,-1.4967 Q-1.4167,-2.4810 -1.6479,-3.4411' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
-<path d='M-1.6479,-3.4411 L-1.5900,-3.3624 L-1.6635,-3.3447 Z' fill='#d3d3d3'/>
-<circle cx='-1.7379' cy='-4.5992' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
-<svg x='-2.8443' y='-5.7056' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-1.4967,-1.4967 Q-1.3920,-2.1339 -1.4913,-2.7720' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M-1.4913,-2.7720 L-1.4401,-2.6889 L-1.5148,-2.6772 Z' fill='#d3d3d3'/>
+<circle cx='-1.4864' cy='-3.9336' r='1.0510' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='-2.5927' y='-5.0400' width='2.2127' height='2.2127' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 160 114.641"
@@ -148,8 +148,8 @@ x="10.000000" y="20.000000" ></text>
 <text x='-1.1113' y='-1.1113' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:retro-aldol</text>
 <text x='-1.1113' y='-0.9613' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#1a7f37' font-weight='normal'>gain</text>
 <text x='0.0000' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.26' text-anchor='middle' fill='#111' font-weight='normal'>glycolaldehyde</text>
-<text x='-3.0943' y='6.4106' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>aldol-1  :  Aldol addition</text>
-<text x='-3.0943' y='6.5656' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>isomerise  :  Keto-enol isomerisation</text>
-<text x='-3.0943' y='6.7206' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>aldol-2  :  Aldol addition</text>
-<text x='-3.0943' y='6.8756' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>retro-aldol  :  Retro-aldol cleavage</text>
+<text x='-2.9498' y='5.7450' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>aldol-1  :  Aldol addition</text>
+<text x='-2.9498' y='5.9000' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>isomerise  :  Keto-enol isomerisation</text>
+<text x='-2.9498' y='6.0550' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>aldol-2  :  Aldol addition</text>
+<text x='-2.9498' y='6.2100' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>retro-aldol  :  Retro-aldol cleavage</text>
 </g></svg>

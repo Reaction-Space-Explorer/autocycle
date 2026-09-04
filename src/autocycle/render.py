@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+from autocycle import draw as _draw
 from autocycle import layout as L
 from autocycle import tree as T
-from autocycle.depict import formula
+from autocycle.depict import fit_bond, formula
 from autocycle.draw import (
     GAIN,
     _p,
@@ -36,6 +37,7 @@ def render(obj, mode: str = "linear", style: str | Style = "paper", legend=None)
 def _render_pathway(pw: Pathway, mode: str, style: str | Style, legend) -> str:
     st = get(style) if isinstance(style, str) else style
     show_legend = st.legend if legend is None else legend
+    _draw.BOND[0] = fit_bond(_route_smiles(pw))
 
     lay = T.lay_out_pathway(pw)
     span = dg_span([s.dg for s in pw.steps])
@@ -65,6 +67,7 @@ def _render_pathway(pw: Pathway, mode: str, style: str | Style, legend) -> str:
 def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
     st = get(style) if isinstance(style, str) else style
     show_legend = st.legend if legend is None else legend
+    _draw.BOND[0] = fit_bond(_cycle_smiles(cycle))
 
     ring = L.lay_out(len(cycle.nodes))
     subs = [(L.lay_out_sub(ring, s.at_step, len(s.nodes)), s) for s in cycle.subs]
@@ -114,12 +117,36 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
     if rules:
         y0 -= 0.30 + 0.155 * len(rules)
         body += [
-            text(x0 + 0.3, -(y0 + 0.30 + 0.155 * (len(rules) - 1 - i)), line, 0.13, "start", "#222")
+            text(x0 + 0.3, -(y0 + 0.30 + 0.155 * (len(rules) - 1 - i)), line,
+                 st.label_size, "start", "#222")
             for i, line in enumerate(rules)
         ]
     if show_legend:
         y0 -= 0.72
     return _wrap(body, x0, y0, x1, y1, cycle, span, mode, show_legend)
+
+
+def _cycle_smiles(cycle) -> list[str]:
+    out = [m.smiles for m in cycle.nodes if getattr(m, "structure", True)]
+    groups = [cycle.steps] + [s.steps for s in cycle.subs]
+    if cycle.shunt:
+        groups.append(cycle.shunt.steps)
+        out += [m.smiles for m in cycle.shunt.nodes if getattr(m, "structure", True)]
+    for sub in cycle.subs:
+        out += [m.smiles for m in sub.nodes if getattr(m, "structure", True)]
+    for g in groups:
+        for st_ in g:
+            out += [sp.smiles for sp in st_.consumes + st_.produces
+                    if getattr(sp, "structure", True)]
+    return out
+
+
+def _route_smiles(pw) -> list[str]:
+    out = [n.mol.smiles for n in pw.nodes if getattr(n.mol, "structure", True)]
+    for st_ in pw.steps:
+        out += [sp.smiles for sp in st_.consumes + st_.produces
+                if getattr(sp, "structure", True)]
+    return out
 
 
 def _rule_lines(cycle) -> list[str]:
