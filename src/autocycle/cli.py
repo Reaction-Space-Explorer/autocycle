@@ -117,6 +117,9 @@ def main(argv: list[str] | None = None) -> int:
                     help="cycle length in bipartite edges (2x molecules, as published) "
                          "or in molecules")
 
+    vf = sub.add_parser("verify", help="check a cycle's stoichiometry without drawing it")
+    vf.add_argument("spec")
+
     ls = sub.add_parser("list", help="list cycles in an edge list, optionally to CSV")
     ls.add_argument("csv")
     ls.add_argument("--min-len", type=int, default=3)
@@ -151,6 +154,9 @@ def main(argv: list[str] | None = None) -> int:
 
         if a.cmd == "panel":
             return _panel(a)
+
+        if a.cmd == "verify":
+            return _verify(a)
 
         if a.cmd == "sbgn":
             from autocycle.sbgn import to_sbgn
@@ -325,6 +331,33 @@ def _bench_routes(a) -> int:
                 f"leaves={len(pw.leaves)}  complete={pw.complete}  {pw.meta.get('source', '')[:34]}"
             )
         print(f"wrote {len(picked)} SVGs to {d}/")
+    return 0
+
+
+def _verify(a) -> int:
+    """Report the stoichiometric verdict and Clarke's steady-state reading of it."""
+    from autocycle.sna import current
+    from autocycle.verify import verify as run
+
+    cycle = load_yaml(a.spec)
+    v, cur = run(cycle), current(cycle)
+    print(f"status     {v.status}")
+    print(f"conditions {', '.join(f'{k}={x}' for k, x in v.conditions.items())}")
+    if v.seed_yield is not None:
+        print(f"seed yield n = {v.seed_yield:g}")
+    if v.disagrees_with_declaration:
+        print("warning    a step is marked gain but no extra copy is stated")
+
+    left = " + ".join(f"{-n:g} {s}" for s, n in cur.overall.items() if n < 0)
+    right = " + ".join(f"{n:g} {s}" for s, n in cur.overall.items() if n > 0)
+    print(f"overall    {left or '-'}  ->  {right or '-'}")
+    res = cur.atom_residual
+    print(f"atoms      {', '.join(f'{k} {v:+d}' for k, v in res.items()) if res else 'balanced'}")
+    print(f"currents   {cur.cone_dim} "
+          f"({'one extreme current' if cur.extreme else 'not a single extreme current'})")
+    if cur.imbalanced:
+        print(f"imbalanced {', '.join(cur.imbalanced)}")
+        return 1
     return 0
 
 

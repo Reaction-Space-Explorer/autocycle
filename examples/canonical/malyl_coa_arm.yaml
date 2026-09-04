@@ -17,7 +17,9 @@ nodes:
   - {smiles: "C(C(C(=O)O)O)C(=O)S[CoA]", label: malyl-CoA}
 steps:
   - {id: r16, rule: Acetyl-CoA carboxylase, consumes: [{smiles: "O=C=O", count: 1}]}
-  - {id: r-oaa, rule: Reduction to oxaloacetate}
+  # C3 to C4: this step carboxylates, as in the full solution
+  - {id: r-oaa, rule: Reductive carboxylation to oxaloacetate,
+     consumes: [{smiles: "O=C=O", count: 1}]}
   - {id: r5, rule: Malate dehydrogenase}
   - {id: r23, rule: Malyl-CoA synthetase}
   - id: r-lyase

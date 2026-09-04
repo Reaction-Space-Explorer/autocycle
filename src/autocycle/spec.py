@@ -73,7 +73,8 @@ class Step:
     rid: str
     rule: str | None = None
     dg: float | None = None
-    mag: float = 1.0
+    mag: float = 1.0          # arrow weight only
+    flux: float = 1.0         # Clarke's current: how often the step fires per turn
     rev_mag: float | None = None
     consumes: list[Side] = field(default_factory=list)
     produces: list[Side] = field(default_factory=list)
@@ -84,6 +85,8 @@ class Step:
     def __post_init__(self):
         if self.mag < 0 or (self.rev_mag is not None and self.rev_mag < 0):
             raise SpecError(f"{self.rid}: magnitudes must be >= 0")
+        if self.flux < 0:
+            raise SpecError(f"{self.rid}: flux must be >= 0")
 
     @property
     def reversible(self) -> bool:

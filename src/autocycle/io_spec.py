@@ -38,6 +38,7 @@ def _step(d: dict) -> Step:
         rule=d.get("rule"),
         dg=None if d.get("dg") is None else float(d["dg"]),
         mag=float(d.get("mag", 1.0)),
+        flux=float(d.get("flux", 1.0)),
         rev_mag=None if d.get("rev_mag") is None else float(d["rev_mag"]),
         consumes=_sides(d.get("consumes")),
         produces=_sides(d.get("produces")),

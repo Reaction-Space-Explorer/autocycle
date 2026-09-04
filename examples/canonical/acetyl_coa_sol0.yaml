@@ -13,7 +13,8 @@
 #
 # Ring flux is 1 except OXALACETIC ACID -> MALIC ACID -> MALYL COA, which carries 2,
 # because oxaloacetate is produced twice per turn: once from malonyl-CoA and once when
-# citryl-CoA is cleaved at the end of the shunt.
+# citryl-CoA is cleaved at the end of the shunt. That is the `flux` field, which is
+# Clarke's current v; `mag` only sets arrow weight.
 title: Shortest autocatalytic acetyl-CoA cycle (Sol 0)
 seed: 0
 stoichiometry_complete: true
@@ -25,9 +26,12 @@ nodes:
   - {smiles: "C(C(C(=O)O)O)C(=O)S[CoA]", label: malyl-CoA}
 steps:
   - {id: r16, rule: Acetyl-CoA carboxylase, consumes: [{smiles: "OC(=O)O", count: 1}]}
-  - {id: r9, rule: 2-ketoglutarate:ferredoxin oxidoreductase}
-  - {id: r2, rule: ATP citrate lyase, mag: 2.0}
-  - {id: r23, rule: 4HB-CoA synthetase, mag: 2.0}
+  # malonyl-CoA is C3 and oxaloacetate is C4, so this step carboxylates; the reductant
+  # and the released CoA are carriers and are not drawn
+  - {id: r9, rule: 2-ketoglutarate:ferredoxin oxidoreductase,
+     consumes: [{smiles: "OC(=O)O", count: 1}]}
+  - {id: r2, rule: ATP citrate lyase, mag: 2.0, flux: 2.0}
+  - {id: r23, rule: 4HB-CoA synthetase, mag: 2.0, flux: 2.0}
   - id: r1a
     rule: Succinyl-CoA synthetase (malyl-CoA cleavage)
     produces: [{smiles: "C(=O)C(=O)O", count: 1}]
@@ -47,6 +51,6 @@ shunt:
     - {id: r7_r8, rule: Aconitase or crotonase}
     - id: r1b
       rule: Succinyl-CoA synthetase (citryl-CoA cleavage)
-      produces:
-        - {smiles: "CC(=O)S[CoA]", count: 1}
-        - {smiles: "C(C(=O)C(=O)O)C(=O)O", count: 1}
+      # the acetyl-CoA of this cleavage is the shunt arriving at the seed, drawn as the
+      # closing arrow rather than declared again here
+      produces: [{smiles: "C(C(=O)C(=O)O)C(=O)O", count: 1}]

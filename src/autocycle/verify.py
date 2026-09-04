@@ -65,8 +65,11 @@ def verify(cycle: Cycle) -> Verdict:
     off_ring_in = [sp for sp in consumed if sp.smiles not in ring]
     off_ring_out = [sp for sp in produced if sp.smiles not in ring]
 
-    # the ring closure returns one seed; a further copy must be produced explicitly
+    # the ring closure returns one seed; a further copy must be produced explicitly,
+    # or delivered by a shunt terminating on the seed
     extra = sum(sp.count for sp in produced if seed is not None and sp.smiles == seed)
+    if cycle.shunt is not None and cycle.stoichiometry_complete:
+        extra += 1
     seed_yield = 1.0 + extra if seed is not None else None
 
     conditions = {
