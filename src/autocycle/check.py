@@ -28,6 +28,17 @@ def boxes(cycle, st: Style = PAPER) -> list[tuple[str, float, float, float]]:
             out.append((nodes[v.index].smiles, v.x, v.y, half))
         for _, _, sp, (x, y) in L.side_points(r, steps, avoid=avoid):
             out.append((sp.smiles, x, y, half))
+
+    sh = cycle.shunt
+    if sh is not None and cycle.seed is not None and sh.nodes:
+        half = L.mol_half(ring) * st.mol_scale
+        _, _, _, pos = L.shunt_points(
+            ring, sh.from_node, cycle.seed, len(sh.steps), len(sh.nodes), half,
+            L.side_reach(ring, cycle.steps, half),
+        )
+        for k, (x, y, _) in enumerate(pos):
+            if k % 2:
+                out.append((sh.nodes[(k - 1) // 2].smiles, x, y, half))
     return out
 
 

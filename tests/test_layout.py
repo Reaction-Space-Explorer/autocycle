@@ -89,3 +89,16 @@ def test_side_anchor_rejects_bad_side():
 def test_ring_radius_needs_two_molecules():
     with pytest.raises(ValueError, match=">= 2"):
         L.ring_radius(1)
+
+
+def test_a_shunt_clears_the_ring_side_species():
+    """The shunt is an outer arc, so it must not run through the ring's own feeders."""
+    from autocycle.io_spec import load_yaml
+
+    c = load_yaml("examples/canonical/acetyl_coa_sol0.yaml")
+    ring = L.lay_out(len(c.nodes))
+    half = L.mol_half(ring)
+    reach = L.side_reach(ring, c.steps, half)
+    r, _, _ = L.shunt_arc(ring, c.shunt.from_node, c.seed, len(c.shunt.nodes), half, reach)
+    assert reach > 0
+    assert r - half > reach

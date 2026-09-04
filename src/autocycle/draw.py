@@ -164,7 +164,10 @@ def draw_shunt(ring: L.Ring, cycle, st_: Style) -> list[str]:
     if sh is None or cycle.seed is None:
         return []
     half = L.mol_half(ring) * st_.mol_scale
-    r, a0, span = L.shunt_arc(ring, sh.from_node, cycle.seed, len(sh.nodes), half)
+    clear = L.side_reach(ring, cycle.steps, half)
+    r, a0, span, pos = L.shunt_points(
+        ring, sh.from_node, cycle.seed, len(sh.steps), len(sh.nodes), half, clear
+    )
     if abs(span) < 1e-6:
         return []
     w = (st_.uniform_width or 0.075) * 0.8
@@ -188,11 +191,7 @@ def draw_shunt(ring: L.Ring, cycle, st_: Style) -> list[str]:
     # vertices alternate reaction, molecule, ... reaction, strictly between the two
     # ring molecules the shunt joins
     n_v = len(sh.steps) + len(sh.nodes)
-    slots = [a0 + span * (k + 1) / (n_v + 1) for k in range(n_v)]
-    pos = []
-    for ang in slots:
-        dx, dy = L.polar(r, ang)
-        pos.append((ring.cx + dx, ring.cy + dy, ang))
+    slots = [ang for _, _, ang in pos]
 
     vf = ring.verts[(2 * sh.from_node) % ring.n]
     vs = ring.verts[(2 * cycle.seed) % ring.n]

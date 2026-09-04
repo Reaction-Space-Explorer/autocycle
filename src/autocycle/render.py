@@ -24,6 +24,9 @@ from autocycle.style import Style, get
 
 PAD = 0.55
 TARGET_PX = 1100.0
+# the thinnest stroke drawn is 0.006 world units, so below this a big figure would
+# render it as a disappearing hairline; large figures get a wider canvas instead
+MIN_SCALE = 85.0
 ROUTE_PX_PER_COLUMN = 250.0  # a deep route gets a wider canvas, not smaller structures
 
 
@@ -106,7 +109,8 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
     if cycle.shunt is not None and cycle.seed is not None:
         h = L.mol_half(ring) * st.mol_scale
         rr, _, _ = L.shunt_arc(ring, cycle.shunt.from_node, cycle.seed,
-                               len(cycle.shunt.nodes), h)
+                               len(cycle.shunt.nodes), h,
+                               L.side_reach(ring, cycle.steps, h))
         rr += h * 1.2
         pad += [
             (ring.cx + L.polar(rr, ang)[0], ring.cy + L.polar(rr, ang)[1])
@@ -162,7 +166,7 @@ def _rule_lines(cycle) -> list[str]:
 
 def _wrap(body, x0, y0, x1, y1, obj, span, mode, show_legend, target_px=TARGET_PX) -> str:
     w, h = x1 - x0, y1 - y0
-    scale = target_px / w
+    scale = max(target_px / w, MIN_SCALE)
     head = [f"<g transform='scale({scale:.4f}) translate({-x0:.4f},{y1:.4f})'>"]
     if show_legend:
         head += _legend(obj, x0 + 0.15, y0 + 0.2, w, span, mode)

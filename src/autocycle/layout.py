@@ -178,7 +178,16 @@ def side_points(
     return out
 
 
-def shunt_arc(ring: Ring, from_node: int, seed: int, n_nodes: int, half: float):
+def side_reach(ring: Ring, steps, half: float) -> float:
+    """Outermost radius the ring's side species occupy; 0 when there are none."""
+    deepest = max((max(len(st.consumes), len(st.produces)) for st in steps), default=0)
+    if not deepest:
+        return 0.0
+    return ring.radius + side_out(ring, 0.34) + 1.9 * (deepest - 1) + half
+
+
+def shunt_arc(ring: Ring, from_node: int, seed: int, n_nodes: int, half: float,
+              clear: float = 0.0):
     """Radius, start angle and angular span for a shunt arc outside the ring.
 
     Routed the long way round when it carries intermediates, so the arc is long enough
@@ -193,10 +202,28 @@ def shunt_arc(ring: Ring, from_node: int, seed: int, n_nodes: int, half: float):
     if n_nodes:
         span = short - 360.0 if short > 0 else short + 360.0
     r = ring.radius + half * 1.5
+    if clear:
+        r = max(r, clear + half * 1.4)   # clear the ring's own side species
     if n_nodes:
         need = n_nodes * 2.5 * half
         r = max(r, need / abs(math.radians(span)))
     return r, a, span
+
+
+def shunt_points(ring: Ring, from_node: int, seed: int, n_steps: int, n_nodes: int,
+                 half: float, clear: float = 0.0):
+    """Arc geometry and the alternating reaction/molecule slots along it.
+
+    Shared by the renderer and the bounds so the two cannot disagree.
+    """
+    r, a0, span = shunt_arc(ring, from_node, seed, n_nodes, half, clear)
+    n_v = n_steps + n_nodes
+    pos = []
+    for k in range(n_v):
+        ang = a0 + span * (k + 1) / (n_v + 1)
+        dx, dy = polar(r, ang)
+        pos.append((ring.cx + dx, ring.cy + dy, ang))
+    return r, a0, span, pos
 
 
 def bounds(rings, points, pad: float):
