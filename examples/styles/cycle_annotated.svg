@@ -1,4 +1,4 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1287' viewBox='0 0 1100.00 1286.94'>
+<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1512' viewBox='0 0 1100.00 1512.22'>
 <rect width='100%' height='100%' fill='white'/>
 <g transform='scale(98.3904) translate(5.5900,5.5900)'>
 <path d='M0.7385,-2.0129 L0.8114,-1.9847 L0.8832,-1.9538 L0.9539,-1.9203 L1.0233,-1.8842 L1.0913,-1.8456 L1.1579,-1.8046 L1.2229,-1.7612 L1.2863,-1.7154 L1.3480,-1.6674 L1.4079,-1.6171 L1.4660,-1.5647 L1.5221,-1.5102 L1.5761,-1.4537 L1.6281,-1.3952 L1.6779,-1.3349 L1.7254,-1.2728 L1.7707,-1.2091 L1.8136,-1.1437 L1.8541,-1.0768 L1.8874,-1.0961 L1.9871,-0.7290 L1.7733,-1.0298 L1.8066,-1.0492 L1.7671,-1.1144 L1.7253,-1.1781 L1.6812,-1.2402 L1.6348,-1.3007 L1.5863,-1.3594 L1.5357,-1.4164 L1.4830,-1.4714 L1.4284,-1.5245 L1.3718,-1.5756 L1.3135,-1.6246 L1.2533,-1.6714 L1.1916,-1.7160 L1.1282,-1.7583 L1.0633,-1.7983 L0.9970,-1.8359 L0.9294,-1.8710 L0.8606,-1.9037 L0.7906,-1.9338 L0.7195,-1.9613 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
@@ -206,8 +206,9 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 x="10.000000" y="20.000000" ></text>
 </svg>
 <path d='M0.0603,5.2963 L-0.0603,5.2963 L-0.0603,5.4170 L0.0603,5.4170 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='0.0000' y='4.8116' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:b2</text>
-<text x='0.0000' y='4.9616' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>8.80 kJ/mol</text>
+<text x='0.0000' y='4.7116' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:b2</text>
+<text x='0.0000' y='4.8616' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>8.80 kJ/mol</text>
+<text x='0.0000' y='5.0116' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>-1 H2O</text>
 <svg x='0.3659' y='3.5096' width='2.0741' height='2.0741' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
@@ -229,14 +230,15 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 x="10.000000" y="20.000000" ></text>
 </svg>
 <path d='M1.3205,2.9045 L1.3809,3.0091 L1.4854,2.9487 L1.4250,2.8442 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='0.9310' y='3.1991' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:b3</text>
-<text x='0.9310' y='3.3491' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>-6.00 kJ/mol</text>
+<text x='0.8444' y='3.2491' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:b3</text>
+<text x='0.8444' y='3.3991' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>-6.00 kJ/mol</text>
+<text x='0.8444' y='3.5491' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>+1 H2O</text>
 <text x='0.0000' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.26' text-anchor='middle' fill='#111' font-weight='normal'>glycolaldehyde</text>
-<text x='-5.2900' y='6.2599' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>r1  :  Aldol condensation</text>
-<text x='-5.2900' y='6.4149' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>r2  :  Aldol condensation</text>
-<text x='-5.2900' y='6.5699' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>r3  :  Retro-aldol</text>
-<text x='-5.2900' y='6.7249' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>r4  :  Retro-aldol</text>
-<text x='-5.2900' y='6.8799' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>b1  :  Isomerisation</text>
-<text x='-5.2900' y='7.0349' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>b2  :  Dehydration</text>
-<text x='-5.2900' y='7.1899' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>b3  :  Hydration</text>
+<text x='-5.2900' y='8.5496' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>r1  :  Aldol condensation</text>
+<text x='-5.2900' y='8.7046' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>r2  :  Aldol condensation</text>
+<text x='-5.2900' y='8.8596' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>r3  :  Retro-aldol</text>
+<text x='-5.2900' y='9.0146' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>r4  :  Retro-aldol</text>
+<text x='-5.2900' y='9.1696' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>b1  :  Isomerisation</text>
+<text x='-5.2900' y='9.3246' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>b2  :  Dehydration</text>
+<text x='-5.2900' y='9.4796' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>b3  :  Hydration</text>
 </g></svg>

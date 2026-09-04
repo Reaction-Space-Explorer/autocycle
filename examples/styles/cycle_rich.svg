@@ -1,19 +1,19 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1284' viewBox='0 0 1100.00 1283.86'>
+<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1490' viewBox='0 0 1100.00 1489.69'>
 <rect width='100%' height='100%' fill='white'/>
 <g transform='scale(107.5260) translate(5.1150,5.1150)'>
-<text x='-4.9650' y='5.9049' font-family='Helvetica, Arial, sans-serif' font-size='0.11' text-anchor='start' fill='#111' font-weight='bold'>Formose-type autocatalytic cycle</text>
+<text x='-4.9650' y='7.8192' font-family='Helvetica, Arial, sans-serif' font-size='0.11' text-anchor='start' fill='#111' font-weight='bold'>Formose-type autocatalytic cycle</text>
 <defs><linearGradient id='dgbar'><stop offset='0.00' stop-color='#2166ac'/><stop offset='0.10' stop-color='#4c83ba'/><stop offset='0.20' stop-color='#76a0c9'/><stop offset='0.30' stop-color='#a1bcd7'/><stop offset='0.40' stop-color='#cbd9e6'/><stop offset='0.50' stop-color='#f6f6f4'/><stop offset='0.60' stop-color='#e8cacc'/><stop offset='0.70' stop-color='#db9da4'/><stop offset='0.80' stop-color='#cd717b'/><stop offset='0.90' stop-color='#c04453'/><stop offset='1.00' stop-color='#b2182b'/></linearGradient></defs>
-<rect x='-4.9650' y='6.2149' width='2.4000' height='0.1100' fill='url(#dgbar)' stroke='#999' stroke-width='0.006'/>
-<text x='-4.9650' y='6.4149' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='start' fill='#444' font-weight='normal'>-16</text>
-<text x='-3.7650' y='6.4149' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='middle' fill='#444' font-weight='normal'>dG (kJ/mol)   0</text>
-<text x='-2.5650' y='6.4149' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='end' fill='#444' font-weight='normal'>+16</text>
-<text x='-2.0650' y='6.1849' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r1  Aldol condensation</text>
-<text x='-2.0650' y='6.2729' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r2  Aldol condensation</text>
-<text x='-2.0650' y='6.3609' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r3  Retro-aldol</text>
-<text x='-2.0650' y='6.4489' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r4  Retro-aldol</text>
-<text x='-4.9650' y='6.5649' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#222' font-weight='normal'>cycle dG = -33.9 kJ/mol</text>
-<text x='-2.0650' y='6.5649' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#1a7f37' font-weight='normal'>gain step: r4</text>
-<text x='1.0350' y='6.5649' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#666' font-weight='normal'>width scale: linear</text>
+<rect x='-4.9650' y='8.1292' width='2.4000' height='0.1100' fill='url(#dgbar)' stroke='#999' stroke-width='0.006'/>
+<text x='-4.9650' y='8.3292' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='start' fill='#444' font-weight='normal'>-16</text>
+<text x='-3.7650' y='8.3292' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='middle' fill='#444' font-weight='normal'>dG (kJ/mol)   0</text>
+<text x='-2.5650' y='8.3292' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='end' fill='#444' font-weight='normal'>+16</text>
+<text x='-2.0650' y='8.0992' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r1  Aldol condensation</text>
+<text x='-2.0650' y='8.1872' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r2  Aldol condensation</text>
+<text x='-2.0650' y='8.2752' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r3  Retro-aldol</text>
+<text x='-2.0650' y='8.3632' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r4  Retro-aldol</text>
+<text x='-4.9650' y='8.4792' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#222' font-weight='normal'>cycle dG = -33.9 kJ/mol</text>
+<text x='-2.0650' y='8.4792' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#1a7f37' font-weight='normal'>gain step: r4</text>
+<text x='1.0350' y='8.4792' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#666' font-weight='normal'>width scale: linear</text>
 <path d='M0.7411,-2.0200 L0.8142,-1.9916 L0.8863,-1.9606 L0.9572,-1.9270 L1.0269,-1.8908 L1.0951,-1.8521 L1.1619,-1.8109 L1.2272,-1.7673 L1.2908,-1.7214 L1.3528,-1.6732 L1.4129,-1.6227 L1.4711,-1.5701 L1.5274,-1.5155 L1.5816,-1.4587 L1.6338,-1.4001 L1.6838,-1.3396 L1.7315,-1.2773 L1.7769,-1.2133 L1.8200,-1.1477 L1.8606,-1.0806 L1.9030,-1.1052 L1.9871,-0.7290 L1.7577,-1.0208 L1.8001,-1.0454 L1.7608,-1.1104 L1.7191,-1.1738 L1.6752,-1.2357 L1.6290,-1.2960 L1.5806,-1.3545 L1.5302,-1.4113 L1.4777,-1.4662 L1.4232,-1.5191 L1.3669,-1.5700 L1.3087,-1.6188 L1.2488,-1.6654 L1.1873,-1.7098 L1.1241,-1.7520 L1.0595,-1.7918 L0.9934,-1.8293 L0.9261,-1.8643 L0.8575,-1.8968 L0.7877,-1.9268 L0.7169,-1.9543 Z' fill='#2166ac' opacity='1.0' stroke='#555' stroke-width='0.008'/>
 <path d='M2.0200,0.7411 L1.9916,0.8142 L1.9606,0.8863 L1.9270,0.9572 L1.8908,1.0269 L1.8521,1.0951 L1.8109,1.1619 L1.7673,1.2272 L1.7214,1.2908 L1.6732,1.3528 L1.6227,1.4129 L1.5701,1.4711 L1.5155,1.5274 L1.4587,1.5816 L1.4001,1.6338 L1.3396,1.6838 L1.2773,1.7315 L1.2133,1.7769 L1.1477,1.8200 L1.0806,1.8606 L1.1052,1.9030 L0.7290,1.9871 L1.0208,1.7577 L1.0454,1.8001 L1.1104,1.7608 L1.1738,1.7191 L1.2357,1.6752 L1.2960,1.6290 L1.3545,1.5806 L1.4113,1.5302 L1.4662,1.4777 L1.5191,1.4232 L1.5700,1.3669 L1.6188,1.3087 L1.6654,1.2488 L1.7098,1.1873 L1.7520,1.1241 L1.7918,1.0595 L1.8293,0.9934 L1.8643,0.9261 L1.8968,0.8575 L1.9268,0.7877 L1.9543,0.7169 Z' fill='#4880b9' opacity='1.0' stroke='#555' stroke-width='0.008'/>
 <path d='M-0.7555,2.0594 L-0.8301,2.0305 L-0.9036,1.9989 L-0.9759,1.9646 L-1.0469,1.9277 L-1.1165,1.8882 L-1.1846,1.8463 L-1.2512,1.8018 L-1.3160,1.7550 L-1.3792,1.7059 L-1.4405,1.6544 L-1.4998,1.6008 L-1.5572,1.5450 L-1.6125,1.4872 L-1.6657,1.4274 L-1.7166,1.3657 L-1.7653,1.3022 L-1.8116,1.2370 L-1.8555,1.1701 L-1.8969,1.1017 L-1.9393,1.1263 L-2.0266,0.7435 L-1.7940,1.0419 L-1.8364,1.0665 L-1.7963,1.1328 L-1.7538,1.1975 L-1.7090,1.2607 L-1.6618,1.3222 L-1.6125,1.3819 L-1.5611,1.4398 L-1.5075,1.4957 L-1.4520,1.5497 L-1.3945,1.6016 L-1.3351,1.6514 L-1.2740,1.6990 L-1.2112,1.7443 L-1.1468,1.7874 L-1.0809,1.8280 L-1.0135,1.8662 L-0.9448,1.9019 L-0.8748,1.9351 L-0.8036,1.9657 L-0.7314,1.9937 Z' fill='#e0aeb3' opacity='1.0' stroke='#555' stroke-width='0.008'/>
@@ -96,6 +96,36 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 </g>
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M-0.0000,5.3566 Q-0.3369,5.5763 -0.5885,5.8902' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
+<path d='M-0.5885,5.8902 L-0.5617,5.7963 L-0.5027,5.8436 Z' fill='#c9c9c9'/>
+<circle cx='-1.3087' cy='6.5432' r='0.8797' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
+<svg x='-2.2347' y='5.6173' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 80 80"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<text x="36" y="48" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="60" y="51.68" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="13" >2</text>
+</svg>
+</g>
+<text font-size="18" fill ="gray" font-family="sans-serif"
+x="10" y="20" ></text>
+</svg>
+<path d='M3.0497,4.2744 Q2.4189,3.5642 1.5980,3.0862' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
+<path d='M1.5980,3.0862 L1.6948,3.0989 L1.6567,3.1642 Z' fill='#c9c9c9'/>
+<circle cx='3.0497' cy='4.2744' r='0.8797' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
+<svg x='2.1238' y='3.3484' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 80 80"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<text x="36" y="48" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="60" y="51.68" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="13" >2</text>
+</svg>
+</g>
+<text font-size="18" fill ="gray" font-family="sans-serif"
+x="10" y="20" ></text>
 </svg>
 <circle cx='0.0000' cy='-2.1166' r='0.9384' fill='#fdf6e3' fill-opacity='1.0' stroke='#1a7f37' stroke-width='0.022'/>
 <svg x='-0.9878' y='-3.1044' width='1.9756' height='1.9756' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>

@@ -1,6 +1,6 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1040' viewBox='0 0 1100.00 1039.58'>
+<svg xmlns='http://www.w3.org/2000/svg' width='1207' height='1141' viewBox='0 0 1207.00 1140.70'>
 <rect width='100%' height='100%' fill='white'/>
-<g transform='scale(77.4648) translate(12.3500,10.8500)'>
+<g transform='scale(85.0000) translate(12.3500,10.8500)'>
 <text x='-12.2000' y='1.6500' font-family='Helvetica, Arial, sans-serif' font-size='0.11' text-anchor='start' fill='#111' font-weight='bold'>Traced route to ribose</text>
 <defs><linearGradient id='dgbar'><stop offset='0.00' stop-color='#2166ac'/><stop offset='0.10' stop-color='#4c83ba'/><stop offset='0.20' stop-color='#76a0c9'/><stop offset='0.30' stop-color='#a1bcd7'/><stop offset='0.40' stop-color='#cbd9e6'/><stop offset='0.50' stop-color='#f6f6f4'/><stop offset='0.60' stop-color='#e8cacc'/><stop offset='0.70' stop-color='#db9da4'/><stop offset='0.80' stop-color='#cd717b'/><stop offset='0.90' stop-color='#c04453'/><stop offset='1.00' stop-color='#b2182b'/></linearGradient></defs>
 <rect x='-12.2000' y='1.9600' width='2.4000' height='0.1100' fill='url(#dgbar)' stroke='#999' stroke-width='0.006'/>

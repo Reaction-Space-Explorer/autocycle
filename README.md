@@ -218,13 +218,14 @@ use, so layout regressions fail the suite.
 ## Published cycles surveyed
 
 `verify` applied to three families of published autocatalytic cycles, each found by a
-different method:
+different method, and a fourth quoted from its own paper:
 
 | Source | Method | Cycles | Verdict |
 |---|---|---|---|
 | Arya et al. 2022, glucose corpus | Cypher motif query | 2100 | 2100 `topological`, 0 coefficient-confirmed |
 | Abel et al. 2026, flow solutions | MØD with ILP | 15 | 15 `autocatalytic`, net gain 1 each |
 | CatReNet examples | RAF sets | 498 | 0 coefficient-confirmed; `.crs` species are abstract, so no coefficient is recorded |
+| Zubarev et al. 2015, rTCA supernetwork | combinatorial expansion | 1881 | 758 carry one branching point forming an autocatalytic loop. Their counts, not re-run here |
 
 The difference is what each method records, not how good the cycles are. An ILP flow query
 constrains the target's outflow to exceed its inflow, so its solutions state a coefficient
@@ -235,8 +236,17 @@ The RAF row says nothing against RAF sets: Golnik et al. prove that under mild c
 any RAF is stoichiometrically autocatalytic. It records only that a `.crs` file carries no
 coefficients for `verify` to read.
 
+The last row is independent corroboration rather than our own measurement. Zubarev,
+Rappoport and Aspuru-Guzik expand a 175-molecule, 444-reaction supernetwork around the
+reverse TCA cycle and count what they call a branching point forming an autocatalytic loop,
+which is the shunt under another name: 758 of 1881 cycles carry exactly one, 174 carry two
+and 20 carry three. A different chemistry and a different search, reporting the same
+topological signature at a similar rate, and equally without a stated coefficient.
+
 Reproduce with `bench`, `bench-routes`, `io_flow.read_flow_summary` on a summary exported
-by `pdftotext -layout`, and `from-crs` on a `.crs` file.
+by `pdftotext -layout`, and `from-crs` on a `.crs` file. Every figure here is built by
+`make figures`; the two search figures need the full glucose corpus, which is not
+redistributed, so they are `make gallery panel CORPUS=/path/to/csvs`.
 
 ## Citing
 
@@ -268,7 +278,8 @@ The steady-state reading, `nu.v = 0` with `v >= 0` and its cone of extreme curre
 > Clarke, B. L. **Stoichiometric Network Analysis.** *Cell Biophys.* **1988**, *12*,
 > 237–253.
 
-Cycle centrality, the lowest closeness centrality on a ring, is:
+Cycle centrality, the lowest closeness centrality on a ring, and the rTCA counts in the
+survey above, are:
 
 > Zubarev, D. Y.; Rappoport, D.; Aspuru-Guzik, A. **Uncertainty of Prebiotic Scenarios: The
 > Case of the Non-Enzymatic Reverse Tricarboxylic Acid Cycle.** *Sci. Rep.* **2015**, *5*,

@@ -1,3 +1,7 @@
+from pathlib import Path
+
+import pytest
+
 from autocycle import layout as L
 from autocycle.check import boxes, collisions
 from autocycle.io_cypher import from_cypher_row, read_rows
@@ -57,3 +61,20 @@ def test_verify_command_fails_on_an_unreturned_intermediate(tmp_path, capsys):
     )
     assert main(["verify", str(spec)]) == 1
     assert "imbalanced" in capsys.readouterr().out
+
+
+# the committed figures were twice regenerated with the wrong backend or style, which
+# nothing caught; these pin what each one must be, and the Makefile builds them
+FIGURES = [
+    ("examples/canonical/formose_core.svg", "obabel"),
+    ("examples/canonical/krebs_tca.svg", "obabel"),
+    ("examples/canonical/acetyl_coa_sol0.svg", "rdkit"),
+    ("examples/canonical/malyl_coa_arm.svg", "rdkit"),
+]
+
+
+@pytest.mark.parametrize(("path", "backend"), FIGURES)
+def test_committed_figure_keeps_its_backend_and_discs(path, backend):
+    svg = Path(path).read_text()
+    assert ("Open Babel" in svg) is (backend == "obabel")
+    assert "<circle" in svg  # the annotated style's role discs
