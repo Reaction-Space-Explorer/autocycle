@@ -74,7 +74,7 @@ open("cycle.svg", "w").write(render(c))
 
 | Read | |
 |---|---|
-| YAML spec | cycles and routes, the canonical form |
+| YAML spec | cycles and routes, the canonical form; a `shunt` block is supported |
 | reaction SMILES | `from-smiles`, `route-smiles` |
 | `source,target` CSV | `list`, `from-edges`, via networkx |
 | Cypher ring-query CSV | `bench`, `panel` — ring, shunt, feeders, generations |
@@ -116,7 +116,10 @@ verify(cycle).summary() # 'candidate (seed_identified=yes, ... extra_yield=unkno
 ```
 
 - **`autocatalytic`** — an extra copy of the seed is stated. `examples/canonical/formose_core.yaml`.
-- **`topological`** — a *shunt* bridges a ring molecule back to the seed. The published
+- **`topological`** — a *shunt* bridges a ring molecule back to the seed. Side species on
+  the shunt count toward the yield, which is usually where the extra copy is made:
+  `examples/canonical/acetyl_coa_sol0.yaml` is a 5-molecule ring plus a 6-step shunt,
+  11 steps in total, and comes out `autocatalytic` with a seed yield of 2. The published
   search treats that as the minimal criterion for n > 1, while noting it carries no flow
   constraint for mass balance. All 2100 cycles in the glucose corpus are this.
 - **`simple`** — stoichiometry is stated and there is no extra copy, n = 1.

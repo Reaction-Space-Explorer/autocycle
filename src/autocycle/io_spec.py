@@ -13,6 +13,7 @@ from autocycle.spec import (
     Mol,
     PathNode,
     Pathway,
+    Shunt,
     Side,
     SpecError,
     Step,
@@ -65,10 +66,22 @@ def load_yaml(path: str | Path) -> Cycle:
         )
         for s in raw.get("subcycles", [])
     ]
+    shunt = None
+    if "shunt" in raw:
+        sh = raw["shunt"]
+        if "from_node" not in sh:
+            raise SpecError(f"{path}: shunt needs 'from_node'")
+        shunt = Shunt(
+            from_node=int(sh["from_node"]),
+            steps=[_step(x) for x in sh.get("steps", [])],
+            nodes=[_mol(m) for m in sh.get("nodes", [])],
+        )
+
     return Cycle(
         nodes=[_mol(m) for m in raw["nodes"]],
         steps=[_step(s) for s in raw["steps"]],
         subs=subs,
+        shunt=shunt,
         title=raw.get("title"),
         seed=None if raw.get("seed") is None else int(raw["seed"]),
         stoichiometry_complete=bool(raw.get("stoichiometry_complete", False)),

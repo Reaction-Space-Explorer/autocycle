@@ -55,8 +55,11 @@ class Verdict:
 
 def verify(cycle: Cycle) -> Verdict:
     ring = {m.smiles for m in cycle.nodes}
-    consumed = [sp for st in cycle.steps for sp in st.consumes]
-    produced = [sp for st in cycle.steps for sp in st.produces]
+    # the shunt is part of the cycle, and is usually where the extra copy is made
+    steps = list(cycle.steps) + (list(cycle.shunt.steps) if cycle.shunt else [])
+    ring |= {m.smiles for m in (cycle.shunt.nodes if cycle.shunt else [])}
+    consumed = [sp for st in steps for sp in st.consumes]
+    produced = [sp for st in steps for sp in st.produces]
 
     seed = cycle.nodes[cycle.seed].smiles if cycle.seed is not None else None
     off_ring_in = [sp for sp in consumed if sp.smiles not in ring]

@@ -1,0 +1,52 @@
+# Solution 0 of the shortest autocatalytic acetyl-CoA cycle, Fig. 3 of Abel et al.,
+# npj Syst. Biol. Appl. 2026 (doi 10.1038/s41540-025-00641-8).
+#
+# Transcribed from the authors' own MOD flow output, not from the printed figure:
+# output of `flowq_2_all_2_2_acCoA_ac_with rules.pdf` in
+# github.com/anne-susann/C_fixation_pathway_design (MIT). That file's Solution 0
+# "Overall Data" gives ACETYL COA In 1, Out 2, objective value 11, and matches Table 3 of
+# the paper exactly (ADP 2/1, AMP 0/2, Pi 0/3, H2O 0/1, hplus 6/0).
+#
+# Named molecules use the SMILES from the paper's Supplementary Information, including its
+# [CoA] pseudo-atom. p0,5, p0,6 and p0,12 are unnamed in the source; their structures are
+# read from the vector flow diagram (p0,12 is fumaryl-CoA, p0,6 is p0,5 less water).
+#
+# Ring flux is 1 except OXALACETIC ACID -> MALIC ACID -> MALYL COA, which carries 2,
+# because oxaloacetate is produced twice per turn: once from malonyl-CoA and once when
+# citryl-CoA is cleaved at the end of the shunt.
+title: Shortest autocatalytic acetyl-CoA cycle (Sol 0)
+seed: 0
+stoichiometry_complete: true
+nodes:
+  - {smiles: "CC(=O)S[CoA]", label: acetyl-CoA}
+  - {smiles: "C(C(=O)O)C(=O)S[CoA]", label: malonyl-CoA}
+  - {smiles: "C(C(=O)C(=O)O)C(=O)O", label: oxaloacetate}
+  - {smiles: "C(C(C(=O)O)O)C(=O)O", label: malate}
+  - {smiles: "C(C(C(=O)O)O)C(=O)S[CoA]", label: malyl-CoA}
+steps:
+  - {id: r16, rule: Acetyl-CoA carboxylase, consumes: [{smiles: "OC(=O)O", count: 1}]}
+  - {id: r9, rule: 2-ketoglutarate:ferredoxin oxidoreductase}
+  - {id: r2, rule: ATP citrate lyase, mag: 2.0}
+  - {id: r23, rule: 4HB-CoA synthetase, mag: 2.0}
+  - id: r1a
+    rule: Succinyl-CoA synthetase (malyl-CoA cleavage)
+    produces: [{smiles: "C(=O)C(=O)O", count: 1}]
+shunt:
+  from_node: 4
+  nodes:
+    - {smiles: "OC(=O)C=CC(=O)S[CoA]", label: "p0,12"}
+    - {smiles: "OC(=O)CCC(=O)S[CoA]", label: succinyl-CoA}
+    - {smiles: "OC(=O)C(O)C(C(=O)O)CC(=O)S[CoA]", label: "p0,5"}
+    - {smiles: "OC(=O)C=C(C(=O)O)CC(=O)S[CoA]", label: "p0,6"}
+    - {smiles: "C(C(=O)O)C(CC(=O)S[CoA])(C(=O)O)O", label: citryl-CoA}
+  steps:
+    - {id: r6_r20, rule: Fumarase or 3HP-CoA dehydratase}
+    - {id: r5, rule: Fumarate reductase}
+    - {id: r54, rule: Condensation with glyoxylate, consumes: [{smiles: "C(=O)C(=O)O", count: 1}]}
+    - {id: r6, rule: Fumarase}
+    - {id: r7_r8, rule: Aconitase or crotonase}
+    - id: r1b
+      rule: Succinyl-CoA synthetase (citryl-CoA cleavage)
+      produces:
+        - {smiles: "CC(=O)S[CoA]", count: 1}
+        - {smiles: "C(C(=O)C(=O)O)C(=O)O", count: 1}
