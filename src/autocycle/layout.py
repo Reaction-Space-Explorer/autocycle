@@ -150,16 +150,25 @@ def side_anchor(
     return p
 
 
+def side_spread(ring: Ring, cap: float = 25.0) -> float:
+    """Half-angle between a step's in and out species, capped so neighbours clear."""
+    per_step = 2 * 360.0 / ring.n
+    return min(cap, per_step * 0.27)
+
+
 def side_points(
     ring: Ring, steps, avoid=None, out0: float = 1.5
 ) -> list[tuple[int, str, object, tuple[float, float]]]:
     """(step, side, species, anchor). Used by both the renderer and the bounds."""
     out = []
+    spread = side_spread(ring)
     for i, st in enumerate(steps):
         v = ring.verts[(2 * i + 1) % ring.n]
         for side, group in (("in", st.consumes), ("out", st.produces)):
             for k, sp in enumerate(group):
-                out.append((i, side, sp, side_anchor(ring, v, side, out0 + 1.9 * k, avoid=avoid)))
+                out.append(
+                    (i, side, sp, side_anchor(ring, v, side, out0 + 1.9 * k, spread, avoid=avoid))
+                )
     return out
 
 

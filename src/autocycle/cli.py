@@ -19,7 +19,8 @@ MODES = ("linear", "log", "multiples")
 
 
 def _style(a):
-    return get(a.style, backend=a.backend) if getattr(a, "backend", None) else a.style
+    """Always a Style, so the collision check tests what is actually drawn."""
+    return get(a.style, backend=a.backend) if getattr(a, "backend", None) else get(a.style)
 
 
 def _write(cycle, a) -> None:
@@ -193,6 +194,7 @@ def _bench_routes(a) -> int:
         f"{len(rels) if rels else 0} reactions"
     )
 
+    style = _style(a)
     routes = 0
     ok = 0
     failed: Counter[str] = Counter()
@@ -230,10 +232,10 @@ def _bench_routes(a) -> int:
                 else:
                     resolved += 1
             complete += pw.complete
-            if collisions(pw):
+            if collisions(pw, style):
                 collided += 1
             try:
-                svg = render(pw, style=_style(a))
+                svg = render(pw, style=style)
             except Exception as exc:  # noqa: BLE001 - a bench reports, never crashes
                 failed[type(exc).__name__] += 1
                 continue
@@ -286,6 +288,7 @@ def _bench(a) -> int:
         print(f"no CSVs under {a.dir}", file=sys.stderr)
         return 1
 
+    style = _style(a)
     rows = ok = skipped = 0
     rejected: Counter[str] = Counter()
     lengths: Counter[int] = Counter()
@@ -313,12 +316,12 @@ def _bench(a) -> int:
             lengths[len(cycle.nodes)] += 1
             feeder_hist[len(feeders(cycle))] += 1
             role_bad += bool(role_violations(cycle))
-            hits = collisions(cycle)
+            hits = collisions(cycle, style)
             if hits:
                 collided += 1
                 worst.append((hits[0][2], path.name, hits[0][:2]))
             try:
-                svg = render(cycle, style=_style(a))
+                svg = render(cycle, style=style)
             except Exception as exc:  # noqa: BLE001 - a bench must report, not crash
                 render_fail[type(exc).__name__] += 1
                 continue
