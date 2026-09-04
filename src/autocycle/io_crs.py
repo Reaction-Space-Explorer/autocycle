@@ -20,7 +20,7 @@ from autocycle.spec import Mol, Side, SpecError, Step
 
 _RXN = re.compile(
     r"^\s*(?P<name>[^:]+?)\s*:\s*(?P<lhs>[^\[\]]*?)\s*"
-    r"(?:\[(?P<cats>[^\]]*)\])?\s*(?P<arrow><->|->|<-)\s*(?P<rhs>.*?)\s*$"
+    r"(?:\[(?P<cats>[^\]]*)\])?\s*(?P<arrow><=>|<->|=>|->|<=|<-)\s*(?P<rhs>.*?)\s*$"
 )
 _FOOD = re.compile(r"^\s*Food\s*:\s*(?P<items>.*?)\s*$", re.IGNORECASE)
 
@@ -55,8 +55,9 @@ def read_crs(path: str | Path) -> System:
     reactions: list[Reaction] = []
     food: set[str] = set()
     for raw in Path(path).read_text().splitlines():
-        line = raw.split("#", 1)[0].strip()
-        if not line:
+        line = raw.strip()
+        # comments are whole lines; a '#' can appear inside a reaction name
+        if not line or line.startswith("#"):
             continue
         if m := _FOOD.match(line):
             food |= set(_split(m.group("items"), ","))
@@ -65,7 +66,7 @@ def read_crs(path: str | Path) -> System:
         if not m:
             raise SpecError(f"{Path(path).name}: cannot parse line {raw!r}")
         lhs, rhs = _split(m.group("lhs"), "+"), _split(m.group("rhs"), "+")
-        if m.group("arrow") == "<-":
+        if m.group("arrow") in ("<-", "<="):
             lhs, rhs = rhs, lhs
         reactions.append(
             Reaction(
@@ -73,7 +74,7 @@ def read_crs(path: str | Path) -> System:
                 reactants=lhs,
                 products=rhs,
                 catalysts=_split(m.group("cats") or "", ","),
-                reversible=m.group("arrow") == "<->",
+                reversible=m.group("arrow") in ("<->", "<=>"),
             )
         )
     if not reactions:

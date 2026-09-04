@@ -170,8 +170,29 @@ Unedited search output, fused seven-membered rings included:
 | overlapping depictions | 0 | 0 |
 
 The 1000 rejections visit a molecule twice, so `ringMols` has repeats and does not match
-`ringRels`. They are named, not repaired. Re-run with `bench` and `bench-routes`.
-`check.collisions` is the overlap gate the tests use, so layout regressions fail the suite.
+`ringRels`. They are named, not repaired. `check.collisions` is the overlap gate the tests
+use, so layout regressions fail the suite.
+
+## Published cycles surveyed
+
+`verify` applied to three families of published autocatalytic cycles, each found by a
+different method:
+
+| Source | Method | Cycles | Verdict |
+|---|---|---|---|
+| Arya et al. 2022, glucose corpus | Cypher motif query | 2100 | 2100 `topological`, 0 coefficient-confirmed |
+| Abel et al. 2026, flow solutions | MØD with ILP | 15 | 15 `autocatalytic`, net gain 1 each |
+| CatReNet examples | RAF sets | 498 | 0 coefficient-confirmed; abstract species carry no stoichiometry |
+
+The difference is what each method records, not how good the cycles are. An ILP flow query
+constrains the target's outflow to exceed its inflow, so its solutions state a coefficient
+and the criterion is settled: `autocycle.io_flow` reads the balance straight off the
+Overall Data tables (11 steps for acetyl-CoA, 12 for malate, matching that paper's Table 1).
+A motif query matches a shunt instead, which is topological evidence without mass balance.
+RAF theory works over abstract species, so the question does not arise.
+
+Reproduce with `bench`, `bench-routes`, `io_flow.read_flow_summary` on a summary exported
+by `pdftotext -layout`, and `from-crs` on a `.crs` file.
 
 ## Citing
 

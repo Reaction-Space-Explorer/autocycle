@@ -1,0 +1,201 @@
+# Excerpt of a MOD flow-query summary from
+# github.com/anne-susann/C_fixation_pathway_design (MIT), file
+# input_pathways/flowq_2_all_2_2_acCoA_ac_with rules.pdf, extracted with
+# pdftotext -layout. Two solutions, kept for testing the reader.
+
+Objective value (integral): 11
+Vertex/Graph In Out OA
+ACETYL COA   1 2    1
+ADP          2 1    0
+AMP          0 2    0
+ATP          1 0    0
+CO2          1 0    0
+CoASH        1 0    0
+Fdox         0 2    0
+Fdred        2 0    0
+H2O          0 1    0
+HCO3-        1 0    0
+NAD+         0 1    0
+NADH         1 0    0
+NADP+        0 2    0
+NADPH        2 0    0
+Pi           0 3    0
+hplus        6 0    0
+
+                                 Page 3 of 28
+Filtered Graph
+                                                                                                                                                                               OH
+
+                                                                                                                                                                                        OH
+                O
+
+      CoA                               OH                                                                                        f 2, r23
+                                                                                                                                                                                    O
+            S
+                                                                                                                                                                     O         OH
+                                                              f 1, r6 , r20
+                                 O
+                                                                                                                                                                           MALIC ACID
+                                                                                                                                                                                                                                         O
+                    p0,12
+                                                                                                                                                                                                                              CoA
+                                                                                                                                                                                                                                    S
+
+                                                                                                  OH
+                                                                                                                                                                                                                                         O    OH
+                                                                                                                OH
+                                                                                                                                                                                                                               MALONYL COA
+
+                                                                                                           O                                                                                 f 2, r2
+                                                                                       O           S
+
+                                                                                                  CoA
+                                                                                            MALYL COA
+                             f 1, r5
+
+                                                                                                                        f 1, r1
+                                                                                  OH
+                                                                                                                                             f1
+                                                                                                                                                                    f 1, r16
+                                                                       O                                                                            f2
+                                                                                       O
+                                                                      GLYOXYLATE                                                                                                                                                    OH
+
+      OH                                                                                                                                                                                                             O
+                                                                                                                                                                                                                                         O
+                        S
+  O                         CoA                                                                                                                                                                                          OH    O
+                                                                                                                                                                                                                     OXALACETIC ACID
+                    O
+      SUCCINYL COA                                                                                                          CH3
+                                                         f 1, r54
+                                                                                                                                      CoA
+                                                                                                                        O         S
+                                                                                                                        ACETYL COA
+                                                                                                                                                                 f 1, r1
+                                  HO            O
+                             O
+
+                CoA                                 OH
+                        S
+
+                                            O       OH
+                                     p0,5
+                                                                                                                                                                                                                                    f 1, r9
+
+                                                                                       HO              O
+                                                                                  O                            OH
+                                                                                                                                                                                                       O
+                                                                                                                                                                                        O
+                                                                       CoA
+                                                                              S                                     O
+                                                                                           p0,6                                                   f 1, r7 , r8
+                                                                                                                                                                                HO                         S   CoA
+
+                            f 1, r6                                                                                                                                                     HO
+
+                                                                                                                                                                                            HO         O
+                                                                                                                                                                                        CITRYL COA
+
+                                                               File: out/025_dg_0_11100_f_0_0_filt
+
+0.0.2               Solution 1
+Overall Data
+Objective value (integral): 11
+Vertex/Graph In Out OA
+ACETYL COA   1 2    1
+ADP          0 1    0
+ATP          1 0    0
+CO2          1 0    0
+CoASH        1 0    0
+Fdox         0 2    0
+Fdred        2 0    0
+H2O          0 3    0
+HCO3-        1 0    0
+NAD+         0 1    0
+NADH         1 0    0
+NADP+        0 2    0
+NADPH        2 0    0
+Pi           0 1    0
+
+                                                                                                                                                                                                                          Page 4 of 28
+hplus                                   6           0    0
+
+Filtered Graph
+                                                                                                                                                                                   OH
+
+                                                                                                                                                                                            OH
+                O
+
+      CoA                               OH                                                                                            f 2, r35
+                                                                                                                                                                                        O
+            S
+                                                                                                                                                                         O         OH
+                                                                  f 1, r6 , r20
+                                 O
+                                                                                                                                                                               MALIC ACID
+                                                                                                                                                                                                                                             O
+                    p0,12
+                                                                                                                                                                                                                                  CoA
+                                                                                                                                                                                                                                        S
+
+                                                                                                      OH
+                                                                                                                                                                                                                                             O    OH
+                                                                                                                    OH
+                                                                                                                                                                                                                                   MALONYL COA
+
+                                                                                                               O                                                                                 f 2, r2
+                                                                                           O           S
+
+                                                                                                      CoA
+                                                                                                MALYL COA
+                             f 1, r5
+
+                                                                                                                            f 1, r1
+                                                                                      OH
+                                                                                                                                                 f1
+                                                                                                                                                                        f 1, r16
+                                                                           O                                                                            f2
+                                                                                           O
+                                                                          GLYOXYLATE                                                                                                                                                    OH
+
+      OH                                                                                                                                                                                                                 O
+                                                                                                                                                                                                                                             O
+                        S
+  O                         CoA                                                                                                                                                                                              OH    O
+                                                                                                                                                                                                                         OXALACETIC ACID
+                    O
+      SUCCINYL COA                                                                                                              CH3
+                                                             f 1, r54
+                                                                                                                                          CoA
+                                                                                                                            O         S
+                                                                                                                            ACETYL COA
+                                                                                                                                                                     f 1, r1
+                                  HO            O
+                             O
+
+                CoA                                 OH
+                        S
+
+                                            O       OH
+                                     p0,5
+                                                                                                                                                                                                                                        f 1, r9
+
+                                                                                           HO              O
+                                                                                      O                            OH
+                                                                                                                                                                                                           O
+                                                                                                                                                                                            O
+                                                                           CoA
+                                                                                  S                                     O
+                                                                                               p0,6                                                   f 1, r7 , r8
+                                                                                                                                                                                    HO                         S   CoA
+
+                            f 1, r6                                                                                                                                                         HO
+
+                                                                                                                                                                                                HO         O
+                                                                                                                                                                                            CITRYL COA
+
+                                                                   File: out/028_dg_0_11100_f_0_1_filt
+
+0.0.3               Solution 2
+Overall Data
