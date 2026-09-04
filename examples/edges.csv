@@ -1,0 +1,6 @@
+source,target,reaction,dg,rule,consumes,produces
+OCC=O,OCC(O)C=O,r1,-16.4,Aldol condensation,C=O,
+OCC(O)C=O,OCC(O)C(O)C=O,r2,-13.4,Aldol condensation,C=O,
+OCC(O)C(O)C=O,OCC(O)C(O)C(O)C=O,r3,5.3,Retro-aldol,,O=C=O
+OCC(O)C(O)C(O)C=O,OCC=O,r4,-9.4,Retro-aldol,,OCC=O
+OCC(O)C=O,OCC=O,r5,12.7,Retro-aldol,,C=O

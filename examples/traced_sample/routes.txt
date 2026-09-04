@@ -1,0 +1,40 @@
+Network Smiles: OCC(O)C(O)C(O)C=O
+Generation: G2
+INCHIKEY: SYNTHEXAMPLE1
+Analogue Smiles: {'OC[C@@H](O)[C@H](O)[C@H](O)C=O'}
+Shortest Pathway 
+OCC(O)C(O)C(O)C=O
+├── OCC(O)C=O
+│   ├── C=O
+│   └── OCC=O
+└── OCC=O
+Pathway Length: 2
+Energy Change: -30.5
+Reaction IDs: ['R001', 'R003']
+---------------------
+Network Smiles: OCC(O)C(O)C(=O)CO
+Generation: G3
+INCHIKEY: SYNTHEXAMPLE2
+Analogue Smiles: {'OC[C@H](O)[C@@H](O)C(=O)CO'}
+Shortest Pathway 
+OCC(O)C(O)C(=O)CO
+├── C=O
+└── OCC(O)C(=O)CO
+    └── OCC(O)C(O)C=O
+        ├── OCC=O
+        └── OCC=O
+Pathway Length: 3
+Energy Change: -44.2
+Reaction IDs: ['R002', 'R005', 'R004']
+---------------------
+Network Smiles: OCC(O)C(O)C(O)C(O)C=O
+Generation: G3
+INCHIKEY: SYNTHEXAMPLE3
+Analogue Smiles: {'OC[C@@H](O)[C@H](O)[C@H](O)[C@H](O)C=O'}
+Shortest Pathway 
+OCC(O)C(O)C(O)C(O)C=O
+├── OCC(O)C(O)C=O
+└── OCC=O
+Pathway Length: 1
+Energy Change: -12.9
+Reaction IDs: ['R009']

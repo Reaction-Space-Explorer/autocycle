@@ -1,0 +1,17 @@
+Index	Reagent	Formed/Produced	Rule
+R001	OCC=O	-1	Aldol Condensation
+R001	C=O	-1	Aldol Condensation
+R001	OCC(O)C=O	1	Aldol Condensation
+R002	OCC=O	-1	Aldol Condensation
+R002	OCC(O)C(O)C=O	1	Aldol Condensation
+R003	OCC(O)C=O	-1	Aldol Condensation
+R003	OCC=O	-1	Aldol Condensation
+R003	OCC(O)C(O)C(O)C=O	1	Aldol Condensation
+R004	OCC(O)C(O)C=O	-1	Keto-enol migration
+R004	OCC(O)C(=O)CO	1	Keto-enol migration
+R005	C=O	-1	Aldol Condensation
+R005	OCC(O)C(=O)CO	-1	Aldol Condensation
+R005	OCC(O)C(O)C(=O)CO	1	Aldol Condensation
+R009	OCC(O)C(O)C=O	-1	Aldol Condensation
+R009	OCC=O	-1	Aldol Condensation
+R009	OCC(O)C(O)C(O)C(O)C=O	1	Aldol Condensation

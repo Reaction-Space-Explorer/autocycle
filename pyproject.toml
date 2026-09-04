@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "autocycle"
+version = "0.2.0"
+description = "Information-rich figures for autocatalytic cycles in chemical reaction networks"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Siddhant Sharma" }]
+keywords = ["autocatalysis", "chemical reaction networks", "origins of life", "visualization"]
+dependencies = [
+    "rdkit>=2023.3",
+    "pyyaml>=6.0",
+    "numpy>=1.24",
+    "networkx>=3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.5"]
+
+[project.scripts]
+autocycle = "autocycle.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/autocycle"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["F", "I", "B", "SIM", "UP"]

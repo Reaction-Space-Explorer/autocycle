@@ -1,0 +1,21 @@
+title: Formose-type autocatalytic cycle
+seed: 0
+nodes:
+  - smiles: OCC=O
+    label: glycolaldehyde
+  - OCC(O)C=O
+  - OCC(O)C(O)C=O
+  - OCC(O)C(O)C(O)C=O
+steps:
+  - {id: r1, rule: Aldol condensation, dg: -16.4, consumes: [C=O]}
+  - {id: r2, rule: Aldol condensation, dg: -13.4, consumes: [C=O]}
+  - {id: r3, rule: Retro-aldol, dg: 5.3, rev_mag: 0.7, produces: [{smiles: O=C=O, count: 1}]}
+  - {id: r4, rule: Retro-aldol, dg: -9.4, mag: 2.0, gain: true, produces: [OCC=O]}
+subcycles:
+  - at_step: 1
+    label: fused branch
+    nodes: [OCC(O)C(O)C=O, OC(CO)C(O)C=O, OCC(O)CC=O]
+    steps:
+      - {id: b1, rule: Isomerisation, dg: -2.1}
+      - {id: b2, rule: Dehydration, dg: 8.8, produces: [O]}
+      - {id: b3, rule: Hydration, dg: -6.0, consumes: [O]}

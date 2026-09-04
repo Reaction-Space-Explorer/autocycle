@@ -1,0 +1,22 @@
+# A formose-type route to ribose, in the shape the NA pathway tracer produces:
+# target at the root, precursors traced back, stopping at network seed molecules.
+# Illustrative dG values.
+title: Traced route to ribose
+target:
+  mol: {smiles: "OCC(O)C(O)C(O)C=O", label: ribose}
+  reaction: {id: r1, rule: Aldol condensation, dg: -14.2, produces: [O]}
+  from:
+    - mol: {smiles: "OCC(O)C(O)C=O", label: erythrose}
+      reaction: {id: r2, rule: Aldol condensation, dg: -16.4}
+      from:
+        - mol: {smiles: "OCC=O", label: glycolaldehyde}
+          reaction: {id: r3, rule: Formose (umpolung), dg: -8.1}
+          from:
+            - {mol: "C=O", seed: true}
+            - {mol: "C=O", seed: true}
+        - mol: {smiles: "OC(C)C=O", label: lactaldehyde}
+          reaction: {id: r4, rule: Keto-enol migration, dg: 2.3, filtered: true}
+          from:
+            - {mol: "OCC(=O)C", seed: true}
+    - mol: {smiles: "OCC(O)C=O", label: glyceraldehyde}
+      seed: false
