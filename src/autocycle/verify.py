@@ -62,8 +62,7 @@ def verify(cycle: Cycle) -> Verdict:
     off_ring_in = [sp for sp in consumed if sp.smiles not in ring]
     off_ring_out = [sp for sp in produced if sp.smiles not in ring]
 
-    # one turn returns the seed by closing the ring; any further copy has to be
-    # produced explicitly as a side species
+    # the ring closure returns one seed; a further copy must be produced explicitly
     extra = sum(sp.count for sp in produced if seed is not None and sp.smiles == seed)
     seed_yield = 1.0 + extra if seed is not None else None
 
@@ -72,10 +71,11 @@ def verify(cycle: Cycle) -> Verdict:
         "feeder": YES if off_ring_in else NO,
         "outlet": YES if off_ring_out else NO,
         "seed_regenerated": YES if seed is not None else NO,
-        # no coefficients in the source means the yield cannot be pinned to 1
-        "extra_yield": YES if extra > 0 else UNKNOWN,
-        # a bridging path back to the seed: topological evidence of more than one copy,
-        # with no mass-balance constraint behind it
+        # without coefficients the yield cannot be pinned to 1
+        "extra_yield": (
+            YES if extra > 0 else (NO if cycle.stoichiometry_complete else UNKNOWN)
+        ),
+        # a bridging path back to the seed: topological, not mass-balanced
         "shunt": YES if cycle.shunt is not None else NO,
     }
     return Verdict(

@@ -28,9 +28,11 @@ class Mol:
     smiles: str
     label: str | None = None
     generation: int | None = None
+    structure: bool = True   # False for abstract species, drawn as a name
 
     def __post_init__(self):
-        self.smiles = canonical(self.smiles)
+        if self.structure:
+            self.smiles = canonical(self.smiles)
 
 
 @dataclass
@@ -38,9 +40,11 @@ class Side:
     smiles: str
     count: int = 1
     generation: int | None = None
+    structure: bool = True
 
     def __post_init__(self):
-        self.smiles = canonical(self.smiles)
+        if self.structure:
+            self.smiles = canonical(self.smiles)
         if self.count < 1:
             raise SpecError(f"count must be >= 1, got {self.count}")
 
@@ -99,6 +103,9 @@ class Cycle:
     shunt: Shunt | None = None
     title: str | None = None
     seed: int | None = None
+    # set only when the source states full stoichiometry, so that the absence of an
+    # extra copy of the seed means n = 1 rather than "not recorded"
+    stoichiometry_complete: bool = False
 
     def __post_init__(self):
         _check(self.nodes, self.steps)

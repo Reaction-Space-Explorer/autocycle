@@ -20,7 +20,7 @@ def _leaf(smi, terminal=SEED):
 
 # --- spec ---------------------------------------------------------------
 
-def test_loads_example(route):
+def test_loads_route_example(route):
     assert len(route.nodes) == 8
     assert len(route.steps) == 4
     assert len(route.leaves) == 4
@@ -139,7 +139,7 @@ def test_side_anchor_puts_consumed_above_and_produced_below(route):
     assert T.side_anchor(r, "out")[1] < r.y
 
 
-def test_side_anchor_rejects_bad_side(route):
+def test_route_side_anchor_rejects_bad_side(route):
     lay = T.lay_out_pathway(route)
     with pytest.raises(ValueError, match="'in' or 'out'"):
         T.side_anchor(lay.rxn(route.root), "up")

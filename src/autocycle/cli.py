@@ -95,6 +95,18 @@ def main(argv: list[str] | None = None) -> int:
     br.add_argument("--style", choices=("paper", "annotated", "rich"), default="paper")
     br.add_argument("--backend", choices=("rdkit", "obabel"), default=None)
 
+    sb = sub.add_parser("sbgn", help="export a cycle spec as SBGN Process Description")
+    sb.add_argument("spec")
+    sb.add_argument("-o", "--out", default="cycle.sbgn")
+
+    cr = sub.add_parser("from-crs", parents=[common],
+                        help="draw a cycle from a CatReNet .crs catalytic reaction system")
+    cr.add_argument("crs")
+    cr.add_argument("--cycle", type=int, default=0)
+    cr.add_argument("--graph", dest="graph_mode", choices=("catalysis", "flow"),
+                    default="catalysis")
+    cr.add_argument("--list", action="store_true", help="list cycles instead of drawing")
+
     pn = sub.add_parser("panel", parents=[common],
                         help="one multi-panel figure: stratified histogram plus example cycles")
     pn.add_argument("dir")
@@ -139,6 +151,33 @@ def main(argv: list[str] | None = None) -> int:
 
         if a.cmd == "panel":
             return _panel(a)
+
+        if a.cmd == "sbgn":
+            from autocycle.sbgn import to_sbgn
+
+            Path(a.out).write_text(to_sbgn(load_yaml(a.spec)))
+            print(f"wrote {a.out}")
+            return 0
+
+        if a.cmd == "from-crs":
+            from autocycle.io_crs import find_cycles as crs_cycles
+            from autocycle.io_crs import read_crs
+            from autocycle.io_crs import to_cycle as crs_cycle
+
+            system = read_crs(a.crs)
+            found = crs_cycles(system, a.graph_mode)
+            if not found:
+                print(f"no {a.graph_mode} cycles in {a.crs}", file=sys.stderr)
+                return 1
+            if a.list:
+                for i, ring in enumerate(found):
+                    print(f"{i:4d}  len={len(ring):2d}  {' -> '.join(ring)}")
+                return 0
+            if not 0 <= a.cycle < len(found):
+                print(f"cycle {a.cycle} out of range (0-{len(found) - 1})", file=sys.stderr)
+                return 1
+            _write(crs_cycle(system, found[a.cycle], Path(a.crs).stem, a.graph_mode), a)
+            return 0
 
         g = ingest.spontaneous(ingest.read_edges(a.csv), a.cut)
         cycles = ingest.find_cycles(g, a.min_len, a.max_len)

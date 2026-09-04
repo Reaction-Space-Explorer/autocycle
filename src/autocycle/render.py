@@ -71,9 +71,10 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
     span = dg_span([s.dg for s in list(cycle.steps) + [x for sc in cycle.subs for x in sc.steps]])
 
     keep_out = (ring.cx, ring.cy, ring.radius + L.node_radius() * 2.4)
-    anchors = [(ring, cycle.steps, L.side_points(ring, cycle.steps, out0=st.side_out))]
+    out0 = L.side_out(ring, st.side_out)
+    anchors = [(ring, cycle.steps, L.side_points(ring, cycle.steps, out0=out0))]
     anchors += [
-        (sr, s.steps, L.side_points(sr, s.steps, avoid=keep_out, out0=st.side_out))
+        (sr, s.steps, L.side_points(sr, s.steps, avoid=keep_out, out0=L.side_out(sr, st.side_out)))
         for sr, s in subs
     ]
 

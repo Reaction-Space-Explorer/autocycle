@@ -204,7 +204,7 @@ def draw_sides(ring: L.Ring, steps, st_: Style, anchors=None) -> list[str]:
                 f"<circle cx='{px:.4f}' cy='{py:.4f}' r='{half * 0.95:.4f}' fill='{st_.side_fill}' "
                 f"fill-opacity='{st_.side_alpha}' stroke='none'/>"
             )
-        out.append(embed(sp.smiles, px - half, py - half, half * 2, st_.backend))
+        out.append(_species(sp, px, py, half, st_))
         if sp.count > 1:
             out.append(text(px + half * 1.05, py - half * 0.9, f"{sp.count}x", 0.07, "start"))
     return out
@@ -232,7 +232,7 @@ def draw_nodes(
                     f"<circle cx='{px:.4f}' cy='{py:.4f}' r='{half * 0.95:.4f}' fill='{st_.node_fill}' "
                     f"fill-opacity='{st_.node_alpha}' {edge}/>"
                 )
-            out.append(embed(m.smiles, px - half, py - half, half * 2, st_.backend))
+            out.append(_species(m, px, py, half, st_))
             if m.label and not st_.centre_label:
                 out.append(text(px, py + half + 0.1, m.label, 0.072))
         else:
@@ -261,6 +261,14 @@ def _water_balance(step) -> str | None:
     n_out = sum(sp.count for sp in step.produces if sp.smiles == WATER)
     net = n_in - n_out
     return None if net == 0 else f"{net:+d} H2O"
+
+
+def _species(mol, px: float, py: float, half: float, st_: Style) -> str:
+    """A depiction when the species has a structure, otherwise its name."""
+    if getattr(mol, "structure", True):
+        return embed(mol.smiles, px - half, py - half, half * 2, st_.backend)
+    name = getattr(mol, "label", None) or mol.smiles
+    return text(px, py + half * 0.12, name, min(half * 0.55, 0.42), "middle", "#111")
 
 
 def _step_lines(step, st_: Style) -> list[str]:

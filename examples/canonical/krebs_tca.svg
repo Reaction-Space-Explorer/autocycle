@@ -1,0 +1,282 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1851' viewBox='0 0 1100.00 1851.32'>
+<rect width='100%' height='100%' fill='white'/>
+<g transform='scale(106.5496) translate(4.6820,8.0208)'>
+<path d='M0.7345,-3.5933 L0.8617,-3.5649 L0.9878,-3.5321 L1.1127,-3.4948 L1.2361,-3.4530 L1.3580,-3.4069 L1.4782,-3.3565 L1.5965,-3.3019 L1.7128,-3.2431 L1.8269,-3.1802 L1.8461,-3.2136 L2.3338,-2.7935 L1.7803,-3.0991 L1.7995,-3.1325 L1.6871,-3.1945 L1.5725,-3.2524 L1.4560,-3.3062 L1.3376,-3.3558 L1.2176,-3.4012 L1.0960,-3.4423 L0.9730,-3.4791 L0.8488,-3.5115 L0.7235,-3.5394 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
+<path d='M3.2673,-1.6661 L3.3244,-1.5490 L3.3774,-1.4299 L3.4260,-1.3090 L3.4704,-1.1865 L3.5103,-1.0625 L3.5459,-0.9371 L3.5769,-0.8105 L3.6035,-0.6829 L3.6255,-0.5545 L3.6635,-0.5603 L3.6392,0.0829 L3.5330,-0.5403 L3.5711,-0.5462 L3.5494,-0.6727 L3.5233,-0.7984 L3.4927,-0.9230 L3.4577,-1.0465 L3.4183,-1.1687 L3.3747,-1.2894 L3.3267,-1.4085 L3.2746,-1.5258 L3.2183,-1.6411 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
+<path d='M3.3398,1.5157 L3.2838,1.6334 L3.2237,1.7490 L3.1595,1.8624 L3.0914,1.9735 L3.0193,2.0821 L2.9435,2.1880 L2.8639,2.2912 L2.7807,2.3915 L2.6939,2.4888 L2.7222,2.5149 L2.2042,2.8969 L2.6253,2.4253 L2.6535,2.4515 L2.7390,2.3556 L2.8209,2.2568 L2.8993,2.1552 L2.9740,2.0508 L3.0450,1.9439 L3.1122,1.8345 L3.1754,1.7228 L3.2346,1.6089 L3.2897,1.4929 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
+<path d='M0.8973,3.5561 L0.7704,3.5858 L0.6425,3.6109 L0.5138,3.6314 L0.3845,3.6474 L0.2547,3.6588 L0.1246,3.6655 L-0.0057,3.6676 L-0.1360,3.6651 L-0.2662,3.6579 L-0.2690,3.6963 L-0.8906,3.5295 L-0.2594,3.5647 L-0.2622,3.6031 L-0.1340,3.6101 L-0.0057,3.6126 L0.1227,3.6105 L0.2509,3.6039 L0.3787,3.5927 L0.5061,3.5770 L0.6329,3.5567 L0.7589,3.5320 L0.8839,3.5028 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
+<path d='M-2.2208,2.9188 L-2.3231,2.8380 L-2.4225,2.7537 L-2.5188,2.6659 L-2.6119,2.5747 L-2.7017,2.4803 L-2.7881,2.3828 L-2.8710,2.2822 L-2.9503,2.1788 L-3.0258,2.0726 L-3.0576,2.0944 L-3.3147,1.5043 L-2.9487,2.0198 L-2.9805,2.0415 L-2.9061,2.1461 L-2.8280,2.2480 L-2.7463,2.3470 L-2.6612,2.4431 L-2.5727,2.5361 L-2.4810,2.6259 L-2.3862,2.7124 L-2.2883,2.7955 L-2.1875,2.8750 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
+<path d='M-3.6667,0.0835 L-3.6673,-0.0468 L-3.6633,-0.1771 L-3.6547,-0.3071 L-3.6415,-0.4367 L-3.6237,-0.5658 L-3.6013,-0.6942 L-3.5744,-0.8217 L-3.5429,-0.9482 L-3.5070,-1.0735 L-3.5438,-1.0847 L-3.2428,-1.6536 L-3.4176,-1.0461 L-3.4544,-1.0574 L-3.4898,-0.9340 L-3.5208,-0.8094 L-3.5473,-0.6838 L-3.5694,-0.5574 L-3.5869,-0.4302 L-3.5999,-0.3025 L-3.6084,-0.1744 L-3.6123,-0.0461 L-3.6117,0.0822 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
+<path d='M-2.3514,-2.8146 L-2.2499,-2.8964 L-2.1456,-2.9745 L-2.0386,-3.0489 L-1.9290,-3.1194 L-1.8169,-3.1859 L-1.7026,-3.2485 L-1.5861,-3.3069 L-1.4677,-3.3612 L-1.3473,-3.4112 L-1.3615,-3.4470 L-0.7290,-3.5664 L-1.3130,-3.3242 L-1.3271,-3.3600 L-1.4456,-3.3107 L-1.5623,-3.2573 L-1.6771,-3.1997 L-1.7897,-3.1381 L-1.9001,-3.0726 L-2.0080,-3.0031 L-2.1134,-2.9299 L-2.2162,-2.8530 L-2.3161,-2.7724 Z' fill='#696969' opacity='1.0' stroke='none' stroke-width='0'/>
+<path d='M1.3201,-6.3034 Q1.2154,-4.8738 1.5620,-3.4829' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M1.5620,-3.4829 L1.5035,-3.5611 L1.5769,-3.5793 Z' fill='#d3d3d3'/>
+<circle cx='1.3201' cy='-6.3034' r='1.1091' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='0.1526' y='-7.4708' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 149.282 140"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="98.0" y1="93.5" x2="74.6" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="71.6" y1="80.0" x2="71.6" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="77.6" y1="80.0" x2="77.6" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="80.0" x2="51.3" y2="93.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="105.282032" y="108.000000" fill="rgb(102,102,102)" stroke-width="0" font-weight="bold" font-size="16" >CH</text>
+<text x="129.282032" y="111.680000" fill="rgb(102,102,102)" stroke-width="0" font-weight="bold" font-size="13" >3</text>
+<text x="68.641016" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="22.000000" y="108.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M2.8460,2.2696 Q3.0321,3.1665 3.4887,3.9605' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M3.4887,3.9605 L3.4111,3.9013 L3.4766,3.8636 Z' fill='#d3d3d3'/>
+<circle cx='3.9243' cy='5.1063' r='1.1091' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='2.7568' y='3.9389' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 160 80"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="107.0" y1="43.0" x2="80.0" y2="43.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="107.0" y1="37.0" x2="80.0" y2="37.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="80.0" y1="43.0" x2="53.0" y2="43.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="80.0" y1="37.0" x2="53.0" y2="37.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="114.000000" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="34.000000" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M0.0000,3.6401 Q-0.5852,4.3448 -0.9212,5.1969' fill='none' stroke='#d3d3d3' stroke-width='0.026'/>
+<path d='M-0.9212,5.1969 L-0.9234,5.0993 L-0.8531,5.1271 Z' fill='#d3d3d3'/>
+<circle cx='-1.5455' cy='6.2519' r='1.1091' fill='#ff00ff' fill-opacity='0.2' stroke='none'/>
+<svg x='-2.7130' y='5.0844' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 160 80"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="107.0" y1="43.0" x2="80.0" y2="43.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="107.0" y1="37.0" x2="80.0" y2="37.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="80.0" y1="43.0" x2="53.0" y2="43.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="80.0" y1="37.0" x2="53.0" y2="37.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="114.000000" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="34.000000" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<circle cx='0.0000' cy='-3.6401' r='1.1091' fill='#ffd700' fill-opacity='0.4' stroke='none'/>
+<svg x='-1.1675' y='-4.8076' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 218.564 200"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="119.0" y1="150.9" x2="142.4" y2="137.4" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="122.0" y1="156.1" x2="145.4" y2="142.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="140.0" x2="167.3" y2="153.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="140.0" x2="143.9" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="100.0" x2="109.3" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="106.3" y1="80.0" x2="106.3" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="112.3" y1="80.0" x2="112.3" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="80.0" x2="74.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="73.1" y1="102.6" x2="49.8" y2="89.1" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="76.1" y1="97.4" x2="52.8" y2="83.9" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="100.0" x2="74.6" y2="127.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="103.282032" y="168.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="172.564065" y="168.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="103.282032" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="34.000000" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="68.641016" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M1.6599,-3.3078 L1.5512,-3.3602 L1.4988,-3.2514 L1.6076,-3.1991 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='1.3863' y='-2.8787' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:citrate-synthase</text>
+<svg x='1.6785' y='-3.4370' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 280 209.282"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="183.9" y1="156.5" x2="197.4" y2="133.1" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="189.1" y1="159.5" x2="202.6" y2="136.1" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="200.0" y1="134.6" x2="227.0" y2="134.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="200.0" y1="134.6" x2="180.0" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="180.0" y1="100.0" x2="140.0" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="140.0" y1="100.0" x2="140.0" y2="127.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="140.0" y1="100.0" x2="100.0" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="100.0" y1="100.0" x2="80.0" y2="134.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="82.6" y1="133.1" x2="96.1" y2="156.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="77.4" y1="136.1" x2="90.9" y2="159.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="80.0" y1="134.6" x2="53.0" y2="134.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="140.0" y1="100.0" x2="140.0" y2="60.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="138.5" y1="62.6" x2="115.1" y2="49.1" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="141.5" y1="57.4" x2="118.1" y2="43.9" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="140.0" y1="60.0" x2="163.4" y2="46.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="174.000000" y="177.282032" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="234.000000" y="142.641016" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="134.000000" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="94.000000" y="177.282032" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="22.000000" y="142.641016" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
+<text x="99.358984" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="168.641016" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M3.6211,-0.7646 L3.5942,-0.8823 L3.4766,-0.8554 L3.5034,-0.7377 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='3.1150' y='-0.7110' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:aconitase</text>
+<svg x='2.3814' y='-0.3575' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 253.205 240"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="52.8" y1="143.9" x2="76.1" y2="157.4" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="49.8" y1="149.1" x2="73.1" y2="162.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="160.0" x2="74.6" y2="187.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="160.0" x2="109.3" y2="140.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="140.0" x2="109.3" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="100.0" x2="74.6" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="76.1" y1="82.6" x2="52.8" y2="96.1" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="73.1" y1="77.4" x2="49.8" y2="90.9" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="80.0" x2="74.6" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="100.0" x2="143.9" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="80.0" x2="143.9" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="80.0" x2="178.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="177.1" y1="97.4" x2="200.4" y2="83.9" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="180.1" y1="102.6" x2="203.4" y2="89.1" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="178.6" y1="100.0" x2="178.6" y2="127.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="34.000000" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="68.641016" y="208.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="34.000000" y="108.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="68.641016" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="137.923048" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="207.205081" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="172.564065" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M2.8555,2.3544 L2.9307,2.2600 L2.8364,2.1848 L2.7612,2.2791 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='2.4980' y='1.9921' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:idh</text>
+<svg x='0.4119' y='2.1121' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 287.846 180"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="210.2" y1="127.0" x2="210.2" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="216.2" y1="127.0" x2="216.2" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="213.2" y1="100.0" x2="236.6" y2="86.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="213.2" y1="100.0" x2="178.6" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="178.6" y1="80.0" x2="143.9" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="100.0" x2="109.3" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="106.3" y1="80.0" x2="106.3" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="112.3" y1="80.0" x2="112.3" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="80.0" x2="74.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="73.1" y1="102.6" x2="49.8" y2="89.1" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="76.1" y1="97.4" x2="52.8" y2="83.9" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="100.0" x2="74.6" y2="127.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="207.205081" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="241.846097" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="103.282032" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="34.000000" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="68.641016" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M-0.0603,3.7004 L0.0603,3.7004 L0.0603,3.5798 L-0.0603,3.5798 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='0.0000' y='3.1951' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:ogdh</text>
+<svg x='-2.7469' y='2.1121' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 253.205 180"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="175.6" y1="127.0" x2="175.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="181.6" y1="127.0" x2="181.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="178.6" y1="100.0" x2="201.9" y2="86.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="178.6" y1="100.0" x2="143.9" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="80.0" x2="109.3" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="100.0" x2="74.6" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="71.6" y1="80.0" x2="71.6" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="77.6" y1="80.0" x2="77.6" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="80.0" x2="51.3" y2="93.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="172.564065" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="207.205081" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="68.641016" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="22.000000" y="108.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M-2.9307,2.2600 L-2.8555,2.3544 L-2.7612,2.2791 L-2.8364,2.1848 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-2.4980' y='1.9921' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:sdh</text>
+<svg x='-4.7163' y='-0.3575' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 253.205 180"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="175.6" y1="127.0" x2="175.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="181.6" y1="127.0" x2="181.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="178.6" y1="100.0" x2="201.9" y2="86.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="178.6" y1="100.0" x2="143.9" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="145.4" y1="82.6" x2="107.8" y2="97.4" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="142.4" y1="77.4" x2="110.8" y2="102.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="100.0" x2="74.6" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="71.6" y1="80.0" x2="71.6" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="77.6" y1="80.0" x2="77.6" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="80.0" x2="51.3" y2="93.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="172.564065" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="207.205081" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="68.641016" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="22.000000" y="108.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M-3.5942,-0.8823 L-3.6211,-0.7646 L-3.5034,-0.7377 L-3.4766,-0.8554 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-3.1150' y='-0.7110' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:fumarase</text>
+<svg x='-4.0134' y='-3.4370' width='2.3350' height='2.3350' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<title> - Open Babel Depiction</title>
+<g transform="translate(0,0)">
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 218.564 200"
+font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
+<line x1="119.0" y1="150.9" x2="142.4" y2="137.4" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="122.0" y1="156.1" x2="145.4" y2="142.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="140.0" x2="167.3" y2="153.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="140.0" x2="143.9" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="100.0" x2="109.3" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="80.0" x2="109.3" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="80.0" x2="74.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="73.1" y1="102.6" x2="49.8" y2="89.1" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="76.1" y1="97.4" x2="52.8" y2="83.9" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="100.0" x2="74.6" y2="127.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="103.282032" y="168.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="172.564065" y="168.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="103.282032" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="34.000000" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="68.641016" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+</svg>
+</g>
+<text font-size="18.000000" fill ="gray" font-family="sans-serif"
+x="10.000000" y="20.000000" ></text>
+</svg>
+<path d='M-1.5512,-3.3602 L-1.6599,-3.3078 L-1.6076,-3.1991 L-1.4988,-3.2514 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-1.3863' y='-2.8787' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='middle' fill='#222' font-weight='normal'>r:mdh</text>
+<text x='0.0000' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.26' text-anchor='middle' fill='#111' font-weight='normal'>oxaloacetate</text>
+<text x='-4.3820' y='8.1244' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>citrate-synthase  :  Aldol addition</text>
+<text x='-4.3820' y='8.2794' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>aconitase  :  Dehydration and rehydration</text>
+<text x='-4.3820' y='8.4344' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>idh  :  Oxidative decarboxylation</text>
+<text x='-4.3820' y='8.5894' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>ogdh  :  Oxidative decarboxylation</text>
+<text x='-4.3820' y='8.7444' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>sdh  :  Dehydrogenation</text>
+<text x='-4.3820' y='8.8994' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>fumarase  :  Hydration</text>
+<text x='-4.3820' y='9.0544' font-family='Helvetica, Arial, sans-serif' font-size='0.13' text-anchor='start' fill='#222' font-weight='normal'>mdh  :  Dehydrogenation</text>
+</g></svg>

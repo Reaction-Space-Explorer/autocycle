@@ -156,11 +156,17 @@ def side_spread(ring: Ring, cap: float = 25.0) -> float:
     return min(cap, per_step * 0.27)
 
 
+def side_out(ring: Ring, frac: float) -> float:
+    """Offset for side species, proportional to the ring so it holds at any size."""
+    return ring.radius * frac + mol_half(ring)
+
+
 def side_points(
-    ring: Ring, steps, avoid=None, out0: float = 1.5
+    ring: Ring, steps, avoid=None, out0: float | None = None
 ) -> list[tuple[int, str, object, tuple[float, float]]]:
     """(step, side, species, anchor). Used by both the renderer and the bounds."""
     out = []
+    out0 = side_out(ring, 0.34) if out0 is None else out0
     spread = side_spread(ring)
     for i, st in enumerate(steps):
         v = ring.verts[(2 * i + 1) % ring.n]

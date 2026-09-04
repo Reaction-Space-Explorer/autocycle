@@ -71,6 +71,7 @@ def load_yaml(path: str | Path) -> Cycle:
         subs=subs,
         title=raw.get("title"),
         seed=None if raw.get("seed") is None else int(raw["seed"]),
+        stoichiometry_complete=bool(raw.get("stoichiometry_complete", False)),
     )
 
 

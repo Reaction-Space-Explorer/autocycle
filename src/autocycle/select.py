@@ -7,8 +7,7 @@ from rdkit.Chem.Descriptors import MolWt
 
 from autocycle.spec import Cycle, canonical
 
-# molecules that are chemically implausible as ring intermediates without a catalyst,
-# and belong on a cycle only as a feeder or a product
+# hard to oxidise or reduce without a catalyst, so odd as ring intermediates
 ROLE_RESTRICTED = ("C=O", "CO")
 
 

@@ -1,0 +1,20 @@
+# The formose core cycle: the one abiotic autocatalytic cycle with empirical support
+# (Pereto, Chem. Soc. Rev. 2012, 41, 5394). One turn consumes one glycolaldehyde and two
+# formaldehyde and returns two glycolaldehyde, so n = 2.
+title: Formose core cycle
+seed: 0
+stoichiometry_complete: true
+nodes:
+  - {smiles: "OCC=O", label: glycolaldehyde}
+  - {smiles: "OCC(O)C=O", label: glyceraldehyde}
+  - {smiles: "OCC(=O)CO", label: dihydroxyacetone}
+  - {smiles: "OCC(O)C(O)C=O", label: erythrose}
+steps:
+  - {id: aldol-1, rule: Aldol addition, consumes: [{smiles: "C=O", count: 1}]}
+  - {id: isomerise, rule: Keto-enol isomerisation}
+  - {id: aldol-2, rule: Aldol addition, consumes: [{smiles: "C=O", count: 1}]}
+  - id: retro-aldol
+    rule: Retro-aldol cleavage
+    gain: true
+    mag: 2.0
+    produces: [{smiles: "OCC=O", count: 1}]

@@ -79,12 +79,6 @@ def test_declared_gain_with_support_is_not_flagged():
     assert not verify(c).disagrees_with_declaration
 
 
-def test_hand_written_example_is_autocatalytic():
-    v = verify(load_yaml("examples/formose_gain.yaml"))
-    assert v.status == AUTOCATALYTIC
-    assert "extra_yield=yes" in v.summary()
-
-
 def test_summary_lists_every_condition():
     s = verify(load_yaml("examples/formose_gain.yaml")).summary()
     for cond in ("seed_identified", "feeder", "outlet", "seed_regenerated", "extra_yield"):

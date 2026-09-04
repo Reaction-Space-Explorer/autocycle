@@ -31,7 +31,7 @@ class Style:
     label_size: float = 0.145
     centre_size: float = 0.26
     backend: str = "rdkit"           # rdkit | obabel
-    side_out: float = 1.5            # how far outside the ring side species sit
+    side_out: float = 0.34           # side-species offset, as a fraction of the radius
 
 
 PAPER = Style()
@@ -58,7 +58,7 @@ ANNOTATED = Style(
     mol_scale=1.12,
     uniform_width=0.055,
     rxn_size=0.085,
-    side_out=2.8,
+    side_out=0.52,
 )
 
 RICH = Style(

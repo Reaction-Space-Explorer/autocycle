@@ -1,0 +1,26 @@
+# The TCA (Krebs) cycle, which Pereto gives as an example of a *simple* cycle: "Each turn
+# of the TCA cycle completely oxidises acetate to CO2, consuming and regenerating a
+# molecule of oxaloacetate (OAA), the feeder of the pathway" (Chem. Soc. Rev. 2012, 41,
+# 5394, Fig. 3a). n = 1, so it is not autocatalytic.
+#
+# Written at the level of the free acids, as in that figure: acetyl-CoA is represented by
+# acetate and the succinyl-CoA intermediate is not shown.
+title: TCA (Krebs) cycle
+seed: 0
+stoichiometry_complete: true
+nodes:
+  - {smiles: "OC(=O)CC(=O)C(=O)O", label: oxaloacetate}
+  - {smiles: "OC(=O)CC(O)(CC(=O)O)C(=O)O", label: citrate}
+  - {smiles: "OC(=O)C(O)C(CC(=O)O)C(=O)O", label: isocitrate}
+  - {smiles: "OC(=O)CCC(=O)C(=O)O", label: 2-oxoglutarate}
+  - {smiles: "OC(=O)CCC(=O)O", label: succinate}
+  - {smiles: "OC(=O)C=CC(=O)O", label: fumarate}
+  - {smiles: "OC(=O)CC(O)C(=O)O", label: malate}
+steps:
+  - {id: citrate-synthase, rule: Aldol addition, consumes: [{smiles: "OC(=O)C", count: 1}]}
+  - {id: aconitase, rule: Dehydration and rehydration}
+  - {id: idh, rule: Oxidative decarboxylation, produces: [{smiles: "O=C=O", count: 1}]}
+  - {id: ogdh, rule: Oxidative decarboxylation, produces: [{smiles: "O=C=O", count: 1}]}
+  - {id: sdh, rule: Dehydrogenation}
+  - {id: fumarase, rule: Hydration}
+  - {id: mdh, rule: Dehydrogenation}
