@@ -76,9 +76,8 @@ def from_cypher_row(row: dict, title: str | None = None) -> Cycle:
     if begin not in mols:
         raise SpecError(f"beginMol {begin!r} is not on the ring")
     seed = mols.index(begin)
-    gain = (seed - 1) % n  # the step arriving at the autocatalyst
-    steps[gain].gain = True
-    steps[gain].mag = 2.0
+    # No gain flag: these rows carry no stoichiometric coefficients, so an extra yield
+    # of the seed cannot be established. autocycle.verify reports it as unknown.
 
     inter = _smiles(_lit(row, "intermediateMol")) if "intermediateMol" in row else None
     if inter in mols:

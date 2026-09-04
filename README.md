@@ -89,6 +89,40 @@ autocycle bench cycles_dir/ --sample 5                  # Cypher ring-query CSVs
 autocycle bench-routes routes_dir/ --seeds products.tsv --rels rels.tsv --sample 5
 ```
 
+## Whole figures
+
+A network search returns a distribution, not one cycle. `panel` emits the published figure
+shape in one file: a frequency histogram by cycle length, stratified by distinct feeder
+count, plus example cycles, tagged A, B, C.
+
+```bash
+autocycle panel cycles_dir/ --sample 3 --style annotated -o figure.svg
+```
+
+![panel](examples/figure_panel.png)
+
+## Does the cycle actually qualify?
+
+Orgel's distinction, as stated by Peretó: a **simple** cycle regenerates one reactant
+stoichiometrically, so the molecule produced replaces the one consumed; an
+**autocatalytic** cycle "exhibits an additional yield of the feeder", n > 1. The
+distinction is a stoichiometric coefficient.
+
+`autocycle.verify` reports each condition rather than a boolean:
+
+```python
+from autocycle.verify import verify
+v = verify(cycle)
+v.status        # autocatalytic | simple | candidate | incomplete
+v.summary()     # 'candidate (seed_identified=yes, feeder=yes, ... extra_yield=unknown)'
+```
+
+A source that records no coefficients gets `extra_yield=unknown` and the cycle is a
+**candidate**, never asserted to be autocatalytic and never dismissed as simple. On the
+glucose-degradation corpus that is every one of the 2100 cycles, which is why the readers
+do not set a gain flag: the data cannot support one. `verify` also reports when a spec
+declares a gain step the conditions do not support.
+
 ## Choosing which cycle to show
 
 A network search returns thousands of cycles, most of them not worth a figure. `list` and
@@ -96,6 +130,8 @@ A network search returns thousands of cycles, most of them not worth a figure. `
 
 - **distinct feeder count** — a cycle fed by one molecule is a stronger result than one
   needing three. `from-edges --rank` orders by fewest feeders, then lightest feeder.
+- **cycle centrality** — `select.cycle_centrality` is the lowest centrality among the ring
+  molecules, a second ranking axis for when the feeder count cannot separate candidates.
 - **restricted molecules on the ring** — a cycle running *through* formaldehyde or methanol
   is usually not what you want to present: methanol in particular is hard to oxidise or
   reduce without a catalyst, so such a cycle is hard to interpret. Flagged, never dropped,
@@ -168,6 +204,12 @@ The cycle layout, the feeder/consumer convention and the thermodynamic annotatio
 > Cleaves, H. J. **Combined Network and High Resolution Mass Spectrometry Analysis of the
 > Formose Reaction Reveals Mechanisms for Emergent Behaviors.** *ChemRxiv* **2024**.
 > [doi:10.26434/chemrxiv-2024-nj0p6](https://doi.org/10.26434/chemrxiv-2024-nj0p6)
+
+The simple-versus-autocatalytic criterion is Orgel's, as stated in:
+
+> Peretó, J. **Out of fuzzy chemistry: from prebiotic chemistry to metabolic networks.**
+> *Chem. Soc. Rev.* **2012**, *41*, 5394.
+> [doi:10.1039/C2CS35054H](https://doi.org/10.1039/C2CS35054H)
 
 Arrow width encoding magnitude, with an explicit linear/log choice, and reversible steps as
 concentric arrow pairs, are from Catacycle:

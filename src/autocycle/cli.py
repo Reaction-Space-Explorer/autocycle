@@ -94,6 +94,13 @@ def main(argv: list[str] | None = None) -> int:
     br.add_argument("--style", choices=("paper", "annotated", "rich"), default="paper")
     br.add_argument("--backend", choices=("rdkit", "obabel"), default=None)
 
+    pn = sub.add_parser("panel", parents=[common],
+                        help="one multi-panel figure: stratified histogram plus example cycles")
+    pn.add_argument("dir")
+    pn.add_argument("--sample", type=int, default=2, help="example cycles to include")
+    pn.add_argument("--cols", type=int, default=2)
+    pn.add_argument("--limit", type=int, default=0)
+
     ls = sub.add_parser("list", help="list cycles in an edge list, optionally to CSV")
     ls.add_argument("csv")
     ls.add_argument("--min-len", type=int, default=3)
@@ -125,6 +132,9 @@ def main(argv: list[str] | None = None) -> int:
 
         if a.cmd == "bench-routes":
             return _bench_routes(a)
+
+        if a.cmd == "panel":
+            return _panel(a)
 
         g = ingest.spontaneous(ingest.read_edges(a.csv), a.cut)
         cycles = ingest.find_cycles(g, a.min_len, a.max_len)
@@ -275,6 +285,62 @@ def _bench_routes(a) -> int:
     return 0
 
 
+def _panel(a) -> int:
+    from collections import Counter
+
+    from autocycle.io_cypher import from_cypher_row, read_rows
+    from autocycle.panel import Series, bar_panel, compose, svg
+    from autocycle.pick import farthest_first, tokens
+    from autocycle.select import feeders
+
+    files = sorted(Path(a.dir).rglob("*.csv"))
+    total: Counter[int] = Counter()
+    by_feeders: dict[int, Counter[int]] = {}
+    candidates: list = []
+    n = 0
+    for path in files:
+        batch = read_rows(path)
+        if not batch or "ringMols" not in batch[0]:
+            continue
+        for row in batch:
+            try:
+                cycle = from_cypher_row(row)
+            except SpecError:
+                continue
+            n += 1
+            if a.limit and n > a.limit:
+                break
+            length = len(cycle.nodes)
+            total[length] += 1
+            by_feeders.setdefault(len(feeders(cycle)), Counter())[length] += 1
+            candidates.append((tokens(cycle), cycle))
+        if a.limit and n > a.limit:
+            break
+
+    if not total:
+        print(f"no cycles found under {a.dir}", file=sys.stderr)
+        return 1
+
+    series = [Series("Total", dict(total))]
+    for k in sorted(by_feeders, reverse=True):
+        word = {1: "One", 2: "Two", 3: "Three"}.get(k, str(k))
+        series.append(Series(f"{word} feeder" + ("" if k == 1 else "s"), dict(by_feeders[k])))
+
+    cell_w, cell_h = 700.0, 620.0
+    cells = [svg(bar_panel(series, cell_w, cell_h), cell_w, cell_h)]
+    for cycle in farthest_first(candidates, a.sample):
+        cells.append(render(cycle, mode=a.mode, style=_style(a)))
+
+    Path(a.out).write_text(compose(cells, cell_w, cell_h, cols=a.cols))
+    strata = {k: sum(v.values()) for k, v in sorted(by_feeders.items())}
+    print(f"wrote {a.out}: {n} cycles, lengths {dict(sorted(total.items()))}, "
+          f"{len(cells)} panels")
+    print(f"  cycles by distinct feeder count: {strata}")
+    if len(strata) == 1:
+        print("  only one stratum: this source attaches a single feeder per cycle")
+    return 0
+
+
 def _bench(a) -> int:
     from collections import Counter
 
@@ -282,6 +348,7 @@ def _bench(a) -> int:
     from autocycle.io_cypher import from_cypher_row, read_rows
     from autocycle.pick import farthest_first, tokens
     from autocycle.select import feeders, role_violations
+    from autocycle.verify import verify
 
     files = sorted(Path(a.dir).rglob("*.csv"))
     if not files:
@@ -297,6 +364,8 @@ def _bench(a) -> int:
     worst = []
     role_bad = 0
     feeder_hist: Counter[int] = Counter()
+    verdicts: Counter[str] = Counter()
+    unsupported = 0
     candidates: list = []
 
     for path in files:
@@ -316,6 +385,9 @@ def _bench(a) -> int:
             lengths[len(cycle.nodes)] += 1
             feeder_hist[len(feeders(cycle))] += 1
             role_bad += bool(role_violations(cycle))
+            v = verify(cycle)
+            verdicts[v.status] += 1
+            unsupported += v.disagrees_with_declaration
             hits = collisions(cycle, style)
             if hits:
                 collided += 1
@@ -344,6 +416,9 @@ def _bench(a) -> int:
     print(f"ring lengths     {dict(sorted(lengths.items()))}")
     print(f"distinct feeders {dict(sorted(feeder_hist.items()))}")
     print(f"restricted molecule on the ring  {role_bad} / {ok} cycles")
+    print(f"autocatalysis     {dict(verdicts.most_common())}")
+    if unsupported:
+        print(f"  {unsupported} cycles declare a gain step the conditions do not support")
     print(f"overlapping depictions  {collided} / {ok} figures")
     for frac, name, pair in sorted(worst, reverse=True)[:5]:
         print(f"  {frac:.2f}  {name}  {pair[0][:28]} vs {pair[1][:28]}")

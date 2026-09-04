@@ -46,3 +46,21 @@ def role_violations(cycle: Cycle, restricted=ROLE_RESTRICTED) -> list[str]:
     """Restricted molecules sitting on the ring rather than feeding it."""
     bad = {canonical(s) for s in restricted}
     return [m.smiles for m in cycle.nodes if m.smiles in bad]
+
+
+def centrality(graph, measure: str = "degree") -> dict[str, float]:
+    """Node centrality over the whole network. Degree is cheap; betweenness is not."""
+    import networkx as nx
+
+    g = nx.DiGraph(graph)
+    if measure == "degree":
+        return nx.degree_centrality(g)
+    if measure == "betweenness":
+        return nx.betweenness_centrality(g)
+    raise ValueError(f"unknown measure {measure!r}")
+
+
+def cycle_centrality(cycle: Cycle, cent: dict[str, float]) -> float | None:
+    """Lowest centrality among the ring molecules (Zubarev's cycle centrality)."""
+    vals = [cent[m.smiles] for m in cycle.nodes if m.smiles in cent]
+    return min(vals) if len(vals) == len(cycle.nodes) else None

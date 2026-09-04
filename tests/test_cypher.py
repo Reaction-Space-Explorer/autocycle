@@ -57,10 +57,16 @@ def test_seed_is_the_begin_molecule(rows):
         assert c.nodes[c.seed].smiles == canonical(begin)
 
 
-def test_gain_step_arrives_at_the_seed(rows):
+def test_no_gain_is_claimed_without_coefficients(rows):
+    """These rows carry no stoichiometry, so an extra yield cannot be asserted."""
+    from autocycle.verify import CANDIDATE, verify
+
     for c in _cycles(rows):
-        assert c.gain_steps == [(c.seed - 1) % len(c.nodes)]
-        assert c.steps[c.gain_steps[0]].mag > c.steps[c.seed].mag
+        assert c.gain_steps == []
+        v = verify(c)
+        assert v.conditions["extra_yield"] == "unknown"
+        assert v.status == CANDIDATE
+        assert not v.disagrees_with_declaration
 
 
 def test_side_species_are_attached(rows):
