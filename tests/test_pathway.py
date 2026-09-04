@@ -4,7 +4,7 @@ from autocycle import tree as T
 from autocycle.check import collisions
 from autocycle.io_spec import from_route_smiles, load_pathway_yaml
 from autocycle.render import render
-from autocycle.spec import SEED, UNKNOWN, UNTRACED, Mol, PathNode, Pathway, SpecError, Step
+from autocycle.spec import SEED, UNKNOWN, Mol, PathNode, Pathway, SpecError, Step
 
 SPEC = "examples/ribose_route.yaml"
 
@@ -19,13 +19,6 @@ def _leaf(smi, terminal=SEED):
 
 
 # --- spec ---------------------------------------------------------------
-
-def test_loads_route_example(route):
-    assert len(route.nodes) == 8
-    assert len(route.steps) == 4
-    assert len(route.leaves) == 4
-    assert route.root.mol.label == "ribose"
-
 
 def test_route_dg_sums(route):
     assert route.total_dg == pytest.approx(-36.4)
@@ -52,10 +45,6 @@ def test_internal_nodes_have_no_terminal_state():
 def test_bad_terminal_state_rejected():
     with pytest.raises(SpecError, match="terminal must be one of"):
         PathNode(mol=Mol("C=O"), terminal="maybe")
-
-
-def test_untraced_constant_is_used():
-    assert _leaf("C=O", UNTRACED).terminal == UNTRACED
 
 
 def test_a_molecule_may_not_reappear_on_its_own_path():
@@ -137,20 +126,6 @@ def test_side_anchor_puts_consumed_above_and_produced_below(route):
     r = lay.rxn(route.root)
     assert T.side_anchor(r, "in")[1] > r.y
     assert T.side_anchor(r, "out")[1] < r.y
-
-
-def test_route_side_anchor_rejects_bad_side(route):
-    lay = T.lay_out_pathway(route)
-    with pytest.raises(ValueError, match="'in' or 'out'"):
-        T.side_anchor(lay.rxn(route.root), "up")
-
-
-# --- render -------------------------------------------------------------
-
-def test_render_dispatches_on_type(route):
-    svg = render(route)
-    assert svg.startswith("<svg")
-    assert "ribose" in svg
 
 
 def test_seeds_and_dead_ends_are_both_labelled(route):

@@ -27,17 +27,17 @@ def test_seed_yield_matches_the_published_in_out(cycle):
 
 
 def test_the_extra_copy_comes_from_the_shunt(cycle):
-    """Without counting shunt products the yield would look like 1."""
-    ring_only = sum(
-        sp.count for st in cycle.steps for sp in st.produces
+    """The shunt ends on the seed, so the extra copy is that arrow, not a declared product."""
+    declared = sum(
+        sp.count
+        for st in list(cycle.steps) + list(cycle.shunt.steps)
+        for sp in st.produces
         if sp.smiles == cycle.nodes[cycle.seed].smiles
     )
-    shunt_only = sum(
-        sp.count for st in cycle.shunt.steps for sp in st.produces
-        if sp.smiles == cycle.nodes[cycle.seed].smiles
-    )
-    assert ring_only == 0
-    assert shunt_only == 1
+    assert declared == 0
+    without = load_yaml(SPEC)
+    without.shunt = None
+    assert verify(without).seed_yield == 1.0
 
 
 def test_shunt_leaves_malyl_coa(cycle):

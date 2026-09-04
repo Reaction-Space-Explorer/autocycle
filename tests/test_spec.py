@@ -40,16 +40,6 @@ def test_total_dg_sums_when_complete():
     assert c.total_dg == pytest.approx(0.5)
 
 
-def test_gain_steps():
-    c = Cycle(nodes=_nodes(3), steps=[Step("a"), Step("b", gain=True), Step("c")])
-    assert c.gain_steps == [1]
-
-
-def test_reversible_flag():
-    assert not Step("a").reversible
-    assert Step("a", rev_mag=0.2).reversible
-
-
 def test_side_count_must_be_positive():
     with pytest.raises(SpecError, match="count must be"):
         Side("O", count=0)

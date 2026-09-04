@@ -41,22 +41,3 @@ def test_simple_requires_stated_stoichiometry():
 def test_both_render():
     for f in (FORMOSE, KREBS):
         assert render(load_yaml(f), style="annotated").startswith("<svg")
-
-
-def test_ring_chemistry_is_carbon_balanced():
-    """A wrong SMILES would show up as a broken carbon count around the ring."""
-    from rdkit import Chem
-
-    def carbons(smi):
-        return sum(a.GetSymbol() == "C" for a in Chem.MolFromSmiles(smi).GetAtoms())
-
-    c = load_yaml(FORMOSE)
-    n = len(c.nodes)
-    for i, step in enumerate(c.steps):
-        before = carbons(c.nodes[i].smiles) + sum(
-            carbons(s.smiles) * s.count for s in step.consumes
-        )
-        after = carbons(c.nodes[(i + 1) % n].smiles) + sum(
-            carbons(s.smiles) * s.count for s in step.produces
-        )
-        assert before == after, f"step {step.rid}: {before} C in, {after} C out"

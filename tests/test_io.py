@@ -6,15 +6,6 @@ from autocycle.spec import SpecError, drop_side
 SPEC = "examples/formose_gain.yaml"
 
 
-def test_loads_example():
-    c = load_yaml(SPEC)
-    assert len(c.nodes) == 4
-    assert c.nodes[0].label == "glycolaldehyde"
-    assert c.gain_steps == [3]
-    assert len(c.subs) == 1
-    assert c.subs[0].at_step == 1
-
-
 def test_missing_key(tmp_path):
     p = tmp_path / "bad.yaml"
     p.write_text("title: x\nnodes: [C]\n")

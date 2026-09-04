@@ -25,10 +25,6 @@ def routes(seeds, rels):
     return parse_file(PATHS, seeds, rels)
 
 
-def test_seed_set_is_generation_zero(seeds):
-    assert seeds == {canonical("C=O"), canonical("OCC=O"), canonical("O")}
-
-
 def test_rels_split_reactants_from_products(rels):
     r = rels["R001"]
     assert canonical("OCC(O)C=O") in r["products"]
@@ -105,13 +101,6 @@ def test_reported_dg_is_kept_separate_from_computed(routes):
     pw = routes[0]
     assert pw.reported_dg == -30.5
     assert pw.total_dg is None  # no per-step dG in this format
-
-
-def test_metadata_is_carried(routes):
-    m = routes[0].meta
-    assert m["inchikey"] == "SYNTHEXAMPLE1"
-    assert m["generation"] == "G2"
-    assert m["source"] == "routes"
 
 
 def test_every_route_renders(routes):

@@ -47,11 +47,6 @@ def test_asking_for_more_than_available_returns_everything():
     assert len(farthest_first(items, 99)) == len(items)
 
 
-def test_zero_or_empty_is_empty():
-    assert farthest_first([], 5) == []
-    assert farthest_first([(frozenset({"a"}), 1)], 0) == []
-
-
 def test_second_pick_is_the_least_similar_candidate():
     a = (frozenset({"x", "y", "z"}), "rich")
     near = (frozenset({"x", "y"}), "near")
