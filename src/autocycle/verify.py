@@ -16,7 +16,8 @@ from autocycle.spec import Cycle
 
 YES, NO, UNKNOWN = "yes", "no", "unknown"
 
-AUTOCATALYTIC = "autocatalytic"
+AUTOCATALYTIC = "autocatalytic"   # an extra copy is stated stoichiometrically
+TOPOLOGICAL = "topological"       # a shunt gives the published topological criterion
 SIMPLE = "simple"
 CANDIDATE = "candidate"
 INCOMPLETE = "incomplete"
@@ -36,6 +37,8 @@ class Verdict:
             return INCOMPLETE
         if c["extra_yield"] == YES:
             return AUTOCATALYTIC
+        if c["shunt"] == YES:
+            return TOPOLOGICAL
         if c["extra_yield"] == NO:
             return SIMPLE
         return CANDIDATE
@@ -71,6 +74,9 @@ def verify(cycle: Cycle) -> Verdict:
         "seed_regenerated": YES if seed is not None else NO,
         # no coefficients in the source means the yield cannot be pinned to 1
         "extra_yield": YES if extra > 0 else UNKNOWN,
+        # a bridging path back to the seed: topological evidence of more than one copy,
+        # with no mass-balance constraint behind it
+        "shunt": YES if cycle.shunt is not None else NO,
     }
     return Verdict(
         conditions=conditions,

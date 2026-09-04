@@ -68,6 +68,19 @@ class Step:
 
 
 @dataclass
+class Shunt:
+    """A bridging path from a ring molecule back to the seed.
+
+    The published search calls this the shunt, and treats its presence as the minimal
+    topological evidence that the seed is produced in quantity greater than one.
+    """
+
+    from_node: int
+    steps: list[Step] = field(default_factory=list)
+    nodes: list[Mol] = field(default_factory=list)
+
+
+@dataclass
 class Sub:
     at_step: int
     nodes: list[Mol]
@@ -83,6 +96,7 @@ class Cycle:
     nodes: list[Mol]
     steps: list[Step]
     subs: list[Sub] = field(default_factory=list)
+    shunt: Shunt | None = None
     title: str | None = None
     seed: int | None = None
 
@@ -93,6 +107,8 @@ class Cycle:
                 raise SpecError(f"sub at_step {s.at_step} out of range")
         if self.seed is not None and not 0 <= self.seed < len(self.nodes):
             raise SpecError(f"seed {self.seed} out of range")
+        if self.shunt is not None and not 0 <= self.shunt.from_node < len(self.nodes):
+            raise SpecError(f"shunt from_node {self.shunt.from_node} out of range")
 
     @property
     def gain_steps(self) -> list[int]:

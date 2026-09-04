@@ -1,3 +1,4 @@
+import pytest
 
 from autocycle.io_spec import load_yaml
 from autocycle.spec import Cycle, Mol, Side, Step
@@ -88,3 +89,38 @@ def test_summary_lists_every_condition():
     s = verify(load_yaml("examples/formose_gain.yaml")).summary()
     for cond in ("seed_identified", "feeder", "outlet", "seed_regenerated", "extra_yield"):
         assert cond in s
+
+
+def test_a_shunt_carries_the_topological_criterion():
+    from autocycle.spec import Shunt
+    from autocycle.verify import TOPOLOGICAL
+
+    c = _cycle(consumes=[["C=O"], [], []])
+    c.shunt = Shunt(from_node=1, steps=[Step("s1")])
+    v = verify(c)
+    assert v.conditions["shunt"] == "yes"
+    assert v.conditions["extra_yield"] == "unknown"
+    assert v.status == TOPOLOGICAL
+
+
+def test_a_stated_coefficient_outranks_a_shunt():
+    from autocycle.spec import Shunt
+
+    c = _cycle(consumes=[["C=O"], [], []], produces=[[], [], ["OCC=O"]])
+    c.shunt = Shunt(from_node=1, steps=[Step("s1")])
+    assert verify(c).status == AUTOCATALYTIC
+
+
+def test_no_shunt_is_reported_as_such():
+    assert verify(_cycle(consumes=[["C=O"], [], []])).conditions["shunt"] == "no"
+
+
+def test_shunt_out_of_range_rejected():
+    from autocycle.spec import Cycle, Shunt, SpecError
+
+    with pytest.raises(SpecError, match="shunt from_node"):
+        Cycle(
+            nodes=[Mol("OCC=O"), Mol("OCC(O)C=O")],
+            steps=[Step("a"), Step("b")],
+            shunt=Shunt(from_node=9, steps=[Step("s")]),
+        )

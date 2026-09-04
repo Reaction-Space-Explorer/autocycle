@@ -96,8 +96,12 @@ shape in one file: a frequency histogram by cycle length, stratified by distinct
 count, plus example cycles, tagged A, B, C.
 
 ```bash
-autocycle panel cycles_dir/ --sample 3 --style annotated -o figure.svg
+autocycle panel cycles_dir/ --sample 3 --style annotated -o figure.png
 ```
+
+Cycle length is counted in bipartite edges by default, twice the molecule count, matching
+the published axis; `--length molecules` counts molecules instead. Any command writes
+`.svg`, or `.png` / `.pdf` with `pip install "autocycle[raster]"`.
 
 ![panel](examples/figure_panel.png)
 
@@ -108,20 +112,28 @@ stoichiometrically, so the molecule produced replaces the one consumed; an
 **autocatalytic** cycle "exhibits an additional yield of the feeder", n > 1. The
 distinction is a stoichiometric coefficient.
 
+The published search adds a **shunt**: a bridging path from a ring molecule back to the
+seed. Its SI states the rationale directly — such shunts "ensure that the target 'begin
+molecule' is generated in a stoichiometric quantity greater than one, which is a minimal
+definition of self-amplification" — while noting it carries no flow constraint for mass
+balance. `autocycle` reads the shunt, draws it as an outer arc, and reports it as its own
+condition.
+
 `autocycle.verify` reports each condition rather than a boolean:
 
 ```python
 from autocycle.verify import verify
 v = verify(cycle)
-v.status        # autocatalytic | simple | candidate | incomplete
+v.status        # autocatalytic | topological | simple | candidate | incomplete
 v.summary()     # 'candidate (seed_identified=yes, feeder=yes, ... extra_yield=unknown)'
 ```
 
-A source that records no coefficients gets `extra_yield=unknown` and the cycle is a
-**candidate**, never asserted to be autocatalytic and never dismissed as simple. On the
-glucose-degradation corpus that is every one of the 2100 cycles, which is why the readers
-do not set a gain flag: the data cannot support one. `verify` also reports when a spec
-declares a gain step the conditions do not support.
+`autocatalytic` needs a stated coefficient. `topological` means a shunt is present, which
+is the published criterion but not mass balance. A source with neither gets
+`extra_yield=unknown` and stays a **candidate** — never asserted, never dismissed as
+simple. On the glucose-degradation corpus all 2100 cycles are `topological`: every one
+carries a shunt, and none carries a coefficient. That is also why the readers set no gain
+flag, and `verify` reports any spec that declares one the conditions cannot support.
 
 ## Choosing which cycle to show
 

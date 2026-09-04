@@ -57,15 +57,19 @@ def test_seed_is_the_begin_molecule(rows):
         assert c.nodes[c.seed].smiles == canonical(begin)
 
 
-def test_no_gain_is_claimed_without_coefficients(rows):
-    """These rows carry no stoichiometry, so an extra yield cannot be asserted."""
-    from autocycle.verify import CANDIDATE, verify
+def test_shunt_is_read_and_carries_the_topological_criterion(rows):
+    """No coefficients, but a shunt: the published minimal criterion for n > 1."""
+    from autocycle.verify import TOPOLOGICAL, verify
 
     for c in _cycles(rows):
-        assert c.gain_steps == []
+        assert c.gain_steps == []          # no coefficient, so no gain is asserted
+        assert c.shunt is not None
+        assert c.shunt.steps
+        assert 0 <= c.shunt.from_node < len(c.nodes)
         v = verify(c)
         assert v.conditions["extra_yield"] == "unknown"
-        assert v.status == CANDIDATE
+        assert v.conditions["shunt"] == "yes"
+        assert v.status == TOPOLOGICAL
         assert not v.disagrees_with_declaration
 
 

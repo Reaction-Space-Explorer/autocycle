@@ -155,6 +155,35 @@ def draw_ring(ring: L.Ring, steps, span: float, st_: Style, mode: str, cw: bool 
     return out
 
 
+def draw_shunt(ring: L.Ring, cycle, st_: Style) -> list[str]:
+    """The bridging arc from a ring molecule back to the seed, drawn outside the ring."""
+    if cycle.shunt is None or cycle.seed is None:
+        return []
+    a = ring.verts[(2 * cycle.shunt.from_node) % ring.n].angle
+    b = ring.verts[(2 * cycle.seed) % ring.n].angle
+    delta = (b - a) % 360.0
+    if delta > 180.0:
+        delta -= 360.0
+    if abs(delta) < 1e-6:
+        return []
+    gap = L.node_gap(ring) * 0.8
+    step = math.copysign(gap, delta)
+    a0, a1 = a + step, a + delta - step
+    r = ring.radius + L.mol_half(ring) * 1.25
+    w = (st_.uniform_width or 0.075) * 0.8
+    out = [
+        f"<path d='{annular_arrow(ring.cx, ring.cy, r, a0, a1, w)}' "
+        f"fill='{st_.ring_grey}' opacity='0.9'/>"
+    ]
+    if st_.step_label != "none" and cycle.shunt.steps:
+        mid = a + delta / 2
+        dx, dy = L.polar(r + 0.34, mid)
+        lx, ly = _p(ring.cx + dx, ring.cy + dy)
+        ids = ", ".join(st.rid for st in cycle.shunt.steps)
+        out.append(text(lx, ly, f"shunt {ids}", st_.label_size * 0.9, "middle", "#444"))
+    return out
+
+
 def draw_sides(ring: L.Ring, steps, st_: Style, anchors=None) -> list[str]:
     out: list[str] = []
     half = L.mol_half(ring) * st_.mol_scale

@@ -10,7 +10,7 @@ import ast
 import csv
 from pathlib import Path
 
-from autocycle.spec import Cycle, Mol, Side, SpecError, Step, canonical
+from autocycle.spec import Cycle, Mol, Shunt, Side, SpecError, Step, canonical
 
 
 def read_rows(path: str | Path) -> list[dict]:
@@ -91,6 +91,21 @@ def from_cypher_row(row: dict, title: str | None = None) -> Cycle:
         if consumer:
             steps[j].produces.append(Side(consumer, generation=gens.get(canonical(consumer))))
 
+    shunt = None
+    cat = _smiles(_lit(row, "catMolInRing")) if (row.get("catMolInRing") or "").strip() else None
+    if cat in mols and (row.get("autocatPathRels") or "").strip():
+        rels_s = _lit(row, "autocatPathRels")
+        nodes_s = _lit(row, "autocatPathNodes") if (row.get("autocatPathNodes") or "").strip() else []
+        inner = [_smiles(x) for x in nodes_s][1:-1] if len(nodes_s) > 2 else []
+        shunt = Shunt(
+            from_node=mols.index(cat),
+            steps=[
+                Step(rid=str(r.get("rxn_id") or f"shunt{i}"), rule=r.get("rule"))
+                for i, r in enumerate(rels_s)
+            ],
+            nodes=[Mol(m, generation=gens.get(canonical(m))) for m in inner if m],
+        )
+
     exported = _smiles(_lit(row, "beginMolConsumer")) if "beginMolConsumer" in row else None
     if exported:
         steps[seed].produces.append(Side(exported, generation=gens.get(canonical(exported))))
@@ -100,4 +115,5 @@ def from_cypher_row(row: dict, title: str | None = None) -> Cycle:
         steps=steps,
         title=title,
         seed=seed,
+        shunt=shunt,
     )

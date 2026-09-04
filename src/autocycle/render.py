@@ -13,6 +13,7 @@ from autocycle.draw import (
     draw_route,
     draw_route_nodes,
     draw_route_sides,
+    draw_shunt,
     draw_sides,
     text,
 )
@@ -77,6 +78,7 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
     ]
 
     body = draw_ring(ring, cycle.steps, span, st, mode)
+    body += draw_shunt(ring, cycle, st)
     for sr, sub in subs:
         body += draw_ring(sr, sub.steps, span, st, mode, cw=False)
     for r, steps, anc in anchors:
@@ -97,6 +99,12 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
     for r, _, anc in anchors:
         h = L.mol_half(r) * st.mol_scale
         pad += [(x + dx * h, y + dy * h) for _, _, _, (x, y) in anc for dx, dy in ((1, 1), (-1, -1))]
+    if cycle.shunt is not None:
+        rr = ring.radius + L.mol_half(ring) * 1.25 + 0.45
+        pad += [
+            (ring.cx + L.polar(rr, ang)[0], ring.cy + L.polar(rr, ang)[1])
+            for ang in range(0, 360, 15)
+        ]
     x0, y0, x1, y1 = L.bounds([ring] + [sr for sr, _ in subs], pad, PAD)
     rules = _rule_lines(cycle) if st.rule_legend else []
     if rules:

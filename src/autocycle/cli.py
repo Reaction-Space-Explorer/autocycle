@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 from autocycle import ingest
+from autocycle.export import write as write_out
 from autocycle.io_spec import (
     from_reaction_smiles,
     from_route_smiles,
@@ -26,7 +27,7 @@ def _style(a):
 def _write(cycle, a) -> None:
     if getattr(a, "drop", None):
         drop_side(cycle, a.drop)
-    Path(a.out).write_text(render(cycle, mode=a.mode, style=_style(a), legend=a.legend))
+    write_out(render(cycle, mode=a.mode, style=_style(a), legend=a.legend), a.out)
     print(f"wrote {a.out}")
 
 
@@ -100,6 +101,9 @@ def main(argv: list[str] | None = None) -> int:
     pn.add_argument("--sample", type=int, default=2, help="example cycles to include")
     pn.add_argument("--cols", type=int, default=2)
     pn.add_argument("--limit", type=int, default=0)
+    pn.add_argument("--length", choices=("bipartite", "molecules"), default="bipartite",
+                    help="cycle length in bipartite edges (2x molecules, as published) "
+                         "or in molecules")
 
     ls = sub.add_parser("list", help="list cycles in an edge list, optionally to CSV")
     ls.add_argument("csv")
@@ -310,7 +314,7 @@ def _panel(a) -> int:
             n += 1
             if a.limit and n > a.limit:
                 break
-            length = len(cycle.nodes)
+            length = len(cycle.nodes) * (2 if a.length == "bipartite" else 1)
             total[length] += 1
             by_feeders.setdefault(len(feeders(cycle)), Counter())[length] += 1
             candidates.append((tokens(cycle), cycle))
@@ -326,12 +330,13 @@ def _panel(a) -> int:
         word = {1: "One", 2: "Two", 3: "Three"}.get(k, str(k))
         series.append(Series(f"{word} feeder" + ("" if k == 1 else "s"), dict(by_feeders[k])))
 
+    y_label = "Cycle length" + ("" if a.length == "bipartite" else " (molecules)")
     cell_w, cell_h = 700.0, 620.0
-    cells = [svg(bar_panel(series, cell_w, cell_h), cell_w, cell_h)]
+    cells = [svg(bar_panel(series, cell_w, cell_h, y_label=y_label), cell_w, cell_h)]
     for cycle in farthest_first(candidates, a.sample):
         cells.append(render(cycle, mode=a.mode, style=_style(a)))
 
-    Path(a.out).write_text(compose(cells, cell_w, cell_h, cols=a.cols))
+    write_out(compose(cells, cell_w, cell_h, cols=a.cols), a.out)
     strata = {k: sum(v.values()) for k, v in sorted(by_feeders.items())}
     print(f"wrote {a.out}: {n} cycles, lengths {dict(sorted(total.items()))}, "
           f"{len(cells)} panels")
