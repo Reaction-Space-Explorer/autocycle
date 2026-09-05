@@ -369,6 +369,12 @@ def _verify(a) -> int:
     print(f"atoms      {atoms}")
     print(f"currents   {cur.cone_dim} "
           f"({'one extreme current' if cur.extreme else 'not a single extreme current'})")
+    if not cur.extreme:
+        steps = list(cycle.steps) + (list(cycle.shunt.steps) if cycle.shunt else [])
+        for v in cur.decompose():
+            fired = ", ".join(st.rid for st, x in zip(steps, v, strict=True) if x > 1e-9)
+            print(f"  current   net seed {cur.matrix[cur.species.index(cur.seed)] @ v:+g}  "
+                  f"{fired}")
     if cycle.subs:
         print(f"note       {len(cycle.subs)} fused sub-cycle(s) not included; "
               "each is a separate current")

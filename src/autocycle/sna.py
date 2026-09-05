@@ -13,6 +13,7 @@ molecule, so it is not folded in here; `autocycle verify` says so when one is pr
 
 from __future__ import annotations
 
+import itertools
 from dataclasses import dataclass
 
 import numpy as np
@@ -61,6 +62,46 @@ class Current:
         if not rows:
             return self.matrix.shape[1]
         return self.matrix.shape[1] - int(np.linalg.matrix_rank(self.matrix[rows, :]))
+
+    def decompose(self) -> list[np.ndarray]:
+        """The extreme currents this one is made of, as flux vectors.
+
+        Schmitz's method: hold `steps - rank - 1` components at zero, set one to 1 to
+        avoid the trivial solution, solve the square system, and keep the solutions with
+        no negative component.
+
+        The number held is `cone_dim - 1`, so the enumeration is exhaustive over a
+        handful of choices for any cycle that can be drawn as one.
+        """
+        rows = [self.species.index(s) for s in self.internal]
+        nu = self.matrix[rows, :] if rows else self.matrix[:0, :]
+        n = nu.shape[1]
+        held = n - int(np.linalg.matrix_rank(nu)) - 1
+        if held < 0:
+            return []
+        out: list[np.ndarray] = []
+        for zeros in itertools.combinations(range(n), held):
+            for one in range(n):
+                if one in zeros:
+                    continue
+                rows_ = [nu[i] for i in range(nu.shape[0])]
+                for z in zeros:
+                    e = np.zeros(n); e[z] = 1.0; rows_.append(e)
+                e = np.zeros(n); e[one] = 1.0; rows_.append(e)
+                a = np.array(rows_)
+                if a.shape[0] != n:
+                    continue
+                b = np.zeros(n); b[-1] = 1.0
+                try:
+                    v = np.linalg.solve(a, b)
+                except np.linalg.LinAlgError:
+                    continue
+                if (v < -1e-9).any() or v.sum() <= 1e-9:
+                    continue
+                v = v / v[v > 1e-9].min()
+                if not any(np.allclose(v, o, atol=1e-6) for o in out):
+                    out.append(v)
+        return out
 
     @property
     def overall(self) -> dict[str, int]:

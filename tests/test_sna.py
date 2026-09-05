@@ -1,3 +1,4 @@
+import numpy as np
 import pytest
 
 from autocycle.io_spec import load_yaml
@@ -93,3 +94,24 @@ def test_blokhuis_core_is_confirmed_from_abstract_species():
     assert cur.overall == {"C1": -2, "C2": 1}
     assert cur.cone_dim == 1  # their Type I: a single graph cycle
     assert cur.atom_residual is None  # names, not structures
+
+
+def test_a_composite_cycle_decomposes_into_its_currents():
+    """Sol 0 is an allocatalytic ring plus a loop through the shunt."""
+    cur = current(load_yaml("examples/canonical/acetyl_coa_sol0.yaml"))
+    got = cur.decompose()
+    assert len(got) == cur.cone_dim == 2
+    seed = cur.matrix[cur.species.index(cur.seed)]
+    assert sorted(round(float(seed @ v)) for v in got) == [0, 1]
+
+
+def test_the_currents_sum_back_to_the_drawn_flux():
+    cur = current(load_yaml("examples/canonical/acetyl_coa_sol0.yaml"))
+    assert np.allclose(sum(cur.decompose()), cur.flux)
+
+
+def test_a_single_current_decomposes_to_itself():
+    cur = current(load_yaml("examples/canonical/formose_core.yaml"))
+    got = cur.decompose()
+    assert len(got) == 1
+    assert np.allclose(got[0], cur.flux)
