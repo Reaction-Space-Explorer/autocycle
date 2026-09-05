@@ -317,4 +317,21 @@ concentric arrow pairs, are from Catacycle:
 > [doi:10.1021/acs.organomet.9b00563](https://doi.org/10.1021/acs.organomet.9b00563)
 > · [code](https://github.com/brettrhenderson/Catacycle_Web) (MIT)
 
+Molecules are drawn by [RDKit](https://www.rdkit.org), or by
+[Open Babel](https://openbabel.org) with `--backend obabel`; cycles in an edge list are
+found with [NetworkX](https://networkx.org).
+
+Adjacent tools, none of them dependencies. Nesting one SVG inside another is
+[skunk](https://github.com/whitead/skunk)'s trick, which composes through matplotlib where
+autocycle emits SVG directly, so one bond length can hold across a whole figure. Depiction
+itself is solved elsewhere: in the browser by SmilesDrawer, and for grids of structures by
+mols2grid. Neither draws a cycle.
+
+> Probst, D.; Reymond, J.-L. **SmilesDrawer: Parsing and Drawing SMILES-Encoded Molecular
+> Structures Using Client-Side JavaScript.** *J. Chem. Inf. Model.* **2018**, *58*, 1–7.
+> [doi:10.1021/acs.jcim.7b00425](https://doi.org/10.1021/acs.jcim.7b00425)
+
+> Bouysset, C. **mols2grid: interactive molecule viewer for 2D structures.**
+> [doi:10.5281/zenodo.6591473](https://doi.org/10.5281/zenodo.6591473)
+
 MIT.
