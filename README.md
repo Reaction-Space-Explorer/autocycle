@@ -108,8 +108,12 @@ autocycle panel cycles_dir/ --sample 3 -o figure.png
 ```
 
 Output is `.svg`, or `.png` / `.pdf` once `cairosvg` and libcairo are present.
-The example files above live in the repository, so clone it or point the commands at
-your own spec.
+
+The specs travel with an install, so the commands above run anywhere:
+
+```bash
+autocycle draw $(autocycle examples)/canonical/formose_core.yaml -o cycle.svg
+```
 
 ```python
 from autocycle import Cycle, Mol, Side, Step, render

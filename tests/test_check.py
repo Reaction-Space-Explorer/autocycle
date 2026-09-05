@@ -84,3 +84,10 @@ def test_a_missing_file_is_a_message_not_a_traceback():
     from autocycle.cli import main
 
     assert main(["verify", "no_such_file.yaml"]) == 2
+
+
+def test_examples_command_says_where_they_are_or_that_they_are_not_packaged():
+    from autocycle.cli import main
+
+    # in a source checkout the specs are not under the package, only in a built wheel
+    assert main(["examples"]) in (0, 1)

@@ -117,6 +117,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="cycle length in bipartite edges (2x molecules, as published) "
                          "or in molecules")
 
+    sub.add_parser("examples", help="print where the packaged example specs live")
+
     vf = sub.add_parser("verify", help="check a cycle's stoichiometry without drawing it")
     vf.add_argument("spec")
 
@@ -154,6 +156,14 @@ def main(argv: list[str] | None = None) -> int:
 
         if a.cmd == "panel":
             return _panel(a)
+
+        if a.cmd == "examples":
+            d = Path(__file__).parent / "examples"
+            if not d.is_dir():
+                print("no packaged examples; they come with the repository", file=sys.stderr)
+                return 1
+            print(d)
+            return 0
 
         if a.cmd == "verify":
             return _verify(a)

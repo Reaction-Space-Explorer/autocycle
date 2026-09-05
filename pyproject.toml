@@ -39,8 +39,28 @@ raster = ["cairosvg>=2.7"]
 [project.scripts]
 autocycle = "autocycle.cli:main"
 
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/examples", "/Makefile", "/CITATION.cff", "/README.md", "/LICENSE"]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/autocycle"]
+# the specs and small inputs travel with an install so the documented commands run; the
+# figures do not, they are 2.8 MB. Listed file by file because `exclude` does not apply
+# to a force-include.
+[tool.hatch.build.targets.wheel.force-include]
+"examples/formose_gain.yaml" = "autocycle/examples/formose_gain.yaml"
+"examples/ribose_route.yaml" = "autocycle/examples/ribose_route.yaml"
+"examples/edges.csv" = "autocycle/examples/edges.csv"
+"examples/cypher_sample.csv" = "autocycle/examples/cypher_sample.csv"
+"examples/canonical/formose_core.yaml" = "autocycle/examples/canonical/formose_core.yaml"
+"examples/canonical/krebs_tca.yaml" = "autocycle/examples/canonical/krebs_tca.yaml"
+"examples/canonical/acetyl_coa_sol0.yaml" = "autocycle/examples/canonical/acetyl_coa_sol0.yaml"
+"examples/canonical/malyl_coa_arm.yaml" = "autocycle/examples/canonical/malyl_coa_arm.yaml"
+"examples/canonical/blokhuis_core.yaml" = "autocycle/examples/canonical/blokhuis_core.yaml"
+"examples/crs/example-01.crs" = "autocycle/examples/crs/example-01.crs"
+"examples/crs/example-06.crs" = "autocycle/examples/crs/example-06.crs"
+"examples/traced_sample" = "autocycle/examples/traced_sample"
+"examples/flow_sample" = "autocycle/examples/flow_sample"
 
 [tool.ruff]
 line-length = 100

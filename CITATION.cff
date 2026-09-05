@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: "autocycle: figures and stoichiometric checks for autocatalytic cycles"
+abstract: >-
+  Draws reaction cycles and synthetic routes from a YAML spec or a network search, and
+  reports whether a drawn cycle is autocatalytic, reading it both as stated stoichiometry
+  and as a steady state in the sense of Clarke.
+type: software
+authors:
+  - family-names: Sharma
+    given-names: Siddhant
+version: 0.2.0
+license: MIT
+repository-code: https://github.com/Reaction-Space-Explorer/autocycle
+keywords:
+  - autocatalysis
+  - chemical reaction networks
+  - origins of life
+  - visualization
