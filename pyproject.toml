@@ -11,6 +11,19 @@ license = { text = "MIT" }
 requires-python = ">=3.10"
 authors = [{ name = "Siddhant Sharma" }]
 keywords = ["autocatalysis", "chemical reaction networks", "origins of life", "visualization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+
+[project.urls]
+Homepage = "https://github.com/Reaction-Space-Explorer/autocycle"
+Repository = "https://github.com/Reaction-Space-Explorer/autocycle"
+Issues = "https://github.com/Reaction-Space-Explorer/autocycle/issues"
 dependencies = [
     "rdkit>=2023.3",
     "pyyaml>=6.0",

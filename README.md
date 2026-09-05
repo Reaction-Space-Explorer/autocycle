@@ -107,7 +107,9 @@ autocycle bench cycles_dir/ --sample 5
 autocycle panel cycles_dir/ --sample 3 -o figure.png
 ```
 
-Output is `.svg`, or `.png` / `.pdf` with `pip install "autocycle[raster]"`.
+Output is `.svg`, or `.png` / `.pdf` once `cairosvg` and libcairo are present.
+The example files above live in the repository, so clone it or point the commands at
+your own spec.
 
 ```python
 from autocycle import Cycle, Mol, Side, Step, render

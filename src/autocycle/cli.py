@@ -225,7 +225,7 @@ def main(argv: list[str] | None = None) -> int:
             _write(c, a)
         return 0
 
-    except (SpecError, RuntimeError, ValueError) as exc:
+    except (SpecError, RuntimeError, ValueError, OSError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
 

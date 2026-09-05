@@ -78,3 +78,9 @@ def test_committed_figure_keeps_its_backend_and_discs(path, backend):
     svg = Path(path).read_text()
     assert ("Open Babel" in svg) is (backend == "obabel")
     assert "<circle" in svg  # the annotated style's role discs
+
+
+def test_a_missing_file_is_a_message_not_a_traceback():
+    from autocycle.cli import main
+
+    assert main(["verify", "no_such_file.yaml"]) == 2
