@@ -235,27 +235,25 @@ different method, and a fifth quoted from its own paper:
 | Zubarev et al. 2015, rTCA supernetwork | combinatorial expansion | 1881 | 758 carry one branching point forming an autocatalytic loop. Their counts, not re-run here |
 
 The difference is what each method records, not how good the cycles are. An ILP flow query
-constrains the target's outflow to exceed its inflow, so its solutions state a coefficient
-and the criterion is settled: `autocycle.io_flow` reads the balance straight off the
-Overall Data tables (11 steps for acetyl-CoA, 12 for malate, matching that paper's Table 1).
-A motif query matches a shunt instead, which is topological evidence without mass balance.
-The RAF row says nothing against RAF sets: Golnik et al. prove that under mild conditions
-any RAF is stoichiometrically autocatalytic. It records only that a `.crs` file carries no
-coefficients for `verify` to read.
+constrains the target's outflow to exceed its inflow, so its solutions state a coefficient:
+`io_flow` reads the balance off the Overall Data tables, 11 steps for acetyl-CoA and 12 for
+malate, matching that paper's Table 1. A motif query matches a shunt instead, which is
+topological evidence without mass balance. A `.crs` file has nowhere to write a multiplicity
+at all, which says nothing against RAF sets: Golnik et al. prove that under mild conditions
+any RAF is stoichiometrically autocatalytic.
 
-The RAF and core rows separate two things that are easy to conflate. A core is defined by an
-invertible stoichiometric matrix whose inverse gives an elementary mode of autocatalysis, so
-that method settles the criterion by construction. Its species are carbon counts rather than
-structures, and the criterion is settled anyway: what a RAF file is missing is multiplicities,
-not chemistry. `examples/canonical/blokhuis_core.yaml` is their toy formose core, and the
-single extreme current `sna` reports is their Type I classification arrived at independently.
+Cores separate two things that are easy to conflate. A core is defined by an invertible
+stoichiometric matrix whose inverse is an elementary mode of autocatalysis, so that method
+settles the criterion by construction, and it does so over carbon counts rather than
+structures: what a RAF file lacks is multiplicities, not chemistry.
+`examples/canonical/blokhuis_core.yaml` is their toy formose, and the single extreme current
+`sna` finds there is their Type I reached by another route.
 
-The last row is independent corroboration rather than our own measurement. Zubarev,
-Rappoport and Aspuru-Guzik expand a 175-molecule, 444-reaction supernetwork around the
-reverse TCA cycle and count what they call a branching point forming an autocatalytic loop,
-which is the shunt under another name: 758 of 1881 cycles carry exactly one, 174 carry two
-and 20 carry three. A different chemistry and a different search, reporting the same
-topological signature at a similar rate, and equally without a stated coefficient.
+The last row is quoted rather than measured here. Zubarev, Rappoport and Aspuru-Guzik expand
+a 175-molecule, 444-reaction supernetwork around the reverse TCA cycle and count branching
+points forming an autocatalytic loop, the shunt under another name: 758 of 1881 carry one,
+174 two, 20 three. Another chemistry and another search, the same topological signature at a
+similar rate, equally without a stated coefficient.
 
 Reproduce with `bench`, `bench-routes`, `io_flow.read_flow_summary` on a summary exported
 by `pdftotext -layout`, and `from-crs` on a `.crs` file. Every figure here is built by
@@ -264,74 +262,40 @@ redistributed, so they are `make gallery panel CORPUS=/path/to/csvs`.
 
 ## Citing
 
-The cycle layout, the feeder/consumer convention and the thermodynamic annotation follow:
+What each source is used for:
 
-> Arya, A.; Ray, J.; Sharma, S.; Cruz Simbron, R.; Lozano, A.; Smith, H. B.; Andersen, J. L.;
-> Chen, H.; Meringer, M.; Cleaves, H. J. **An open source computational workflow for the
-> discovery of autocatalytic networks in abiotic reactions.** *Chem. Sci.* **2022**, *13*,
-> 4838–4853. [doi:10.1039/D2SC00256F](https://doi.org/10.1039/D2SC00256F)
+- **Cycle layout, feeder and consumer convention, ΔG annotation** — Arya et al., *An open
+  source computational workflow for the discovery of autocatalytic networks in abiotic
+  reactions*, Chem. Sci. **2022**, 13, 4838–4853.
+  [doi](https://doi.org/10.1039/D2SC00256F) · Cruz-Simbron et al., ChemRxiv **2024**.
+  [doi](https://doi.org/10.26434/chemrxiv-2024-nj0p6)
+- **The criterion `(A) + m x -> n x + (W)` with n > m, their Definition 1** — Andersen,
+  Flamm, Merkle, Stadler, J. Syst. Chem. **2020**, 8, 121–133.
+  [arXiv](https://arxiv.org/abs/2107.03086)
+- **Simple against autocatalytic, Orgel's distinction** — Peretó, Chem. Soc. Rev. **2012**,
+  41, 5394. [doi](https://doi.org/10.1039/C2CS35054H)
+- **`nu.v = 0` with `v >= 0`, and its cone of extreme currents** — Clarke, *Stoichiometric
+  Network Analysis*, Cell Biophys. **1988**, 12, 237–253.
+- **Cycle centrality, and the rTCA counts in the survey** — Zubarev, Rappoport,
+  Aspuru-Guzik, Sci. Rep. **2015**, 5, 8009. [doi](https://doi.org/10.1038/srep08009)
+- **Autocatalytic cores, and `examples/canonical/blokhuis_core.yaml`** — Blokhuis, Lacoste,
+  Nghe, PNAS **2020**, 117, 25230–25236. [doi](https://doi.org/10.1073/pnas.2013527117)
+- **RAF sets against stoichiometric autocatalysis** — Golnik, Gatter, Hordijk, Stadler,
+  Vassena, **2026**. [arXiv](https://arxiv.org/abs/2605.25523)
+- **Arrow width as magnitude, reversible steps as concentric pairs** — Catacycle:
+  McFarlane, Henderson, Donnecke, McIndoe, Organometallics **2019**, 38, 4051–4053.
+  [doi](https://doi.org/10.1021/acs.organomet.9b00563) ·
+  [code](https://github.com/brettrhenderson/Catacycle_Web)
 
-> Cruz-Simbron, R.; Sharma, S.; Arya, A.; Ray, J.; Lozano, A.; Andersen, J. L.; Chen, H.;
-> Cleaves, H. J. **Combined Network and High Resolution Mass Spectrometry Analysis of the
-> Formose Reaction Reveals Mechanisms for Emergent Behaviors.** *ChemRxiv* **2024**.
-> [doi:10.26434/chemrxiv-2024-nj0p6](https://doi.org/10.26434/chemrxiv-2024-nj0p6)
+Molecules are drawn by [RDKit](https://www.rdkit.org), or [Open Babel](https://openbabel.org)
+with `--backend obabel`; cycles in an edge list are found with
+[NetworkX](https://networkx.org).
 
-The formal criterion, `(A) + m x -> n x + (W)` with n > m, is Definition 1 of:
-
-> Andersen, J. L.; Flamm, C.; Merkle, D.; Stadler, P. F. **Defining Autocatalysis in
-> Chemical Reaction Networks.** *J. Syst. Chem.* **2020**, *8*, 121–133.
-> [arXiv:2107.03086](https://arxiv.org/abs/2107.03086)
-
-The simple versus autocatalytic distinction is Orgel's, as stated in:
-
-> Peretó, J. **Out of fuzzy chemistry: from prebiotic chemistry to metabolic networks.**
-> *Chem. Soc. Rev.* **2012**, *41*, 5394. [doi:10.1039/C2CS35054H](https://doi.org/10.1039/C2CS35054H)
-
-The steady-state reading, `nu.v = 0` with `v >= 0` and its cone of extreme currents, is:
-
-> Clarke, B. L. **Stoichiometric Network Analysis.** *Cell Biophys.* **1988**, *12*,
-> 237–253.
-
-Cycle centrality, the lowest closeness centrality on a ring, and the rTCA counts in the
-survey above, are:
-
-> Zubarev, D. Y.; Rappoport, D.; Aspuru-Guzik, A. **Uncertainty of Prebiotic Scenarios: The
-> Case of the Non-Enzymatic Reverse Tricarboxylic Acid Cycle.** *Sci. Rep.* **2015**, *5*,
-> 8009. [doi:10.1038/srep08009](https://doi.org/10.1038/srep08009)
-
-On the relationship between the frameworks the survey compares:
-
-> Blokhuis, A.; Lacoste, D.; Nghe, P. **Universal motifs and the diversity of autocatalytic
-> systems.** *PNAS* **2020**, *117*, 25230–25236.
-> [doi:10.1073/pnas.2013527117](https://doi.org/10.1073/pnas.2013527117)
-
-> Golnik, R.; Gatter, T.; Hordijk, W.; Stadler, P. F.; Vassena, N. **Bridging two
-> theoretical frameworks of autocatalysis: RAF sets and stoichiometric autocatalysis.**
-> **2026**. [arXiv:2605.25523](https://arxiv.org/abs/2605.25523)
-
-Arrow width encoding magnitude, with an explicit linear/log choice, and reversible steps as
-concentric arrow pairs, are from Catacycle:
-
-> McFarlane, J.; Henderson, B.; Donnecke, S.; McIndoe, J. S. **An Information-Rich Graphical
-> Representation of Catalytic Cycles.** *Organometallics* **2019**, *38*, 4051–4053.
-> [doi:10.1021/acs.organomet.9b00563](https://doi.org/10.1021/acs.organomet.9b00563)
-> · [code](https://github.com/brettrhenderson/Catacycle_Web) (MIT)
-
-Molecules are drawn by [RDKit](https://www.rdkit.org), or by
-[Open Babel](https://openbabel.org) with `--backend obabel`; cycles in an edge list are
-found with [NetworkX](https://networkx.org).
-
-Adjacent tools, none of them dependencies. Nesting one SVG inside another is
-[skunk](https://github.com/whitead/skunk)'s trick, which composes through matplotlib where
-autocycle emits SVG directly, so one bond length can hold across a whole figure. Depiction
-itself is solved elsewhere: in the browser by SmilesDrawer, and for grids of structures by
-mols2grid. Neither draws a cycle.
-
-> Probst, D.; Reymond, J.-L. **SmilesDrawer: Parsing and Drawing SMILES-Encoded Molecular
-> Structures Using Client-Side JavaScript.** *J. Chem. Inf. Model.* **2018**, *58*, 1–7.
-> [doi:10.1021/acs.jcim.7b00425](https://doi.org/10.1021/acs.jcim.7b00425)
-
-> Bouysset, C. **mols2grid: interactive molecule viewer for 2D structures.**
-> [doi:10.5281/zenodo.6591473](https://doi.org/10.5281/zenodo.6591473)
+Adjacent, and not dependencies: nesting one SVG inside another is
+[skunk](https://github.com/whitead/skunk)'s trick, done there through matplotlib where this
+emits SVG directly, which is what holds one bond length across a figure. Depiction itself is
+solved by [SmilesDrawer](https://doi.org/10.1021/acs.jcim.7b00425) in the browser and by
+[mols2grid](https://doi.org/10.5281/zenodo.6591473) over a grid of structures. Neither draws
+a cycle.
 
 MIT.
