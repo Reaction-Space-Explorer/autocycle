@@ -352,7 +352,11 @@ def _verify(a) -> int:
     right = " + ".join(f"{n:g} {s}" for s, n in cur.overall.items() if n > 0)
     print(f"overall    {left or '-'}  ->  {right or '-'}")
     res = cur.atom_residual
-    print(f"atoms      {', '.join(f'{k} {v:+d}' for k, v in res.items()) if res else 'balanced'}")
+    if res is None:
+        atoms = "not counted, the species are names not structures"
+    else:
+        atoms = ", ".join(f"{k} {v:+d}" for k, v in res.items()) or "balanced"
+    print(f"atoms      {atoms}")
     print(f"currents   {cur.cone_dim} "
           f"({'one extreme current' if cur.extreme else 'not a single extreme current'})")
     if cycle.subs:

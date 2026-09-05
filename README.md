@@ -217,14 +217,15 @@ use, so layout regressions fail the suite.
 
 ## Published cycles surveyed
 
-`verify` applied to three families of published autocatalytic cycles, each found by a
-different method, and a fourth quoted from its own paper:
+`verify` applied to four families of published autocatalytic cycles, each found by a
+different method, and a fifth quoted from its own paper:
 
 | Source | Method | Cycles | Verdict |
 |---|---|---|---|
 | Arya et al. 2022, glucose corpus | Cypher motif query | 2100 | 2100 `topological`, 0 coefficient-confirmed |
 | Abel et al. 2026, flow solutions | MØD with ILP | 15 | 15 `autocatalytic`, net gain 1 each |
-| CatReNet examples | RAF sets | 498 | 0 coefficient-confirmed; `.crs` species are abstract, so no coefficient is recorded |
+| CatReNet examples | RAF sets | 498 | 0 coefficient-confirmed; the `.crs` format records no multiplicities |
+| Blokhuis et al. 2020, toy formose | stoichiometric core enumeration | 1 transcribed | `autocatalytic`, n = 2, one extreme current, matching their Type I |
 | Zubarev et al. 2015, rTCA supernetwork | combinatorial expansion | 1881 | 758 carry one branching point forming an autocatalytic loop. Their counts, not re-run here |
 
 The difference is what each method records, not how good the cycles are. An ILP flow query
@@ -235,6 +236,13 @@ A motif query matches a shunt instead, which is topological evidence without mas
 The RAF row says nothing against RAF sets: Golnik et al. prove that under mild conditions
 any RAF is stoichiometrically autocatalytic. It records only that a `.crs` file carries no
 coefficients for `verify` to read.
+
+The RAF and core rows separate two things that are easy to conflate. A core is defined by an
+invertible stoichiometric matrix whose inverse gives an elementary mode of autocatalysis, so
+that method settles the criterion by construction. Its species are carbon counts rather than
+structures, and the criterion is settled anyway: what a RAF file is missing is multiplicities,
+not chemistry. `examples/canonical/blokhuis_core.yaml` is their toy formose core, and the
+single extreme current `sna` reports is their Type I classification arrived at independently.
 
 The last row is independent corroboration rather than our own measurement. Zubarev,
 Rappoport and Aspuru-Guzik expand a 175-molecule, 444-reaction supernetwork around the

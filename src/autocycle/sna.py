@@ -70,19 +70,23 @@ class Current:
         }
 
     @property
-    def atom_residual(self) -> dict[str, int]:
+    def atom_residual(self) -> dict[str, int] | None:
         """Atoms of the overall reaction, products minus reactants.
 
         All zero means the drawing states a closed balance. A drawing that suppresses
         water, protons or redox partners shows a residual in H and O; a residual in C
         usually means a carboxylation was left out. `*` counts pseudo-atom stubs.
+        None where a species is a name rather than a structure, so there is nothing
+        to count.
         """
         from rdkit import Chem
 
         out: dict[str, float] = {}
         for smi, n in self.overall.items():
-            mol = Chem.AddHs(Chem.MolFromSmiles(smi))
-            for atom in mol.GetAtoms():
+            mol = Chem.MolFromSmiles(smi)
+            if mol is None:
+                return None
+            for atom in Chem.AddHs(mol).GetAtoms():
                 out[atom.GetSymbol()] = out.get(atom.GetSymbol(), 0.0) + n
         return {k: int(round(v)) for k, v in out.items() if abs(v) > 1e-9}
 

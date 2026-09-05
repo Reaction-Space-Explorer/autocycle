@@ -1,0 +1,22 @@
+# The toy formose core of Blokhuis, Lacoste and Nghe, PNAS 2020, 117, 25230, SI eq. S13.
+#
+# Their species are carbon counts, not structures: Cx is any molecule of x carbons, and the
+# full matrix has the conservation law L = nC1 + 2nC2 + 3nC3 + 3nD3 + 4nC4. Taking C1 as
+# feedstock leaves the autocatalytic matrix nu*, a Type I core: one graph cycle whose fork
+# returns two copies of the same species.
+#
+# The point of keeping it here is that the species are abstract and the coefficients are
+# still stated, so the criterion is settled. Abstraction is not what decides it.
+title: Blokhuis toy formose core (Type I)
+seed: 0
+stoichiometry_complete: true
+nodes:
+  - {smiles: C2, label: "C2", structure: false}
+  - {smiles: C3, label: "C3", structure: false}
+  - {smiles: C4, label: "C4", structure: false}
+steps:
+  - {id: "1", rule: "C1 + C2 -> C3", consumes: [{smiles: C1, structure: false}]}
+  - {id: "2", rule: "C1 + C3 -> C4", consumes: [{smiles: C1, structure: false}]}
+  # the fork: C4 -> 2 C2, one copy closing the ring and one as the gain
+  - {id: "3", rule: "C4 -> 2 C2", gain: true,
+     produces: [{smiles: C2, structure: false}]}

@@ -84,3 +84,12 @@ def test_suppressed_water_shows_only_as_hydrogen_and_oxygen():
     """Krebs omits water and the redox partners, so carbon still closes."""
     res = current(load_yaml("examples/canonical/krebs_tca.yaml")).atom_residual
     assert set(res) <= {"H", "O"}
+
+
+def test_blokhuis_core_is_confirmed_from_abstract_species():
+    """Their species are carbon counts, yet the coefficients settle the criterion."""
+    cur = current(load_yaml("examples/canonical/blokhuis_core.yaml"))
+    assert cur.seed_yield == 2
+    assert cur.overall == {"C1": -2, "C2": 1}
+    assert cur.cone_dim == 1  # their Type I: a single graph cycle
+    assert cur.atom_residual is None  # names, not structures
