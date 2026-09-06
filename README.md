@@ -95,6 +95,9 @@ uv venv --python 3.12 && uv pip install -e ".[dev]" && pytest -q
 autocycle draw examples/canonical/formose_core.yaml --style annotated -o cycle.svg
 autocycle route examples/ribose_route.yaml -o route.pdf
 
+# the same cycle as a linear reaction diagram, seed to seed
+autocycle linear examples/canonical/formose_core.yaml -o linear.svg
+
 # check the stoichiometry without drawing anything
 autocycle verify examples/canonical/formose_core.yaml
 

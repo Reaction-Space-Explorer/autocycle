@@ -30,6 +30,8 @@ svg:
 	  $(PY) route examples/ribose_route.yaml --style $$s --backend obabel \
 	    -o examples/styles/route_$$s.svg; \
 	done
+	$(PY) linear examples/canonical/formose_core.yaml --backend obabel \
+	  -o examples/styles/linear_paper.svg
 	$(PY) from-crs examples/crs/example-01.crs --style annotated \
 	  -o examples/crs/example-01.svg
 	$(PY) bench-routes examples/traced_sample \

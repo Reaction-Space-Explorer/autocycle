@@ -223,10 +223,13 @@ class Pathway:
     title: str | None = None
     reported_dg: float | None = None   # stated by the source, not recomputed here
     meta: dict = field(default_factory=dict)
+    # a cycle unrolled from its seed round to itself: the one route whose target is
+    # also its own starting molecule, which is otherwise a spec error
+    closed: bool = False
 
     def __post_init__(self):
         # one reaction may legitimately appear at several places in a route
-        _check_acyclic(self.root, ())
+        _check_acyclic(self.root, (), self.root.mol.smiles if self.closed else None)
 
     @property
     def nodes(self) -> list[PathNode]:
@@ -271,11 +274,16 @@ class Pathway:
         return bool(self.leaves) and all(n.terminal == SEED for n in self.leaves)
 
 
-def _check_acyclic(node: PathNode, seen: tuple[str, ...]) -> None:
-    """A molecule may not reappear on its own root-to-leaf path."""
-    if node.mol.smiles in seen:
+def _check_acyclic(node: PathNode, seen: tuple[str, ...], closes: str | None = None) -> None:
+    """A molecule may not reappear on its own root-to-leaf path.
+
+    `closes` names the one molecule allowed to reappear, and only as the leaf, which
+    is how an unrolled cycle ends where it began.
+    """
+    shuts = closes is not None and node.mol.smiles == closes and not node.precursors
+    if node.mol.smiles in seen and not shuts:
         chain = " <- ".join([*seen, node.mol.smiles])
         raise SpecError(f"route is not acyclic: {chain}")
     for p in node.precursors:
-        _check_acyclic(p, (*seen, node.mol.smiles))
+        _check_acyclic(p, (*seen, node.mol.smiles), closes)
 

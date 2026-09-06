@@ -12,6 +12,7 @@ from autocycle.io_spec import (
     load_pathway_yaml,
     load_yaml,
 )
+from autocycle.linear import linearise
 from autocycle.render import render
 from autocycle.spec import SpecError, drop_side
 from autocycle.style import get
@@ -48,6 +49,10 @@ def main(argv: list[str] | None = None) -> int:
 
     d = sub.add_parser("draw", parents=[common], help="draw a YAML spec")
     d.add_argument("spec")
+
+    ln = sub.add_parser("linear", parents=[common],
+                        help="draw the same cycle as a linear diagram, seed to seed")
+    ln.add_argument("spec")
 
     s = sub.add_parser("from-smiles", parents=[common], help="draw from reaction SMILES")
     s.add_argument("--reaction", action="append", required=True)
@@ -133,6 +138,10 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if a.cmd == "draw":
             _write(load_yaml(a.spec), a)
+            return 0
+
+        if a.cmd == "linear":
+            _write(linearise(load_yaml(a.spec)), a)
             return 0
 
         if a.cmd == "route":
