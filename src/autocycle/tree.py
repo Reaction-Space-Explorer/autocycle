@@ -7,9 +7,17 @@ from dataclasses import dataclass
 
 from autocycle.spec import PathNode, Pathway
 
-X_PITCH = 3.5
-Y_PITCH = 3.0
+# Column and row pitch are a molecule plus a fixed gap, so a style that draws larger
+# molecules gets a proportionally larger figure rather than a more crowded one.
+X_GAP = 1.4
+Y_GAP = 0.55
 MOL_HALF = 0.95
+X_PITCH = 2 * MOL_HALF + X_GAP
+Y_PITCH = 2 * MOL_HALF + Y_GAP
+
+
+def pitches(mol_scale: float = 1.0) -> tuple[float, float]:
+    return 2 * MOL_HALF * mol_scale + X_GAP, 2 * MOL_HALF * mol_scale + Y_GAP
 
 
 @dataclass(frozen=True)

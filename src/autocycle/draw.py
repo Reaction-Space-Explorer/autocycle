@@ -477,7 +477,7 @@ def draw_route_nodes(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
             # an intermediate is named only where the spec names it
             tag = (node.mol.label, "#333", "normal")
         if tag:
-            off = (half + st_.label_size * 1.3) if st_.node_circle else (half * 0.80 + st_.label_size * 1.3)
+            off = (half + st_.label_size * 1.1) if st_.node_circle else (half * 0.62 + st_.label_size * 1.1)
             out.append(text(px, py + off, tag[0], st_.label_size, "middle", tag[1], tag[2]))
 
         if node.step:
@@ -487,20 +487,21 @@ def draw_route_nodes(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
                 f"fill='{GREY if node.step.filtered else st_.rxn_fill}' "
                 f"stroke='#7a5c10' stroke-width='0.006'/>"
             )
+            # beside the arrow it labels, or above the row when the run is too short
             lines = _step_lines(node.step, st_)
-            # centre on the visible arrow, or the label lands inside the product box
-            seg_a = r.x + r.half * 2.4
-            seg_b = m.x - half * 0.95
+            start = r.x + r.half * 2.4
+            run = (m.x - half * 0.95) - start
             wide = 0.55 * st_.label_size * max((len(t) for t in lines), default=0)
-            cy = (r.y + m.y) / 2
-            if wide > seg_b - seg_a:  # no room beside the arrow, so clear the box
-                cy = max(r.y, m.y) + half + st_.label_size * 1.4
-            lx, ly0 = _p((seg_a + seg_b) / 2, cy)
-            ly = ly0 - st_.label_size * 1.6
+            if wide <= run:
+                lx, anchor = start + st_.label_size * 0.3, "start"
+                ly = -r.y - st_.label_size * 0.75
+            else:
+                lx, anchor = r.x, "middle"
+                ly = -(r.y + half) - st_.label_size * 0.7
             for j, line in enumerate(lines):
                 out.append(
                     text(lx, ly - (len(lines) - 1 - j) * st_.label_size * 1.2, line,
-                         st_.label_size, "middle", "#222")
+                         st_.label_size, anchor, "#222")
                 )
     return out
 

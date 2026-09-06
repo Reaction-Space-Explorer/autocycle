@@ -42,7 +42,7 @@ def _render_pathway(pw: Pathway, mode: str, style: str | Style, legend) -> str:
     show_legend = st.legend if legend is None else legend
     _draw.BOND[0] = fit_bond(_route_smiles(pw))
 
-    lay = T.lay_out_pathway(pw)
+    lay = T.lay_out_pathway(pw, *T.pitches(st.mol_scale))
     span = dg_span([s.dg for s in pw.steps])
 
     body = draw_route(pw, lay, span, st, mode)

@@ -62,7 +62,7 @@ def collisions(cycle: Cycle, st: Style = PAPER, tol: float = 0.25):
 
 
 def _route_boxes(pw: Pathway, st: Style) -> list[tuple[str, float, float, float]]:
-    lay = T.lay_out_pathway(pw)
+    lay = T.lay_out_pathway(pw, *T.pitches(st.mol_scale))
     half = T.MOL_HALF * st.mol_scale
     side = T.MOL_HALF * 0.62 * st.mol_scale
     out = [(n.mol.smiles, lay.mol(n).x, lay.mol(n).y, half) for n in pw.nodes]
@@ -94,7 +94,7 @@ def arrow_clashes(pw: Pathway, st: Style = PAPER, clear: float = 1.35):
 
     `clear` is in box halves and allows for the width of the arrowhead.
     """
-    lay = T.lay_out_pathway(pw)
+    lay = T.lay_out_pathway(pw, *T.pitches(st.mol_scale))
     half = T.MOL_HALF * 0.62 * st.mol_scale
     hits = []
     for node in pw.nodes:

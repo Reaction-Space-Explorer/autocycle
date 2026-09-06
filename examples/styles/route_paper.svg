@@ -1,20 +1,20 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1207' height='1080' viewBox='0 0 1207.00 1079.50'>
+<svg xmlns='http://www.w3.org/2000/svg' width='1156' height='939' viewBox='0 0 1156.00 939.25'>
 <rect width='100%' height='100%' fill='white'/>
-<g transform='scale(85.0000) translate(12.3500,10.8500)'>
-<path d='M-2.9682,-4.4801 L-1.9787,-5.9643 L-1.9319,-5.9331 L-1.9018,-6.1474 L-2.0879,-6.0371 L-2.0411,-6.0059 L-3.0306,-4.5217 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-3.0306,-8.2283 L-2.0411,-6.7441 L-2.0879,-6.7129 L-1.9018,-6.6026 L-1.9319,-6.8169 L-1.9787,-6.7857 L-2.9682,-8.2699 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-1.4764,-6.3375 L-1.0975,-6.3375 L-1.0975,-6.2812 L-0.9025,-6.3750 L-1.0975,-6.4688 L-1.0975,-6.4125 L-1.4764,-6.4125 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-6.4163,-2.1894 L-5.5081,-3.3571 L-5.4637,-3.3226 L-5.4180,-3.5340 L-5.6117,-3.4377 L-5.5673,-3.4031 L-6.4755,-2.2354 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-6.4755,-5.2646 L-5.5673,-4.0969 L-5.6117,-4.0623 L-5.4180,-3.9660 L-5.4637,-4.1774 L-5.5081,-4.1429 L-6.4163,-5.3106 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-4.9764,-3.7125 L-4.5975,-3.7125 L-4.5975,-3.6562 L-4.4025,-3.7500 L-4.5975,-3.8438 L-4.5975,-3.7875 L-4.9764,-3.7875 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-9.7904,-0.5589 L-9.0814,-1.1666 L-9.0448,-1.1239 L-8.9577,-1.3219 L-9.1668,-1.2662 L-9.1302,-1.2235 L-9.8392,-0.6158 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-9.8392,-2.3842 L-9.1302,-1.7765 L-9.1668,-1.7338 L-8.9577,-1.6781 L-9.0448,-1.8761 L-9.0814,-1.8334 L-9.7904,-2.4411 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-8.4764,-1.4625 L-8.0975,-1.4625 L-8.0975,-1.4062 L-7.9025,-1.5000 L-8.0975,-1.5938 L-8.0975,-1.5375 L-8.4764,-1.5375 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-9.5975,-5.9625 L-9.2186,-5.9625 L-9.2186,-5.9062 L-9.0236,-6.0000 L-9.2186,-6.0938 L-9.2186,-6.0375 L-9.5975,-6.0375 Z' fill='#b8b8b8' opacity='0.35'/>
-<path d='M-8.4764,-5.9625 L-8.0975,-5.9625 L-8.0975,-5.9062 L-7.9025,-6.0000 L-8.0975,-6.0938 L-8.0975,-6.0375 L-8.4764,-6.0375 Z' fill='#b8b8b8' opacity='0.35'/>
-<path d='M-1.7500,-6.3750 Q-1.6524,-6.0360 -1.4896,-5.7230' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
-<path d='M-1.4896,-5.7230 L-1.5646,-5.7854 L-1.4976,-5.8203 Z' fill='#c9c9c9'/>
-<svg x='-1.8383' y='-5.7103' width='1.1780' height='1.1780' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<g transform='scale(85.0000) translate(11.7500,9.2000)'>
+<path d='M-2.7198,-3.7548 L-1.9061,-4.8120 L-1.8615,-4.7777 L-1.8169,-4.9894 L-2.0101,-4.8921 L-1.9655,-4.8578 L-2.7793,-3.8006 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-2.7793,-6.6119 L-1.9655,-5.5547 L-2.0101,-5.5204 L-1.8169,-5.4231 L-1.8615,-5.6348 L-1.9061,-5.6005 L-2.7198,-6.6577 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-1.3764,-5.1688 L-1.0975,-5.1688 L-1.0975,-5.1125 L-0.9025,-5.2063 L-1.0975,-5.3000 L-1.0975,-5.2438 L-1.3764,-5.2438 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-5.9691,-1.8714 L-5.2352,-2.6888 L-5.1933,-2.6512 L-5.1328,-2.8589 L-5.3328,-2.7765 L-5.2910,-2.7389 L-6.0249,-1.9216 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-6.0249,-4.2034 L-5.2910,-3.3861 L-5.3328,-3.3485 L-5.1328,-3.2661 L-5.1933,-3.4738 L-5.2352,-3.4362 L-5.9691,-4.2536 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-4.6764,-3.0250 L-4.3975,-3.0250 L-4.3975,-2.9688 L-4.2025,-3.0625 L-4.3975,-3.1562 L-4.3975,-3.1000 L-4.6764,-3.1000 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-9.1530,-0.5079 L-8.6039,-0.9156 L-8.5704,-0.8704 L-8.4697,-1.0619 L-8.6821,-1.0209 L-8.6486,-0.9758 L-9.1977,-0.5681 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-9.1977,-1.8819 L-8.6486,-1.4742 L-8.6821,-1.4291 L-8.4697,-1.3881 L-8.5704,-1.5796 L-8.6039,-1.5344 L-9.1530,-1.9421 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-7.9764,-1.1875 L-7.6975,-1.1875 L-7.6975,-1.1313 L-7.5025,-1.2250 L-7.6975,-1.3188 L-7.6975,-1.2625 L-7.9764,-1.2625 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-8.9975,-4.8625 L-8.7186,-4.8625 L-8.7186,-4.8063 L-8.5236,-4.9000 L-8.7186,-4.9938 L-8.7186,-4.9375 L-8.9975,-4.9375 Z' fill='#b8b8b8' opacity='0.35'/>
+<path d='M-7.9764,-4.8625 L-7.6975,-4.8625 L-7.6975,-4.8063 L-7.5025,-4.9000 L-7.6975,-4.9938 L-7.6975,-4.9375 L-7.9764,-4.9375 Z' fill='#b8b8b8' opacity='0.35'/>
+<path d='M-1.6500,-5.2063 Q-1.5524,-4.8672 -1.3896,-4.5542' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
+<path d='M-1.3896,-4.5542 L-1.4646,-4.6166 L-1.3976,-4.6515 Z' fill='#c9c9c9'/>
+<svg x='-1.7383' y='-4.5416' width='1.1780' height='1.1780' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 80 80"
@@ -26,7 +26,7 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18" fill ="gray" font-family="sans-serif"
 x="10" y="20" ></text>
 </svg>
-<svg x='-0.9500' y='-7.3250' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<svg x='-0.9500' y='-6.1563' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 218.564 200"
@@ -51,10 +51,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<text x='0.0000' y='-5.4265' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#111' font-weight='bold'>ribose</text>
-<path d='M-1.6755,-6.4495 L-1.8245,-6.4495 L-1.8245,-6.3005 L-1.6755,-6.3005 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='-1.1894' y='-6.6070' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-14.2</text>
-<svg x='-4.4500' y='-4.7000' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<text x='0.0000' y='-4.4578' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#111' font-weight='bold'>ribose</text>
+<path d='M-1.5755,-5.2808 L-1.7245,-5.2808 L-1.7245,-5.1317 L-1.5755,-5.1317 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-1.3329' y='-5.3150' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='start' fill='#222' font-weight='normal'>-14.2</text>
+<svg x='-4.2500' y='-4.0125' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 218.564 200"
@@ -76,10 +76,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<text x='-3.5000' y='-2.8015' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>erythrose</text>
-<path d='M-5.1755,-3.8245 L-5.3245,-3.8245 L-5.3245,-3.6755 L-5.1755,-3.6755 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='-4.6894' y='-3.9820' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-16.4</text>
-<svg x='-7.9500' y='-2.4500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<text x='-3.3000' y='-2.3140' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>erythrose</text>
+<path d='M-4.8755,-3.1370 L-5.0245,-3.1370 L-5.0245,-2.9880 L-4.8755,-2.9880 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-4.6329' y='-3.1713' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='start' fill='#222' font-weight='normal'>-16.4</text>
+<svg x='-7.5500' y='-2.1750' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 160 114.641"
@@ -95,10 +95,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<text x='-7.0000' y='-0.5515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>glycolaldehyde</text>
-<path d='M-8.6755,-1.5745 L-8.8245,-1.5745 L-8.8245,-1.4255 L-8.6755,-1.4255 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='-8.1895' y='-1.7320' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-8.1</text>
-<svg x='-11.4500' y='-0.9500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<text x='-6.6000' y='-0.4765' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>glycolaldehyde</text>
+<path d='M-8.1755,-1.2995 L-8.3245,-1.2995 L-8.3245,-1.1505 L-8.1755,-1.1505 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-7.9329' y='-1.3337' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='start' fill='#222' font-weight='normal'>-8.1</text>
+<svg x='-10.8500' y='-0.9500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 120 80"
@@ -113,8 +113,8 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<text x='-10.5000' y='0.9485' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>seed</text>
-<svg x='-11.4500' y='-3.9500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<text x='-9.9000' y='0.7485' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>seed</text>
+<svg x='-10.8500' y='-3.4000' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 120 80"
@@ -129,8 +129,8 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<text x='-10.5000' y='-2.0515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>seed</text>
-<svg x='-7.9500' y='-6.9500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<text x='-9.9000' y='-1.7015' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>seed</text>
+<svg x='-7.5500' y='-5.8500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 183.923 140"
@@ -149,10 +149,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<text x='-7.0000' y='-5.0515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>lactaldehyde</text>
-<path d='M-8.6755,-6.0745 L-8.8245,-6.0745 L-8.8245,-5.9255 L-8.6755,-5.9255 Z' fill='#b8b8b8' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='-8.1895' y='-6.2320' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>2.3</text>
-<svg x='-11.4500' y='-6.9500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<text x='-6.6000' y='-4.1515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>lactaldehyde</text>
+<path d='M-8.1755,-4.9745 L-8.3245,-4.9745 L-8.3245,-4.8255 L-8.1755,-4.8255 Z' fill='#b8b8b8' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-7.9329' y='-5.0088' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='start' fill='#222' font-weight='normal'>2.3</text>
+<svg x='-10.8500' y='-5.8500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 183.923 140"
@@ -171,8 +171,8 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<text x='-10.5000' y='-5.0515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>seed</text>
-<svg x='-4.4500' y='-9.9500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<text x='-9.9000' y='-4.1515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>seed</text>
+<svg x='-4.2500' y='-8.3000' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 183.923 180"
@@ -191,5 +191,5 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<text x='-3.5000' y='-8.0515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#a06000' font-weight='normal'>not traced</text>
+<text x='-3.3000' y='-6.6015' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#a06000' font-weight='normal'>not traced</text>
 </g></svg>

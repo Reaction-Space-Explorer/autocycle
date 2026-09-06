@@ -1,10 +1,10 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1024' viewBox='0 0 1100.00 1023.61'>
+<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='966' viewBox='0 0 1100.00 966.43'>
 <rect width='100%' height='100%' fill='white'/>
-<g transform='scale(152.7778) translate(5.3500,4.8500)'>
-<path d='M-2.7904,-0.5589 L-2.0814,-1.1666 L-2.0448,-1.1239 L-1.9577,-1.3219 L-2.1668,-1.2662 L-2.1302,-1.2235 L-2.8392,-0.6158 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-2.8392,-2.3842 L-2.1302,-1.7765 L-2.1668,-1.7338 L-1.9577,-1.6781 L-2.0448,-1.8761 L-2.0814,-1.8334 L-2.7904,-2.4411 Z' fill='#4a4a4a' opacity='1.0'/>
-<path d='M-1.4764,-1.4625 L-1.0975,-1.4625 L-1.0975,-1.4062 L-0.9025,-1.5000 L-1.0975,-1.5938 L-1.0975,-1.5375 L-1.4764,-1.5375 Z' fill='#4a4a4a' opacity='1.0'/>
-<svg x='-0.9500' y='-2.4500' width='1.9000' height='1.9000' viewBox='0 0 300 300' preserveAspectRatio='xMidYMid meet'>
+<g transform='scale(157.1429) translate(5.1500,4.3000)'>
+<path d='M-2.5530,-0.5079 L-2.0039,-0.9156 L-1.9704,-0.8704 L-1.8697,-1.0619 L-2.0821,-1.0209 L-2.0486,-0.9758 L-2.5977,-0.5681 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-2.5977,-1.8819 L-2.0486,-1.4742 L-2.0821,-1.4291 L-1.8697,-1.3881 L-1.9704,-1.5796 L-2.0039,-1.5344 L-2.5530,-1.9421 Z' fill='#4a4a4a' opacity='1.0'/>
+<path d='M-1.3764,-1.1875 L-1.0975,-1.1875 L-1.0975,-1.1313 L-0.9025,-1.2250 L-1.0975,-1.3188 L-1.0975,-1.2625 L-1.3764,-1.2625 Z' fill='#4a4a4a' opacity='1.0'/>
+<svg x='-0.9500' y='-2.1750' width='1.9000' height='1.9000' viewBox='0 0 300 300' preserveAspectRatio='xMidYMid meet'>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 282.6,143.1 L 267.0,136.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 267.0,136.1 L 251.3,129.1' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -212,10 +212,10 @@ Q 20.5 156.1, 21.8 157.6
 Q 23.1 159.2, 25.5 159.2
 ' fill='#FF0000'/>
 </svg>
-<text x='0.0000' y='-0.5515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#111' font-weight='bold'>C6H12O6</text>
-<path d='M-1.6755,-1.5745 L-1.8245,-1.5745 L-1.8245,-1.4255 L-1.6755,-1.4255 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='-1.1894' y='-1.7320' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>R009</text>
-<svg x='-4.4500' y='-0.9500' width='1.9000' height='1.9000' viewBox='0 0 300 300' preserveAspectRatio='xMidYMid meet'>
+<text x='0.0000' y='-0.4765' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#111' font-weight='bold'>C6H12O6</text>
+<path d='M-1.5755,-1.2995 L-1.7245,-1.2995 L-1.7245,-1.1505 L-1.5755,-1.1505 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-1.3329' y='-1.3337' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='start' fill='#222' font-weight='normal'>R009</text>
+<svg x='-4.2500' y='-0.9500' width='1.9000' height='1.9000' viewBox='0 0 300 300' preserveAspectRatio='xMidYMid meet'>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 246.3,141.7 L 229.8,135.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 229.8,135.5 L 213.3,129.4' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -351,8 +351,8 @@ Q 56.7 158.1, 58.0 159.7
 Q 59.3 161.2, 61.6 161.2
 ' fill='#FF0000'/>
 </svg>
-<text x='-3.5000' y='0.9485' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#a06000' font-weight='normal'>not traced</text>
-<svg x='-4.4500' y='-3.9500' width='1.9000' height='1.9000' viewBox='0 0 300 300' preserveAspectRatio='xMidYMid meet'>
+<text x='-3.3000' y='0.7485' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#a06000' font-weight='normal'>not traced</text>
+<svg x='-4.2500' y='-3.4000' width='1.9000' height='1.9000' viewBox='0 0 300 300' preserveAspectRatio='xMidYMid meet'>
 <!-- END OF HEADER -->
 <path class='bond-0 atom-0 atom-1' d='M 208.3,149.4 L 192.2,142.6' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
 <path class='bond-0 atom-0 atom-1' d='M 192.2,142.6 L 176.1,135.7' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
@@ -416,5 +416,5 @@ Q 94.8 148.2, 96.1 149.8
 Q 97.4 151.4, 99.7 151.4
 ' fill='#FF0000'/>
 </svg>
-<text x='-3.5000' y='-2.0515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>seed</text>
+<text x='-3.3000' y='-1.7015' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>seed</text>
 </g></svg>
