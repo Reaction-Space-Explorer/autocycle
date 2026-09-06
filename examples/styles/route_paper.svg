@@ -76,6 +76,7 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='-3.5000' y='-2.8015' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>erythrose</text>
 <path d='M-5.1755,-3.8245 L-5.3245,-3.8245 L-5.3245,-3.6755 L-5.1755,-3.6755 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-4.6894' y='-3.9820' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-16.4</text>
 <svg x='-7.9500' y='-2.4500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
@@ -94,6 +95,7 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='-7.0000' y='-0.5515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>glycolaldehyde</text>
 <path d='M-8.6755,-1.5745 L-8.8245,-1.5745 L-8.8245,-1.4255 L-8.6755,-1.4255 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-8.1895' y='-1.7320' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-8.1</text>
 <svg x='-11.4500' y='-0.9500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
@@ -147,6 +149,7 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='-7.0000' y='-5.0515' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>lactaldehyde</text>
 <path d='M-8.6755,-6.0745 L-8.8245,-6.0745 L-8.8245,-5.9255 L-8.6755,-5.9255 Z' fill='#b8b8b8' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-8.1895' y='-6.2320' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>2.3</text>
 <svg x='-11.4500' y='-6.9500' width='1.9000' height='1.9000' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>

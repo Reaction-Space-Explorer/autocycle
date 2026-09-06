@@ -154,7 +154,7 @@ Unknown YAML keys are an error, so a typo cannot quietly change a verdict:
 | side species | `smiles`, `count`, `generation`, `structure` |
 | `shunt` | `from_node`, `nodes`, `steps` |
 | `subcycles` entry | `at_step`, `nodes`, `steps`, `label` |
-| route node | `mol`, `from`, `reaction`, `terminal`, `generation` |
+| route node | `mol` (a node, so `label` names an intermediate), `from`, `reaction`, `terminal`, `generation` |
 
 | Write | |
 |---|---|

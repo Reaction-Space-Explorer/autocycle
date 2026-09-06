@@ -92,6 +92,7 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='-3.5000' y='-2.6115' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>erythrose</text>
 <path d='M-5.1450,-3.7500 L-5.3025,-3.8409 L-5.3025,-3.6591 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-4.6894' y='-4.1560' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>r2</text>
 <text x='-4.6894' y='-3.9820' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-16.4 kJ/mol</text>
@@ -112,6 +113,7 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='-7.0000' y='-0.3615' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>glycolaldehyde</text>
 <path d='M-8.6450,-1.5000 L-8.8025,-1.5909 L-8.8025,-1.4091 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-8.1895' y='-1.9060' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>r3</text>
 <text x='-8.1895' y='-1.7320' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-8.1 kJ/mol</text>
@@ -169,6 +171,7 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='-7.0000' y='-4.8615' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#333' font-weight='normal'>lactaldehyde</text>
 <path d='M-8.6450,-6.0000 L-8.8025,-6.0909 L-8.8025,-5.9091 Z' fill='#b8b8b8' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-8.1895' y='-6.4060' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>r4</text>
 <text x='-8.1895' y='-6.2320' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>+2.3 kJ/mol</text>
