@@ -9,7 +9,11 @@ description = "Information-rich figures for autocatalytic cycles in chemical rea
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
-authors = [{ name = "Siddhant Sharma" }]
+authors = [
+    { name = "Romulo Cruz-Simbron" },
+    { name = "Siddhant Sharma" },
+    { name = "H. James Cleaves II" },
+]
 keywords = ["autocatalysis", "chemical reaction networks", "origins of life", "visualization"]
 classifiers = [
     "Development Status :: 4 - Beta",

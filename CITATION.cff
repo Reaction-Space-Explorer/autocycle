@@ -7,8 +7,20 @@ abstract: >-
   and as a steady state in the sense of Clarke.
 type: software
 authors:
+  - family-names: Cruz-Simbron
+    given-names: Romulo
+    affiliation: >-
+      Blue Marble Space Institute of Science; Department of Chemistry,
+      University of Colorado Boulder
   - family-names: Sharma
     given-names: Siddhant
+    affiliation: Blue Marble Space Institute of Science
+  - family-names: Cleaves
+    given-names: H. James
+    name-suffix: II
+    affiliation: >-
+      Blue Marble Space Institute of Science; Department of Chemistry,
+      Howard University
 version: 0.2.0
 license: MIT
 repository-code: https://github.com/Reaction-Space-Explorer/autocycle
