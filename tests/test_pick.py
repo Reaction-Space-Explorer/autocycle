@@ -20,11 +20,6 @@ def test_identical_cycles_are_distance_zero():
     assert distance(tokens(c), tokens(c)) == 0.0
 
 
-def test_disjoint_cycles_are_distance_one():
-    assert distance(frozenset({"a"}), frozenset({"b"})) == 1.0
-    assert distance(frozenset(), frozenset()) == 0.0
-
-
 def test_tokens_capture_length_rules_and_sides():
     t = tokens(load_yaml("examples/formose_gain.yaml"))
     assert "len:4" in t

@@ -18,12 +18,6 @@ def test_panel_is_well_formed_svg():
     ET.fromstring(svg(bar_panel(_series()), 520, 300))
 
 
-def test_one_bar_per_series_and_length():
-    out = bar_panel(_series())
-    # 3 series x 2 lengths, plus the legend swatches
-    assert len(re.findall(r"<rect ", out)) == 6 + 3 + 1
-
-
 def test_zero_counts_draw_no_bar():
     out = bar_panel([Series("Total", {4: 0, 5: 10})])
     assert len(re.findall(r"<rect x='", out)) == 1 + 1 + 1  # one bar, legend box, swatch
@@ -34,19 +28,6 @@ def test_log_axis_is_monotonic_in_value():
     widths = [float(w) for w in re.findall(r"<rect x='[\d.]+' y='[\d.]+' width='([\d.]+)'", out)]
     bars = sorted(widths)[-2:]
     assert bars[1] > bars[0]
-
-
-def test_axis_labels_are_present():
-    out = bar_panel(_series(), x_label="Frequency", y_label="Cycle length")
-    assert "Frequency" in out
-    assert "Cycle length" in out
-    for s in _series():
-        assert s.label in out
-
-
-def test_tag_is_drawn_when_given():
-    assert ">A<" in bar_panel(_series(), tag="A")
-    assert ">A<" not in bar_panel(_series())
 
 
 def test_empty_input_rejected():

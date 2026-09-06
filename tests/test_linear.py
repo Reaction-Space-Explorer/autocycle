@@ -13,14 +13,9 @@ def test_the_ring_reads_once_through_from_the_seed():
     chain = list(pw.root.walk())
     assert len(chain) == len(cycle.nodes) + 1
     assert [n.step.rid for n in chain if n.step] == [s.rid for s in reversed(cycle.steps)]
-
-
-def test_the_seed_opens_and_closes_the_chain():
-    cycle = load_yaml(CORE)
-    pw = linearise(cycle)
-    leaf = pw.leaves[0]
-    assert leaf.terminal == SEED
-    assert leaf.mol.smiles == pw.root.mol.smiles == cycle.nodes[cycle.seed or 0].smiles
+    seed = cycle.nodes[cycle.seed or 0].smiles
+    assert pw.leaves[0].terminal == SEED
+    assert pw.leaves[0].mol.smiles == pw.root.mol.smiles == seed
 
 
 def test_the_extra_copy_stays_a_side_product():

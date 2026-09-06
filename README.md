@@ -68,6 +68,14 @@ currents   2 (not a single extreme current)
 
 `flux` is that current; `mag` only sets arrow width.
 
+### The same cycle as a sequence
+
+`linear` reads the ring once through from its seed, so a cycle can be shown as a reaction
+diagram without restating it. The molecule the turn consumes opens the sequence, the copy it
+returns closes it, and an extra copy leaves as a side product.
+
+<p align="center"><img src="examples/styles/linear_paper.png" width="860"></p>
+
 ## Whole searches
 
 Frequency by cycle length, stratified by distinct feeder count, with example cycles.

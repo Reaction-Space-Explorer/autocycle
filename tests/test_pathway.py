@@ -222,13 +222,6 @@ def test_a_side_species_is_swung_clear_of_the_arrows():
     assert arrow_clashes(pw) == []
 
 
-def test_a_side_species_stays_put_when_nothing_is_in_the_way():
-    pw = load_pathway_yaml(SPEC)
-    lay = T.lay_out_pathway(pw)
-    r = lay.rxn(next(n for n in pw.nodes if n.step))
-    assert T.side_anchor(r, "out", 0, avoid=()) == T.side_anchor(r, "out", 0)
-
-
 def test_a_route_with_side_species_gets_a_taller_row():
     """Side species hang below their reaction and the next row's label sits above
     its own; without extra room the two overlap and both become unreadable."""

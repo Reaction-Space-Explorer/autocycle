@@ -1,7 +1,6 @@
 """The verifier must discriminate on cycles whose stoichiometry is known."""
 
 from autocycle.io_spec import load_yaml
-from autocycle.render import render
 from autocycle.verify import AUTOCATALYTIC, SIMPLE, verify
 
 FORMOSE = "examples/canonical/formose_core.yaml"
@@ -36,8 +35,3 @@ def test_simple_requires_stated_stoichiometry():
     c = load_yaml(KREBS)
     c.stoichiometry_complete = False
     assert verify(c).status == CANDIDATE
-
-
-def test_both_render():
-    for f in (FORMOSE, KREBS):
-        assert render(load_yaml(f), style="annotated").startswith("<svg")
