@@ -409,11 +409,12 @@ def draw_route(pw, lay: T.TreeLayout, span: float, st_: Style, mode: str) -> lis
         op = 0.35 if node.step.filtered else 1.0
 
         boxed = st_.node_circle
+        edge = 0.95 * st_.mol_scale
         for pre in node.precursors:
             m = lay.mol(pre)
-            a, b = _trim((m.x, m.y), (r.x, r.y), m.half * 0.95, r.half * 2.4, square=boxed)
+            a, b = _trim((m.x, m.y), (r.x, r.y), m.half * edge, r.half * 2.4, square=boxed)
             out.append(f"<path d='{straight_arrow(*a, *b, w)}' fill='{col}' opacity='{op}'/>")
-        a, b = _trim((r.x, r.y), (prod.x, prod.y), r.half * 2.4, prod.half * 0.95, square=boxed)
+        a, b = _trim((r.x, r.y), (prod.x, prod.y), r.half * 2.4, prod.half * edge, square=boxed)
         out.append(f"<path d='{straight_arrow(*a, *b, w)}' fill='{col}' opacity='{op}'/>")
     return out
 
@@ -425,11 +426,12 @@ def draw_route_sides(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
         if not node.step:
             continue
         r = lay.rxn(node)
+        near = T.incident_angles(lay, node)
         for side, group in (("in", node.step.consumes), ("out", node.step.produces)):
             for k, sp in enumerate(group):
                 if st_.water_as_text and sp.smiles == WATER:
                     continue
-                ax, ay = T.side_anchor(r, side, k)
+                ax, ay = T.side_anchor(r, side, k, avoid=near)
                 if side == "in":
                     curve, head = bezier_arrow(ax, ay, r.x, r.y, bow=0.1, trim=r.half * 2.6)
                 else:
@@ -489,7 +491,11 @@ def draw_route_nodes(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
             # centre on the visible arrow, or the label lands inside the product box
             seg_a = r.x + r.half * 2.4
             seg_b = m.x - half * 0.95
-            lx, ly0 = _p((seg_a + seg_b) / 2, (r.y + m.y) / 2)
+            wide = 0.55 * st_.label_size * max((len(t) for t in lines), default=0)
+            cy = (r.y + m.y) / 2
+            if wide > seg_b - seg_a:  # no room beside the arrow, so clear the box
+                cy = max(r.y, m.y) + half + st_.label_size * 1.4
+            lx, ly0 = _p((seg_a + seg_b) / 2, cy)
             ly = ly0 - st_.label_size * 1.6
             for j, line in enumerate(lines):
                 out.append(

@@ -1,10 +1,11 @@
 import pytest
 
 from autocycle import tree as T
-from autocycle.check import collisions
+from autocycle.check import _to_segment, arrow_clashes, collisions
 from autocycle.io_spec import from_route_smiles, load_pathway_yaml
 from autocycle.render import render
 from autocycle.spec import SEED, UNKNOWN, Mol, PathNode, Pathway, SpecError, Step
+from autocycle.style import PAPER
 
 SPEC = "examples/ribose_route.yaml"
 
@@ -202,3 +203,27 @@ def test_an_unnamed_intermediate_gets_no_invented_label():
         step=Step(rid="r1"), precursors=[inner]))
     svg = render(route)
     assert "target" in svg and "seed" in svg
+
+
+def test_a_side_species_is_swung_clear_of_the_arrows():
+    pw = load_pathway_yaml(SPEC)
+    lay = T.lay_out_pathway(pw)
+    half = T.MOL_HALF * 0.62 * PAPER.mol_scale
+    node = next(n for n in pw.nodes if n.step and n.step.produces)
+    r = lay.rxn(node)
+    arrows = [(lay.mol(p), r) for p in node.precursors] + [(r, lay.mol(node))]
+
+    def clearance(anchor):
+        return min(_to_segment(*anchor, a.x, a.y, b.x, b.y) for a, b in arrows) / half
+
+    straight = clearance(T.side_anchor(r, "out", 0))
+    swung = clearance(T.side_anchor(r, "out", 0, avoid=T.incident_angles(lay, node)))
+    assert swung > straight
+    assert arrow_clashes(pw) == []
+
+
+def test_a_side_species_stays_put_when_nothing_is_in_the_way():
+    pw = load_pathway_yaml(SPEC)
+    lay = T.lay_out_pathway(pw)
+    r = lay.rxn(next(n for n in pw.nodes if n.step))
+    assert T.side_anchor(r, "out", 0, avoid=()) == T.side_anchor(r, "out", 0)

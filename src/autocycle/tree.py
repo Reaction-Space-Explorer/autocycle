@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 from autocycle.spec import PathNode, Pathway
@@ -82,9 +83,31 @@ def bounds(layout: TreeLayout, points, pad: float):
     return min(xs) - pad, min(ys) - pad, max(xs) + pad, max(ys) + pad
 
 
-def side_anchor(rxn: Placed, side: str, k: int = 0, gap: float = 1.35) -> tuple[float, float]:
-    """Consumed above the reaction, produced below."""
+# How far the anchor may swing off vertical to clear an arrow, in radians.
+SWING = (0.0, 0.38, -0.38, 0.72, -0.72)
+
+
+def incident_angles(lay: TreeLayout, node: PathNode) -> tuple[float, ...]:
+    """Directions of the arrows meeting a node's reaction square."""
+    r = lay.rxn(node)
+    around = [lay.mol(p) for p in node.precursors] + [lay.mol(node)]
+    return tuple(math.atan2(m.y - r.y, m.x - r.x) for m in around)
+
+
+def side_anchor(
+    rxn: Placed, side: str, k: int = 0, gap: float = 1.35, avoid: tuple[float, ...] = ()
+) -> tuple[float, float]:
+    """Consumed above the reaction, produced below, swung aside to clear `avoid`."""
     if side not in ("in", "out"):
         raise ValueError(f"side must be 'in' or 'out', got {side!r}")
     sign = 1.0 if side == "in" else -1.0
-    return rxn.x, rxn.y + sign * (gap + k * 2.1)
+    base = sign * math.pi / 2
+    dist = gap + k * 2.1
+    theta = base
+    if avoid:
+        def clearance(off):
+            a = base + off
+            gaps = [abs(math.remainder(a - b, 2 * math.pi)) for b in avoid]
+            return min(gaps) - 0.1 * abs(off)
+        theta = base + max(SWING, key=clearance)
+    return rxn.x + dist * math.cos(theta), rxn.y + dist * math.sin(theta)

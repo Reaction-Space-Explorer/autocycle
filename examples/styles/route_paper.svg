@@ -12,9 +12,9 @@
 <path d='M-8.4764,-1.4625 L-8.0975,-1.4625 L-8.0975,-1.4062 L-7.9025,-1.5000 L-8.0975,-1.5938 L-8.0975,-1.5375 L-8.4764,-1.5375 Z' fill='#4a4a4a' opacity='1.0'/>
 <path d='M-9.5975,-5.9625 L-9.2186,-5.9625 L-9.2186,-5.9062 L-9.0236,-6.0000 L-9.2186,-6.0938 L-9.2186,-6.0375 L-9.5975,-6.0375 Z' fill='#b8b8b8' opacity='0.35'/>
 <path d='M-8.4764,-5.9625 L-8.0975,-5.9625 L-8.0975,-5.9062 L-7.9025,-6.0000 L-8.0975,-6.0938 L-8.0975,-6.0375 L-8.4764,-6.0375 Z' fill='#b8b8b8' opacity='0.35'/>
-<path d='M-1.7500,-6.3750 Q-1.7851,-6.0240 -1.7500,-5.6729' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
-<path d='M-1.7500,-5.6729 L-1.7966,-5.7587 L-1.7213,-5.7662 Z' fill='#c9c9c9'/>
-<svg x='-2.3390' y='-5.6140' width='1.1780' height='1.1780' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-1.7500,-6.3750 Q-1.6524,-6.0360 -1.4896,-5.7230' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
+<path d='M-1.4896,-5.7230 L-1.5646,-5.7854 L-1.4976,-5.8203 Z' fill='#c9c9c9'/>
+<svg x='-1.8383' y='-5.7103' width='1.1780' height='1.1780' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 80 80"

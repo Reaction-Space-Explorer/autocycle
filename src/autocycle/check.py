@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import math
+
 from autocycle import layout as L
 from autocycle import tree as T
 from autocycle.spec import Cycle, Pathway
@@ -68,13 +70,44 @@ def _route_boxes(pw: Pathway, st: Style) -> list[tuple[str, float, float, float]
         if not node.step:
             continue
         r = lay.rxn(node)
+        near = T.incident_angles(lay, node)
         for s, group in (("in", node.step.consumes), ("out", node.step.produces)):
             for k, sp in enumerate(group):
-                x, y = T.side_anchor(r, s, k)
+                x, y = T.side_anchor(r, s, k, avoid=near)
                 out.append((sp.smiles, x, y, side))
     return out
 
 
 def collisions_route(pw: Pathway, st: Style = PAPER, tol: float = 0.25):
     return collisions(pw, st, tol)
+
+
+def _to_segment(px, py, ax, ay, bx, by) -> float:
+    dx, dy = bx - ax, by - ay
+    span = dx * dx + dy * dy
+    t = 0.0 if span == 0 else max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / span))
+    return math.hypot(px - (ax + t * dx), py - (ay + t * dy))
+
+
+def arrow_clashes(pw: Pathway, st: Style = PAPER, clear: float = 1.35):
+    """Side species lying on a main arrow, as (species, step, distance in box halves).
+
+    `clear` is in box halves and allows for the width of the arrowhead.
+    """
+    lay = T.lay_out_pathway(pw)
+    half = T.MOL_HALF * 0.62 * st.mol_scale
+    hits = []
+    for node in pw.nodes:
+        if not node.step:
+            continue
+        r = lay.rxn(node)
+        near = T.incident_angles(lay, node)
+        arrows = [(lay.mol(p), r) for p in node.precursors] + [(r, lay.mol(node))]
+        for side, group in (("in", node.step.consumes), ("out", node.step.produces)):
+            for k, sp in enumerate(group):
+                x, y = T.side_anchor(r, side, k, avoid=near)
+                d = min(_to_segment(x, y, a.x, a.y, b.x, b.y) for a, b in arrows)
+                if d < clear * half:
+                    hits.append((sp.smiles, node.step.rid, round(d / half, 2)))
+    return sorted(hits, key=lambda h: h[2])
 
