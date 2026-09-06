@@ -186,3 +186,19 @@ def test_missing_target_key(tmp_path):
     p.write_text("title: x\n")
     with pytest.raises(SpecError, match="needs a 'target'"):
         load_pathway_yaml(p)
+
+
+def test_an_intermediate_is_named_where_the_spec_names_it(route):
+    """A route node that is neither the target nor a leaf still carries a
+    label worth drawing; erythrose is such a node in the ribose route."""
+    svg = render(route)
+    assert "erythrose" in svg
+
+
+def test_an_unnamed_intermediate_gets_no_invented_label():
+    inner = PathNode(mol=Mol("OCC=O"), step=Step(rid="r2"), precursors=[_leaf("C=O")])
+    route = Pathway(root=PathNode(
+        mol=Mol("OCC(O)C=O", label="target"),
+        step=Step(rid="r1"), precursors=[inner]))
+    svg = render(route)
+    assert "target" in svg and "seed" in svg

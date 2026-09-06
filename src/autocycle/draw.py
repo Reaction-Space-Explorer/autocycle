@@ -471,6 +471,9 @@ def draw_route_nodes(pw, lay: T.TreeLayout, st_: Style) -> list[str]:
                 "untraced": ("not traced", "#a06000", "normal"),
                 "unknown": None,  # do not invent a label
             }.get(node.terminal)
+        elif node.mol.label:
+            # an intermediate is named only where the spec names it
+            tag = (node.mol.label, "#333", "normal")
         if tag:
             off = (half + st_.label_size * 1.3) if st_.node_circle else (half * 0.80 + st_.label_size * 1.3)
             out.append(text(px, py + off, tag[0], st_.label_size, "middle", tag[1], tag[2]))
