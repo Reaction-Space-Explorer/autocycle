@@ -227,3 +227,26 @@ def test_a_side_species_stays_put_when_nothing_is_in_the_way():
     lay = T.lay_out_pathway(pw)
     r = lay.rxn(next(n for n in pw.nodes if n.step))
     assert T.side_anchor(r, "out", 0, avoid=()) == T.side_anchor(r, "out", 0)
+
+
+def test_a_route_with_side_species_gets_a_taller_row():
+    """Side species hang below their reaction and the next row's label sits above
+    its own; without extra room the two overlap and both become unreadable."""
+    from autocycle import tree as T
+    from autocycle.spec import Side
+
+    plain = Pathway(root=PathNode(
+        mol=Mol("OCC(O)C=O"), step=Step(rid="r1"),
+        precursors=[_leaf("C=O"), _leaf("OCC=O")]))
+    withside = Pathway(root=PathNode(
+        mol=Mol("OCC(O)C=O"), step=Step(rid="r1", produces=[Side("OC=O")]),
+        precursors=[_leaf("C=O"), _leaf("OCC=O")]))
+    assert not T.has_side_species(plain)
+    assert T.has_side_species(withside)
+
+    def row_gap(pw):
+        lay = T.lay_out_pathway(pw)
+        ys = sorted({round(p.y, 6) for p in lay.mols.values()})
+        return min(b - a for a, b in zip(ys, ys[1:], strict=False))
+
+    assert row_gap(withside) > row_gap(plain)

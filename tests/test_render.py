@@ -95,3 +95,9 @@ def test_figure_grows_with_cycle_length():
     small = L.lay_out(4).radius
     big = L.lay_out(12).radius
     assert big > small
+
+
+def test_no_legend_drops_the_rule_list_too():
+    cycle = load_yaml("examples/canonical/formose_core.yaml")
+    assert "Retro-aldol cleavage" in render(cycle, style="annotated")
+    assert "Retro-aldol cleavage" not in render(cycle, style="annotated", legend=False)

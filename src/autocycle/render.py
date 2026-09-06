@@ -117,7 +117,7 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
             for ang in range(0, 360, 10)
         ]
     x0, y0, x1, y1 = L.bounds([ring] + [sr for sr, _ in subs], pad, PAD)
-    rules = _rule_lines(cycle) if st.rule_legend else []
+    rules = _rule_lines(cycle) if (st.rule_legend and legend is not False) else []
     if rules:
         y0 -= 0.30 + 0.155 * len(rules)
         body += [

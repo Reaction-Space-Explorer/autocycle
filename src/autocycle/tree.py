@@ -41,7 +41,19 @@ class TreeLayout:
         return self.rxns[id(node)]
 
 
+#: Side species hang below their reaction while the next row's step label sits above
+#: its own, and the two meet in the gap between rows. A route that draws side species
+#: gets a taller row so they clear; one that does not keeps the compact pitch.
+SIDE_ROW_EXTRA = 0.95
+
+
+def has_side_species(pw: Pathway) -> bool:
+    return any(n.step and (n.step.consumes or n.step.produces) for n in pw.nodes)
+
+
 def lay_out_pathway(pw: Pathway, x_pitch: float = X_PITCH, y_pitch: float = Y_PITCH) -> TreeLayout:
+    if has_side_species(pw):
+        y_pitch += SIDE_ROW_EXTRA
     depths: dict[int, int] = {}
 
     def depth(n: PathNode, d: int) -> None:
