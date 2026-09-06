@@ -276,6 +276,9 @@ What each source is used for:
   41, 5394. [doi](https://doi.org/10.1039/C2CS35054H)
 - **`nu.v = 0` with `v >= 0`, and its cone of extreme currents** — Clarke, *Stoichiometric
   Network Analysis*, Cell Biophys. **1988**, 12, 237–253.
+- **Listing those currents (`decompose`)** — Schmitz, Kolar-Anić, Anić, Čupić, *Stoichiometric
+  Network Analysis and Associated Dimensionless Kinetic Equations*, J. Phys. Chem. A **2008**,
+  112, 13452–13457. [doi](https://doi.org/10.1021/jp8056674)
 - **Cycle centrality, and the rTCA counts in the survey** — Zubarev, Rappoport,
   Aspuru-Guzik, Sci. Rep. **2015**, 5, 8009. [doi](https://doi.org/10.1038/srep08009)
 - **Autocatalytic cores, and `examples/canonical/blokhuis_core.yaml`** — Blokhuis, Lacoste,

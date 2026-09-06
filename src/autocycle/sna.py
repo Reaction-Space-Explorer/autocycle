@@ -66,7 +66,8 @@ class Current:
     def decompose(self) -> list[np.ndarray]:
         """The extreme currents this one is made of, as flux vectors.
 
-        Schmitz's method: hold `steps - rank - 1` components at zero, set one to 1 to
+        The method of Schmitz, Kolar-Anić, Anić and Čupić (J. Phys. Chem. A 2008, 112,
+        13452): hold `steps - rank - 1` components at zero, set one to 1 to
         avoid the trivial solution, solve the square system, and keep the solutions with
         no negative component.
 
