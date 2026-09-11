@@ -269,8 +269,9 @@ structures: what a RAF file lacks is multiplicities, not chemistry.
 The last row is quoted rather than measured here. Zubarev, Rappoport and Aspuru-Guzik expand
 a 175-molecule, 444-reaction supernetwork around the reverse TCA cycle and count branching
 points forming an autocatalytic loop, the shunt under another name: 758 of 1881 carry one,
-174 two, 20 three. Another chemistry and another search, the same topological signature at a
-similar rate, equally without a stated coefficient.
+174 two, 20 three. Another chemistry and another search, the same topological signature,
+equally without a stated coefficient. The rates are not comparable: a motif query returns
+only cycles that carry the branch, so the glucose corpus is 100% topological by construction.
 
 Reproduce with `bench`, `bench-routes`, `io_flow.read_flow_summary` on a summary exported
 by `pdftotext -layout`, and `from-crs` on a `.crs` file. Every figure here is built by
