@@ -235,13 +235,14 @@ use, so layout regressions fail the suite.
 ## Published cycles surveyed
 
 `verify` applied to four families of published autocatalytic cycles, each found by a
-different method, and a fifth quoted from its own paper:
+different method, and a fifth quoted from its own paper. Counts are of what was examined
+here, except the last row, which is quoted:
 
 | Source | Method | Cycles | Verdict |
 |---|---|---|---|
 | Arya et al. 2022, glucose corpus | Cypher motif query | 2100 | 2100 `topological`, 0 coefficient-confirmed |
-| Abel et al. 2026, flow solutions | MØD with ILP | 15 | 15 `autocatalytic`, net gain 1 each |
-| CatReNet examples | RAF sets | 498 | 0 coefficient-confirmed; the `.crs` format records no multiplicities |
+| Abel et al. 2026, flow solutions | MØD with ILP | 2 in the packaged sample | both `autocatalytic`, net gain 1 |
+| CatReNet examples | RAF sets | 15 distributed systems | 0 coefficient-confirmed; the `.crs` format records no multiplicities |
 | Blokhuis et al. 2020, toy formose | stoichiometric core enumeration | 1 transcribed | `autocatalytic`, n = 2, one extreme current, matching their Type I |
 | Zubarev et al. 2015, rTCA supernetwork | combinatorial expansion | 1881 | 758 carry one branching point forming an autocatalytic loop. Their counts, not re-run here |
 
