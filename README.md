@@ -106,6 +106,9 @@ autocycle route examples/ribose_route.yaml -o route.pdf
 # the same cycle as a linear reaction diagram, seed to seed
 autocycle linear examples/canonical/formose_core.yaml -o linear.svg
 
+# a cycle found in a stoichiometric matrix: reaction, species, coefficient, rule
+autocycle from-triplets network.tsv --min-len 3 --max-len 6 -o cycle.svg
+
 # check the stoichiometry without drawing anything
 autocycle verify examples/canonical/formose_core.yaml
 
@@ -153,6 +156,7 @@ open("cycle.svg", "w").write(render(c))
 | `source,target` CSV | `list`, `from-edges`, via networkx |
 | Cypher ring-query CSV | `bench`, `panel`: ring, shunt, feeders, generations |
 | treelib route files | `bench-routes`, with a seed table and reaction table |
+| stoichiometric matrix | `from-triplets`: rows of reaction, species, signed coefficient and rule. Multiplicity may be a coefficient or a repeated row; the seed is read from the coefficients, not from where the cycle search started |
 | CatReNet `.crs` | `from-crs`. Species are abstract names, so figures carry no chemistry. Inhibitors are named as unsupported, not dropped: 14 of the 15 distributed examples parse |
 
 Unknown YAML keys are an error, so a typo cannot quietly change a verdict:

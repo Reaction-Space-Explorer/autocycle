@@ -80,6 +80,18 @@ def main(argv: list[str] | None = None) -> int:
     e.add_argument("--rank", action="store_true",
                    help="order cycles for presentation: fewest feeders, then lightest feeder")
 
+    t = sub.add_parser("from-triplets", parents=[common],
+                       help="draw a cycle found in a stoichiometric matrix in triplet form")
+    t.add_argument("table", help="rows of reaction, species, coefficient[, rule]")
+    t.add_argument("--cycle", type=int, default=0)
+    t.add_argument("--all", action="store_true", help="write every cycle, suffixed by index")
+    t.add_argument("--min-len", type=int, default=3)
+    t.add_argument("--max-len", type=int, default=12)
+    t.add_argument("--cut", type=float, default=0.0)
+    t.add_argument("--gain-at", type=int, default=None,
+                   help="step index producing the gain; read from the coefficients if omitted")
+    t.add_argument("--rank", action="store_true")
+
     b = sub.add_parser("bench", help="run the renderer over a directory of Cypher result CSVs")
     b.add_argument("dir")
     b.add_argument("--limit", type=int, default=0, help="stop after N rows (0 = all)")
@@ -204,7 +216,11 @@ def main(argv: list[str] | None = None) -> int:
             _write(crs_cycle(system, found[a.cycle], Path(a.crs).stem, a.graph_mode), a)
             return 0
 
-        g = ingest.spontaneous(ingest.read_edges(a.csv), a.cut)
+        if a.cmd == "from-triplets":
+            from autocycle.io_triplets import read_triplets
+            g = ingest.spontaneous(read_triplets(a.table), a.cut)
+        else:
+            g = ingest.spontaneous(ingest.read_edges(a.csv), a.cut)
         cycles = ingest.find_cycles(g, a.min_len, a.max_len)
         if not cycles:
             print(f"no cycles of length {a.min_len}-{a.max_len}", file=sys.stderr)
@@ -238,7 +254,12 @@ def main(argv: list[str] | None = None) -> int:
             if not 0 <= i < len(cycles):
                 print(f"cycle {i} out of range (0-{len(cycles) - 1})", file=sys.stderr)
                 return 1
-            c = ingest.to_cycle(g, cycles[i], title=f"cycle {i}", gain_at=a.gain_at)
+            ring, gain = cycles[i], a.gain_at
+            if a.cmd == "from-triplets":
+                from autocycle.io_triplets import orient
+                ring, detected = orient(g, ring)
+                gain = detected if gain is None else gain
+            c = ingest.to_cycle(g, ring, title=f"cycle {i}", gain_at=gain)
             if a.all:
                 a.out = f"{Path(a.out).stem}_{i}{Path(a.out).suffix}"
             _write(c, a)
