@@ -262,7 +262,8 @@ any RAF is stoichiometrically autocatalytic.
 Cores separate two things that are easy to conflate. A core is defined by an invertible
 stoichiometric matrix whose inverse is an elementary mode of autocatalysis, so that method
 settles the criterion by construction, and it does so over carbon counts rather than
-structures: what a RAF file lacks is multiplicities, not chemistry.
+structures. The limitation of the `.crs` format is therefore the absence of multiplicities
+rather than the abstraction of its species.
 `examples/canonical/blokhuis_core.yaml` is their toy formose, and the single extreme current
 `sna` finds there is their Type I reached by another route.
 
