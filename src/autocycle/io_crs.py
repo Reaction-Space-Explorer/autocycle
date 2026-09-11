@@ -64,6 +64,12 @@ def read_crs(path: str | Path) -> System:
             continue
         m = _RXN.match(line)
         if not m:
+            # CatReNet writes inhibitors in braces; RAF theory treats them as a
+            # separate condition, so name the limitation rather than drop them
+            if "{" in line:
+                raise SpecError(
+                    f"{Path(path).name}: inhibitors are not supported, in line {raw!r}"
+                )
             raise SpecError(f"{Path(path).name}: cannot parse line {raw!r}")
         lhs, rhs = _split(m.group("lhs"), "+"), _split(m.group("rhs"), "+")
         if m.group("arrow") in ("<-", "<="):

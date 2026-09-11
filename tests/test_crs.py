@@ -102,3 +102,10 @@ def test_no_reactions_is_named(tmp_path):
     p.write_text("# only a comment\nFood: a\n")
     with pytest.raises(SpecError, match="no reactions"):
         read_crs(p)
+
+
+def test_inhibitors_are_named_rather_than_dropped(tmp_path):
+    f = tmp_path / "inhibited.crs"
+    f.write_text("r1 : a + b [c] {d} => e\n\nFood: a b\n")
+    with pytest.raises(SpecError, match="inhibitors are not supported"):
+        read_crs(f)

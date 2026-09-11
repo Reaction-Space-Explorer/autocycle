@@ -153,7 +153,7 @@ open("cycle.svg", "w").write(render(c))
 | `source,target` CSV | `list`, `from-edges`, via networkx |
 | Cypher ring-query CSV | `bench`, `panel`: ring, shunt, feeders, generations |
 | treelib route files | `bench-routes`, with a seed table and reaction table |
-| CatReNet `.crs` | `from-crs`. Species are abstract names, so figures carry no chemistry |
+| CatReNet `.crs` | `from-crs`. Species are abstract names, so figures carry no chemistry. Inhibitors are named as unsupported, not dropped: 14 of the 15 distributed examples parse |
 
 Unknown YAML keys are an error, so a typo cannot quietly change a verdict:
 
@@ -243,6 +243,11 @@ here, except the last row, which is quoted:
 | Arya et al. 2022, glucose corpus | Cypher motif query | 2100 | 2100 `topological`, 0 coefficient-confirmed |
 | Abel et al. 2026, flow solutions | MØD with ILP | 2 in the packaged sample | both `autocatalytic`, net gain 1 |
 | CatReNet examples | RAF sets | 15 distributed systems | 0 coefficient-confirmed; the `.crs` format records no multiplicities |
+
+The CatReNet row counts systems rather than cycles because a cycle count there is set by an
+arbitrary length bound and by one toy: the 15 systems yield 499 cycles of at most 6 species,
+34,159 at most 12 and 120,559 at most 16, and `example-05`, a 16-node RAF toy, supplies 99.9%
+of the middle figure. No multiplicity is recorded in any of them, whatever the bound.
 | Blokhuis et al. 2020, toy formose | stoichiometric core enumeration | 1 transcribed | `autocatalytic`, n = 2, one extreme current, matching their Type I |
 | Zubarev et al. 2015, rTCA supernetwork | combinatorial expansion | 1881 | 758 carry one branching point forming an autocatalytic loop. Their counts, not re-run here |
 
