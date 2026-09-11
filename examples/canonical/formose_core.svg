@@ -150,6 +150,6 @@ x="10.000000" y="20.000000" ></text>
 <text x='0.0000' y='-0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.26' text-anchor='middle' fill='#111' font-weight='normal'>glycolaldehyde</text>
 <text x='-2.9498' y='5.7450' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>aldol-1  :  Aldol addition</text>
 <text x='-2.9498' y='5.9000' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>isomerise  :  Keto-enol isomerisation</text>
-<text x='-2.9498' y='6.0550' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>aldol-2  :  Aldol addition</text>
+<text x='-2.9498' y='6.0550' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>aldol-2  :  Aldol addition and isomerisation</text>
 <text x='-2.9498' y='6.2100' font-family='Helvetica, Arial, sans-serif' font-size='0.125' text-anchor='start' fill='#222' font-weight='normal'>retro-aldol  :  Retro-aldol cleavage</text>
 </g></svg>

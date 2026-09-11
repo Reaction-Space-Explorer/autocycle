@@ -22,7 +22,7 @@ def test_feeders_and_consumers_are_distinct_sets():
     c = load_yaml("examples/formose_gain.yaml")
     assert feeders(c) == {canonical("C=O")}
     # the main ring only; the sub-cycle's water is not counted here
-    assert consumers(c) == {canonical("O=C=O"), canonical("OCC=O")}
+    assert consumers(c) == {canonical("OCC=O")}
 
 
 def test_repeated_feeder_counts_once():

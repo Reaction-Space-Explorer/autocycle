@@ -1,22 +1,23 @@
-# A formose-type route to ribose, in the shape the NA pathway tracer produces:
-# target at the root, precursors traced back, stopping at network seed molecules.
-# Illustrative dG values.
+# A formose-type route to ribose, in the shape the NA pathway tracer produces: target at
+# the root, precursors traced back, stopping at network seed molecules. Every reaction
+# balances in carbon: 2 CH2O -> C2, 2 C2 -> C4, C4 + CH2O -> C5. Free energies are
+# illustrative and are not measured or estimated values.
 title: Traced route to ribose
 target:
   mol: {smiles: "OCC(O)C(O)C(O)C=O", label: ribose}
-  reaction: {id: r1, rule: Aldol condensation, dg: -14.2, produces: [O]}
+  reaction: {id: r1, rule: Aldol addition, dg: -14.2}
   from:
     - mol: {smiles: "OCC(O)C(O)C=O", label: erythrose}
-      reaction: {id: r2, rule: Aldol condensation, dg: -16.4}
+      reaction: {id: r2, rule: Aldol addition, dg: -16.4}
       from:
         - mol: {smiles: "OCC=O", label: glycolaldehyde}
           reaction: {id: r3, rule: Formose (umpolung), dg: -8.1}
           from:
             - {mol: "C=O", seed: true}
             - {mol: "C=O", seed: true}
-        - mol: {smiles: "OC(C)C=O", label: lactaldehyde}
+        - mol: {smiles: "OCC=O", label: glycolaldehyde}
           reaction: {id: r4, rule: Keto-enol migration, dg: 2.3, filtered: true}
           from:
-            - {mol: "OCC(=O)C", seed: true}
-    - mol: {smiles: "OCC(O)C=O", label: glyceraldehyde}
-      seed: false
+            - mol: {smiles: "OC=CO", label: "1,2-ethenediol"}
+              seed: false
+    - {mol: "C=O", seed: true}

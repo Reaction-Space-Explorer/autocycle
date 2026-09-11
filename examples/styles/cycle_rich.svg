@@ -1,28 +1,28 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1490' viewBox='0 0 1100.00 1489.69'>
+<svg xmlns='http://www.w3.org/2000/svg' width='1100' height='1069' viewBox='0 0 1100.00 1068.87'>
 <rect width='100%' height='100%' fill='white'/>
-<g transform='scale(107.5260) translate(5.1150,5.1150)'>
-<text x='-4.9650' y='7.8192' font-family='Helvetica, Arial, sans-serif' font-size='0.11' text-anchor='start' fill='#111' font-weight='bold'>Formose-type autocatalytic cycle</text>
+<g transform='scale(97.6127) translate(8.0192,5.1150)'>
+<text x='-7.8692' y='4.9150' font-family='Helvetica, Arial, sans-serif' font-size='0.11' text-anchor='start' fill='#111' font-weight='bold'>Formose-type autocatalytic cycle</text>
 <defs><linearGradient id='dgbar'><stop offset='0.00' stop-color='#2166ac'/><stop offset='0.10' stop-color='#4c83ba'/><stop offset='0.20' stop-color='#76a0c9'/><stop offset='0.30' stop-color='#a1bcd7'/><stop offset='0.40' stop-color='#cbd9e6'/><stop offset='0.50' stop-color='#f6f6f4'/><stop offset='0.60' stop-color='#e8cacc'/><stop offset='0.70' stop-color='#db9da4'/><stop offset='0.80' stop-color='#cd717b'/><stop offset='0.90' stop-color='#c04453'/><stop offset='1.00' stop-color='#b2182b'/></linearGradient></defs>
-<rect x='-4.9650' y='8.1292' width='2.4000' height='0.1100' fill='url(#dgbar)' stroke='#999' stroke-width='0.006'/>
-<text x='-4.9650' y='8.3292' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='start' fill='#444' font-weight='normal'>-16</text>
-<text x='-3.7650' y='8.3292' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='middle' fill='#444' font-weight='normal'>dG (kJ/mol)   0</text>
-<text x='-2.5650' y='8.3292' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='end' fill='#444' font-weight='normal'>+16</text>
-<text x='-2.0650' y='8.0992' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r1  Aldol condensation</text>
-<text x='-2.0650' y='8.1872' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r2  Aldol condensation</text>
-<text x='-2.0650' y='8.2752' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r3  Retro-aldol</text>
-<text x='-2.0650' y='8.3632' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r4  Retro-aldol</text>
-<text x='-4.9650' y='8.4792' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#222' font-weight='normal'>cycle dG = -33.9 kJ/mol</text>
-<text x='-2.0650' y='8.4792' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#1a7f37' font-weight='normal'>gain step: r4</text>
-<text x='1.0350' y='8.4792' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#666' font-weight='normal'>width scale: linear</text>
+<rect x='-7.8692' y='5.2250' width='2.4000' height='0.1100' fill='url(#dgbar)' stroke='#999' stroke-width='0.006'/>
+<text x='-7.8692' y='5.4250' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='start' fill='#444' font-weight='normal'>-16</text>
+<text x='-6.6692' y='5.4250' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='middle' fill='#444' font-weight='normal'>dG (kJ/mol)   0</text>
+<text x='-5.4692' y='5.4250' font-family='Helvetica, Arial, sans-serif' font-size='0.062' text-anchor='end' fill='#444' font-weight='normal'>+16</text>
+<text x='-4.9692' y='5.1950' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r1  Aldol addition</text>
+<text x='-4.9692' y='5.2830' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r2  Keto-enol isomerisation</text>
+<text x='-4.9692' y='5.3710' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r3  Aldol addition and isomerisation</text>
+<text x='-4.9692' y='5.4590' font-family='Helvetica, Arial, sans-serif' font-size='0.058' text-anchor='start' fill='#333' font-weight='normal'>r4  Retro-aldol cleavage</text>
+<text x='-7.8692' y='5.5750' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#222' font-weight='normal'>cycle dG = -22.6 kJ/mol</text>
+<text x='-4.9692' y='5.5750' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#1a7f37' font-weight='normal'>gain step: r4</text>
+<text x='-1.8692' y='5.5750' font-family='Helvetica, Arial, sans-serif' font-size='0.068' text-anchor='start' fill='#666' font-weight='normal'>width scale: linear</text>
 <path d='M0.7411,-2.0200 L0.8142,-1.9916 L0.8863,-1.9606 L0.9572,-1.9270 L1.0269,-1.8908 L1.0951,-1.8521 L1.1619,-1.8109 L1.2272,-1.7673 L1.2908,-1.7214 L1.3528,-1.6732 L1.4129,-1.6227 L1.4711,-1.5701 L1.5274,-1.5155 L1.5816,-1.4587 L1.6338,-1.4001 L1.6838,-1.3396 L1.7315,-1.2773 L1.7769,-1.2133 L1.8200,-1.1477 L1.8606,-1.0806 L1.9030,-1.1052 L1.9871,-0.7290 L1.7577,-1.0208 L1.8001,-1.0454 L1.7608,-1.1104 L1.7191,-1.1738 L1.6752,-1.2357 L1.6290,-1.2960 L1.5806,-1.3545 L1.5302,-1.4113 L1.4777,-1.4662 L1.4232,-1.5191 L1.3669,-1.5700 L1.3087,-1.6188 L1.2488,-1.6654 L1.1873,-1.7098 L1.1241,-1.7520 L1.0595,-1.7918 L0.9934,-1.8293 L0.9261,-1.8643 L0.8575,-1.8968 L0.7877,-1.9268 L0.7169,-1.9543 Z' fill='#2166ac' opacity='1.0' stroke='#555' stroke-width='0.008'/>
-<path d='M2.0200,0.7411 L1.9916,0.8142 L1.9606,0.8863 L1.9270,0.9572 L1.8908,1.0269 L1.8521,1.0951 L1.8109,1.1619 L1.7673,1.2272 L1.7214,1.2908 L1.6732,1.3528 L1.6227,1.4129 L1.5701,1.4711 L1.5155,1.5274 L1.4587,1.5816 L1.4001,1.6338 L1.3396,1.6838 L1.2773,1.7315 L1.2133,1.7769 L1.1477,1.8200 L1.0806,1.8606 L1.1052,1.9030 L0.7290,1.9871 L1.0208,1.7577 L1.0454,1.8001 L1.1104,1.7608 L1.1738,1.7191 L1.2357,1.6752 L1.2960,1.6290 L1.3545,1.5806 L1.4113,1.5302 L1.4662,1.4777 L1.5191,1.4232 L1.5700,1.3669 L1.6188,1.3087 L1.6654,1.2488 L1.7098,1.1873 L1.7520,1.1241 L1.7918,1.0595 L1.8293,0.9934 L1.8643,0.9261 L1.8968,0.8575 L1.9268,0.7877 L1.9543,0.7169 Z' fill='#4880b9' opacity='1.0' stroke='#555' stroke-width='0.008'/>
+<path d='M2.0200,0.7411 L1.9916,0.8142 L1.9606,0.8863 L1.9270,0.9572 L1.8908,1.0269 L1.8521,1.0951 L1.8109,1.1619 L1.7673,1.2272 L1.7214,1.2908 L1.6732,1.3528 L1.6227,1.4129 L1.5701,1.4711 L1.5155,1.5274 L1.4587,1.5816 L1.4001,1.6338 L1.3396,1.6838 L1.2773,1.7315 L1.2133,1.7769 L1.1477,1.8200 L1.0806,1.8606 L1.1052,1.9030 L0.7290,1.9871 L1.0208,1.7577 L1.0454,1.8001 L1.1104,1.7608 L1.1738,1.7191 L1.2357,1.6752 L1.2960,1.6290 L1.3545,1.5806 L1.4113,1.5302 L1.4662,1.4777 L1.5191,1.4232 L1.5700,1.3669 L1.6188,1.3087 L1.6654,1.2488 L1.7098,1.1873 L1.7520,1.1241 L1.7918,1.0595 L1.8293,0.9934 L1.8643,0.9261 L1.8968,0.8575 L1.9268,0.7877 L1.9543,0.7169 Z' fill='#dbe4eb' opacity='1.0' stroke='#555' stroke-width='0.008'/>
 <path d='M-0.7555,2.0594 L-0.8301,2.0305 L-0.9036,1.9989 L-0.9759,1.9646 L-1.0469,1.9277 L-1.1165,1.8882 L-1.1846,1.8463 L-1.2512,1.8018 L-1.3160,1.7550 L-1.3792,1.7059 L-1.4405,1.6544 L-1.4998,1.6008 L-1.5572,1.5450 L-1.6125,1.4872 L-1.6657,1.4274 L-1.7166,1.3657 L-1.7653,1.3022 L-1.8116,1.2370 L-1.8555,1.1701 L-1.8969,1.1017 L-1.9393,1.1263 L-2.0266,0.7435 L-1.7940,1.0419 L-1.8364,1.0665 L-1.7963,1.1328 L-1.7538,1.1975 L-1.7090,1.2607 L-1.6618,1.3222 L-1.6125,1.3819 L-1.5611,1.4398 L-1.5075,1.4957 L-1.4520,1.5497 L-1.3945,1.6016 L-1.3351,1.6514 L-1.2740,1.6990 L-1.2112,1.7443 L-1.1468,1.7874 L-1.0809,1.8280 L-1.0135,1.8662 L-0.9448,1.9019 L-0.8748,1.9351 L-0.8036,1.9657 L-0.7314,1.9937 Z' fill='#e0aeb3' opacity='1.0' stroke='#555' stroke-width='0.008'/>
 <path d='M-1.9698,0.7226 L-1.9421,0.7940 L-1.9119,0.8643 L-1.8791,0.9334 L-1.8438,1.0013 L-1.8060,1.0679 L-1.7659,1.1330 L-1.7234,1.1967 L-1.6786,1.2587 L-1.6316,1.3191 L-1.5824,1.3777 L-1.5311,1.4345 L-1.4778,1.4894 L-1.4225,1.5423 L-1.3653,1.5932 L-1.3063,1.6419 L-1.2455,1.6884 L-1.1831,1.7327 L-1.1192,1.7747 L-1.0537,1.8144 L-1.1187,1.9263 L-0.6908,1.8829 L-0.8958,1.5424 L-0.9608,1.6544 L-1.0205,1.6182 L-1.0788,1.5799 L-1.1357,1.5396 L-1.1911,1.4971 L-1.2449,1.4527 L-1.2971,1.4063 L-1.3475,1.3581 L-1.3961,1.3080 L-1.4429,1.2563 L-1.4877,1.2028 L-1.5306,1.1478 L-1.5714,1.0912 L-1.6102,1.0331 L-1.6468,0.9737 L-1.6812,0.9130 L-1.7134,0.8511 L-1.7433,0.7881 L-1.7709,0.7240 L-1.7961,0.6589 Z' fill='#e0aeb3' opacity='1.0' stroke='#555' stroke-width='0.008'/>
 <path d='M-2.3533,-0.8633 L-2.3205,-0.9478 L-2.2848,-1.0311 L-2.2460,-1.1130 L-2.2043,-1.1934 L-2.1597,-1.2723 L-2.1124,-1.3495 L-2.0622,-1.4250 L-2.0094,-1.4986 L-1.9539,-1.5702 L-1.8959,-1.6398 L-1.8354,-1.7072 L-1.7725,-1.7725 L-1.7072,-1.8354 L-1.6398,-1.8959 L-1.5702,-1.9539 L-1.4986,-2.0094 L-1.4250,-2.0622 L-1.3495,-2.1124 L-1.2723,-2.1597 L-1.1934,-2.2043 L-1.1130,-2.2460 L-1.0311,-2.2848 L-0.9478,-2.3205 L-0.8633,-2.3533 L-0.5947,-1.6210 L-0.6529,-1.5984 L-0.7102,-1.5738 L-0.7666,-1.5471 L-0.8220,-1.5184 L-0.8764,-1.4877 L-0.9296,-1.4550 L-0.9816,-1.4205 L-1.0322,-1.3841 L-1.0816,-1.3459 L-1.1295,-1.3059 L-1.1760,-1.2642 L-1.2209,-1.2209 L-1.2642,-1.1760 L-1.3059,-1.1295 L-1.3459,-1.0816 L-1.3841,-1.0322 L-1.4205,-0.9816 L-1.4550,-0.9296 L-1.4877,-0.8764 L-1.5184,-0.8220 L-1.5471,-0.7666 L-1.5738,-0.7102 L-1.5984,-0.6529 L-1.6210,-0.5947 Z' fill='#1a7f37' opacity='0.15'/>
 <path d='M-2.1280,-0.7807 L-2.0981,-0.8577 L-2.0654,-0.9337 L-2.0300,-1.0084 L-1.9918,-1.0817 L-1.9511,-1.1537 L-1.9077,-1.2240 L-1.8618,-1.2928 L-1.8134,-1.3598 L-1.7626,-1.4251 L-1.7095,-1.4884 L-1.6541,-1.5497 L-1.5965,-1.6090 L-1.5367,-1.6662 L-1.4749,-1.7211 L-1.4112,-1.7737 L-1.3456,-1.8240 L-1.2782,-1.8719 L-1.2090,-1.9172 L-1.1383,-1.9601 L-1.2438,-2.1417 L-0.7290,-1.9871 L-0.8822,-1.5190 L-0.9877,-1.7006 L-1.0490,-1.6635 L-1.1090,-1.6241 L-1.1675,-1.5826 L-1.2244,-1.5390 L-1.2797,-1.4933 L-1.3333,-1.4456 L-1.3852,-1.3961 L-1.4351,-1.3446 L-1.4832,-1.2914 L-1.5293,-1.2364 L-1.5734,-1.1798 L-1.6154,-1.1217 L-1.6552,-1.0620 L-1.6928,-1.0010 L-1.7282,-0.9386 L-1.7613,-0.8749 L-1.7920,-0.8101 L-1.8204,-0.7442 L-1.8463,-0.6773 Z' fill='#7ca3cb' opacity='1.0' stroke='#555' stroke-width='0.008'/>
-<path d='M-0.7706,2.2073 L-0.8240,2.2354 L-0.8764,2.2654 L-0.9276,2.2971 L-0.9778,2.3307 L-1.0267,2.3660 L-1.0743,2.4030 L-1.1206,2.4417 L-1.1655,2.4820 L-1.2090,2.5238 L-1.2509,2.5671 L-1.2914,2.6119 L-1.3302,2.6581 L-1.3673,2.7056 L-1.4028,2.7544 L-1.4365,2.8044 L-1.4685,2.8556 L-1.4986,2.9078 L-1.5268,2.9611 L-1.5532,3.0154 L-1.5776,3.0705 L-1.6001,3.1265 L-1.6206,3.1832 L-1.6391,3.2407 L-1.6556,3.2987 L-1.6700,3.3573 L-1.6823,3.4163 L-1.6925,3.4758 L-1.7007,3.5355 L-1.8293,3.5203 L-1.6174,3.8287 L-1.3883,3.5725 L-1.5169,3.5573 L-1.5097,3.5039 L-1.5005,3.4509 L-1.4895,3.3983 L-1.4767,3.3460 L-1.4620,3.2942 L-1.4455,3.2430 L-1.4273,3.1924 L-1.4072,3.1425 L-1.3854,3.0933 L-1.3619,3.0449 L-1.3367,2.9974 L-1.3098,2.9507 L-1.2813,2.9051 L-1.2513,2.8605 L-1.2196,2.8170 L-1.1865,2.7746 L-1.1519,2.7334 L-1.1158,2.6935 L-1.0784,2.6548 L-1.0396,2.6175 L-0.9995,2.5816 L-0.9582,2.5471 L-0.9158,2.5141 L-0.8721,2.4826 L-0.8274,2.4526 L-0.7817,2.4243 L-0.7350,2.3976 L-0.6874,2.3725 Z' fill='#dbe4eb' opacity='1.0' stroke='#555' stroke-width='0.008'/>
-<path d='M-0.9391,5.1687 L-0.8881,5.2009 L-0.8360,5.2312 L-0.7828,5.2597 L-0.7287,5.2864 L-0.6737,5.3111 L-0.6178,5.3338 L-0.5612,5.3546 L-0.5038,5.3733 L-0.4459,5.3901 L-0.3874,5.4047 L-0.3284,5.4174 L-0.2690,5.4279 L-0.2092,5.4363 L-0.1493,5.4426 L-0.0891,5.4468 L-0.0288,5.4489 L0.0315,5.4488 L0.0918,5.4467 L0.1520,5.4424 L0.2120,5.4360 L0.2717,5.4274 L0.3311,5.4168 L0.3900,5.4041 L0.4485,5.3894 L0.5064,5.3725 L0.5637,5.3537 L0.6203,5.3328 L0.6762,5.3100 L0.7273,5.4290 L0.8884,5.0913 L0.5520,5.0210 L0.6031,5.1400 L0.5533,5.1604 L0.5028,5.1790 L0.4517,5.1958 L0.4001,5.2108 L0.3479,5.2240 L0.2953,5.2353 L0.2423,5.2448 L0.1891,5.2524 L0.1356,5.2581 L0.0819,5.2619 L0.0281,5.2639 L-0.0257,5.2639 L-0.0795,5.2621 L-0.1331,5.2583 L-0.1866,5.2527 L-0.2399,5.2452 L-0.2929,5.2358 L-0.3455,5.2245 L-0.3977,5.2115 L-0.4494,5.1965 L-0.5005,5.1798 L-0.5511,5.1613 L-0.6009,5.1410 L-0.6500,5.1189 L-0.6983,5.0952 L-0.7457,5.0698 L-0.7922,5.0427 L-0.8377,5.0140 Z' fill='#d27f88' opacity='1.0' stroke='#555' stroke-width='0.008'/>
-<path d='M1.7097,3.8339 L1.7121,3.7736 L1.7123,3.7133 L1.7105,3.6530 L1.7065,3.5928 L1.7003,3.5328 L1.6921,3.4731 L1.6818,3.4136 L1.6693,3.3546 L1.6549,3.2960 L1.6383,3.2380 L1.6197,3.1806 L1.5991,3.1239 L1.5766,3.0680 L1.5521,3.0129 L1.5256,2.9587 L1.4973,2.9054 L1.4671,2.8532 L1.4350,2.8021 L1.4012,2.7521 L1.3657,2.7034 L1.3284,2.6559 L1.2896,2.6098 L1.2491,2.5651 L1.2070,2.5218 L1.1635,2.4801 L1.1185,2.4399 L1.0722,2.4013 L1.0245,2.3644 L1.1020,2.2606 L0.7290,2.2899 L0.8363,2.6164 L0.9138,2.5126 L0.9563,2.5456 L0.9977,2.5800 L1.0378,2.6158 L1.0766,2.6531 L1.1141,2.6917 L1.1503,2.7316 L1.1849,2.7727 L1.2182,2.8150 L1.2499,2.8585 L1.2800,2.9031 L1.3086,2.9487 L1.3355,2.9952 L1.3608,3.0427 L1.3844,3.0911 L1.4063,3.1402 L1.4264,3.1901 L1.4448,3.2407 L1.4613,3.2919 L1.4761,3.3436 L1.4890,3.3959 L1.5001,3.4485 L1.5093,3.5015 L1.5166,3.5548 L1.5221,3.6084 L1.5257,3.6621 L1.5274,3.7158 L1.5271,3.7696 L1.5250,3.8234 Z' fill='#a8c1da' opacity='1.0' stroke='#555' stroke-width='0.008'/>
+<path d='M-2.2073,-0.7706 L-2.2354,-0.8240 L-2.2654,-0.8764 L-2.2971,-0.9276 L-2.3307,-0.9778 L-2.3660,-1.0267 L-2.4030,-1.0743 L-2.4417,-1.1206 L-2.4820,-1.1655 L-2.5238,-1.2090 L-2.5671,-1.2509 L-2.6119,-1.2914 L-2.6581,-1.3302 L-2.7056,-1.3673 L-2.7544,-1.4028 L-2.8044,-1.4365 L-2.8556,-1.4685 L-2.9078,-1.4986 L-2.9611,-1.5268 L-3.0154,-1.5532 L-3.0705,-1.5776 L-3.1265,-1.6001 L-3.1832,-1.6206 L-3.2407,-1.6391 L-3.2987,-1.6556 L-3.3573,-1.6700 L-3.4163,-1.6823 L-3.4758,-1.6925 L-3.5355,-1.7007 L-3.5203,-1.8293 L-3.8287,-1.6174 L-3.5725,-1.3883 L-3.5573,-1.5169 L-3.5039,-1.5097 L-3.4509,-1.5005 L-3.3983,-1.4895 L-3.3460,-1.4767 L-3.2942,-1.4620 L-3.2430,-1.4455 L-3.1924,-1.4273 L-3.1425,-1.4072 L-3.0933,-1.3854 L-3.0449,-1.3619 L-2.9974,-1.3367 L-2.9507,-1.3098 L-2.9051,-1.2813 L-2.8605,-1.2513 L-2.8170,-1.2196 L-2.7746,-1.1865 L-2.7334,-1.1519 L-2.6935,-1.1158 L-2.6548,-1.0784 L-2.6175,-1.0396 L-2.5816,-0.9995 L-2.5471,-0.9582 L-2.5141,-0.9158 L-2.4826,-0.8721 L-2.4526,-0.8274 L-2.4243,-0.7817 L-2.3976,-0.7350 L-2.3725,-0.6874 Z' fill='#dbe4eb' opacity='1.0' stroke='#555' stroke-width='0.008'/>
+<path d='M-5.1687,-0.9391 L-5.2009,-0.8881 L-5.2312,-0.8360 L-5.2597,-0.7828 L-5.2864,-0.7287 L-5.3111,-0.6737 L-5.3338,-0.6178 L-5.3546,-0.5612 L-5.3733,-0.5038 L-5.3901,-0.4459 L-5.4047,-0.3874 L-5.4174,-0.3284 L-5.4279,-0.2690 L-5.4363,-0.2092 L-5.4426,-0.1493 L-5.4468,-0.0891 L-5.4489,-0.0288 L-5.4488,0.0315 L-5.4467,0.0918 L-5.4424,0.1520 L-5.4360,0.2120 L-5.4274,0.2717 L-5.4168,0.3311 L-5.4041,0.3900 L-5.3894,0.4485 L-5.3725,0.5064 L-5.3537,0.5637 L-5.3328,0.6203 L-5.3100,0.6762 L-5.4290,0.7273 L-5.0913,0.8884 L-5.0210,0.5520 L-5.1400,0.6031 L-5.1604,0.5533 L-5.1790,0.5028 L-5.1958,0.4517 L-5.2108,0.4001 L-5.2240,0.3479 L-5.2353,0.2953 L-5.2448,0.2423 L-5.2524,0.1891 L-5.2581,0.1356 L-5.2619,0.0819 L-5.2639,0.0281 L-5.2639,-0.0257 L-5.2621,-0.0795 L-5.2583,-0.1331 L-5.2527,-0.1866 L-5.2452,-0.2399 L-5.2358,-0.2929 L-5.2245,-0.3455 L-5.2115,-0.3977 L-5.1965,-0.4494 L-5.1798,-0.5005 L-5.1613,-0.5511 L-5.1410,-0.6009 L-5.1189,-0.6500 L-5.0952,-0.6983 L-5.0698,-0.7457 L-5.0427,-0.7922 L-5.0140,-0.8377 Z' fill='#d27f88' opacity='1.0' stroke='#555' stroke-width='0.008'/>
+<path d='M-3.8339,1.7097 L-3.7736,1.7121 L-3.7133,1.7123 L-3.6530,1.7105 L-3.5928,1.7065 L-3.5328,1.7003 L-3.4731,1.6921 L-3.4136,1.6818 L-3.3546,1.6693 L-3.2960,1.6549 L-3.2380,1.6383 L-3.1806,1.6197 L-3.1239,1.5991 L-3.0680,1.5766 L-3.0129,1.5521 L-2.9587,1.5256 L-2.9054,1.4973 L-2.8532,1.4671 L-2.8021,1.4350 L-2.7521,1.4012 L-2.7034,1.3657 L-2.6559,1.3284 L-2.6098,1.2896 L-2.5651,1.2491 L-2.5218,1.2070 L-2.4801,1.1635 L-2.4399,1.1185 L-2.4013,1.0722 L-2.3644,1.0245 L-2.2606,1.1020 L-2.2899,0.7290 L-2.6164,0.8363 L-2.5126,0.9138 L-2.5456,0.9563 L-2.5800,0.9977 L-2.6158,1.0378 L-2.6531,1.0766 L-2.6917,1.1141 L-2.7316,1.1503 L-2.7727,1.1849 L-2.8150,1.2182 L-2.8585,1.2499 L-2.9031,1.2800 L-2.9487,1.3086 L-2.9952,1.3355 L-3.0427,1.3608 L-3.0911,1.3844 L-3.1402,1.4063 L-3.1901,1.4264 L-3.2407,1.4448 L-3.2919,1.4613 L-3.3436,1.4761 L-3.3959,1.4890 L-3.4485,1.5001 L-3.5015,1.5093 L-3.5548,1.5166 L-3.6084,1.5221 L-3.6621,1.5257 L-3.7158,1.5274 L-3.7696,1.5271 L-3.8234,1.5250 Z' fill='#a8c1da' opacity='1.0' stroke='#555' stroke-width='0.008'/>
 <path d='M1.3517,-3.5772 Q1.2691,-2.6525 1.4792,-1.7481' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
 <path d='M1.4792,-1.7481 L1.4220,-1.8272 L1.4956,-1.8443 Z' fill='#c9c9c9'/>
 <circle cx='1.3517' cy='-3.5772' r='0.9384' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
@@ -41,10 +41,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M3.5772,1.3517 Q2.6525,1.2691 1.7481,1.4792' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
-<path d='M1.7481,1.4792 L1.8272,1.4220 L1.8443,1.4956 Z' fill='#c9c9c9'/>
-<circle cx='3.5772' cy='1.3517' r='0.9384' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
-<svg x='2.5894' y='0.3639' width='1.9756' height='1.9756' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-1.3517,3.5772 Q-1.2691,2.6525 -1.4792,1.7481' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
+<path d='M-1.4792,1.7481 L-1.4220,1.8272 L-1.4956,1.8443 Z' fill='#c9c9c9'/>
+<circle cx='-1.3517' cy='3.5772' r='0.9384' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
+<svg x='-2.3395' y='2.5894' width='1.9756' height='1.9756' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 120 80"
@@ -53,25 +53,6 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <line x1="67.0" y1="37.0" x2="53.0" y2="37.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
 <text x="76.000000" y="48.000000" fill="rgb(102,102,102)" stroke-width="0" font-weight="bold" font-size="16" >CH</text>
 <text x="100.000000" y="51.680000" fill="rgb(102,102,102)" stroke-width="0" font-weight="bold" font-size="13" >2</text>
-<text x="34.000000" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
-</svg>
-</g>
-<text font-size="18.000000" fill ="gray" font-family="sans-serif"
-x="10.000000" y="20.000000" ></text>
-</svg>
-<path d='M-1.4967,1.4967 Q-2.0138,1.3766 -2.5425,1.4238' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
-<path d='M-2.5425,1.4238 L-2.4563,1.3782 L-2.4495,1.4535 Z' fill='#c9c9c9'/>
-<circle cx='-3.5772' cy='1.3517' r='0.9384' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
-<svg x='-4.5650' y='0.3639' width='1.9756' height='1.9756' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
-<title> - Open Babel Depiction</title>
-<g transform="translate(0,0)">
-<svg width="100" height="100" x="0" y="0" viewBox="0 0 160 80"
-font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
-<line x1="107.0" y1="43.0" x2="80.0" y2="43.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="107.0" y1="37.0" x2="80.0" y2="37.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="80.0" y1="43.0" x2="53.0" y2="43.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="80.0" y1="37.0" x2="53.0" y2="37.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<text x="114.000000" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
 <text x="34.000000" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
 </svg>
 </g>
@@ -97,10 +78,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M-0.0000,5.3566 Q-0.3369,5.5763 -0.5885,5.8902' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
-<path d='M-0.5885,5.8902 L-0.5617,5.7963 L-0.5027,5.8436 Z' fill='#c9c9c9'/>
-<circle cx='-1.3087' cy='6.5432' r='0.8797' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
-<svg x='-2.2347' y='5.6173' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-5.3566,0.0000 Q-5.5763,-0.3369 -5.8902,-0.5885' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
+<path d='M-5.8902,-0.5885 L-5.7963,-0.5617 L-5.8436,-0.5027 Z' fill='#c9c9c9'/>
+<circle cx='-6.5432' cy='-1.3087' r='0.8797' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
+<svg x='-7.4692' y='-2.2347' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 80 80"
@@ -112,10 +93,10 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18" fill ="gray" font-family="sans-serif"
 x="10" y="20" ></text>
 </svg>
-<path d='M3.0497,4.2744 Q2.4189,3.5642 1.5980,3.0862' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
-<path d='M1.5980,3.0862 L1.6948,3.0989 L1.6567,3.1642 Z' fill='#c9c9c9'/>
-<circle cx='3.0497' cy='4.2744' r='0.8797' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
-<svg x='2.1238' y='3.3484' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-4.2744,3.0497 Q-3.5642,2.4189 -3.0862,1.5980' fill='none' stroke='#c9c9c9' stroke-width='0.026'/>
+<path d='M-3.0862,1.5980 L-3.0989,1.6948 L-3.1642,1.6567 Z' fill='#c9c9c9'/>
+<circle cx='-4.2744' cy='3.0497' r='0.8797' fill='#f4ecf7' fill-opacity='1.0' stroke='none'/>
+<svg x='-5.2003' y='2.1238' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 80 80"
@@ -168,32 +149,31 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='2.1166' y='1.0878' font-family='Helvetica, Arial, sans-serif' font-size='0.072' text-anchor='middle' fill='#222' font-weight='normal'>glyceraldehyde</text>
 <path d='M1.4224,1.5709 L1.5981,1.5239 L1.4695,1.3953 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='1.8962' y='1.8962' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>r2</text>
-<text x='1.8962' y='2.0702' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-13.4 kJ/mol</text>
+<text x='1.8962' y='2.0702' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-2.1 kJ/mol</text>
 <circle cx='0.0000' cy='2.1166' r='0.9384' fill='#fdf6e3' fill-opacity='1.0' stroke='none'/>
 <svg x='-0.9878' y='1.1288' width='1.9756' height='1.9756' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
-<svg width="100" height="100" x="0" y="0" viewBox="0 0 218.564 200"
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 183.923 180"
 font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
-<line x1="119.0" y1="150.9" x2="142.4" y2="137.4" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="122.0" y1="156.1" x2="145.4" y2="142.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="143.9" y1="140.0" x2="143.9" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="143.9" y1="100.0" x2="167.3" y2="86.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="143.9" y1="100.0" x2="109.3" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="109.3" y1="80.0" x2="109.3" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="109.3" y1="80.0" x2="74.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="74.6" y1="100.0" x2="51.3" y2="86.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<text x="103.282032" y="168.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
-<text x="172.564065" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
-<text x="103.282032" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
-<text x="22.000000" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
+<line x1="106.3" y1="127.0" x2="106.3" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="112.3" y1="127.0" x2="112.3" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="100.0" x2="143.9" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="80.0" x2="143.9" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="109.3" y1="100.0" x2="74.6" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="80.0" x2="51.3" y2="93.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="103.282032" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="137.923048" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="22.000000" y="108.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
 </svg>
 </g>
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='0.0000' y='3.2044' font-family='Helvetica, Arial, sans-serif' font-size='0.072' text-anchor='middle' fill='#222' font-weight='normal'>dihydroxyacetone</text>
 <path d='M-1.5709,1.4224 L-1.5239,1.5981 L-1.3953,1.4695 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-1.8962' y='1.8962' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>r3</text>
 <text x='-1.8962' y='2.0702' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>+5.3 kJ/mol</text>
@@ -211,27 +191,25 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <line x1="109.3" y1="80.0" x2="109.3" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
 <line x1="109.3" y1="80.0" x2="74.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
 <line x1="74.6" y1="100.0" x2="51.3" y2="86.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="74.6" y1="100.0" x2="74.6" y2="140.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="74.6" y1="140.0" x2="51.3" y2="153.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
 <text x="103.282032" y="168.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
 <text x="172.564065" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
 <text x="103.282032" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
 <text x="22.000000" y="88.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
-<text x="22.000000" y="168.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
 </svg>
 </g>
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
+<text x='-2.1166' y='1.0878' font-family='Helvetica, Arial, sans-serif' font-size='0.072' text-anchor='middle' fill='#222' font-weight='normal'>erythrose</text>
 <path d='M-1.4224,-1.5709 L-1.5981,-1.5239 L-1.4695,-1.3953 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
 <text x='-1.9669' y='-1.9669' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>r4</text>
 <text x='-1.9669' y='-1.7929' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-9.4 kJ/mol</text>
 <text x='-1.9669' y='-1.6189' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#1a7f37' font-weight='normal'>gain</text>
-<path d='M-1.4555,3.0176 L-1.2980,2.9266 L-1.4555,2.8357 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='-1.8923' y='2.6441' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>b1</text>
-<text x='-1.8923' y='2.8181' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-2.1 kJ/mol</text>
-<circle cx='-1.4030' cy='4.5466' r='0.8797' fill='#fdf6e3' fill-opacity='1.0' stroke='none'/>
-<svg x='-2.3289' y='3.6207' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-3.0176,-1.4555 L-2.9266,-1.2980 L-2.8357,-1.4555 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-2.6441' y='-1.8923' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>b1</text>
+<text x='-2.6441' y='-1.7183' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-2.1 kJ/mol</text>
+<circle cx='-4.5466' cy='-1.4030' r='0.8797' fill='#fdf6e3' fill-opacity='1.0' stroke='none'/>
+<svg x='-5.4726' y='-2.3289' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
 <svg width="100" height="100" x="0" y="0" viewBox="0 0 218.564 200"
@@ -253,31 +231,32 @@ font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M0.1050,5.3566 L-0.0525,5.2657 L-0.0525,5.4476 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='-0.0000' y='5.9216' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>b2</text>
-<text x='-0.0000' y='6.0956' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>+8.8 kJ/mol</text>
-<circle cx='1.4030' cy='4.5466' r='0.8797' fill='#fdf6e3' fill-opacity='1.0' stroke='none'/>
-<svg x='0.4770' y='3.6207' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
+<path d='M-5.3566,0.1050 L-5.2657,-0.0525 L-5.4476,-0.0525 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-5.9216' y='0.0000' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>b2</text>
+<text x='-5.9216' y='0.1740' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>+8.8 kJ/mol</text>
+<circle cx='-4.5466' cy='1.4030' r='0.8797' fill='#fdf6e3' fill-opacity='1.0' stroke='none'/>
+<svg x='-5.4726' y='0.4770' width='1.8519' height='1.8519' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid meet'>
 <title> - Open Babel Depiction</title>
 <g transform="translate(0,0)">
-<svg width="100" height="100" x="0" y="0" viewBox="0 0 183.923 200"
+<svg width="100" height="100" x="0" y="0" viewBox="0 0 218.564 180"
 font-family="sans-serif" stroke="rgb(76,76,76)" stroke-width="2"  stroke-linecap="round">
-<line x1="131.2" y1="56.1" x2="107.8" y2="42.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="134.2" y1="50.9" x2="110.8" y2="37.4" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="109.3" y1="40.0" x2="74.6" y2="60.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="74.6" y1="60.0" x2="74.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="74.6" y1="100.0" x2="51.3" y2="113.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="74.6" y1="100.0" x2="109.3" y2="120.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<line x1="109.3" y1="120.0" x2="109.3" y2="147.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
-<text x="137.923048" y="68.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
-<text x="22.000000" y="128.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
-<text x="103.282032" y="168.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<line x1="175.6" y1="127.0" x2="175.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="181.6" y1="127.0" x2="181.6" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="178.6" y1="100.0" x2="143.9" y2="80.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="80.0" x2="143.9" y2="53.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="143.9" y1="80.0" x2="109.3" y2="100.0" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="107.8" y1="102.6" x2="76.1" y2="77.4" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="110.8" y1="97.4" x2="73.1" y2="82.6" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<line x1="74.6" y1="80.0" x2="51.3" y2="93.5" opacity="1.0" stroke="rgb(76,76,76)"  stroke-width="2.0"/>
+<text x="172.564065" y="148.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >O</text>
+<text x="137.923048" y="48.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >OH</text>
+<text x="22.000000" y="108.000000" fill="rgb(255,12,12)" stroke-width="0" font-weight="bold" font-size="16" >HO</text>
 </svg>
 </g>
 <text font-size="18.000000" fill ="gray" font-family="sans-serif"
 x="10.000000" y="20.000000" ></text>
 </svg>
-<path d='M1.3505,2.8357 L1.3505,3.0176 L1.5080,2.9266 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
-<text x='1.8923' y='2.6441' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>b3</text>
-<text x='1.8923' y='2.8181' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-6.0 kJ/mol</text>
+<path d='M-2.8357,1.3505 L-3.0176,1.3505 L-2.9266,1.5080 Z' fill='#b8860b' stroke='#7a5c10' stroke-width='0.006'/>
+<text x='-2.6441' y='1.8923' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>b3</text>
+<text x='-2.6441' y='2.0663' font-family='Helvetica, Arial, sans-serif' font-size='0.145' text-anchor='middle' fill='#222' font-weight='normal'>-6.0 kJ/mol</text>
 </g></svg>

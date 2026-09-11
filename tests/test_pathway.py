@@ -26,7 +26,7 @@ def test_route_dg_sums(route):
 
 
 def test_dead_ends_are_leaves_known_not_to_be_seeds(route):
-    assert [n.mol.label for n in route.dead_ends] == ["glyceraldehyde"]
+    assert [n.mol.label for n in route.dead_ends] == ["1,2-ethenediol"]
     assert len(route.seeds) == 3
     assert route.unknown_leaves == []
     assert not route.complete  # one leaf is not a seed
@@ -206,7 +206,8 @@ def test_an_unnamed_intermediate_gets_no_invented_label():
 
 
 def test_a_side_species_is_swung_clear_of_the_arrows():
-    pw = load_pathway_yaml(SPEC)
+    # an aldol condensation: two precursors arriving at an angle, and water to place
+    pw = from_route_smiles(["OCC=O.OCC=O>>OC=CC(O)C=O.O"], "OC=CC(O)C=O")
     lay = T.lay_out_pathway(pw)
     half = T.MOL_HALF * 0.62 * PAPER.mol_scale
     node = next(n for n in pw.nodes if n.step and n.step.produces)

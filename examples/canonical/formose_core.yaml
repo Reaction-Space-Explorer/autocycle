@@ -12,7 +12,9 @@ nodes:
 steps:
   - {id: aldol-1, rule: Aldol addition, consumes: [{smiles: "C=O", count: 1}]}
   - {id: isomerise, rule: Keto-enol isomerisation}
-  - {id: aldol-2, rule: Aldol addition, consumes: [{smiles: "C=O", count: 1}]}
+  # the aldol gives the ketotetrose; the aldose the retro-aldol needs follows from it,
+  # and the two are drawn as one step
+  - {id: aldol-2, rule: Aldol addition and isomerisation, consumes: [{smiles: "C=O", count: 1}]}
   - id: retro-aldol
     rule: Retro-aldol cleavage
     gain: true

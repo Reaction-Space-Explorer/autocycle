@@ -1,20 +1,25 @@
+# The formose core drawn with the full thermodynamic encoding: arrow width, hue, a
+# reversible step, a gain band and a fused sub-cycle. The skeleton is the same as
+# canonical/formose_core.yaml and balances the same way, one glycolaldehyde and two
+# formaldehyde in, two glycolaldehyde out. The free energies are illustrative and are
+# not measured or estimated values.
 title: Formose-type autocatalytic cycle
 seed: 0
+stoichiometry_complete: true
 nodes:
-  - smiles: OCC=O
-    label: glycolaldehyde
-  - OCC(O)C=O
-  - OCC(O)C(O)C=O
-  - OCC(O)C(O)C(O)C=O
+  - {smiles: OCC=O, label: glycolaldehyde}
+  - {smiles: "OCC(O)C=O", label: glyceraldehyde}
+  - {smiles: "OCC(=O)CO", label: dihydroxyacetone}
+  - {smiles: "OCC(O)C(O)C=O", label: erythrose}
 steps:
-  - {id: r1, rule: Aldol condensation, dg: -16.4, consumes: [C=O]}
-  - {id: r2, rule: Aldol condensation, dg: -13.4, consumes: [C=O]}
-  - {id: r3, rule: Retro-aldol, dg: 5.3, rev_mag: 0.7, produces: [{smiles: O=C=O, count: 1}]}
-  - {id: r4, rule: Retro-aldol, dg: -9.4, mag: 2.0, gain: true, produces: [OCC=O]}
+  - {id: r1, rule: Aldol addition, dg: -16.4, consumes: [C=O]}
+  - {id: r2, rule: Keto-enol isomerisation, dg: -2.1}
+  - {id: r3, rule: Aldol addition and isomerisation, dg: 5.3, rev_mag: 0.7, consumes: [C=O]}
+  - {id: r4, rule: Retro-aldol cleavage, dg: -9.4, mag: 2.0, gain: true, produces: [OCC=O]}
 subcycles:
-  - at_step: 1
+  - at_step: 2
     label: fused branch
-    nodes: [OCC(O)C(O)C=O, OC(CO)C(O)C=O, OCC(O)CC=O]
+    nodes: ["OCC(O)C(O)C=O", "OC(CO)C(O)C=O", "OC=CC(O)C=O"]
     steps:
       - {id: b1, rule: Isomerisation, dg: -2.1}
       - {id: b2, rule: Dehydration, dg: 8.8, produces: [O]}
