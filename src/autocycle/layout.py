@@ -161,19 +161,34 @@ def side_out(ring: Ring, frac: float) -> float:
     return ring.radius * frac + mol_half(ring)
 
 
+SIDE_STEP = 1.9        # radial gap between stacked side species, when they are small
+
+
+def side_step(ring: Ring, half: float | None = None) -> float:
+    """Radial gap between two side species on the same step.
+
+    A fixed gap overlaps whenever the depictions are larger than it, which is what
+    happens to cofactors drawn as names in a large disc. Size it to the disc.
+    """
+    if half is None:
+        return SIDE_STEP
+    return max(SIDE_STEP, 2.1 * half)
+
+
 def side_points(
-    ring: Ring, steps, avoid=None, out0: float | None = None
+    ring: Ring, steps, avoid=None, out0: float | None = None, half: float | None = None
 ) -> list[tuple[int, str, object, tuple[float, float]]]:
     """(step, side, species, anchor). Used by both the renderer and the bounds."""
     out = []
     out0 = side_out(ring, 0.34) if out0 is None else out0
     spread = side_spread(ring)
+    gap = side_step(ring, half)
     for i, st in enumerate(steps):
         v = ring.verts[(2 * i + 1) % ring.n]
         for side, group in (("in", st.consumes), ("out", st.produces)):
             for k, sp in enumerate(group):
                 out.append(
-                    (i, side, sp, side_anchor(ring, v, side, out0 + 1.9 * k, spread, avoid=avoid))
+                    (i, side, sp, side_anchor(ring, v, side, out0 + gap * k, spread, avoid=avoid))
                 )
     return out
 
@@ -183,7 +198,7 @@ def side_reach(ring: Ring, steps, half: float) -> float:
     deepest = max((max(len(st.consumes), len(st.produces)) for st in steps), default=0)
     if not deepest:
         return 0.0
-    return ring.radius + side_out(ring, 0.34) + 1.9 * (deepest - 1) + half
+    return ring.radius + side_out(ring, 0.34) + side_step(ring, half) * (deepest - 1) + half
 
 
 def shunt_arc(ring: Ring, from_node: int, seed: int, n_nodes: int, half: float,

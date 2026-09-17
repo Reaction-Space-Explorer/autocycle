@@ -101,3 +101,44 @@ def test_no_legend_drops_the_rule_list_too():
     cycle = load_yaml("examples/canonical/formose_core.yaml")
     assert "Retro-aldol cleavage" in render(cycle, style="annotated")
     assert "Retro-aldol cleavage" not in render(cycle, style="annotated", legend=False)
+
+
+def _svg_width(svg: str) -> float:
+    return float(re.search(r"width='([0-9.]+)'", svg).group(1))
+
+
+def _scale(svg: str) -> float:
+    return float(re.search(r"scale\(([0-9.]+)\)", svg).group(1))
+
+
+def test_canvas_gives_two_different_cycles_the_same_scale(cycle):
+    """Two cycles of different extent share a bond length when the canvas is fixed."""
+    other = load_yaml("examples/canonical/formose_core.yaml")
+    free = {_scale(render(c, style="annotated")) for c in (cycle, other)}
+    fixed = {_scale(render(c, style="annotated", canvas=13.0)) for c in (cycle, other)}
+    assert len(free) == 2, "the two cycles should differ in scale without a canvas"
+    assert len(fixed) == 1, "a fixed canvas should give them one scale"
+
+
+def test_canvas_narrower_than_the_cycle_is_ignored(cycle):
+    """A canvas cannot crop: it pads, or it does nothing."""
+    assert _scale(render(cycle, style="annotated", canvas=0.5)) == pytest.approx(
+        _scale(render(cycle, style="annotated"))
+    )
+
+
+def test_legend_does_not_repeat_the_rules_the_style_already_lists(cycle):
+    """--legend on an annotated figure listed every rule twice."""
+    svg = render(cycle, style="annotated", legend=True)
+    for step in cycle.steps:
+        if step.rule:
+            assert svg.count(f">{step.rid}  :  {step.rule}<") == 1
+            assert f">{step.rid}  {step.rule}<" not in svg
+
+
+def test_side_species_on_one_step_do_not_overlap():
+    """Two products of the same step are separated by more than their own size."""
+    cyc = load_yaml("examples/canonical/formose_core.yaml")
+    ring = L.lay_out(len(cyc.nodes))
+    half = L.mol_half(ring) * 1.0
+    assert L.side_step(ring, half) >= 2.0 * half

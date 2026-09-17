@@ -21,7 +21,7 @@ authors:
     affiliation: >-
       Blue Marble Space Institute of Science; Department of Chemistry,
       Howard University
-version: 0.2.1
+version: 0.3.0
 license: MIT
 repository-code: https://github.com/Reaction-Space-Explorer/autocycle
 keywords:

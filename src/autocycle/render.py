@@ -30,14 +30,15 @@ MIN_SCALE = 85.0
 ROUTE_PX_PER_COLUMN = 250.0  # a deep route gets a wider canvas, not smaller structures
 
 
-def render(obj, mode: str = "linear", style: str | Style = "paper", legend=None) -> str:
+def render(obj, mode: str = "linear", style: str | Style = "paper", legend=None,
+           canvas: float | None = None) -> str:
     """Render a Cycle or a Pathway."""
     if isinstance(obj, Pathway):
-        return _render_pathway(obj, mode, style, legend)
-    return _render_cycle(obj, mode, style, legend)
+        return _render_pathway(obj, mode, style, legend, canvas)
+    return _render_cycle(obj, mode, style, legend, canvas)
 
 
-def _render_pathway(pw: Pathway, mode: str, style: str | Style, legend) -> str:
+def _render_pathway(pw: Pathway, mode: str, style: str | Style, legend, canvas=None) -> str:
     st = get(style) if isinstance(style, str) else style
     show_legend = st.legend if legend is None else legend
     _draw.BOND[0] = fit_bond(_route_smiles(pw))
@@ -64,10 +65,10 @@ def _render_pathway(pw: Pathway, mode: str, style: str | Style, legend) -> str:
     if show_legend:
         y0 -= 0.72
     target = max(TARGET_PX, ROUTE_PX_PER_COLUMN * (pw.root.depth + 1))
-    return _wrap(body, x0, y0, x1, y1, pw, span, mode, show_legend, target)
+    return _wrap(body, x0, y0, x1, y1, pw, span, mode, show_legend, target, canvas=canvas)
 
 
-def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
+def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend, canvas=None) -> str:
     st = get(style) if isinstance(style, str) else style
     show_legend = st.legend if legend is None else legend
     _draw.BOND[0] = fit_bond(_cycle_smiles(cycle))
@@ -78,9 +79,12 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
 
     keep_out = (ring.cx, ring.cy, ring.radius + L.node_radius() * 2.4)
     out0 = L.side_out(ring, st.side_out)
-    anchors = [(ring, cycle.steps, L.side_points(ring, cycle.steps, out0=out0))]
+    half0 = L.mol_half(ring) * st.mol_scale
+    anchors = [(ring, cycle.steps, L.side_points(ring, cycle.steps, out0=out0, half=half0))]
     anchors += [
-        (sr, s.steps, L.side_points(sr, s.steps, avoid=keep_out, out0=L.side_out(sr, st.side_out)))
+        (sr, s.steps, L.side_points(sr, s.steps, avoid=keep_out,
+                                    out0=L.side_out(sr, st.side_out),
+                                    half=L.mol_half(sr) * st.mol_scale))
         for sr, s in subs
     ]
 
@@ -126,8 +130,9 @@ def _render_cycle(cycle: Cycle, mode: str, style: str | Style, legend) -> str:
             for i, line in enumerate(rules)
         ]
     if show_legend:
-        y0 -= 0.72
-    return _wrap(body, x0, y0, x1, y1, cycle, span, mode, show_legend)
+        y0 -= 0.95 if rules else 0.72
+    return _wrap(body, x0, y0, x1, y1, cycle, span, mode, show_legend,
+                 canvas=canvas, skip_rules=bool(rules))
 
 
 def _cycle_smiles(cycle) -> list[str]:
@@ -164,12 +169,16 @@ def _rule_lines(cycle) -> list[str]:
     return out
 
 
-def _wrap(body, x0, y0, x1, y1, obj, span, mode, show_legend, target_px=TARGET_PX) -> str:
+def _wrap(body, x0, y0, x1, y1, obj, span, mode, show_legend, target_px=TARGET_PX,
+          canvas: float | None = None, skip_rules: bool = False) -> str:
     w, h = x1 - x0, y1 - y0
+    if canvas is not None and canvas > w:      # one scale across several figures
+        x0 -= (canvas - w) / 2.0
+        w = canvas
     scale = max(target_px / w, MIN_SCALE)
     head = [f"<g transform='scale({scale:.4f}) translate({-x0:.4f},{y1:.4f})'>"]
     if show_legend:
-        head += _legend(obj, x0 + 0.15, y0 + 0.2, w, span, mode)
+        head += _legend(obj, x0 + 0.15, y0 + 0.2, w, span, mode, skip_rules)
     return "\n".join(
         [
             f"<svg xmlns='http://www.w3.org/2000/svg' width='{w * scale:.0f}' "
@@ -182,7 +191,8 @@ def _wrap(body, x0, y0, x1, y1, obj, span, mode, show_legend, target_px=TARGET_P
     )
 
 
-def _legend(cycle, x: float, y: float, width: float, span: float, mode: str) -> list[str]:
+def _legend(cycle, x: float, y: float, width: float, span: float, mode: str,
+            skip_rules: bool = False) -> list[str]:
     out = []
     if cycle.title:
         out.append(text(x, -(y + 0.72), cycle.title, 0.11, "start", "#111", "bold"))
@@ -201,7 +211,7 @@ def _legend(cycle, x: float, y: float, width: float, span: float, mode: str) -> 
     out.append(text(bx + bw / 2, -(by - 0.09), "dG (kJ/mol)   0", 0.062, "middle", "#444"))
     out.append(text(bx + bw, -(by - 0.09), f"+{span:.0f}", 0.062, "end", "#444"))
 
-    rules = [f"{s.rid}  {s.rule}" for s in cycle.steps if s.rule]
+    rules = [] if skip_rules else [f"{s.rid}  {s.rule}" for s in cycle.steps if s.rule]
     per = 5
     for i, line in enumerate(rules[: per * 3]):
         out.append(

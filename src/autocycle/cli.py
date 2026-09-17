@@ -28,7 +28,8 @@ def _style(a):
 def _write(cycle, a) -> None:
     if getattr(a, "drop", None):
         drop_side(cycle, a.drop)
-    write_out(render(cycle, mode=a.mode, style=_style(a), legend=a.legend), a.out)
+    write_out(render(cycle, mode=a.mode, style=_style(a), legend=a.legend,
+                     canvas=getattr(a, "canvas", None)), a.out)
     print(f"wrote {a.out}")
 
 
@@ -44,6 +45,9 @@ def main(argv: list[str] | None = None) -> int:
     common.add_argument("--style", choices=("paper", "annotated", "rich"), default="paper")
     common.add_argument("--backend", choices=("rdkit", "obabel"), default=None,
                         help="structure depiction engine (default rdkit)")
+    common.add_argument("--canvas", type=float, default=None,
+                        help="fix the drawing width in bond units, so that several "
+                             "figures share one scale and one bond length")
     common.add_argument("--legend", dest="legend", action="store_true", default=None)
     common.add_argument("--no-legend", dest="legend", action="store_false")
 

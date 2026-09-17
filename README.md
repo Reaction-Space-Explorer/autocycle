@@ -189,6 +189,17 @@ molecules more legibly (`O = CH₂` rather than a bare `=O`). Within a figure ev
 uses one bond length: a requested length is honoured only while a molecule fits its canvas,
 so the widest molecule sets the scale for all of them.
 
+Across figures it does not, because the canvas is sized to the cycle: two cycles of different
+extent come back at different scales, and panels placed side by side then disagree about bond
+length. `--canvas W` fixes the drawing width at `W` bond units instead, so every figure drawn
+with the same `W` shares one scale. Pick a `W` at least as wide as the widest cycle in the set;
+narrower cycles are centred in it.
+
+```bash
+autocycle draw serious.yaml  --style annotated --canvas 13 -o a.png
+autocycle draw artefact.yaml --style annotated --canvas 13 -o b.png   # same bond length
+```
+
 R-groups work. A pseudo-atom such as the `[CoA]` stub used by MØD parses directly, so SMILES
 can be pasted from supplementary data, and the stub draws as `CoA-S-`.
 
