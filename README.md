@@ -40,8 +40,8 @@ verify(cycle).summary() # 'candidate (seed_identified=yes, ... extra_yield=unkno
   recorded. The published search treats this as the minimal criterion for n > 1, noting it
   carries no flow constraint for mass balance. All 2100 cycles in the glucose corpus.
 - `simple`: stoichiometry is stated and there is no extra copy, n = 1.
-- `candidate`: the structure holds but nothing settles the yield. Never asserted, never
-  dismissed.
+- `candidate`: the structure holds but nothing settles the yield, so it is neither
+  asserted nor dismissed.
 
 `verify` also flags a spec that declares a gain step its conditions cannot support.
 
@@ -233,7 +233,7 @@ structures are drawn by RDKit or Open Babel rather than by the original code.
 
 ## Choosing which cycle to show
 
-A search returns thousands. `list` and `bench` report what decides it:
+A search returns thousands of cycles. `list` and `bench` report what decides between them:
 
 - **distinct feeder count**: one feeder is a stronger result than three. `--rank` orders by
   fewest feeders, then lightest, then earliest generation.
@@ -252,7 +252,8 @@ Unedited search output, fused seven-membered rings included:
 - A route leaf is `seed`, `untraced` or `unknown`, never assumed to be a seed.
 - Reactions in a treelib file are matched by content, not by position in `Reaction IDs`:
   treelib sorts children when printing, so positions disagree. Unmatched stay `unresolved`.
-- `bench-routes` counts targets whose file has a header but no tree. No route found is a result.
+- `bench-routes` counts targets whose file has a header but no tree, so a target with no
+  route is reported rather than dropped.
 - SBGN-PD has no glyph for a shunt or for stoichiometric gain, so that export records them
   as notes.
 - `verify` reads a ring and its shunt as one current. A fused sub-cycle is a separate
@@ -287,8 +288,8 @@ here, except the last row, which is quoted:
 | Zubarev et al. 2015, rTCA supernetwork | combinatorial expansion | 1881 | 758 carry one branching point forming an autocatalytic loop. Their counts, not re-run here |
 
 The CatReNet row counts systems rather than cycles because a cycle count there is set by an
-arbitrary length bound and by one toy: the 15 systems yield 499 cycles of at most 6 species,
-34,159 at most 12 and 120,559 at most 16, and `example-05`, a 16-node RAF toy, supplies 99.9%
+arbitrary length bound and by one toy: the 14 that parse yield 506 cycles of at most 6 species,
+34,166 at most 12 and 120,566 at most 16, and `example-05`, a 16-node RAF toy, supplies 99.9%
 of the middle figure. No multiplicity is recorded in any of them, whatever the bound.
 
 The difference is what each method records, not how good the cycles are. An ILP flow query
@@ -299,11 +300,10 @@ topological evidence without mass balance. A `.crs` file has nowhere to write a 
 at all, which says nothing against RAF sets: Golnik et al. prove that under mild conditions
 any RAF is stoichiometrically autocatalytic.
 
-Cores separate two things that are easy to conflate. A core is defined by an invertible
-stoichiometric matrix whose inverse is an elementary mode of autocatalysis, so that method
-settles the criterion by construction, and it does so over carbon counts rather than
-structures. The limitation of the `.crs` format is therefore the absence of multiplicities
-rather than the abstraction of its species.
+A core is defined by an invertible stoichiometric matrix whose inverse is an elementary
+mode of autocatalysis, so that method settles the criterion by construction, and it does so
+over carbon counts rather than structures. What limits the `.crs` format is therefore the
+absence of multiplicities, not the abstraction of its species.
 `examples/canonical/blokhuis_core.yaml` is their toy formose, and the single extreme current
 `sna` finds there is their Type I reached by another route.
 
@@ -343,7 +343,9 @@ What each source is used for:
 - **Autocatalytic cores, and `examples/canonical/blokhuis_core.yaml`** — Blokhuis, Lacoste,
   Nghe, PNAS **2020**, 117, 25230–25236. [doi](https://doi.org/10.1073/pnas.2013527117)
 - **RAF sets against stoichiometric autocatalysis** — Golnik, Gatter, Hordijk, Stadler,
-  Vassena, **2026**. [arXiv](https://arxiv.org/abs/2605.25523)
+  Vassena, *Bridging two theoretical frameworks of autocatalysis: RAF sets and stoichiometric
+  autocatalysis*, J. Theor. Biol. **2026**, 635, 112580.
+  [doi](https://doi.org/10.1016/j.jtbi.2026.112580)
 - **Arrow width as magnitude, reversible steps as concentric pairs** — Catacycle:
   McFarlane, Henderson, Donnecke, McIndoe, Organometallics **2019**, 38, 4051–4053.
   [doi](https://doi.org/10.1021/acs.organomet.9b00563) ·

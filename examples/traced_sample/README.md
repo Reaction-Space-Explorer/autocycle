@@ -4,8 +4,8 @@ Hand-written example data in the format `autocycle.io_treelib` reads: a treelib-
 route tree per record, with a seed table (`products.tsv`, generation-0 molecules) and a
 reaction table (`rels.tsv`, reactants at `-1` and products at `1`).
 
-The chemistry is generic formose sugar chemistry — aldol condensation, keto-enol migration —
-which has been textbook since Butlerow (1861). Reaction ids, energies and InChIKeys are
+The chemistry is generic formose sugar chemistry, aldol condensation and keto-enol
+migration, textbook since Butlerow (1861). Reaction ids, energies and InChIKeys are
 invented. Nothing here is derived from any particular network or study.
 
 It is built to exercise the awkward parts of the format:
