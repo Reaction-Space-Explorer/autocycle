@@ -4,7 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from autocycle import ingest
+from autocycle import __version__, ingest
 from autocycle.export import write as write_out
 from autocycle.io_spec import (
     from_reaction_smiles,
@@ -35,6 +35,8 @@ def _write(cycle, a) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="autocycle", description="autocatalytic cycle figures")
+    ap.add_argument("--version", action="version",
+                    version=f"autocycle {__version__}")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     common = argparse.ArgumentParser(add_help=False)

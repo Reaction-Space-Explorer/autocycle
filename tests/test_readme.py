@@ -53,3 +53,20 @@ def test_the_abel_row_counts_the_solutions_the_sample_holds():
 def test_the_benchmark_rows_add_up():
     assert "2100 of 3100 rows" in README and "1000, pinched ring paths" in README
     assert 2100 + 1000 == 3100
+
+
+def test_the_reported_version_matches_the_packaging():
+    """Two papers cite this tool by version; the package must agree with them."""
+    import re
+    from pathlib import Path
+
+    from autocycle import __version__
+
+    root = Path(__file__).resolve().parents[1]
+    pyproject = re.search(r'^version = "(.+?)"',
+                          (root / "pyproject.toml").read_text(), re.M).group(1)
+    citation = re.search(r"^version: (.+)$",
+                         (root / "CITATION.cff").read_text(), re.M).group(1).strip()
+    assert pyproject == citation, (pyproject, citation)
+    if __version__ != "unknown":          # only when installed, not from a source tree
+        assert __version__ == pyproject
