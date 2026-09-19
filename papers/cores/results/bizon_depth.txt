@@ -1,0 +1,24 @@
+  GlucoseRels_5  n=4  workers=64
+    cores 23350  distinct 4558  types {'I': 9500, 'II/III': 13743, 'IV': 103, 'V': 4}  40.4s
+	Command being timed: "/home/bizon/tt-bio-env/bin/python src/parallel.py /home/bizon/autocat_cores/networks/na/OriginalData/OriginalNetworkData/Rels/Glucose/GlucoseRels_5.tsv 4 64"
+	Maximum resident set size (kbytes): 199292
+  PyruvicAcidRels_6  n=4  workers=64
+    cores 17921  distinct 4456  types {'I': 6067, 'II/III': 11722, 'IV': 132}  27.4s
+	Command being timed: "/home/bizon/tt-bio-env/bin/python src/parallel.py /home/bizon/autocat_cores/networks/na/OriginalData/OriginalNetworkData/Rels/PyruvicAcid/PyruvicAcidRels_6.tsv 4 64"
+	Maximum resident set size (kbytes): 203420
+  FormoseRels_6  n=4  workers=64
+    cores 40218  distinct 14422  types {'I': 10621, 'II/III': 29217, 'IV': 380}  130.3s
+	Command being timed: "/home/bizon/tt-bio-env/bin/python src/parallel.py /home/bizon/autocat_cores/networks/na/OriginalData/OriginalNetworkData/Rels/Formose/FormoseRels_6.tsv 4 64"
+	Maximum resident set size (kbytes): 371400
+  GlucoseRels_5  n=5  workers=64
+    cores 1380354  distinct 174143  types {'I': 220239, 'II/III': 1083917, 'IV': 74286, 'V': 1912}  1103.9s
+	Command being timed: "/home/bizon/tt-bio-env/bin/python src/parallel.py /home/bizon/autocat_cores/networks/na/OriginalData/OriginalNetworkData/Rels/Glucose/GlucoseRels_5.tsv 5 64"
+	Maximum resident set size (kbytes): 950140
+  PyruvicAcidRels_6  n=5  workers=64
+    cores 938930  distinct 190480  types {'I': 54661, 'II/III': 831525, 'IV': 51609, 'V': 1135}  93.4s
+	Command being timed: "/home/bizon/tt-bio-env/bin/python src/parallel.py /home/bizon/autocat_cores/networks/na/OriginalData/OriginalNetworkData/Rels/PyruvicAcid/PyruvicAcidRels_6.tsv 5 64"
+	Maximum resident set size (kbytes): 718904
+  FormoseRels_6  n=5  workers=64
+    cores 3385216  distinct 913271  types {'I': 147580, 'II/III': 3079413, 'IV': 155603, 'V': 2620}  339.7s
+	Command being timed: "/home/bizon/tt-bio-env/bin/python src/parallel.py /home/bizon/autocat_cores/networks/na/OriginalData/OriginalNetworkData/Rels/Formose/FormoseRels_6.tsv 5 64"
+	Maximum resident set size (kbytes): 2652040

@@ -1,0 +1,3 @@
+  formose G3     24 cores, criteria agree on    24
+  glucose G5   1024 cores, criteria agree on  1024
+  total 1048 cores, agree 1048, disagree 0

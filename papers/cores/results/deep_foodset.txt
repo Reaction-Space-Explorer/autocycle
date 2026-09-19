@@ -1,0 +1,4 @@
+glucose G5  water, CH2O  cores   1042  distinct    293  mechanisms   26  serious    972  artefact     2
+glucose G5  + CO2, NH3   cores   1024  distinct    289  mechanisms   24  serious    954  artefact     2
+formose G6  water, CH2O  cores   2191  distinct   1001  mechanisms   44  serious   1558  artefact   410
+formose G6  + CO2, NH3   cores   2050  distinct    963  mechanisms   40  serious   1417  artefact   410

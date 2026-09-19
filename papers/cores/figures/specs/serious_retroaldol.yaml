@@ -1,0 +1,22 @@
+# The dominant serious mechanism of formose G6: 275 cores. An aldol addition
+# builds the chain, and two retro-aldol cleavages return the second copy of
+# acetaldehyde. Every step is ordinary aqueous sugar chemistry.
+title: Aldol with retro-aldol cleavage (serious)
+seed: 1
+stoichiometry_complete: true
+nodes:
+  - {smiles: "C(C)(C(CO)(CC=O)O)=O", label: branched ketone}
+  - {smiles: "C(C)=O", label: acetaldehyde}
+  - {smiles: "C(CC(C)(C(CO)(CC=O)O)O)=O", label: aldol adduct}
+steps:
+  - id: retro-aldol-1
+    rule: Retro-aldol cleavage
+    produces: [{smiles: "C(C(CO)=O)(C)=O", count: 1}]
+  - id: aldol
+    rule: Aldol addition
+    consumes: [{smiles: "C(CO)(C(C)(CC=O)O)=O", count: 1}]
+  - id: retro-aldol-2
+    rule: Retro-aldol cleavage
+    gain: true
+    mag: 2.0
+    produces: [{smiles: "C(C)=O", count: 1}]

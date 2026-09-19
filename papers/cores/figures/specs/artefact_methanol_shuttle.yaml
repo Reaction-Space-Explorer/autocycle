@@ -1,0 +1,26 @@
+# The dominant artefact mechanism of formose G6: 140 of the 410 artefact cores,
+# recovered from the network's own coefficients. Methanol adds to the enal, the
+# adduct is oxidised by a crossed Cannizzaro that also regenerates the methanol,
+# and the methanol is released again. Stoichiometrically exact; chemically not
+# serious, because methanol is a poor nucleophile against water in an aqueous
+# formaldehyde soup and the Cannizzaro needs strong base.
+title: Methanol shuttle (artefact)
+seed: 1
+stoichiometry_complete: true
+nodes:
+  - {smiles: "C(C(C(C(C=O)=O)CCO)O)(O)=O", label: hydroxy acid}
+  - {smiles: "CO", label: methanol}
+  - {smiles: "C(C(C(C(C=O)=O)CCO)O)=O", label: dialdehyde}
+steps:
+  - id: retro-michael
+    rule: Conjugate addition, reverse
+    produces: [{smiles: "C(C(C(C(C=O)=O)=C)O)(O)=O", count: 1}]
+  - id: michael
+    rule: Conjugate addition
+    consumes: [{smiles: "C(C(C(C(C=O)=O)=C)O)=O", count: 1}]
+  - id: cannizzaro
+    rule: Crossed Cannizzaro, formaldehyde
+    gain: true
+    mag: 2.0
+    consumes: [{smiles: "C=O", count: 1}, {smiles: "O", count: 1}]
+    produces: [{smiles: "CO", count: 1}]

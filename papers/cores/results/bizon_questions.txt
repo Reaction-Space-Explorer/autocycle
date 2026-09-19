@@ -1,0 +1,48 @@
+=== Q3: shared mechanisms + amplification ===
+  glucose        1024 cores    24 mechanisms
+  glucose+NH3     690 cores    47 mechanisms
+  formose        2050 cores    40 mechanisms
+  formose+NH3    6671 cores   185 mechanisms
+  pyruvate        861 cores    41 mechanisms
+
+  mechanisms by how many networks carry them:
+    in 5 of 5 networks:    9 mechanisms
+    in 4 of 5 networks:    3 mechanisms
+    in 3 of 5 networks:    6 mechanisms
+    in 2 of 5 networks:   41 mechanisms
+    in 1 of 5 networks:  180 mechanisms
+
+  the 9 mechanisms present in all five:
+       121 cores   ('C+4|in:C4|out:-', 'C-2|in:-|out:C2', 'C-2|in:-|out:C2')
+        57 cores   ('C+0|in:-|out:C0', 'C+3|in:C3|out:-', 'C-3|in:-|out:-')
+       116 cores   ('C+1|in:C1|out:-', 'C+2|in:C2|out:-', 'C-3|in:-|out:-')
+       624 cores   ('C+5|in:C5|out:-', 'C-2|in:-|out:-', 'C-3|in:-|out:C3')
+       402 cores   ('C+5|in:C5|out:-', 'C-2|in:-|out:C2', 'C-3|in:-|out:C3')
+       229 cores   ('C+4|in:C4|out:-', 'C-1|in:-|out:C1', 'C-3|in:-|out:-')
+       337 cores   ('C+4|in:C4|out:-', 'C-2|in:-|out:-', 'C-2|in:-|out:C2')
+       119 cores   ('C+3|in:C3|out:-', 'C-1|in:-|out:C1', 'C-2|in:-|out:-')
+        84 cores   ('C+0|in:C0|out:-', 'C+3|in:C3|out:-', 'C-3|in:-|out:-')
+
+  amplification margin (larger = further from singular):
+    glucose      median 0.0833  90th 0.1111  max 0.1875
+    glucose+NH3  median 0.0833  90th 0.0833  max 0.1111
+    formose      median 0.0833  90th 0.1111  max 0.1875
+    formose+NH3  median 0.1111  90th 0.1111  max 0.2000
+    pyruvate     median 0.0833  90th 0.1111  max 0.1875
+
+  species appearing in the most cores:
+    glucose   C(C)=O (473)  C(CC(C)O)=O (249)  C(CO)=O (227)  C(C(C(CO)O)O)=O (146)
+    formose   C(C)=O (867)  C(CC(C)O)=O (487)  CO (403)  C(CO)=O (295)
+
+=== Q2: integer-programming flow search, formose G6 ===
+  FormoseRels_6: 306145 reactions, 117871 non-food species
+  target C(CO)=O   time limit 900s
+  status 0: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+  elapsed 78.1s
+  flow over 4 reactions, total 4
+
+=== Q4: minimal four-species cores ===
+  network                raw  minimal  dropped  mech  serious   cond  artefact      I  II/III    IV    V
+  glucose G5           23350    23291       59   188    16242   6876       173   9500   13735    56    0
+  formose G6           40218    39885      333   319    25070   8423      6392  10621   29186    78    0
+  pyruvic acid G6      17921    17837       84   310    12700   3819      1318   6067   11710    60    0

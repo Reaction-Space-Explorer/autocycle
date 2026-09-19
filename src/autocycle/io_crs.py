@@ -30,8 +30,13 @@ class Reaction:
     name: str
     reactants: list[str]
     products: list[str]
-    catalysts: list[str] = field(default_factory=list)
+    catalyst_groups: list[list[str]] = field(default_factory=list)
     reversible: bool = False
+
+    @property
+    def catalysts(self) -> list[str]:
+        """Every species named as a catalyst, with the and/or structure flattened."""
+        return [c for group in self.catalyst_groups for c in group]
 
 
 @dataclass
@@ -47,8 +52,25 @@ class System:
         return out
 
 
-def _split(text: str, sep: str) -> list[str]:
-    return [x.strip() for x in text.split(sep) if x.strip()]
+def _split(text: str, sep: str = ",") -> list[str]:
+    """Species lists are comma separated, whitespace separated, or both."""
+    return [x for x in re.split(rf"[{re.escape(sep)}\s]+", text.strip()) if x]
+
+
+def _catalyst_groups(text: str) -> list[list[str]]:
+    """A catalyst field is a conjunction of disjunctions: `(a,b)&c` is (a or b) and c.
+
+    The prokaryotic network shipped with CatReNet uses this form. Splitting the
+    field on commas alone leaves brackets and ampersands inside species names, and
+    silently turns an "and" into an "or", which changes which sets are RAFs.
+    """
+    return [[t for t in _split(group.strip().strip("()"), ",") if t]
+            for group in text.split("&") if group.strip()]
+
+
+def catalysed(groups: list[list[str]], have) -> bool:
+    """Whether a reaction's catalyst condition is met by the species in `have`."""
+    return all(any(c in have for c in g) for g in groups) if groups else False
 
 
 def read_crs(path: str | Path) -> System:
@@ -79,7 +101,7 @@ def read_crs(path: str | Path) -> System:
                 name=m.group("name").strip(),
                 reactants=lhs,
                 products=rhs,
-                catalysts=_split(m.group("cats") or "", ","),
+                catalyst_groups=_catalyst_groups(m.group("cats") or ""),
                 reversible=m.group("arrow") in ("<->", "<=>"),
             )
         )
@@ -108,7 +130,7 @@ def to_graph(system: System, mode: str = "catalysis"):
                     a, b, reaction=r.name, rule=None, dg=None,
                     consumes=list(r.reactants),
                     produces=[x for x in r.products if x != b],
-                    catalysts=r.catalysts,
+                    catalyst_groups=r.catalyst_groups,
                 )
     return g
 

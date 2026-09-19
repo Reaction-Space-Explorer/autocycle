@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "autocycle"
-version = "0.3.1"
+version = "0.4.0"
 description = "Information-rich figures for autocatalytic cycles in chemical reaction networks"
 readme = "README.md"
 license = { text = "MIT" }
@@ -29,6 +29,7 @@ dependencies = [
     "pyyaml>=6.0",
     "numpy>=1.24",
     "networkx>=3.0",
+    "scipy>=1.10",
 ]
 
 [project.urls]

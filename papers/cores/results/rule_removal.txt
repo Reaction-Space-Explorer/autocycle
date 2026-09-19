@@ -1,0 +1,12 @@
+  removed                               rxns  cores  mech  serious   cond  artefact
+  nothing (reference)                 306145   2050    40     1417    223       410
+  Keto-enol migration twice           295542   2040    39     1407    223       410
+                                     mechanisms lost   1, unchanged  39, new   0   (14s)
+  Cannizarro 2, HCHO (reduction)      295899   1637    29     1417    213         7
+                                     mechanisms lost  11, unchanged  29, new   0   (12s)
+  Michael Addition 0,2,               281397   1590    27     1417    166         7
+                                     mechanisms lost  13, unchanged  27, new   0   (10s)
+  Retro Aldol                         283454    675    30      216     56       403
+                                     mechanisms lost  10, unchanged  30, new   0   (8s)
+  Aldol Condensation                  268571   1331    36      813    108       410
+                                     mechanisms lost   4, unchanged  36, new   0   (8s)

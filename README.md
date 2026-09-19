@@ -147,6 +147,31 @@ verify(c).status          # 'autocatalytic'
 open("cycle.svg", "w").write(render(c))
 ```
 
+## Enumerating cores in a whole network
+
+`autocycle` draws and checks a cycle you already have. `autocycle.cores`
+enumerates every autocatalytic core a network contains, to a stated size, by
+reading the stoichiometric coefficients the generator recorded. Every core holds
+at least one reaction whose column sum over the core species is positive, so the
+search anchors on those, meets in the middle, and divides across processes with no
+double counting.
+
+```python
+from autocycle.cores.enumerate_cores import load
+from autocycle.cores.search import enumerate_cores
+
+by_rxn = load("FormoseRels_6.tsv")
+cores, candidates = enumerate_cores(by_rxn, 3, food={"O", "C=O"})
+```
+
+`autocycle.raf` computes the maximal RAF and CAF of a `.crs` system, after Hordijk
+and Steel. The networks themselves are a separate deposition; set
+`AUTOCAT_NETWORKS` to point at them.
+
+`papers/cores/` holds the analysis behind the enumeration manuscript: one script
+per result, the cycle specifications for its drawn figures, and what the scripts
+wrote.
+
 ## Inputs and exports
 
 | Read | |

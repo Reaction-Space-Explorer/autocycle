@@ -1,0 +1,4 @@
+  food = water, formaldehyde, carbon dioxide, ammonia; three species
+  network       reactions  amplifying  candidates   cores  rejected
+  formose G6      306,145      59,879     123,957   2,050     98.3%
+  glucose G5      120,952       9,684      65,248   1,024     98.4%

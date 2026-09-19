@@ -1,0 +1,84 @@
+"""Shard the enumeration over anchor reactions.
+
+Each cycle is emitted only at its smallest amplifying reaction, so the anchors
+partition the search exactly: shard by anchor and no cycle is found twice and
+none is missed. The shards share nothing, so this is a process pool with no
+communication beyond the cores each one returns.
+"""
+
+from __future__ import annotations
+
+import collections
+import os
+import sys
+import time
+from multiprocessing import Pool
+from pathlib import Path
+
+from autocycle.cores.anchored import _check, anchors, distinct, graph
+from autocycle.cores.enumerate_cores import FOOD, load
+from autocycle.cores.search import _half
+
+_STATE = {}
+
+
+def _init(by_rxn, n, food):
+    succ, pred = graph(by_rxn, food)
+    _STATE.update(by=by_rxn, n=n, food=food, succ=succ, pred=pred,
+                  amp=set(anchors(by_rxn, food)))
+
+
+def _one(r0):
+    by, n, food = _STATE["by"], _STATE["n"], _STATE["food"]
+    succ, pred, amp = _STATE["succ"], _STATE["pred"], _STATE["amp"]
+    fwd_k = n // 2
+    bwd_k = (n - 1) - fwd_k
+    d = by[r0]
+    starts = [s for s, c in d.items() if c > 0 and s not in food]
+    ends = [s for s, c in d.items() if c < 0 and s not in food]
+    back = {vn: _half(pred, vn, bwd_k, amp, r0, frozenset()) for vn in ends}
+    batch = []
+    for v1 in starts:
+        fwd = _half(succ, v1, fwd_k, amp, r0, frozenset())
+        if not fwd:
+            continue
+        for vn in ends:
+            if vn == v1:
+                continue
+            for mid, tails in back[vn].items():
+                for fs, fr in fwd.get(mid, ()):
+                    for bs, br in tails:
+                        tail = tuple(reversed(bs))[1:]
+                        if set(br) & set(fr) or set(tail) & set(fs):
+                            continue
+                        spec = fs + tail
+                        if len(set(spec)) != n:
+                            continue
+                        batch.append((spec, fr + tuple(reversed(br)) + (r0,)))
+    return _check(by, batch), len(batch)
+
+
+def enumerate_cores(by_rxn, n, food=FOOD, workers=None):
+    workers = workers or os.cpu_count()
+    amp = sorted(anchors(by_rxn, food))
+    found, seen = [], 0
+    with Pool(workers, initializer=_init, initargs=(by_rxn, n, food)) as pool:
+        for hits, k in pool.imap_unordered(_one, amp, chunksize=64):
+            found += hits
+            seen += k
+    return found, seen
+
+
+if __name__ == "__main__":
+    path, n = sys.argv[1], int(sys.argv[2])
+    w = int(sys.argv[3]) if len(sys.argv) > 3 else None
+    food = {"O", "C=O", "C(=O)=O", "N"}
+    by = load(path)
+    t0 = time.time()
+    found, seen = enumerate_cores(by, n, food, w)
+    t = collections.Counter(x[2] for x in found)
+    print(f"  {Path(path).stem}  n={n}  workers={w or os.cpu_count()}")
+    print(f"    reactions {len(by)}  anchors {len(anchors(by, food))}  "
+          f"candidates {seen}")
+    print(f"    cores {len(found)}  distinct {len(distinct(by, found))}  "
+          f"types {dict(sorted(t.items()))}  {time.time()-t0:.1f}s")

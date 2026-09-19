@@ -1,0 +1,25 @@
+# The Breslow formose core as the enumeration returns it from formose G6, with the
+# generator's own reaction indices: 4_0 aldol, 24_0 keto-enol, 287_0 aldol,
+# 384_0 keto-enol, 22_0 retro-aldol. One turn consumes one glycolaldehyde and two
+# formaldehyde and returns two glycolaldehyde, so n = 2. Every step is estimable
+# and the cycle sums to -45.8 kJ/mol per turn at pH 7.4.
+title: Formose core, recovered from formose G6
+seed: 0
+stoichiometry_complete: true
+nodes:
+  - {smiles: "C(CO)=O", label: glycolaldehyde}
+  - {smiles: "C(C(CO)O)=O", label: glyceraldehyde}
+  - {smiles: "C(CO)(CO)=O", label: dihydroxyacetone}
+  - {smiles: "C(CO)(C(CO)O)=O", label: tetrulose}
+  - {smiles: "C(C(C(CO)O)O)=O", label: erythrose}
+steps:
+  - {id: "4_0", rule: Aldol addition, dg: -32.62, consumes: [{smiles: "C=O", count: 1}]}
+  - {id: "24_0", rule: Keto-enol isomerisation, dg: -2.18}
+  - {id: "287_0", rule: Aldol addition, dg: -29.42, consumes: [{smiles: "C=O", count: 1}]}
+  - {id: "384_0", rule: Keto-enol isomerisation, dg: 2.0}
+  - id: "22_0"
+    rule: Retro-aldol cleavage
+    dg: 16.39
+    gain: true
+    mag: 2.0
+    produces: [{smiles: "C(CO)=O", count: 1}]

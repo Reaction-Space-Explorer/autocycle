@@ -1,0 +1,32 @@
+glucose, 3-species: 1042 cores -> 86 rule motifs
+      175  Aldol Condensation + Retro Aldol + Retro Aldol
+      105  Knoevenagel C + Retro Aldol + Retro Aldol
+      102  Aldol Condensation + Knoevenagel C (inverse) + Retro Aldol
+       94  Knoevenagel C + Knoevenagel C (inverse) + Retro Aldol
+       65  Knoevenagel H + Knoevenagel H (inv) + Retro Aldol
+       64  Knoevenagel H + Retro Aldol + Retro Aldol
+
+glucose, 4-species: 23961 cores -> 617 rule motifs
+     1156  Aldol Condensation + Knoevenagel H + Knoevenagel H (inv) + Retro Aldol
+     1071  Aldol Condensation + Knoevenagel H + Retro Aldol + Retro Aldol
+      914  Aldol Condensation + Aldol Condensation + Retro Aldol + Retro Aldol
+      894  Aldol Condensation + Cannizarro 2, glucose (oxidation) + Knoevenagel H (inv) + Retro A
+      891  Cannizarro 2, glucose (oxidation) + Knoevenagel H + Knoevenagel H (inv) + Retro Aldol
+      855  Aldol Condensation + Knoevenagel C + Retro Aldol + Retro Aldol
+
+formose, 3-species: 2191 cores -> 126 rule motifs
+      344  Cannizarro 2, HCHO (reduction) + Michael Addition 0,2,  + Michael Addition 0,2, (rever
+      269  Aldol Condensation + Retro Aldol + Retro Aldol
+      178  Knoevenagel C + Retro Aldol + Retro Aldol
+      168  Knoevenagel C + Knoevenagel C (inverse) + Retro Aldol
+      163  Aldol Condensation + Knoevenagel C (inverse) + Retro Aldol
+       89  Knoevenagel H + Retro Aldol + Retro Aldol
+
+formose, 4-species: 45869 cores -> 1056 rule motifs
+     1635  Aldol Condensation + Knoevenagel C + Retro Aldol + Retro Aldol
+     1634  Aldol Condensation + Knoevenagel C + Knoevenagel C (inverse) + Retro Aldol
+     1569  Aldol Condensation + Knoevenagel H + Knoevenagel H (inv) + Retro Aldol
+     1544  Aldol Condensation + Aldol Condensation + Retro Aldol + Retro Aldol
+     1518  Aldol Condensation + Knoevenagel H + Retro Aldol + Retro Aldol
+     1078  Knoevenagel H + Knoevenagel H + Knoevenagel H (inv) + Retro Aldol
+

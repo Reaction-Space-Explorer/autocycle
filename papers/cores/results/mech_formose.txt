@@ -1,0 +1,265 @@
+=== formose: 44 mechanisms from 2191 cores ===
+
+[  307] C+6|in:C6|out:-  C-2|in:-|out:C2  C-4|in:-|out:C4
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(C)(C(CO)(CC=O)O)=O  ->  C(C)=O+C(C(CO)=O)(C)=O
+    C(C)=O+C(CO)(C(C)(CC=O)O)=O  ->  C(CC(C)(C(CO)(CC=O)O)O)=O
+    C(CC(C)(C(CO)(CC=O)O)O)=O  ->  C(C)=O+C(C)(C(CO)(CC=O)O)=O
+
+[  306] C+6|in:C6|out:-  C-2|in:-|out:-  C-4|in:-|out:C4
+  rules: Retro Aldol | Knoevenagel H | Retro Aldol
+    C(C(C(C=O)=O)O)=O  ->  2C(C=O)=O
+    C(C=O)=O+C(C(C=C)C(C=O)O)=O  ->  C(C(C=C)C(C=O)(C(C=O)O)O)=O
+    C(C(C=C)C(C=O)(C(C=O)O)O)=O  ->  C(C(C(C=O)=O)O)=O+C(CC=C)=O
+
+[  204] C+5|in:C5|out:-  C-2|in:-|out:-  C-3|in:-|out:C3
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(CC(C)O)=O  ->  2C(C)=O
+    C(C)=O+C(CC(C(C=O)=O)O)=O  ->  C(C(C(C)O)C(C(C=O)=O)O)=O
+    C(C(C(C)O)C(C(C=O)=O)O)=O  ->  C(CC(C)O)=O+C(C(C=O)=O)=O
+
+[  147] C+5|in:C5|out:-  C-2|in:-|out:C2  C-3|in:-|out:C3
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(C(C=O)C(C=O)O)=O  ->  C(C=O)=O+C(CC=O)=O
+    C(C=O)=O+C(CC(C(C=O)=O)O)=O  ->  C(C(C(C=O)C(C(C=O)=O)O)O)=O
+    C(C(C(C=O)C(C(C=O)=O)O)O)=O  ->  C(C=O)=O+C(C(C=O)C(C=O)O)=O
+
+[  140] C+0|in:C0,C1|out:C1  C+6|in:C6|out:-  C-6|in:-|out:C6
+  rules: Michael Addition 0,2, (reverse) | Michael Addition 0,2,  | Cannizarro 2, HCHO (reduction)
+    C(C(C(C(C=O)=O)CCO)O)(O)=O  ->  CO+C(C(C(C(C=O)=O)=C)O)(O)=O
+    CO+C(C(C(C(C=O)=O)=C)O)=O  ->  C(C(C(C(C=O)=O)CCO)O)=O
+    C=O+O+C(C(C(C(C=O)=O)CCO)O)=O  ->  CO+C(C(C(C(C=O)=O)CCO)O)(O)=O
+
+[  106] C+4|in:C4|out:-  C-1|in:-|out:C1  C-3|in:-|out:-
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(C)(C(CC(C=O)=O)O)=O  ->  2C(C(C)=O)=O
+    C(C(C)=O)=O+C(CC(C=O)=O)(O)=O  ->  C(CC(C(CC(C=O)=O)O)=O)(O)=O
+    C(CC(C(CC(C=O)=O)O)=O)(O)=O  ->  C(C)(C(CC(C=O)=O)O)=O+C(=O)=O
+
+[  101] C+0|in:-|out:C0  C+4|in:C4|out:-  C-4|in:-|out:-
+  rules: Aldol Condensation | Elimination + enol to keto | Retro Aldol
+    C(C)(C(CO)O)=O+C(CC(C)=O)=O  ->  C(CC(C)(CC(C(CO)O)=O)O)=O
+    C(CC(C)(CC(C(CO)O)=O)O)=O  ->  O+C(CC(CC(C)(CC=O)O)=O)=O
+    C(CC(CC(C)(CC=O)O)=O)=O  ->  2C(CC(C)=O)=O
+
+[   98] C+7|in:C7|out:-  C-1|in:-|out:C1  C-6|in:C0,C1|out:C7
+  rules: Michael Addition 0,2,  | Michael Addition 0,2, (reverse) | Cannizarro 2, HCHO (reduction)
+    CO+C(CC=C(C=O)C(C)O)=O  ->  C(C(C(CO)CC=O)C(C)O)=O
+    C(C(C(CO)CC=O)C(C)O)=O  ->  CO+C(C(C=CC=O)C(C)O)=O
+    C=O+O+C(C(C=CC=O)C(C)O)=O  ->  CO+C(C(C=CC(O)=O)C(C)O)=O
+
+[   94] C+7|in:C7|out:-  C-2|in:-|out:-  C-5|in:-|out:C5
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(CC(C)O)=O  ->  2C(C)=O
+    C(C)=O+C(C(C=C)C(CC=O)O)=O  ->  C(C(C=C)C(C(C=O)C(C)O)O)=O
+    C(C(C=C)C(C(C=O)C(C)O)O)=O  ->  C(CC(C)O)=O+C(C(C=O)C=C)=O
+
+[   92] C+5|in:C5|out:-  C-1|in:-|out:C1  C-4|in:-|out:C4
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(C(C(CCO)=O)O)(O)=O  ->  C(CO)(CCO)=O+C(=O)=O
+    C(C(C(CO)=O)CO)(O)=O+C(=O)=O  ->  C(C(C(C(C(O)=O)O)=O)CO)(O)=O
+    C(C(C(C(C(O)=O)O)=O)CO)(O)=O  ->  C(C(C(CCO)=O)O)(O)=O+C(=O)=O
+
+[   71] C+4|in:C4|out:-  C-2|in:-|out:-  C-2|in:-|out:C2
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(C(C(C=O)=O)O)=O  ->  2C(C=O)=O
+    C(C=O)=O+C(C(C(CO)=O)O)=O  ->  C(C(C(C(C(C=O)O)O)=O)O)=O
+    C(C(C(C(C(C=O)O)O)=O)O)=O  ->  C(CO)=O+C(C(C(C=O)=O)O)=O
+
+[   71] C+5|in:C5|out:-  C-2|in:-|out:C2  C-3|in:-|out:-
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(CO)(CC(CO)(C)O)=O  ->  2C(C)(CO)=O
+    C(C)(CO)=O+C(CO)(CC(C)O)=O  ->  C(CO)(C(C(C)O)C(CO)(C)O)=O
+    C(CO)(C(C(C)O)C(CO)(C)O)=O  ->  C(C)=O+C(CO)(CC(CO)(C)O)=O
+
+[   48] C+0|in:C0,C1|out:C1  C+3|in:C3|out:-  C-3|in:-|out:-
+  rules: Retro Aldol | Knoevenagel C | Cannizarro 2, HCHO (oxidation)
+    C(C(CO)(C(C(CO)O)O)O)=O  ->  2C(C(CO)O)=O
+    C(C(CO)O)=O+C(C(C=O)O)=O  ->  C(C(CO)(C(C(C=O)O)O)O)=O
+    C=O+O+C(C(CO)(C(C(C=O)O)O)O)=O  ->  C(O)=O+C(C(CO)(C(C(CO)O)O)O)=O
+
+[   42] C+6|in:C6|out:-  C-1|in:-|out:C1  C-5|in:C0,C1|out:C6
+  rules: Michael Addition 0,2,  | Michael Addition 0,2, (reverse) | Cannizarro 2, HCHO (reduction)
+    CO+C(CC=C(C=O)C(O)=O)=O  ->  C(C(C=O)C(CO)CC=O)(O)=O
+    C(C(C=O)C(CO)CC=O)(O)=O  ->  CO+C(C(C(O)=O)C=CC=O)=O
+    C=O+O+C(C(C(O)=O)C=CC=O)=O  ->  CO+C(C(C(O)=O)C=CC(O)=O)=O
+
+[   39] C+0|in:C0,C1|out:C1  C+6|in:C6|out:-  C-6|in:C0,C1|out:C7
+  rules: Michael Addition 0,2,  | Cannizarro 2, HCHO (reduction) | Cannizarro 2, HCHO (reduction)
+    CO+C(C(C=O)C(C=O)=C)=O  ->  C(C(C=O)C(C=O)CCO)=O
+    C=O+O+C(C(C=O)C(C=O)CCO)=O  ->  CO+C(C(C=O)C(C=O)CCO)(O)=O
+    C=O+O+C(C(C=O)C(C=O)CCO)(O)=O  ->  CO+C(C(C=O)C(C(O)=O)CCO)(O)=O
+
+[   33] C+0|in:C0,C1|out:C1  C+5|in:C5|out:-  C-5|in:-|out:C5
+  rules: Michael Addition 0,2, (reverse) | Michael Addition 0,2,  | Cannizarro 2, HCHO (reduction)
+    C(C(C(C(O)=O)=O)CCO)(O)=O  ->  CO+C=C(C(O)=O)C(C(O)=O)=O
+    CO+C=C(C(O)=O)C(C=O)=O  ->  C(C(C(C=O)=O)CCO)(O)=O
+    C=O+O+C(C(C(C=O)=O)CCO)(O)=O  ->  CO+C(C(C(C(O)=O)=O)CCO)(O)=O
+
+[   29] C+3|in:C3|out:-  C-1|in:-|out:C1  C-2|in:-|out:-
+  rules: Retro Aldol | Knoevenagel C | Retro Aldol
+    C(C(C(CO)O)O)=O  ->  2C(CO)=O
+    C(CO)=O+C(C(C=O)O)(O)=O  ->  C(C(C=O)(C(CO)O)O)(O)=O
+    C(C(C=O)(C(CO)O)O)(O)=O  ->  C(C(C(CO)O)O)=O+C(=O)=O
+
+[   28] C+1|in:C1|out:-  C+2|in:C2|out:-  C-3|in:-|out:-
+  rules: Aldol Condensation | Aldol Condensation | Retro Aldol
+    C(C)=O+C(CCO)=O  ->  C(CC(CCO)O)=O
+    C=O+C(CC(CCO)O)=O  ->  C(C(CO)C(CCO)O)=O
+    C(C(CO)C(CCO)O)=O  ->  2C(CCO)=O
+
+[   28] C+4|in:C4|out:-  C-2|in:-|out:C2  C-2|in:-|out:C2
+  rules: Aldol Condensation | Retro Aldol | Retro Aldol
+    C(CO)=O+C(C(C(CO)O)=O)=O  ->  C(C(C(CO)O)(C(C=O)O)O)=O
+    C(C(C(CO)O)(C(C=O)O)O)=O  ->  C(CO)=O+C(C(C(C=O)O)O)=O
+    C(C(C(C=O)O)O)=O  ->  C(CO)=O+C(C=O)=O
+
+[   25] C+4|in:C4|out:-  C-1|in:-|out:C1  C-3|in:-|out:C3
+  rules: Aldol Condensation | Alpha-Keto Acid Decarboxylation | Retro Aldol
+    C(=O)=O+C(CC(C(O)=O)=O)=O  ->  C(C(C(O)=O)C(C(O)=O)=O)=O
+    C(C(C(O)=O)C(C(O)=O)=O)=O  ->  C(=O)=O+C(C(C=O)C(O)=O)=O
+    C(C(C=O)C(O)=O)=O  ->  C(CC=O)=O+C(=O)=O
+
+[   24] C+0|in:C0|out:-  C+3|in:C3|out:-  C-3|in:-|out:-
+  rules: Knoevenagel H | Hydration of C=C(O) | Retro Aldol
+    C(C(C)O)=O+C=CC=O  ->  C(C(C)(C(C=C)O)O)=O
+    O+C(C(C)(C(C=C)O)O)=O  ->  C(C(C)(C(C(C)O)O)O)=O
+    C(C(C)(C(C(C)O)O)O)=O  ->  2C(C(C)O)=O
+
+[   23] C+0|in:C0,C1|out:C1  C+7|in:C7|out:-  C-7|in:-|out:C7
+  rules: Michael Addition 0,2, (reverse) | Michael Addition 0,2,  | Cannizarro 2, HCHO (reduction)
+    C(C(C(CO)C(C)O)CC=O)(O)=O  ->  CO+C(CC(C(O)=O)=CC(C)O)=O
+    CO+C(CC(C=O)=CC(C)O)=O  ->  C(C(C(CO)C(C)O)CC=O)=O
+    C=O+O+C(C(C(CO)C(C)O)CC=O)=O  ->  CO+C(C(C(CO)C(C)O)CC=O)(O)=O
+
+[   22] C+7|in:C7|out:-  C-2|in:-|out:C2  C-5|in:-|out:C5
+  rules: Aldol Condensation | Michael Addition 0,2, (reverse) | Retro Aldol
+    C(C)=O+C(C(C=O)C(C)CC=O)=O  ->  C(C(C(CC=O)O)C(C)CC=O)=O
+    C(C(C(CC=O)O)C(C)CC=O)=O  ->  C(C)=O+C(CC(C(C=O)=CC)O)=O
+    C(CC(C(C=O)=CC)O)=O  ->  C(C)=O+C(C)=C(C=O)C=O
+
+[   19] C+0|in:-|out:C0  C+3|in:C3|out:-  C-3|in:-|out:-
+  rules: Knoevenagel H | Benzilic Acid Rearrangement (inverse) | Retro Aldol
+    C(C(C)=O)=O+C(C(C)O)(O)=O  ->  C(C(C)(C(C(C)=O)O)O)(O)=O
+    C(C(C)(C(C(C)=O)O)O)(O)=O  ->  O+C(C)(C(C(C(C)=O)=O)O)=O
+    C(C)(C(C(C(C)=O)=O)O)=O  ->  2C(C(C)=O)=O
+
+[   17] C+0|in:C0,C1|out:C1  C+5|in:C5|out:-  C-5|in:C0,C1|out:C6
+  rules: Michael Addition 0,2,  | Cannizarro 2, HCHO (reduction) | Cannizarro 2, HCHO (reduction)
+    CO+C(C(C=O)=CC=O)=O  ->  C(C(C=O)C(C=O)CO)=O
+    C=O+O+C(C(C=O)C(C=O)CO)=O  ->  CO+C(C(C=O)C(C=O)CO)(O)=O
+    C=O+O+C(C(C=O)C(C=O)CO)(O)=O  ->  CO+C(C(C=O)C(C(O)=O)CO)(O)=O
+
+[   10] C+6|in:C6|out:-  C-1|in:-|out:C1  C-5|in:-|out:C5
+  rules: Aldol Condensation | Beta-gamma Unsaturated Acid Decarboxylation | Retro Aldol
+    C(=O)=O+C(C(C=C)(CC=O)O)(O)=O  ->  C(C(C=O)C(C(O)=O)(C=C)O)(O)=O
+    C(C(C=O)C(C(O)=O)(C=C)O)(O)=O  ->  C(=O)=O+C(C(C=O)C(C=C)O)(O)=O
+    C(C(C=O)C(C=C)O)(O)=O  ->  C(=O)=O+C(CC(C=C)O)=O
+
+[   10] C+0|in:-|out:-  C+3|in:C3|out:-  C-3|in:-|out:-
+  rules: Knoevenagel C | Keto-enol migration twice | Retro Aldol
+    C(C(CO)=O)=O+C(C(C=O)O)=O  ->  C(C(C=O)(C(C(CO)=O)O)O)=O
+    C(C(C=O)(C(C(CO)=O)O)O)=O  ->  C(C(C=O)(C(C(C=O)O)O)O)=O
+    C(C(C=O)(C(C(C=O)O)O)O)=O  ->  2C(C(C=O)O)=O
+
+[   10] C+0|in:C0|out:-  C+4|in:C4|out:-  C-4|in:-|out:-
+  rules: Aldol Condensation | Hydration of C=C(O) | Retro Aldol
+    C(CC(C)O)=O+C(C)=CC=O  ->  C(C(C(C)O)C(C=CC)O)=O
+    O+C(C(C(C)O)C(C=CC)O)=O  ->  C(C(C(C)O)C(CC(C)O)O)=O
+    C(C(C(C)O)C(CC(C)O)O)=O  ->  2C(CC(C)O)=O
+
+[    7] C+0|in:C0,C1|out:C1  C+4|in:C4|out:-  C-4|in:-|out:-
+  rules: Aldol Condensation | Cannizarro 2, HCHO (oxidation) | Retro Aldol
+    C=CC(C=O)=O+C=CC(CO)=O  ->  C(C(C=C)(C(C(C=C)=O)O)O)=O
+    C=O+O+C(C(C=C)(C(C(C=C)=O)O)O)=O  ->  C(O)=O+C(C(CO)(C(C(C=C)=O)O)O)=C
+    C(C(CO)(C(C(C=C)=O)O)O)=C  ->  2C=CC(CO)=O
+
+[    6] C+3|in:C3|out:-  C-1|in:-|out:C1  C-2|in:-|out:C2
+  rules: Aldol Condensation | Alpha-Keto Acid Decarboxylation | Retro Aldol
+    C(=O)=O+C(C(CO)=O)(O)=O  ->  C(C(C(C(O)=O)=O)O)(O)=O
+    C(C(C(C(O)=O)=O)O)(O)=O  ->  C(=O)=O+C(C(C=O)O)(O)=O
+    C(C(C=O)O)(O)=O  ->  C(CO)=O+C(=O)=O
+
+[    5] C+0|in:C0,C1|out:C1  C+4|in:C4|out:-  C-4|in:-|out:C4
+  rules: Michael Addition 0,2, (reverse) | Michael Addition 0,2,  | Cannizarro 2, HCHO (reduction)
+    C(CC(CO)CO)(O)=O  ->  CO+C(CO)=CC(O)=O
+    CO+C(CO)=CC=O  ->  C(CC(CO)CO)=O
+    C=O+O+C(CC(CO)CO)=O  ->  CO+C(CC(CO)CO)(O)=O
+
+[    4] C+6|in:C6|out:-  C-2|in:-|out:C2  C-4|in:-|out:-
+  rules: Knoevenagel C | Retro Aldol | Retro Aldol
+    C(C(C=C)C(C=O)O)=O+C(CC=C)=O  ->  C(C(C=C)(C(CC=C)O)C(C=O)O)=O
+    C(C(C=C)(C(CC=C)O)C(C=O)O)=O  ->  C(C=O)=O+C(C(C=C)C(CC=C)O)=O
+    C(C(C=C)C(CC=C)O)=O  ->  2C(CC=C)=O
+
+[    4] C+2|in:C2|out:-  C+2|in:C2|out:-  C-4|in:-|out:-
+  rules: Aldol Condensation | Aldol Condensation | Retro Aldol
+    C(C)=O+C(CC(C)O)=O  ->  C(CC(CC(C)O)O)=O
+    C(C)=O+C(CC(CC(C)O)O)=O  ->  C(C(C(C)O)C(CC(C)O)O)=O
+    C(C(C(C)O)C(CC(C)O)O)=O  ->  2C(CC(C)O)=O
+
+[    4] C+6|in:C6|out:-  C-2|in:-|out:-  C-4|in:-|out:-
+  rules: Retro Aldol | Aldol Condensation | Retro Aldol
+    C(CC(C)O)=O  ->  2C(C)=O
+    C(C)=O+C(CC(CC(C)O)O)=O  ->  C(C(C(C)O)C(CC(C)O)O)=O
+    C(C(C(C)O)C(CC(C)O)O)=O  ->  2C(CC(C)O)=O
+
+[    4] C+0|in:C0,C1|out:C1  C+2|in:C2|out:-  C-2|in:-|out:-
+  rules: Aldol Condensation | Cannizarro 2, HCHO (oxidation) | Retro Aldol
+    C(CO)=O+C(C=O)=O  ->  C(C(C(C=O)O)O)=O
+    C=O+O+C(C(C(C=O)O)O)=O  ->  C(C(C(CO)O)O)=O+C(O)=O
+    C(C(C(CO)O)O)=O  ->  2C(CO)=O
+
+[    3] C+0|in:C0,C1|out:C1  C+4|in:C4|out:-  C-4|in:C0,C1|out:C5
+  rules: Cannizarro 2, HCHO (reduction) | Michael Addition 0,2,  | Cannizarro 2, HCHO (reduction)
+    C=O+O+C(C(C=O)CCO)(O)=O  ->  CO+C(C(C(O)=O)CCO)(O)=O
+    CO+C=C(C=O)C=O  ->  C(C(C=O)CCO)=O
+    C=O+O+C(C(C=O)CCO)=O  ->  CO+C(C(C=O)CCO)(O)=O
+
+[    2] C+6|in:C6|out:-  C-3|in:-|out:C3  C-3|in:-|out:C3
+  rules: Michael Addition 0,2, (reverse) | Michael Addition 0,2,  | Retro Aldol
+    C(CCCC(C=O)=O)=O  ->  C(C(C)=O)=O+C=CC=O
+    C=CC=O+C=CC(CC(C=O)=O)O  ->  C(CCC(C(C=O)=O)C(C=C)O)=O
+    C(CCC(C(C=O)=O)C(C=C)O)=O  ->  C=CC=O+C(CCCC(C=O)=O)=O
+
+[    2] C+5|in:C5|out:-  C-1|in:-|out:C1  C-4|in:C0,C1|out:C5
+  rules: Michael Addition 0,2,  | Michael Addition 0,2, (reverse) | Cannizarro 2, HCHO (reduction)
+    CO+C(CC=CC=O)(O)=O  ->  C(CC(CO)CC=O)(O)=O
+    C(CC(CO)CC=O)(O)=O  ->  CO+C(CC=CC(O)=O)=O
+    C=O+O+C(CC=CC(O)=O)=O  ->  CO+C(CC=CC(O)=O)(O)=O
+
+[    1] C+1|in:C1|out:-  C+3|in:C3|out:-  C-4|in:-|out:-
+  rules: Aldol Condensation | Michael Addition 0,2,  | Retro Aldol
+    C=O+C(CCC=O)=O  ->  C(C(CO)CC=O)=O
+    C(C(CO)CC=O)=O+C=CC=O  ->  C(CCC(C(C=O)CC=O)O)=O
+    C(CCC(C(C=O)CC=O)O)=O  ->  2C(CCC=O)=O
+
+[    1] C+5|in:C5|out:-  C-1|in:-|out:C1  C-4|in:-|out:-
+  rules: Aldol Condensation | Michael Addition 0,2, (reverse) | Retro Aldol
+    C(C=CC=O)=O+C(C(C)CC=O)=O  ->  C(C(C)C(C=O)C(C=CC=O)O)=O
+    C(C(C)C(C=O)C(C=CC=O)O)=O  ->  C(C(C(C=O)=CC=O)O)=CC=O+C
+    C(C(C(C=O)=CC=O)O)=CC=O  ->  2C(C=CC=O)=O
+
+[    1] C+8|in:C8|out:-  C-2|in:-|out:C2  C-6|in:-|out:C6
+  rules: Michael Addition 0,2, (reverse) | Michael Addition 0,2,  | Retro Aldol
+    C(C(C=C)C(C=O)CC=O)=O  ->  C(C)=O+C=CC(C=O)=CC=O
+    C(C)=O+C=CC(C=O)=C(C=O)C(C)O  ->  C(C(C(C)O)(CC=O)C(C=O)C=C)=O
+    C(C(C(C)O)(CC=O)C(C=O)C=C)=O  ->  C(C)=O+C(C(C=C)C(C=O)CC=O)=O
+
+[    1] C+0|in:C0,C1|out:C1  C+3|in:C3|out:-  C-3|in:-|out:C3
+  rules: Michael Addition 0,2, (reverse) | Michael Addition 0,2,  | Cannizarro 2, HCHO (reduction)
+    C(CCCO)(O)=O  ->  CO+C=CC(O)=O
+    CO+C=CC=O  ->  C(CCCO)=O
+    C=O+O+C(CCCO)=O  ->  CO+C(CCCO)(O)=O
+
+[    1] C+0|in:-|out:C0  C+2|in:C2|out:-  C-2|in:-|out:-
+  rules: Knoevenagel H | Benzilic Acid Rearrangement (inverse) | Retro Aldol
+    C(CO)(O)=O+C(C=O)=O  ->  C(C(C(C=O)O)O)(O)=O
+    C(C(C(C=O)O)O)(O)=O  ->  O+C(C(C(C=O)=O)O)=O
+    C(C(C(C=O)=O)O)=O  ->  2C(C=O)=O
+
+[    1] C+8|in:C8|out:-  C-2|in:-|out:-  C-6|in:-|out:C6
+  rules: Aldol Condensation | Michael Addition 0,2, (reverse) | Retro Aldol
+    C(C)=O+C(C(C=C)C(C=O)CC=O)=O  ->  C(C(C(C)O)C(C=O)C(C=O)C=C)=O
+    C(C(C(C)O)C(C=O)C(C=O)C=C)=O  ->  C(CC(C)O)=O+C=CC(C=O)=CC=O
+    C(CC(C)O)=O  ->  2C(C)=O

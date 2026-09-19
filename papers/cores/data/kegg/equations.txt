@@ -1,0 +1,1107 @@
+ENTRY       R00024                      Reaction
+NAME        3-phospho-D-glycerate carboxy-lyase (dimerizing; D-ribulose-1,5-bisphosphate-forming)
+DEFINITION  D-Ribulose 1,5-bisphosphate + CO2 + H2O <=> 2 3-Phospho-D-glycerate
+EQUATION    C01182 + C00011 + C00001 <=> 2 C00197
+COMMENT     multi-step reaction (isomerization, carboxylation, hydration and cleavage)
+RCLASS      RC00172  C00197_C01182
+ENZYME      4.1.1.39
+PATHWAY     rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00165  Reductive pentose phosphate cycle (Calvin cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             4. Lyase reactions
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.39
+                 R00024  D-Ribulose 1,5-bisphosphate + CO2 + H2O <=> 2 3-Phospho-D-glycerate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R00024
+             Carbon fixation
+              R00024
+ORTHOLOGY   K01601  ribulose-bisphosphate carboxylase large chain [EC:4.1.1.39]
+            K01602  ribulose-bisphosphate carboxylase small chain [EC:4.1.1.39]
+DBLINKS     RHEA: 23127
+///
+
+ENTRY       R00199                      Reaction
+NAME        ATP:pyruvate,water phosphotransferase
+DEFINITION  ATP + Pyruvate + H2O <=> AMP + Phosphoenolpyruvate + Orthophosphate
+EQUATION    C00002 + C00022 + C00001 <=> C00020 + C00074 + C00009
+COMMENT     multi-step reaction
+RCLASS      RC00002  C00002_C00020
+            RC00015  C00022_C00074
+ENZYME      2.7.9.2
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00620  Pyruvate metabolism
+            rn00680  Methane metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00374  Dicarboxylate-hydroxybutyrate cycle
+BRITE       Enzymatic reactions [BR:br08201]
+             2. Transferase reactions
+              2.7  Transferring phosphorus-containing groups
+               2.7.9  Phosphotransferases with paired acceptors
+                2.7.9.2
+                 R00199  ATP + Pyruvate + H2O <=> AMP + Phosphoenolpyruvate + Orthophosphate
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00199
+ORTHOLOGY   K01007  pyruvate, water dikinase [EC:2.7.9.2]
+DBLINKS     RHEA: 11367
+///
+
+ENTRY       R00206                      Reaction
+NAME        ATP:pyruvate,phosphate phosphotransferase
+DEFINITION  ATP + Pyruvate + Orthophosphate <=> AMP + Phosphoenolpyruvate + Diphosphate
+EQUATION    C00002 + C00022 + C00009 <=> C00020 + C00074 + C00013
+COMMENT     multi-step reaction
+RCLASS      RC00002  C00002_C00020
+            RC00015  C00022_C00074
+ENZYME      2.7.9.1
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00620  Pyruvate metabolism
+            rn00710  Carbon fixation by Calvin cycle
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00169  CAM (Crassulacean acid metabolism), light
+            M00171  C4-dicarboxylic acid cycle, NAD - malic enzyme type
+            M00172  C4-dicarboxylic acid cycle, NADP - malic enzyme type
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             2. Transferase reactions
+              2.7  Transferring phosphorus-containing groups
+               2.7.9  Phosphotransferases with paired acceptors
+                2.7.9.1
+                 R00206  ATP + Pyruvate + Orthophosphate <=> AMP + Phosphoenolpyruvate + Diphosphate
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00206
+ORTHOLOGY   K01006  pyruvate, orthophosphate dikinase [EC:2.7.9.1]
+DBLINKS     RHEA: 10759
+///
+
+ENTRY       R00267                      Reaction
+NAME        isocitrate:NADP+ oxidoreductase (decarboxylating)
+DEFINITION  Isocitrate + NADP+ <=> 2-Oxoglutarate + CO2 + NADPH + H+
+EQUATION    C00311 + C00006 <=> C00026 + C00011 + C00005 + C00080
+COMMENT     two-step reaction (see R01899+R00268)
+RCLASS      RC00001  C00005_C00006
+            RC00114  C00026_C00311
+            RC02801  C00011_C00311
+ENZYME      1.1.1.42
+PATHWAY     rn00480  Glutathione metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01210  2-Oxocarboxylic acid metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.42
+                 R00267  Isocitrate + NADP+ <=> 2-Oxoglutarate + CO2 + NADPH + H+
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00267
+ORTHOLOGY   K00031  isocitrate dehydrogenase [EC:1.1.1.42]
+DBLINKS     RHEA: 19632
+///
+
+ENTRY       R00342                      Reaction
+NAME        (S)-malate:NAD+ oxidoreductase
+DEFINITION  (S)-Malate + NAD+ <=> Oxaloacetate + NADH + H+
+EQUATION    C00149 + C00003 <=> C00036 + C00004 + C00080
+RCLASS      RC00001  C00003_C00004
+            RC00031  C00036_C00149
+ENZYME      1.1.1.37        1.1.1.299
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00620  Pyruvate metabolism
+            rn00630  Glyoxylate and dicarboxylate metabolism
+            rn00680  Methane metabolism
+            rn00710  Carbon fixation by Calvin cycle
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+            M00012  Glyoxylate cycle
+            M00168  CAM (Crassulacean acid metabolism), dark
+            M00171  C4-dicarboxylic acid cycle, NAD - malic enzyme type
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00346  Formaldehyde assimilation, serine pathway
+            M00374  Dicarboxylate-hydroxybutyrate cycle
+            M00620  Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate
+            M00740  Methylaspartate cycle
+            M00982  Methylcitrate cycle
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.37
+                 R00342  (S)-Malate + NAD+ <=> Oxaloacetate + NADH + H+
+                1.1.1.299
+                 R00342  (S)-Malate + NAD+ <=> Oxaloacetate + NADH + H+
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00342
+ORTHOLOGY   K00024  malate dehydrogenase [EC:1.1.1.37]
+            K00025  malate dehydrogenase [EC:1.1.1.37]
+            K00026  malate dehydrogenase [EC:1.1.1.37]
+DBLINKS     RHEA: 21435
+///
+
+ENTRY       R00344                      Reaction
+NAME        pyruvate:carbon-dioxide ligase (ADP-forming)
+DEFINITION  ATP + Pyruvate + HCO3- <=> ADP + Orthophosphate + Oxaloacetate
+EQUATION    C00002 + C00022 + C00288 <=> C00008 + C00009 + C00036
+COMMENT     intermediate (carboxybiotin-[enzyme])
+RCLASS      RC00002  C00002_C00008
+            RC00040  C00022_C00036
+            RC00367  C00036_C00288
+ENZYME      6.4.1.1
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00620  Pyruvate metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00620  Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate
+BRITE       Enzymatic reactions [BR:br08201]
+             6. Ligase reactions
+              6.4  Forming carbon-carbon bonds
+               6.4.1  Ligases that form carbon-carbon bonds (only sub-subclass identified to date)
+                6.4.1.1
+                 R00344  ATP + Pyruvate + HCO3- <=> ADP + Orthophosphate + Oxaloacetate
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00344
+ORTHOLOGY   K01958  pyruvate carboxylase [EC:6.4.1.1]
+            K01959  pyruvate carboxylase subunit A [EC:6.4.1.1]
+            K01960  pyruvate carboxylase subunit B [EC:6.4.1.1]
+DBLINKS     RHEA: 20847
+///
+
+ENTRY       R00345                      Reaction
+NAME        phosphate:oxaloacetate carboxy-lyase (adding phosphate;phosphoenolpyruvate-forming)
+DEFINITION  Orthophosphate + Oxaloacetate <=> H2O + Phosphoenolpyruvate + CO2
+EQUATION    C00009 + C00036 <=> C00001 + C00074 + C00011
+RCLASS      RC02741  C00036_C00074
+ENZYME      4.1.1.31
+PATHWAY     rn00620  Pyruvate metabolism
+            rn00680  Methane metabolism
+            rn00710  Carbon fixation by Calvin cycle
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00168  CAM (Crassulacean acid metabolism), dark
+            M00170  C4-dicarboxylic acid cycle, phosphoenolpyruvate carboxykinase type
+            M00171  C4-dicarboxylic acid cycle, NAD - malic enzyme type
+            M00172  C4-dicarboxylic acid cycle, NADP - malic enzyme type
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00346  Formaldehyde assimilation, serine pathway
+            M00374  Dicarboxylate-hydroxybutyrate cycle
+BRITE       Enzymatic reactions [BR:br08201]
+             4. Lyase reactions
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.31
+                 R00345  Orthophosphate + Oxaloacetate <=> H2O + Phosphoenolpyruvate + CO2
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00345
+ORTHOLOGY   K01595  phosphoenolpyruvate carboxylase [EC:4.1.1.31]
+///
+
+ENTRY       R00352                      Reaction
+NAME        acetyl-CoA:oxaloacetate C-acetyltransferase [(pro-S)-carboxymethyl-forming, ADP-phosphorylating]
+DEFINITION  ATP + Citrate + CoA <=> ADP + Orthophosphate + Acetyl-CoA + Oxaloacetate
+EQUATION    C00002 + C00158 + C00010 <=> C00008 + C00009 + C00024 + C00036
+COMMENT     multi-step reaction (see R01322+R00354)
+RCLASS      RC00002  C00002_C00008
+            RC00004  C00010_C00024
+            RC00067  C00036_C00158
+ENZYME      2.3.3.8
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             2. Transferase reactions
+              2.3  Acyltransferases
+               2.3.3  Acyl groups converted into alkyl groups on transfer
+                2.3.3.8
+                 R00352  ATP + Citrate + CoA <=> ADP + Orthophosphate + Acetyl-CoA + Oxaloacetate
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00352
+ORTHOLOGY   K01648  ATP citrate (pro-S)-lyase [EC:2.3.3.8]
+            K15230  ATP-citrate lyase alpha-subunit [EC:2.3.3.8]
+            K15231  ATP-citrate lyase beta-subunit [EC:2.3.3.8]
+DBLINKS     RHEA: 21163
+///
+
+ENTRY       R00354                      Reaction
+NAME        (3S)-citryl-CoA oxaloacetate-lyase (acetyl-CoA-forming)
+DEFINITION  (3S)-Citryl-CoA <=> Acetyl-CoA + Oxaloacetate
+EQUATION    C00566 <=> C00024 + C00036
+COMMENT     a part of multi-step reaction (see R00352, R01322+R00354)
+RCLASS      RC00067  C00036_C00566
+            RC00502  C00024_C00566
+ENZYME      4.1.3.34
+PATHWAY     rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             4. Lyase reactions
+              4.1  Carbon-carbon lyases
+               4.1.3  Oxo-acid-lyases
+                4.1.3.34
+                 R00354  (3S)-Citryl-CoA <=> Acetyl-CoA + Oxaloacetate
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00354
+ORTHOLOGY   K15234  citryl-CoA lyase [EC:4.1.3.34]
+DBLINKS     RHEA: 20815
+///
+
+ENTRY       R00402                      Reaction
+NAME        succinate:NAD+ oxidoreductase
+DEFINITION  Succinate + NAD+ <=> Fumarate + NADH + H+
+EQUATION    C00042 + C00003 <=> C00122 + C00004 + C00080
+RCLASS      RC00001  C00003_C00004
+            RC00045  C00042_C00122
+ENZYME      1.3.1.6
+PATHWAY     rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.3  Acting on the CH-CH group of donors
+               1.3.1  With NAD+ or NADP+ as acceptor
+                1.3.1.6
+                 R00402  Succinate + NAD+ <=> Fumarate + NADH + H+
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00402
+ORTHOLOGY   K18556  NADH-dependent fumarate reductase subunit A [EC:1.3.1.6]
+            K18557  NADH-dependent fumarate reductase subunit B [EC:1.3.1.6]
+            K18558  NADH-dependent fumarate reductase subunit C
+            K18559  NADH-dependent fumarate reductase subunit D
+            K18560  NADH-dependent fumarate reductase subunit E
+            K28482  fumarate reductase (NADH) [EC:1.3.1.6]
+DBLINKS     RHEA: 18284
+///
+ENTRY       R00405                      Reaction
+NAME        succinate:CoA ligase (ADP-forming)
+DEFINITION  ATP + Succinate + CoA <=> ADP + Orthophosphate + Succinyl-CoA
+EQUATION    C00002 + C00042 + C00010 <=> C00008 + C00009 + C00091
+RCLASS      RC00002  C00002_C00008
+            RC00004  C00010_C00091
+            RC00014  C00042_C00091
+ENZYME      6.2.1.5
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00640  Propanoate metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00374  Dicarboxylate-hydroxybutyrate cycle
+            M00620  Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate
+BRITE       Enzymatic reactions [BR:br08201]
+             6. Ligase reactions
+              6.2  Forming carbon-sulfur bonds
+               6.2.1  Acid-thiol ligases
+                6.2.1.5
+                 R00405  ATP + Succinate + CoA <=> ADP + Orthophosphate + Succinyl-CoA
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R00405
+ORTHOLOGY   K01902  succinyl-CoA synthetase alpha subunit [EC:6.2.1.5]
+            K01903  succinyl-CoA synthetase beta subunit [EC:6.2.1.5]
+DBLINKS     RHEA: 17664
+///
+
+ENTRY       R00762                      Reaction
+NAME        D-fructose-1,6-bisphosphate 1-phosphohydrolase
+DEFINITION  D-Fructose 1,6-bisphosphate + H2O <=> D-Fructose 6-phosphate + Orthophosphate
+EQUATION    C00354 + C00001 <=> C00085 + C00009
+RCLASS      RC00017  C00085_C00354
+ENZYME      3.1.3.11
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00030  Pentose phosphate pathway
+            rn00051  Fructose and mannose metabolism
+            rn00680  Methane metabolism
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+            M00344  Formaldehyde assimilation, xylulose monophosphate pathway
+BRITE       Enzymatic reactions [BR:br08201]
+             3. Hydrolase reactions
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.11
+                 R00762  D-Fructose 1,6-bisphosphate + H2O <=> D-Fructose 6-phosphate + Orthophosphate
+            IUBMB reaction hierarchy [BR:br08202]
+             3. Hydrolase reactions
+              3.1.3.11
+               R00762  D-Fructose 1,6-bisphosphate <=> D-Fructose 6-phosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R00762
+             Carbon fixation
+              R00762
+ORTHOLOGY   K01086  fructose-1,6-bisphosphatase I / sedoheptulose-1,7-bisphosphatase [EC:3.1.3.11 3.1.3.37]
+            K01622  fructose 1,6-bisphosphate aldolase/phosphatase [EC:4.1.2.13 3.1.3.11]
+            K02446  fructose-1,6-bisphosphatase II [EC:3.1.3.11]
+            K03841  fructose-1,6-bisphosphatase I [EC:3.1.3.11]
+            K04041  fructose-1,6-bisphosphatase III [EC:3.1.3.11]
+            K11532  fructose-1,6-bisphosphatase II / sedoheptulose-1,7-bisphosphatase [EC:3.1.3.11 3.1.3.37]
+            K28849  fructose-bisphosphatase [EC:3.1.3.11]
+DBLINKS     RHEA: 11067
+///
+
+ENTRY       R01015                      Reaction
+NAME        D-glyceraldehyde-3-phosphate aldose-ketose-isomerase
+DEFINITION  D-Glyceraldehyde 3-phosphate <=> Glycerone phosphate
+EQUATION    C00118 <=> C00111
+RCLASS      RC00423  C00111_C00118
+ENZYME      5.3.1.1
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00051  Fructose and mannose metabolism
+            rn00562  Inositol phosphate metabolism
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            M00002  Glycolysis, core module involving three-carbon compounds
+            M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             5. Isomerase reactions
+              5.3  Intramolecular oxidoreductases
+               5.3.1  Interconverting aldoses and ketoses, and related compounds
+                5.3.1.1
+                 R01015  D-Glyceraldehyde 3-phosphate <=> Glycerone phosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01015
+             Carbon fixation
+              R01015
+ORTHOLOGY   K01803  triosephosphate isomerase (TIM) [EC:5.3.1.1]
+DBLINKS     RHEA: 18588
+///
+
+ENTRY       R01056                      Reaction
+NAME        D-ribose-5-phosphate aldose-ketose-isomerase
+DEFINITION  D-Ribose 5-phosphate <=> D-Ribulose 5-phosphate
+EQUATION    C00117 <=> C00199
+RCLASS      RC00434  C00117_C00199
+ENZYME      5.3.1.6
+PATHWAY     rn00030  Pentose phosphate pathway
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            M00007  Pentose phosphate pathway, non-oxidative phase, fructose-6P => ribose-5P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+            M00580  Pentose phosphate pathway, archaea, fructose-6P => ribose-5P
+BRITE       Enzymatic reactions [BR:br08201]
+             5. Isomerase reactions
+              5.3  Intramolecular oxidoreductases
+               5.3.1  Interconverting aldoses and ketoses, and related compounds
+                5.3.1.6
+                 R01056  D-Ribose 5-phosphate <=> D-Ribulose 5-phosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01056
+             Carbon fixation
+              R01056
+ORTHOLOGY   K01807  ribose 5-phosphate isomerase A [EC:5.3.1.6]
+            K01808  ribose 5-phosphate isomerase B [EC:5.3.1.6]
+DBLINKS     RHEA: 14660
+///
+
+ENTRY       R01061                      Reaction
+NAME        D-glyceraldehyde-3-phosphate:NAD+ oxidoreductase (phosphorylating)
+DEFINITION  D-Glyceraldehyde 3-phosphate + Orthophosphate + NAD+ <=> 3-Phospho-D-glyceroyl phosphate + NADH + H+
+EQUATION    C00118 + C00009 + C00003 <=> C00236 + C00004 + C00080
+COMMENT     NADP+ (ec 1.2.1.59, see R01063)
+RCLASS      RC00001  C00003_C00004
+            RC00149  C00118_C00236
+ENZYME      1.2.1.12        1.2.1.59
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            M00002  Glycolysis, core module involving three-carbon compounds
+            M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+            M00308  Semi-phosphorylative Entner-Doudoroff pathway, gluconate => glycerate-3P
+            M00552  Galactonate degradation, De Ley-Doudoroff pathway, galactonate => glycerate-3P
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.2  Acting on the aldehyde or oxo group of donors
+               1.2.1  With NAD+ or NADP+ as acceptor
+                1.2.1.12
+                 R01061  D-Glyceraldehyde 3-phosphate + Orthophosphate + NAD+ <=> 3-Phospho-D-glyceroyl phosphate + NADH + H+
+                1.2.1.59
+                 R01061  D-Glyceraldehyde 3-phosphate + Orthophosphate + NAD+ <=> 3-Phospho-D-glyceroyl phosphate + NADH + H+
+ORTHOLOGY   K00134  glyceraldehyde 3-phosphate dehydrogenase (phosphorylating) [EC:1.2.1.12]
+            K00150  glyceraldehyde-3-phosphate dehydrogenase (NAD(P)+) (phosphorylating) [EC:1.2.1.59]
+            K10705  glyceraldehyde-3-phosphate dehydrogenase (phosphorylating), spermatogenic [EC:1.2.1.12]
+DBLINKS     RHEA: 10303
+///
+
+ENTRY       R01063                      Reaction
+NAME        D-glyceraldehyde-3-phosphate:NADP+ oxidoreductase (phosphorylating)
+DEFINITION  D-Glyceraldehyde 3-phosphate + Orthophosphate + NADP+ <=> 3-Phospho-D-glyceroyl phosphate + NADPH + H+
+EQUATION    C00118 + C00009 + C00006 <=> C00236 + C00005 + C00080
+COMMENT     NAD+ (ec 1.2.1.59, see R01061)
+RCLASS      RC00001  C00005_C00006
+            RC00149  C00118_C00236
+ENZYME      1.2.1.13        1.2.1.59
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            M00002  Glycolysis, core module involving three-carbon compounds
+            M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+            M00308  Semi-phosphorylative Entner-Doudoroff pathway, gluconate => glycerate-3P
+            M00552  Galactonate degradation, De Ley-Doudoroff pathway, galactonate => glycerate-3P
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.2  Acting on the aldehyde or oxo group of donors
+               1.2.1  With NAD+ or NADP+ as acceptor
+                1.2.1.13
+                 R01063  D-Glyceraldehyde 3-phosphate + Orthophosphate + NADP+ <=> 3-Phospho-D-glyceroyl phosphate + NADPH + H+
+                1.2.1.59
+                 R01063  D-Glyceraldehyde 3-phosphate + Orthophosphate + NADP+ <=> 3-Phospho-D-glyceroyl phosphate + NADPH + H+
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01063
+             Carbon fixation
+              R01063
+ORTHOLOGY   K00150  glyceraldehyde-3-phosphate dehydrogenase (NAD(P)+) (phosphorylating) [EC:1.2.1.59]
+            K05298  glyceraldehyde-3-phosphate dehydrogenase (NADP+) (phosphorylating) [EC:1.2.1.13]
+DBLINKS     RHEA: 10299
+///
+
+ENTRY       R01067                      Reaction
+NAME        D-fructose 6-phosphate:D-glyceraldehyde-3-phosphate glycolaldehyde transferase
+DEFINITION  D-Fructose 6-phosphate + D-Glyceraldehyde 3-phosphate <=> D-Erythrose 4-phosphate + D-Xylulose 5-phosphate
+EQUATION    C00085 + C00118 <=> C00279 + C00231
+RCLASS      RC00032  C00118_C00231
+            RC00226  C00085_C00279
+ENZYME      2.2.1.1
+PATHWAY     rn00030  Pentose phosphate pathway
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            M00007  Pentose phosphate pathway, non-oxidative phase, fructose-6P => ribose-5P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             2. Transferase reactions
+              2.2  Transferring aldehyde or ketonic groups
+               2.2.1  Transketolases and transaldolases
+                2.2.1.1
+                 R01067  D-Fructose 6-phosphate + D-Glyceraldehyde 3-phosphate <=> D-Erythrose 4-phosphate + D-Xylulose 5-phosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01067
+             Carbon fixation
+              R01067
+ORTHOLOGY   K00615  transketolase [EC:2.2.1.1]
+///
+
+ENTRY       R01068                      Reaction
+NAME        D-fructose-1,6-bisphosphate D-glyceraldehyde-3-phosphate-lyase (glycerone-phosphate-forming)
+DEFINITION  D-Fructose 1,6-bisphosphate <=> Glycerone phosphate + D-Glyceraldehyde 3-phosphate
+EQUATION    C00354 <=> C00111 + C00118
+RCLASS      RC00438  C00111_C00354
+            RC00439  C00118_C00354
+ENZYME      4.1.2.13
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00030  Pentose phosphate pathway
+            rn00051  Fructose and mannose metabolism
+            rn00680  Methane metabolism
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+            M00344  Formaldehyde assimilation, xylulose monophosphate pathway
+            M00345  Formaldehyde assimilation, ribulose monophosphate pathway
+BRITE       Enzymatic reactions [BR:br08201]
+             4. Lyase reactions
+              4.1  Carbon-carbon lyases
+               4.1.2  Aldehyde-lyases
+                4.1.2.13
+                 R01068  D-Fructose 1,6-bisphosphate <=> Glycerone phosphate + D-Glyceraldehyde 3-phosphate
+            IUBMB reaction hierarchy [BR:br08202]
+             4. Lyase reactions
+              4.1.2.13
+               R01068  D-Fructose 1,6-bisphosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01068
+             Carbon fixation
+              R01068
+ORTHOLOGY   K01622  fructose 1,6-bisphosphate aldolase/phosphatase [EC:4.1.2.13 3.1.3.11]
+            K01623  fructose-bisphosphate aldolase, class I [EC:4.1.2.13]
+            K01624  fructose-bisphosphate aldolase, class II [EC:4.1.2.13]
+            K11645  fructose-bisphosphate aldolase, class I [EC:4.1.2.13]
+            K16305  fructose-bisphosphate aldolase / 6-deoxy-5-ketofructose 1-phosphate synthase [EC:4.1.2.13 2.2.1.11]
+            K16306  fructose-bisphosphate aldolase / 2-amino-3,7-dideoxy-D-threo-hept-6-ulosonate synthase [EC:4.1.2.13 2.2.1.10]
+DBLINKS     RHEA: 14732
+///
+
+ENTRY       R01082                      Reaction
+NAME        (S)-malate hydro-lyase (fumarate-forming)
+DEFINITION  (S)-Malate <=> Fumarate + H2O
+EQUATION    C00149 <=> C00122 + C00001
+RCLASS      RC00443  C00122_C00149
+ENZYME      4.2.1.2
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00620  Pyruvate metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00374  Dicarboxylate-hydroxybutyrate cycle
+            M00376  3-Hydroxypropionate bi-cycle
+            M00620  Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate
+            M00982  Methylcitrate cycle
+BRITE       Enzymatic reactions [BR:br08201]
+             4. Lyase reactions
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.2
+                 R01082  (S)-Malate <=> Fumarate + H2O
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R01082
+ORTHOLOGY   K01675  fumarate hydratase D [EC:4.2.1.2]
+            K01676  fumarate hydratase, class I [EC:4.2.1.2]
+            K01677  fumarate hydratase subunit alpha [EC:4.2.1.2]
+            K01678  fumarate hydratase subunit beta [EC:4.2.1.2]
+            K01679  fumarate hydratase, class II [EC:4.2.1.2]
+            K01774  fumarate hydratase E [EC:4.2.1.2]
+DBLINKS     RHEA: 12463
+///
+
+ENTRY       R01196                      Reaction
+NAME        pyruvate:ferredoxin 2-oxidoreductase (CoA-acetylating)
+DEFINITION  2 Reduced ferredoxin + Acetyl-CoA + CO2 + 2 H+ <=> 2 Oxidized ferredoxin + Pyruvate + CoA
+EQUATION    2 C00138 + C00024 + C00011 + 2 C00080 <=> 2 C00139 + C00022 + C00010
+RCLASS      RC00004  C00010_C00024
+            RC02742  C00022_C00024
+ENZYME      1.2.7.1         1.2.7.11
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00020  Citrate cycle (TCA cycle)
+            rn00620  Pyruvate metabolism
+            rn00650  Butanoate metabolism
+            rn00680  Methane metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01210  2-Oxocarboxylic acid metabolism
+MODULE      M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00307  Pyruvate oxidation, pyruvate => acetyl-CoA
+            M00374  Dicarboxylate-hydroxybutyrate cycle
+            M00620  Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.2  Acting on the aldehyde or oxo group of donors
+               1.2.7  With an iron-sulfur protein as acceptor
+                1.2.7.1
+                 R01196  2 Reduced ferredoxin + Acetyl-CoA + CO2 + 2 H+ <=> 2 Oxidized ferredoxin + Pyruvate + CoA
+                1.2.7.11
+                 R01196  2 Reduced ferredoxin + Acetyl-CoA + CO2 + 2 H+ <=> 2 Oxidized ferredoxin + Pyruvate + CoA
+            IUBMB reaction hierarchy [BR:br08202]
+             1. Oxidoreductase reactions
+              1.2.7.11
+               R10516
+                R01196  Pyruvate <=> Acetyl-CoA
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R01196
+ORTHOLOGY   K00169  pyruvate ferredoxin oxidoreductase alpha subunit [EC:1.2.7.1]
+            K00170  pyruvate ferredoxin oxidoreductase beta subunit [EC:1.2.7.1]
+            K00171  pyruvate ferredoxin oxidoreductase delta subunit [EC:1.2.7.1]
+            K00172  pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.1]
+            K00174  2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha [EC:1.2.7.3 1.2.7.11]
+            K00175  2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit beta [EC:1.2.7.3 1.2.7.11]
+            K00189  2-oxoisovalerate/pyruvate ferredoxin oxidoreductase gamma subunit [EC:1.2.7.7 1.2.7.1]
+            K03737  pyruvate-ferredoxin/flavodoxin oxidoreductase [EC:1.2.7.1 1.2.8.1]
+DBLINKS     RHEA: 12768 44143
+///
+ENTRY       R01197                      Reaction
+NAME        2-oxoglutarate:ferredoxin oxidoreductase (decarboxylating)
+DEFINITION  2 Reduced ferredoxin + Succinyl-CoA + CO2 + 2 H+ <=> 2 Oxidized ferredoxin + 2-Oxoglutarate + CoA
+EQUATION    2 C00138 + C00091 + C00011 + 2 C00080 <=> 2 C00139 + C00026 + C00010
+RCLASS      RC00004  C00010_C00091
+            RC02833  C00026_C00091
+ENZYME      1.2.7.3         1.2.7.11
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01210  2-Oxocarboxylic acid metabolism
+MODULE      M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00620  Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.2  Acting on the aldehyde or oxo group of donors
+               1.2.7  With an iron-sulfur protein as acceptor
+                1.2.7.3
+                 R01197  2 Reduced ferredoxin + Succinyl-CoA + CO2 + 2 H+ <=> 2 Oxidized ferredoxin + 2-Oxoglutarate + CoA
+                1.2.7.11
+                 R01197  2 Reduced ferredoxin + Succinyl-CoA + CO2 + 2 H+ <=> 2 Oxidized ferredoxin + 2-Oxoglutarate + CoA
+            IUBMB reaction hierarchy [BR:br08202]
+             1. Oxidoreductase reactions
+              1.2.7.11
+               R10516
+                R01197  2-Oxoglutarate <=> Succinyl-CoA
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R01197
+ORTHOLOGY   K00174  2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit alpha [EC:1.2.7.3 1.2.7.11]
+            K00175  2-oxoglutarate/2-oxoacid ferredoxin oxidoreductase subunit beta [EC:1.2.7.3 1.2.7.11]
+            K00176  2-oxoglutarate ferredoxin oxidoreductase subunit delta [EC:1.2.7.3]
+            K00177  2-oxoglutarate ferredoxin oxidoreductase subunit gamma [EC:1.2.7.3]
+DBLINKS     RHEA: 17300
+///
+
+ENTRY       R01322                      Reaction
+NAME        citrate:CoA ligase (ADP-forming)
+DEFINITION  ATP + Citrate + CoA <=> ADP + Orthophosphate + (3S)-Citryl-CoA
+EQUATION    C00002 + C00158 + C00010 <=> C00008 + C00009 + C00566
+COMMENT     a part of multi-step reaction (see R00352, R01322+R00354)
+RCLASS      RC00002  C00002_C00008
+            RC00004  C00010_C00566
+            RC00014  C00158_C00566
+ENZYME      6.2.1.18
+PATHWAY     rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             6. Ligase reactions
+              6.2  Forming carbon-sulfur bonds
+               6.2.1  Acid-thiol ligases
+                6.2.1.18
+                 R01322  ATP + Citrate + CoA <=> ADP + Orthophosphate + (3S)-Citryl-CoA
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R01322
+ORTHOLOGY   K15232  citryl-CoA synthetase large subunit [EC:6.2.1.18]
+            K15233  citryl-CoA synthetase small subunit
+DBLINKS     RHEA: 21475
+///
+
+ENTRY       R01325                      Reaction
+NAME        citrate hydro-lyase (cis-aconitate-forming)
+DEFINITION  Citrate <=> cis-Aconitate + H2O
+EQUATION    C00158 <=> C00417 + C00001
+RCLASS      RC00498  C00158_C00417
+ENZYME      4.2.1.3
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00630  Glyoxylate and dicarboxylate metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01210  2-Oxocarboxylic acid metabolism
+MODULE      M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
+            M00012  Glyoxylate cycle
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00740  Methylaspartate cycle
+BRITE       Enzymatic reactions [BR:br08201]
+             4. Lyase reactions
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.3
+                 R01325  Citrate <=> cis-Aconitate + H2O
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R01325
+ORTHOLOGY   K01681  aconitate hydratase [EC:4.2.1.3]
+            K01682  aconitate hydratase 2 / 2-methylisocitrate dehydratase [EC:4.2.1.3 4.2.1.99]
+            K27802  aconitate hydratase A / 2-methylisocitrate dehydratase [EC:4.2.1.3 4.2.1.99]
+DBLINKS     RHEA: 10231
+///
+
+ENTRY       R01512                      Reaction
+NAME        ATP:3-phospho-D-glycerate 1-phosphotransferase
+DEFINITION  ATP + 3-Phospho-D-glycerate <=> ADP + 3-Phospho-D-glyceroyl phosphate
+EQUATION    C00002 + C00197 <=> C00008 + C00236
+RCLASS      RC00002  C00002_C00008
+            RC00043  C00197_C00236
+ENZYME      2.7.2.3
+PATHWAY     rn00010  Glycolysis / Gluconeogenesis
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            M00002  Glycolysis, core module involving three-carbon compounds
+            M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+            M00308  Semi-phosphorylative Entner-Doudoroff pathway, gluconate => glycerate-3P
+            M00552  Galactonate degradation, De Ley-Doudoroff pathway, galactonate => glycerate-3P
+BRITE       Enzymatic reactions [BR:br08201]
+             2. Transferase reactions
+              2.7  Transferring phosphorus-containing groups
+               2.7.2  Phosphotransferases with a carboxy group as acceptor
+                2.7.2.3
+                 R01512  ATP + 3-Phospho-D-glycerate <=> ADP + 3-Phospho-D-glyceroyl phosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01512
+             Carbon fixation
+              R01512
+ORTHOLOGY   K00927  phosphoglycerate kinase [EC:2.7.2.3]
+DBLINKS     RHEA: 14804
+///
+
+ENTRY       R01523                      Reaction
+NAME        ATP:D-ribulose-5-phosphate 1-phosphotransferase
+DEFINITION  ATP + D-Ribulose 5-phosphate <=> ADP + D-Ribulose 1,5-bisphosphate
+EQUATION    C00002 + C00199 <=> C00008 + C01182
+RCLASS      RC00002  C00002_C00008
+            RC00017  C00199_C01182
+ENZYME      2.7.1.19
+PATHWAY     rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00165  Reductive pentose phosphate cycle (Calvin cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             2. Transferase reactions
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.19
+                 R01523  ATP + D-Ribulose 5-phosphate <=> ADP + D-Ribulose 1,5-bisphosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01523
+             Carbon fixation
+              R01523
+ORTHOLOGY   K00855  phosphoribulokinase [EC:2.7.1.19]
+            K28462  phosphoribulokinase [EC:2.7.1.19]
+DBLINKS     RHEA: 19368
+///
+
+ENTRY       R01529                      Reaction
+NAME        D-ribulose-5-phosphate 3-epimerase
+DEFINITION  D-Ribulose 5-phosphate <=> D-Xylulose 5-phosphate
+EQUATION    C00199 <=> C00231
+RCLASS      RC00540  C00199_C00231
+ENZYME      5.1.3.1
+PATHWAY     rn00030  Pentose phosphate pathway
+            rn00040  Pentose and glucuronate interconversions
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            M00007  Pentose phosphate pathway, non-oxidative phase, fructose-6P => ribose-5P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             5. Isomerase reactions
+              5.1  Racemases and epimerases
+               5.1.3  Acting on carbohydrates and derivatives
+                5.1.3.1
+                 R01529  D-Ribulose 5-phosphate <=> D-Xylulose 5-phosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01529
+             Carbon fixation
+              R01529
+ORTHOLOGY   K01783  ribulose-phosphate 3-epimerase [EC:5.1.3.1]
+DBLINKS     RHEA: 13680
+///
+
+ENTRY       R01641                      Reaction
+NAME        sedoheptulose-7-phosphate:D-glyceraldehyde-3-phosphate glycolaldehyde transferase
+DEFINITION  Sedoheptulose 7-phosphate + D-Glyceraldehyde 3-phosphate <=> D-Ribose 5-phosphate + D-Xylulose 5-phosphate
+EQUATION    C05382 + C00118 <=> C00117 + C00231
+COMMENT     TPP-dependent enzyme (see R06863+R06861)
+RCLASS      RC00032  C00118_C00231
+            RC00571  C00117_C05382
+ENZYME      2.2.1.1
+PATHWAY     rn00030  Pentose phosphate pathway
+            rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01230  Biosynthesis of amino acids
+MODULE      M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            M00007  Pentose phosphate pathway, non-oxidative phase, fructose-6P => ribose-5P
+            M00165  Reductive pentose phosphate cycle (Calvin cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             2. Transferase reactions
+              2.2  Transferring aldehyde or ketonic groups
+               2.2.1  Transketolases and transaldolases
+                2.2.1.1
+                 R01641  Sedoheptulose 7-phosphate + D-Glyceraldehyde 3-phosphate <=> D-Ribose 5-phosphate + D-Xylulose 5-phosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01641
+             Carbon fixation
+              R01641
+ORTHOLOGY   K00615  transketolase [EC:2.2.1.1]
+DBLINKS     RHEA: 10511
+///
+
+ENTRY       R01829                      Reaction
+NAME        sedoheptulose 1,7-bisphosphate D-glyceraldehyde-3-phosphate-lyase
+DEFINITION  Sedoheptulose 1,7-bisphosphate <=> Glycerone phosphate + D-Erythrose 4-phosphate
+EQUATION    C00447 <=> C00111 + C00279
+RCLASS      RC00603  C00111_C00447
+            RC00604  C00279_C00447
+ENZYME      4.1.2.13
+PATHWAY     rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00165  Reductive pentose phosphate cycle (Calvin cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             4. Lyase reactions
+              4.1  Carbon-carbon lyases
+               4.1.2  Aldehyde-lyases
+                4.1.2.13
+                 R01829  Sedoheptulose 1,7-bisphosphate <=> Glycerone phosphate + D-Erythrose 4-phosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01829
+             Carbon fixation
+              R01829
+ORTHOLOGY   K01623  fructose-bisphosphate aldolase, class I [EC:4.1.2.13]
+            K01624  fructose-bisphosphate aldolase, class II [EC:4.1.2.13]
+            K11645  fructose-bisphosphate aldolase, class I [EC:4.1.2.13]
+DBLINKS     RHEA: 30170
+///
+
+ENTRY       R01845                      Reaction
+NAME        sedoheptulose 1,7-bisphosphate 1-phosphohydrolase
+DEFINITION  Sedoheptulose 1,7-bisphosphate + H2O <=> Sedoheptulose 7-phosphate + Orthophosphate
+EQUATION    C00447 + C00001 <=> C05382 + C00009
+RCLASS      RC00017  C00447_C05382
+ENZYME      3.1.3.11        3.1.3.37
+PATHWAY     rn00710  Carbon fixation by Calvin cycle
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00165  Reductive pentose phosphate cycle (Calvin cycle)
+BRITE       Enzymatic reactions [BR:br08201]
+             3. Hydrolase reactions
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.11
+                 R01845  Sedoheptulose 1,7-bisphosphate + H2O <=> Sedoheptulose 7-phosphate + Orthophosphate
+                3.1.3.37
+                 R01845  Sedoheptulose 1,7-bisphosphate + H2O <=> Sedoheptulose 7-phosphate + Orthophosphate
+            Overall reaction [br08210.html]
+             Oxygenic photosynthesis
+              R01845
+             Carbon fixation
+              R01845
+ORTHOLOGY   K01086  fructose-1,6-bisphosphatase I / sedoheptulose-1,7-bisphosphatase [EC:3.1.3.11 3.1.3.37]
+            K01100  sedoheptulose-bisphosphatase [EC:3.1.3.37]
+            K11532  fructose-1,6-bisphosphatase II / sedoheptulose-1,7-bisphosphatase [EC:3.1.3.11 3.1.3.37]
+DBLINKS     RHEA: 17464
+///
+
+ENTRY       R01900                      Reaction
+NAME        isocitrate hydro-lyase (cis-aconitate-forming)
+DEFINITION  Isocitrate <=> cis-Aconitate + H2O
+EQUATION    C00311 <=> C00417 + C00001
+RCLASS      RC00618  C00311_C00417
+ENZYME      4.2.1.3
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00630  Glyoxylate and dicarboxylate metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01210  2-Oxocarboxylic acid metabolism
+MODULE      M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
+            M00012  Glyoxylate cycle
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00740  Methylaspartate cycle
+BRITE       Enzymatic reactions [BR:br08201]
+             4. Lyase reactions
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.3
+                 R01900  Isocitrate <=> cis-Aconitate + H2O
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R01900
+ORTHOLOGY   K01681  aconitate hydratase [EC:4.2.1.3]
+            K01682  aconitate hydratase 2 / 2-methylisocitrate dehydratase [EC:4.2.1.3 4.2.1.99]
+            K27802  aconitate hydratase A / 2-methylisocitrate dehydratase [EC:4.2.1.3 4.2.1.99]
+DBLINKS     RHEA: 22147
+///
+ENTRY       R02164                      Reaction
+NAME        succinate:quinone oxidoreductase
+DEFINITION  Quinone + Succinate <=> Hydroquinone + Fumarate
+EQUATION    C15602 + C00042 <=> C15603 + C00122
+COMMENT     electron transport complex II
+RCLASS      RC00045  C00042_C00122
+ENZYME      1.3.5.1
+PATHWAY     rn00020  Citrate cycle (TCA cycle)
+            rn00620  Pyruvate metabolism
+            rn00650  Butanoate metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01110  Biosynthesis of secondary metabolites
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+MODULE      M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+            M00149  Succinate dehydrogenase, prokaryotes
+            M00150  Fumarate reductase, prokaryotes
+            M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00374  Dicarboxylate-hydroxybutyrate cycle
+            M00376  3-Hydroxypropionate bi-cycle
+            M00982  Methylcitrate cycle
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.3  Acting on the CH-CH group of donors
+               1.3.5  With a quinone or related compound as acceptor
+                1.3.5.1
+                 R02164  Quinone + Succinate <=> Hydroquinone + Fumarate
+            IUBMB reaction hierarchy [BR:br08202]
+             1. Oxidoreductase reactions
+              1.3.5.1
+               R02164  Quinone <=> Hydroquinone
+            Overall reaction [br08210.html]
+             Carbon fixation
+              R02164
+ORTHOLOGY   K00233  succinate dehydrogenase flavoprotein subunit [EC:1.3.5.1 7.1.1.12]
+            K00234  succinate dehydrogenase (ubiquinone) flavoprotein subunit [EC:1.3.5.1]
+            K00235  succinate dehydrogenase (ubiquinone) iron-sulfur subunit [EC:1.3.5.1]
+            K00236  succinate dehydrogenase (ubiquinone) cytochrome b560 subunit
+            K00237  succinate dehydrogenase (ubiquinone) membrane anchor subunit
+            K00239  succinate dehydrogenase flavoprotein subunit [EC:1.3.5.1]
+            K00240  succinate dehydrogenase iron-sulfur subunit [EC:1.3.5.1]
+            K00241  succinate dehydrogenase cytochrome b subunit
+            K00242  succinate dehydrogenase membrane anchor subunit
+            K00244  succinate dehydrogenase flavoprotein subunit [EC:1.3.5.1]
+            K00245  succinate dehydrogenase iron-sulfur subunit [EC:1.3.5.1]
+            K00246  succinate dehydrogenase subunit C
+            K00247  succinate dehydrogenase subunit D
+            K18859  succinate dehydrogenase subunit D
+            K18860  succinate dehydrogenase subunit D
+            K25801  succinate dehydrogenase (ubiquinone) subunit 4
+            K25995  succinate dehydrogenase iron-sulfur subunit [EC:1.3.5.1 7.1.1.12]
+            K25996  succinate dehydrogenase subunit C
+DBLINKS     RHEA: 13716 40526
+///
+
+ENTRY       R10866                      Reaction
+NAME        pyruvate:flavodoxin 2-oxidoreductase (CoA-acetylating)
+DEFINITION  Pyruvate + CoA + Oxidized flavodoxin <=> Acetyl-CoA + CO2 + Reduced flavodoxin
+EQUATION    C00022 + C00010 + C02869 <=> C00024 + C00011 + C02745
+COMMENT     nifJ
+RCLASS      RC00004  C00010_C00024
+            RC02742  C00022_C00024
+ENZYME      1.2.8.1
+PATHWAY     rn00620  Pyruvate metabolism
+            rn00720  Other carbon fixation pathways
+            rn01100  Metabolic pathways
+            rn01120  Microbial metabolism in diverse environments
+            rn01200  Carbon metabolism
+            rn01210  2-Oxocarboxylic acid metabolism
+MODULE      M00173  Reductive citrate cycle (Arnon-Buchanan cycle)
+            M00307  Pyruvate oxidation, pyruvate => acetyl-CoA
+BRITE       Enzymatic reactions [BR:br08201]
+             1. Oxidoreductase reactions
+              1.2  Acting on the aldehyde or oxo group of donors
+               1.2.8  With a flavin or flavoprotein as acceptor
+                1.2.8.1
+                 R10866  Pyruvate + CoA + Oxidized flavodoxin <=> Acetyl-CoA + CO2 + Reduced flavodoxin
+ORTHOLOGY   K03737  pyruvate-ferredoxin/flavodoxin oxidoreductase [EC:1.2.7.1 1.2.8.1]
+            K28726  pyruvate synthase (flavodoxin) subunit A [EC:1.2.8.1]
+            K28727  pyruvate synthase (flavodoxin) subunit B [EC:1.2.8.1]
+            K28728  pyruvate synthase (flavodoxin) subunit C [EC:1.2.8.1]
+            K28729  pyruvate synthase (flavodoxin) subunit D [EC:1.2.8.1]
+///

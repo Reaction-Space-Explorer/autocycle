@@ -1,0 +1,40 @@
+  network              verdict       cores  blind  unbounded  no value   null
+  glucose G5           serious         954     83         83         0      0
+  glucose G5           conditional      68     54         54         0      0
+  glucose G5           artefact          2      0          0         0      0
+
+  glucose+ammonia G4   serious         645    136        136         0      0
+  glucose+ammonia G4   conditional      45     29         29         0      0
+
+  formose G6           serious        1417    149        149         0      0
+  formose G6           conditional     223     25         25         0      0
+  formose G6           artefact        410    406        406         0      0
+
+  formose+ammonia G4   serious        5148   3109       3109         0      0
+  formose+ammonia G4   conditional    1523     77         77         0      0
+
+  pyruvic acid G6      serious         657    116        116         0      0
+  pyruvic acid G6      conditional     129     17         17         0      0
+  pyruvic acid G6      artefact         75     73         73         0      0
+
+
+  network         reactions   no value   sentinel      null     usable
+  glucose G5        120,997         19     27,694     2,468     90,816
+  glucose+ammonia G4    108,352         25     33,887       747     73,693
+  formose G6        306,244        553     55,721     5,466    244,504
+  formose+ammonia G4    145,820          2     67,319       209     78,290
+  pyruvic acid G6    131,064        397     27,699     1,821    101,147
+
+  network          sign < 0   of those sentinel   95% rule
+  glucose G5         67,628     9,314 (13.8%)     50,815
+  glucose+ammonia G4     75,565    26,477 (35.0%)     44,155
+  formose G6        188,054    27,718 (14.7%)    139,386
+  formose+ammonia G4    122,119    63,107 (51.7%)     54,665
+  pyruvic acid G6     80,583    13,860 (17.2%)     56,504
+
+  network         sentinel rxns     dG min     dG max
+  glucose G5             27,694     -862.1     1106.6
+  glucose+ammonia G4         33,887     -767.6      742.4
+  formose G6             55,721    -1106.7     1107.2
+  formose+ammonia G4         67,319     -742.0      752.1
+  pyruvic acid G6         27,699    -1107.2     1107.2

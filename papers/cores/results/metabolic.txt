@@ -1,0 +1,16 @@
+  Calvin cycle            28 reactions,  13 non-food species
+    cores  27   types I:6  II/III:6  IV:5  V:10
+      type I        6 cores, smallest 6 species ['C00118', 'C00231', 'C00199', 'C01182', 'C00197', 'C00236']
+      type II/III   6 cores, smallest 4 species ['C00085', 'C00354', 'C00118', 'C00231']
+      type IV       5 cores, smallest 5 species ['C00085', 'C00354', 'C00111', 'C00118', 'C00231']
+      type V       10 cores, smallest 6 species ['C00085', 'C00354', 'C00118', 'C00117', 'C00199', 'C00231']
+
+  reverse Krebs cycle     36 reactions,  18 non-food species
+    cores  16   types II/III:16
+      type II/III  16 cores, smallest 11 species ['C00022', 'C00036', 'C00149', 'C00122', 'C00042', 'C00091', 'C00026', 'C00311', 'C00417', 'C00158', 'C00024']
+
+  food-set sensitivity, Calvin cycle:
+    as above               cores  27   I:6  II/III:6  IV:5  V:10
+    phosphate not food     cores  78   I:6  II/III:27  IV:13  V:32
+    ATP/ADP not food       cores  27   I:6  II/III:6  IV:5  V:10
+    CO2 not food           cores  27   I:6  II/III:6  IV:5  V:10

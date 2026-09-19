@@ -1,0 +1,23 @@
+  system                            rxns  RAF  CAF  RAF=CAF  core n    time
+  example-00                           6    3    0    False       2    0.0s
+  example-01                           6    6    0    False       3    0.0s
+  example-02                           5    5    3    False       2    0.0s
+  example-03                          14   14    0    False       4    0.0s
+  example-04                           9    9    0    False       2    0.0s
+  example-05                          16   16    0    False       2    0.0s
+  example-06                           7    7    0    False       2    0.0s
+  example-07                           3    3    3     True       -    0.0s
+  example-08                          17   17   17     True       3    0.0s
+  example-09                           7    4    0    False       2    0.0s
+  example-10                           3    3    3     True       2    0.0s
+  how-to-build-a-house-maxCAF          6    6    6     True       -    0.0s
+  how-to-build-a-house-maxRAF          7    7    0    False       2    0.0s
+  inhibitions-1                    c + d [z] {y} => x + z'
+  prokaryotic-network               6039  421  421     True       2    0.0s
+
+  RAFs that are not CAFs: 9
+    core exhibited:       9
+    none found to n=6:  0  
+
+  smallest example, example-00: 2 species ['e', 'f']
+    reactions ['r3', 'r2']

@@ -1,0 +1,31 @@
+=== serious_retroaldol
+status     autocatalytic
+conditions seed_identified=yes, feeder=yes, outlet=yes, seed_regenerated=yes, extra_yield=yes, shunt=no
+seed yield n = 2
+overall    1 CC(O)(CC=O)C(=O)CO  ->  1 CC=O + 1 CC(=O)C(=O)CO
+atoms      balanced
+currents   1 (one extreme current)
+
+=== artefact_methanol_shuttle
+status     autocatalytic
+conditions seed_identified=yes, feeder=yes, outlet=yes, seed_regenerated=yes, extra_yield=yes, shunt=no
+seed yield n = 2
+overall    1 C=C(C(=O)C=O)C(O)C=O + 1 C=O + 1 O  ->  1 CO + 1 C=C(C(=O)C=O)C(O)C(=O)O
+atoms      balanced
+currents   1 (one extreme current)
+
+=== formose_core_recovered
+status     autocatalytic
+conditions seed_identified=yes, feeder=yes, outlet=no, seed_regenerated=yes, extra_yield=yes, shunt=no
+seed yield n = 2
+overall    2 C=O  ->  1 O=CCO
+atoms      balanced
+currents   1 (one extreme current)
+
+=== calvin_type_I
+status     autocatalytic
+conditions seed_identified=yes, feeder=yes, outlet=yes, seed_regenerated=yes, extra_yield=yes, shunt=no
+seed yield n = 2
+overall    1 O=P(O)(O)OC[C@H]1OC(O)(CO)[C@@H](O)[C@@H]1O + 2 ATP + 1 O=C=O + 1 O + 1 NADPH  ->  1 O=C(O)[C@H](O)COP(=O)(O)O + 1 O=C[C@H](O)[C@H](O)COP(=O)(O)O + 2 ADP + 1 NADP+ + 1 Pi
+atoms      not counted, the species are names not structures
+currents   1 (one extreme current)

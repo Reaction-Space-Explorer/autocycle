@@ -58,4 +58,4 @@ test:
 	pytest -q
 
 lint:
-	ruff check src tests
+	ruff check src tests papers

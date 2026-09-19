@@ -1,0 +1,22 @@
+  306145 reactions | 63024 amplifying
+  candidates streamed: 4872344
+  cores 45869 | distinct 15395  total 315.4s
+  types {'I': 12369, 'II': 33120, 'III': 380}
+      315.76 real       313.34 user         1.72 sys
+           442105856  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               33229  page reclaims
+                   0  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+               72675  involuntary context switches
+       3278982067940  instructions retired
+        700215759953  cycles elapsed
+           418792192  peak memory footprint

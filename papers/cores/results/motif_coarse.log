@@ -1,0 +1,22 @@
+glucose G5, 3 species
+   cores 1042 | distinct stoichiometry 293 | formula motifs 75 | MECHANISMS 26
+        177  C+6|in:C6|out:-  C-2|in:-|out:C2  C-4|in:-|out:C4
+        163  C+6|in:C6|out:-  C-2|in:-|out:-  C-4|in:-|out:C4
+        145  C+5|in:C5|out:-  C-2|in:-|out:-  C-3|in:-|out:C3
+        122  C+5|in:C5|out:-  C-2|in:-|out:C2  C-3|in:-|out:C3
+         71  C+4|in:C4|out:-  C-2|in:-|out:-  C-2|in:-|out:C2
+
+formose G6, 3 species
+   cores 2191 | distinct stoichiometry 1001 | formula motifs 144 | MECHANISMS 44
+        307  C+6|in:C6|out:-  C-2|in:-|out:C2  C-4|in:-|out:C4
+        306  C+6|in:C6|out:-  C-2|in:-|out:-  C-4|in:-|out:C4
+        204  C+5|in:C5|out:-  C-2|in:-|out:-  C-3|in:-|out:C3
+        147  C+5|in:C5|out:-  C-2|in:-|out:C2  C-3|in:-|out:C3
+        140  C+0|in:C0,C1|out:C1  C+6|in:C6|out:-  C-6|in:-|out:C6
+
+mechanisms: glucose 26, formose 44, shared 19
+only in formose:
+      140  C+0|in:C0,C1|out:C1  C+6|in:C6|out:-  C-6|in:-|out:C6
+       98  C+7|in:C7|out:-  C-1|in:-|out:C1  C-6|in:C0,C1|out:C7
+       94  C+7|in:C7|out:-  C-2|in:-|out:-  C-5|in:-|out:C5
+       92  C+5|in:C5|out:-  C-1|in:-|out:C1  C-4|in:-|out:C4

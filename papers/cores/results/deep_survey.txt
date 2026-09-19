@@ -1,0 +1,6 @@
+  network           rxns   cores  distinct  mech  serious   cond  artefact   time
+  PyruvicAcid     131007     861       338    41      657    129        75     7s
+  Formose         306145    2050       963    40     1417    223       410    29s
+  FormoseAmm      145811    6671      5188   185     5148   1523         0    14s
+  Glucose         120952    1024       289    24      954     68         2     7s
+  GlucoseAmm      108334     690       162    47      645     45         0     7s

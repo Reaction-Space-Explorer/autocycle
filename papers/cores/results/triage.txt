@@ -1,0 +1,21 @@
+=== glucose: 26 mechanisms, 1042 cores ===
+  serious      mechanisms  18  cores   972 (93.3%)
+  conditional  mechanisms   7  cores    68 ( 6.5%)
+  artefact     mechanisms   1  cores     2 ( 0.2%)
+     serious        972  ordinary aqueous sugar chemistry
+     conditional     55  Cannizzaro needs strong base
+     conditional     12  conjugate addition or its reverse competes with water
+     artefact         2  benzilic acid rearrangement run in reverse
+     conditional      1  Cannizzaro needs strong base; conjugate addition competes with water
+
+=== formose: 44 mechanisms, 2191 cores ===
+  serious      mechanisms  23  cores  1558 (71.1%)
+  conditional  mechanisms   9  cores   223 (10.2%)
+  artefact     mechanisms  12  cores   410 (18.7%)
+     serious       1558  ordinary aqueous sugar chemistry
+     artefact       403  methanol shuttle: methanol as Michael donor, Cannizzaro supplying it
+     conditional    164  conjugate addition or its reverse competes with water
+     conditional     56  Cannizzaro needs strong base
+     artefact         7  benzilic acid rearrangement run in reverse
+     conditional      3  Cannizzaro needs strong base; conjugate addition competes with water
+

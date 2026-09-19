@@ -1,0 +1,4 @@
+  306145 reactions | 63024 amplifying
+  candidate 4-cycles through an amplifying step: 9470434  (244.7s)
+  cores 45869 | distinct 15395  (93.2s)  total 338.7s
+  types {'I': 12369, 'II': 33120, 'III': 380}
