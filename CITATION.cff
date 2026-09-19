@@ -4,7 +4,9 @@ title: "autocycle: figures and stoichiometric checks for autocatalytic cycles"
 abstract: >-
   Draws reaction cycles and synthetic routes from a YAML spec or a network search, and
   reports whether a drawn cycle is autocatalytic, reading it both as stated stoichiometry
-  and as a steady state in the sense of Clarke.
+  and as a steady state in the sense of Clarke. Also enumerates every autocatalytic
+  core a generated network contains up to a stated size, and the maximal RAF and CAF
+  sets of a catalytic reaction system.
 type: software
 authors:
   - family-names: Cruz-Simbron
@@ -21,7 +23,7 @@ authors:
     affiliation: >-
       Blue Marble Space Institute of Science; Department of Chemistry,
       Howard University
-version: 0.3.1
+version: 0.4.0
 license: MIT
 repository-code: https://github.com/Reaction-Space-Explorer/autocycle
 keywords:
