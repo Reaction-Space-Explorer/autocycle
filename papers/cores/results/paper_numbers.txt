@@ -19,21 +19,21 @@
     pH 11.0    178 /   174
 
 === glucose+ammonia G4 ===
-  ladder: 690 cores -> 162 distinct stoichiometry -> 70 formula motifs -> 47 mechanisms
-    serious      mechanisms  38   cores   645 (93.5%)
-    conditional  mechanisms   9   cores    45 ( 6.5%)
+  ladder: 2145 cores -> 1610 distinct stoichiometry -> 151 formula motifs -> 67 mechanisms
+    serious      mechanisms  58   cores  2100 (97.9%)
+    conditional  mechanisms   9   cores    45 ( 2.1%)
     artefact     mechanisms   0   cores     0 ( 0.0%)
   chemistry x thermodynamics at pH 7.4, 95%, independent:
-    serious      not            348
-    serious      spontaneous    161
-    serious      no estimate    136
+    serious      not            964
+    serious      spontaneous    730
+    serious      no estimate    406
     conditional  no estimate     29
     conditional  spontaneous     16
   pH robustness (spontaneous cores, independent / correlated):
-    pH  7.0    177 /   129
-    pH  7.4    177 /   145
-    pH  9.0    185 /   145
-    pH 11.0    185 /   143
+    pH  7.0    990 /   684
+    pH  7.4    746 /   700
+    pH  9.0    610 /   457
+    pH 11.0    414 /   271
 
 === formose G6 ===
   ladder: 2050 cores -> 963 distinct stoichiometry -> 131 formula motifs -> 40 mechanisms
@@ -57,22 +57,22 @@
     pH 11.0    242 /   238
 
 === formose+ammonia G4 ===
-  ladder: 6671 cores -> 5188 distinct stoichiometry -> 549 formula motifs -> 185 mechanisms
-    serious      mechanisms 157   cores  5148 (77.2%)
-    conditional  mechanisms  28   cores  1523 (22.8%)
+  ladder: 10925 cores -> 9256 distinct stoichiometry -> 1598 formula motifs -> 542 mechanisms
+    serious      mechanisms 514   cores  9402 (86.1%)
+    conditional  mechanisms  28   cores  1523 (13.9%)
     artefact     mechanisms   0   cores     0 ( 0.0%)
   chemistry x thermodynamics at pH 7.4, 95%, independent:
-    serious      no estimate   3109
-    serious      spontaneous   1552
+    serious      no estimate   5844
+    serious      spontaneous   2015
+    serious      not           1543
     conditional  spontaneous   1438
-    serious      not            487
     conditional  no estimate     77
     conditional  not              8
   pH robustness (spontaneous cores, independent / correlated):
-    pH  7.0   2532 /  1581
-    pH  7.4   2990 /  2510
-    pH  9.0   2999 /  2978
-    pH 11.0   2995 /  2968
+    pH  7.0   2995 /  1931
+    pH  7.4   3453 /  2874
+    pH  9.0   3439 /  3263
+    pH 11.0   3341 /  3195
 
 === pyruvic acid G6 ===
   ladder: 861 cores -> 338 distinct stoichiometry -> 109 formula motifs -> 41 mechanisms

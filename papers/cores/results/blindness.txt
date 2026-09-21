@@ -3,14 +3,14 @@
   glucose G5           conditional      68     54         54         0      0
   glucose G5           artefact          2      0          0         0      0
 
-  glucose+ammonia G4   serious         645    136        136         0      0
+  glucose+ammonia G4   serious        2100    406        406         0      0
   glucose+ammonia G4   conditional      45     29         29         0      0
 
   formose G6           serious        1417    149        149         0      0
   formose G6           conditional     223     25         25         0      0
   formose G6           artefact        410    406        406         0      0
 
-  formose+ammonia G4   serious        5148   3109       3109         0      0
+  formose+ammonia G4   serious        9402   5844       5844         0      0
   formose+ammonia G4   conditional    1523     77         77         0      0
 
   pyruvic acid G6      serious         657    116        116         0      0

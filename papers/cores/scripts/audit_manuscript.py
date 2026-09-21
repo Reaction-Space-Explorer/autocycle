@@ -20,7 +20,7 @@ CORPUS = "\n".join(p.read_text(errors="replace") for p in (ROOT / "results").ite
 QUOTED = {
     "2,100": "Arya et al. 2022 as published, the motif-query cycle count, quoted "
              "and not recomputed here",
-    "3,186": "the sum of formose+ammonia's serious and conditional no-estimate "
+    "5,921": "the sum of formose+ammonia's serious and conditional no-estimate "
              "counts in paper_numbers.txt; update when that file is regenerated",
 }
 

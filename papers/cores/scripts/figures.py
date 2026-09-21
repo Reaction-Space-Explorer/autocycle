@@ -1,4 +1,5 @@
 """The paper's figures, in the group's figures4papers house style."""
+import re
 from pathlib import Path
 
 import matplotlib
@@ -26,15 +27,32 @@ OUT = Path(__file__).resolve().parents[1] / "figures"
 
 NETS = ["glucose\nG5", "glucose+NH$_3$\nG4", "formose\nG6", "formose+NH$_3$\nG4",
         "pyruvate\nG6"]
-LADDER = {           # cores, distinct stoichiometry, formula motifs, mechanisms
-    "cores":     [1024, 690, 2050, 6671, 861],
-    "distinct":  [289, 162, 963, 5188, 338],
-    "motifs":    [73, 70, 131, 549, 109],
-    "mechanisms": [24, 47, 40, 185, 41],
-}
-TRIAGE = {"serious": [954, 645, 1417, 5148, 657],
-          "conditional": [68, 45, 223, 1523, 129],
-          "artefact": [2, 0, 410, 0, 75]}
+
+
+def _recorded():
+    """Read the ladder and the triage out of results/paper_numbers.txt.
+
+    They were held here as literals and went stale the first time the enumeration
+    changed, which is the drift the manuscript audit exists to catch and cannot
+    see from inside a figure. Blocks are in the order of NETS.
+    """
+    text = (OUT.parent / "results" / "paper_numbers.txt").read_text()
+    ladder = {k: [] for k in ("cores", "distinct", "motifs", "mechanisms")}
+    triage = {k: [] for k in ("serious", "conditional", "artefact")}
+    for block in text.split("=== ")[1:]:
+        c, d, m, x = (int(v) for v in re.search(
+            r"ladder: (\d+) cores -> (\d+) distinct stoichiometry -> "
+            r"(\d+) formula motifs -> (\d+) mechanisms", block).groups())
+        for k, v in zip(ladder, (c, d, m, x), strict=True):
+            ladder[k].append(v)
+        got = dict(re.findall(r"^\s+(serious|conditional|artefact)\s+mechanisms"
+                              r"\s+\d+\s+cores\s+(\d+)", block, re.M))
+        for k in triage:
+            triage[k].append(int(got.get(k, 0)))
+    return ladder, triage
+
+
+LADDER, TRIAGE = _recorded()
 
 
 def fig1_ladder():
