@@ -41,7 +41,7 @@ for name, c in nets.items():
               f"{spont:>6,} {spont + blind:>6,}   {lo:5.1%} to {hi:5.1%}{flag}")
     print()
 
-print("  blind rate by class, the artefact column is the one to look at:")
+print("  unresolved rate by class:")
 for name, c in nets.items():
     row = []
     for v in ("serious", "conditional", "artefact"):

@@ -44,11 +44,10 @@ def test_the_general_walker_matches_the_unrolled_one(net, n):
 def test_anchoring_holds_where_the_two_conditions_come_apart(n):
     """Formose cannot catch a wrong anchor test; glucose can.
 
-    Amplifying is a sum over the core species, and the anchor test is a sum over
+    Amplifying is a sum over the core species and the anchor test is a sum over
     what a reaction produces. The two agree on every formose reaction, so a
-    brute-force check there passes whichever test is used. Glucose has reactions
-    that consume non-food species outside a core, where they come apart, so the
-    comparison means something.
+    brute-force check there passes whichever is used. Glucose has reactions that
+    consume non-food species outside a core, where the two come apart.
     """
     if not RISKY.exists():
         pytest.skip("network data not checked out")
