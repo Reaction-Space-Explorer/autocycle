@@ -59,8 +59,13 @@ def runs(par, text, bold=False):
             style_run(par.add_run(piece), bold=bold)
 
 
-def main(src="MANUSCRIPT.md", out="MANUSCRIPT.docx"):
-    text = (ROOT / src).read_text()
+def main(src="MANUSCRIPT.md", out=None):
+    src = Path(src)
+    if not src.is_absolute():
+        src = ROOT / src
+    root = src.parent          # figures sit beside the manuscript
+    out = Path(out) if out else src.with_suffix(".docx")
+    text = src.read_text()
     doc = Document()
     n = doc.styles["Normal"]
     n.font.name, n.font.size = BODY, SIZE
@@ -91,7 +96,7 @@ def main(src="MANUSCRIPT.md", out="MANUSCRIPT.docx"):
     def place_figure(k):
         """Image, then its caption, at the point the text first calls it."""
         name, width = FIGS[k]
-        path = ROOT / "figures" / name
+        path = root / "figures" / name
         if not path.exists() or k in placed:
             return
         placed.add(k)
@@ -147,7 +152,7 @@ def main(src="MANUSCRIPT.md", out="MANUSCRIPT.docx"):
 
     for k in sorted(FIGS):               # anything the text never called
         place_figure(k)
-    doc.save(ROOT / out)
+    doc.save(out)
     print(f"  {out}: {len(doc.paragraphs)} paragraphs, {len(doc.tables)} tables, "
           f"{len(doc.inline_shapes)} figures")
 
