@@ -1,0 +1,35 @@
+Cores under the two anchor conditions, three species, food = water, formaldehyde,
+carbon dioxide, ammonia. "Published" is the count reported from the wider sum over
+X \ F; the corrected column is the core-column condition, P >= 2. Run on 64 cores.
+
+  network              published   corrected   change   candidates    time
+  glucose G5               1,024       1,024       +0       65,494     39 s
+  glucose+ammonia G4         690       2,145   +1,455    5,373,717   3635 s
+  formose G6               2,050       2,050       +0      123,957    279 s
+  formose+ammonia G4       6,671      10,925   +4,254    1,893,773    155 s
+  pyruvic acid G6            861         861       +0       48,858     46 s
+
+Anchor sets, and whether the two conditions pick out the same reactions:
+
+  network              wider sum   P >= 2    relation
+  formose G6              59,879   59,879    same set
+  pyruvic acid G6         23,335   23,335    same set
+  glucose G5               9,684   19,169    strict subset, 2.0x
+  glucose+ammonia G4       2,476   57,595    strict subset, 23.3x
+  formose+ammonia G4       3,687   93,977    strict subset, 25.5x
+
+The wider sum is a strict subset in every network, so a count taken from it can
+only be low. Direct verification on formose+ammonia G4:
+
+  old predicate 6671 cores, new 10925
+  old is a subset of new: True
+  cores only under the new test: 4254
+  cores lost: 0
+  of 400 sampled added cores: 0 fail is_core, 0 were reachable under the old test
+
+and on glucose+ammonia G4:
+
+  old predicate 690 cores, published 690, reproduces: True
+
+The old predicate reproduces the published count on both networks that moved, so
+the difference is the anchor condition and not any other change.

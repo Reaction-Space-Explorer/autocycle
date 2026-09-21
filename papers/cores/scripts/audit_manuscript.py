@@ -15,6 +15,16 @@ CORPUS = "\n".join(p.read_text(errors="replace") for p in (ROOT / "results").ite
                    if p.is_file())
 
 
+# figures that are not measurements recorded here, declared rather than left as
+# unexplained misses. Anything not in this list and not in results/ is a drift.
+QUOTED = {
+    "2,100": "Arya et al. 2022 as published, the motif-query cycle count, quoted "
+             "and not recomputed here",
+    "3,186": "the sum of formose+ammonia's serious and conditional no-estimate "
+             "counts in paper_numbers.txt; update when that file is regenerated",
+}
+
+
 def grouped(n: str) -> str:
     return f"{int(n):,}"
 
@@ -32,12 +42,16 @@ def main() -> int:
     misses = []
     for raw in sorted(set(re.findall(r"\b\d[\d,]{3,}\b", body))):
         n = raw.replace(",", "")
-        if raw in CORPUS or n in CORPUS or grouped(n) in CORPUS:
+        if raw in CORPUS or n in CORPUS or grouped(n) in CORPUS or raw in QUOTED:
             continue
         misses.append(raw)
     found = set(re.findall(r"\b\d[\d,]{3,}\b", body))
     print(f"  {len(found)} distinct figures of four digits or more; "
           f"{len(misses)} not found in results/")
+    if QUOTED:
+        print("  declared, not measured here:")
+        for k, v in QUOTED.items():
+            print(f"    {k:>8}  {v}")
     for m in misses:
         ctx = re.search(rf"(.{{0,60}}{re.escape(m)}.{{0,40}})", body, re.S)
         print(f"    {m:>12}  ...{' '.join(ctx.group(1).split()) if ctx else ''}...")
