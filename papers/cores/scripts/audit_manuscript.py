@@ -35,7 +35,10 @@ def main() -> int:
         print(f"  no manuscript at {path}; pass its path as the first argument")
         return 0
     text = path.read_text()
-    body = text.split("## References")[0]
+    # addresses, grant numbers and reference years are not quantities this paper
+    # measured, so the scan runs from the abstract to the end of the results
+    body = text.split("## Abstract")[-1].split("## Declaration of competing")[0]
+    body = body.split("## References")[0]
     # in-text citations carry years; a year is not a quantity this paper measured
     body = re.sub(r"\((?:[^()]{0,80}?, )?(?:19|20)\d{2}[a-z]?(?:; [^()]{0,80}?, (?:19|20)\d{2}[a-z]?)*\)",
                   "", body)
