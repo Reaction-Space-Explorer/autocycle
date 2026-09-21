@@ -61,7 +61,7 @@ def runs(par, text, bold=False):
 
 def main(src="MANUSCRIPT.md", out=None):
     src = Path(src)
-    if not src.is_absolute():
+    if not src.is_absolute() and not src.exists():
         src = ROOT / src
     root = src.parent          # figures sit beside the manuscript
     out = Path(out) if out else src.with_suffix(".docx")
