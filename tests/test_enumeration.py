@@ -12,6 +12,7 @@ from autocycle.cores.paths import RELS
 
 FOOD = {"O", "C=O", "C(=O)=O", "N"}
 SMALL = RELS / "Formose/FormoseRels_3.tsv"
+RISKY = RELS / "Glucose/GlucoseRels_3.tsv"
 
 
 def keys(found):
@@ -37,6 +38,24 @@ def test_anchored_matches_brute_force(net, n):
 def test_the_general_walker_matches_the_unrolled_one(net, n):
     assert keys(search.enumerate_cores(net, n, food=FOOD)[0]) == \
            keys(anchored.enumerate_cores(net, n, food=FOOD)[0])
+
+
+@pytest.mark.parametrize("n", [2, 3])
+def test_anchoring_holds_where_the_two_conditions_come_apart(n):
+    """Formose cannot catch a wrong anchor test; glucose can.
+
+    Amplifying is a sum over the core species, and the anchor test is a sum over
+    what a reaction produces. The two agree on every formose reaction, so a
+    brute-force check there passes whichever test is used. Glucose has reactions
+    that consume non-food species outside a core, where they come apart, so the
+    comparison means something.
+    """
+    if not RISKY.exists():
+        pytest.skip("network data not checked out")
+    g = load(RISKY)
+    cand, _ = cycles(g, n, food=FOOD)
+    by_hand = keys(keep_cores(g, [c for c in cand if len(c[0]) == n]))
+    assert keys(anchored.enumerate_cores(g, n, food=FOOD)[0]) == by_hand
 
 
 def test_formose_g3_has_the_expected_count(net):

@@ -41,9 +41,18 @@ def graph(by_rxn, food=FOOD):
 
 
 def anchors(by_rxn, food=FOOD):
-    """Reactions with a net gain in non-food species."""
+    """Reactions that could amplify inside some core.
+
+    Lemma 2 gives a column of the core submatrix whose sum is positive, and that
+    sum runs over the core species, not over every non-food species. A reaction
+    can amplify inside a core and still lose that sum to non-food species outside
+    it, so testing the wider sum drops cores. Inside a core a reaction consumes at
+    least one core species, at a coefficient of -1 or less, so its core sum is at
+    most P - 1, where P counts the non-food species it produces. Every amplifying
+    reaction therefore has P >= 2, which is a superset and is the test used here.
+    """
     return [r for r, d in by_rxn.items()
-            if sum(c for s, c in d.items() if s not in food) > 0]
+            if sum(c for s, c in d.items() if s not in food and c > 0) >= 2]
 
 
 def candidates(by_rxn, n, food=FOOD):
