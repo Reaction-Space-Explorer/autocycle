@@ -6,6 +6,7 @@ equivalent, so disagreement is a finding either way.
 import collections
 
 import numpy as np
+from _common import FOOD
 
 from autocycle.cores.anchored import enumerate_cores
 from autocycle.cores.cores import core_type
@@ -13,7 +14,6 @@ from autocycle.cores.enumerate_cores import load
 from autocycle.cores.forks import fork_type
 from autocycle.cores.paths import RELS
 
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
 NETS = [("formose G3", "Formose/FormoseRels_3.tsv"), ("glucose G5", "Glucose/GlucoseRels_5.tsv")]
 
 total = agree = 0

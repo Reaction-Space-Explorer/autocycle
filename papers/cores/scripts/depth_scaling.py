@@ -6,13 +6,14 @@ this measures what it does instead.
 """
 import time
 
+from _common import FOOD
+
 from autocycle.cores.anchored import distinct, enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif
 from autocycle.cores.paths import RELS
 
 R = RELS
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
 NETS = [("Formose", "Formose/FormoseRels_%d.tsv", 6),
         ("Glucose", "Glucose/GlucoseRels_%d.tsv", 5),
         ("PyruvicAcid", "PyruvicAcid/PyruvicAcidRels_%d.tsv", 6)]

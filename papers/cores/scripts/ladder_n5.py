@@ -14,12 +14,12 @@ import time
 from multiprocessing import Pool
 from pathlib import Path
 
+from _common import FOOD
+
 from autocycle.cores.anchored import anchors
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif, motif
 from autocycle.cores.parallel import _STATE, _init, _one
-
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
 
 
 def _shard(r0):

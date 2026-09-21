@@ -7,12 +7,13 @@ so those figures do not carry over.
 """
 
 
+from _common import FOOD
+
 from autocycle.cores.anchored import anchors
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.paths import RELS
 from autocycle.cores.search import enumerate_cores
 
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
 NETS = [("formose G6", "Formose/FormoseRels_6.tsv"),
         ("glucose G5", "Glucose/GlucoseRels_5.tsv")]
 

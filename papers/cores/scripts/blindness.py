@@ -8,6 +8,9 @@ value at all. A core inherits the worst reason among its reactions.
 import collections
 import csv
 
+from _common import FOOD
+from _common import NETS as NETWORKS
+
 from autocycle.cores.anchored import enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.paths import ENERGIES, RELS
@@ -21,12 +24,7 @@ def _rows(path):
 
 
 SENTINEL, NULL_DG = 1e4, 1e-3
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
-NETS = [("glucose G5", "Glucose/GlucoseRels_5.tsv", "Glucose_G5"),
-        ("glucose+ammonia G4", "GlucoseAmm/GlucoseAmmRels_4.tsv", "GlucoseAmm_G4"),
-        ("formose G6", "Formose/FormoseRels_6.tsv", "Formose_G6"),
-        ("formose+ammonia G4", "FormoseAmm/FormoseAmmRels_4.tsv", "FormoseAmm_G4"),
-        ("pyruvic acid G6", "PyruvicAcid/PyruvicAcidRels_6.tsv", "PyruvicAcid_G6")]
+NETS = [(name, rel, stem) for name, (rel, stem) in NETWORKS.items()]
 
 
 def reason(e):

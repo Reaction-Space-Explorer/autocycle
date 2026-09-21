@@ -8,13 +8,14 @@ should kill the mechanisms that need it and leave the rest alone.
 import collections
 import time
 
+from _common import FOOD
+
 from autocycle.cores.anchored import enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif
 from autocycle.cores.paths import RELS
 from autocycle.cores.triage import verdict
 
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
 NET = RELS / "Formose/FormoseRels_6.tsv"
 DROP = ["Keto-enol migration twice", "Cannizarro 2, HCHO (reduction)",
         "Michael Addition 0,2, ", "Retro Aldol", "Aldol Condensation"]

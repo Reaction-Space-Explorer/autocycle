@@ -10,11 +10,12 @@ networks can, and are included for that reason.
 Brute force walks every cycle, so it is run at the generations where that is
 affordable rather than at the depths the paper reports.
 """
+from _common import FOOD
+
 from autocycle.cores import anchored
 from autocycle.cores.enumerate_cores import cycles, keep_cores, load
 from autocycle.cores.paths import RELS
 
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
 NETS = [("formose G3", "Formose/FormoseRels_3.tsv"),
         ("glucose G2", "Glucose/GlucoseRels_2.tsv"),
         ("glucose G3", "Glucose/GlucoseRels_3.tsv"),

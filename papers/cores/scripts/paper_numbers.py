@@ -7,6 +7,8 @@ is measured in src/foodset.py rather than assumed.
 import collections
 import csv
 
+from _common import FOOD
+
 from autocycle.cores.anchored import distinct, enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif, motif
@@ -20,7 +22,6 @@ def _rows(path):
         return list(csv.DictReader(fh))
 
 
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
 E = ENERGIES
 NETS = [("glucose G5", RELS / "Glucose/GlucoseRels_5.tsv",
          "Glucose_G5_energies_pH%s.csv"),

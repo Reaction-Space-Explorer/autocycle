@@ -9,17 +9,18 @@ are not.
 """
 
 
+from _common import BASE
+from _common import NETS as NETWORKS
+
 from autocycle.cores.anchored import enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.paths import RELS
 
-BASE = {"O", "C=O"}                       # water, formaldehyde
 ADDED = {"C(=O)=O", "N"}                  # carbon dioxide, ammonia
-NETS = [("glucose", "Glucose/GlucoseRels_5.tsv", "G5"),
-        ("formose", "Formose/FormoseRels_6.tsv", "G6"),
-        ("glucose+ammonia", "GlucoseAmm/GlucoseAmmRels_4.tsv", "G4"),
-        ("formose+ammonia", "FormoseAmm/FormoseAmmRels_4.tsv", "G4"),
-        ("pyruvic acid", "PyruvicAcid/PyruvicAcidRels_6.tsv", "G6")]
+# only the networks the comparison is posed for: where ammonia is the feedstock,
+# removing it makes ammonia a core species and the two sides are different questions
+NETS = [(name.rsplit(" ", 1)[0], rel, name.rsplit(" ", 1)[1])
+        for name, (rel, _) in NETWORKS.items() if "ammonia" not in name]
 
 print(f"  {'network':18s} {'gen':>4} {'water+CH2O':>11} {'+CO2,NH3':>9} "
       f"{'change':>8}   {'cores with CO2 as a core species':>34}")

@@ -2,6 +2,8 @@
 import collections
 import time
 
+from _common import FOOD
+
 from autocycle.cores.anchored import distinct, enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif
@@ -9,7 +11,6 @@ from autocycle.cores.paths import RELS
 from autocycle.cores.triage import verdict
 
 R = RELS
-FOOD = {"O", "C=O", "C(=O)=O", "N"}
 NETS = [("PyruvicAcid", "PyruvicAcid/PyruvicAcidRels_6.tsv"),
         ("Formose", "Formose/FormoseRels_6.tsv"),
         ("FormoseAmm", "FormoseAmm/FormoseAmmRels_4.tsv"),
