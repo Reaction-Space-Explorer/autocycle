@@ -13,7 +13,7 @@ import numpy as np
 from scipy.optimize import linprog
 
 
-def positive_flux(nu: np.ndarray, tol: float = 1e-7) -> float:
+def positive_flux(nu: np.ndarray) -> float:
     """The largest t with v >= t, nu v >= t, sum v = 1. Positive means autocatalytic."""
     n, m = nu.shape
     # variables [v (m), t (1)]; maximise t

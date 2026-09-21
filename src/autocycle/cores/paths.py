@@ -12,5 +12,4 @@ NA = Path(os.environ.get(
     Path(__file__).resolve().parents[3] / "networks" / "nucleoside-analogues"))
 
 RELS = NA / "OriginalData" / "OriginalNetworkData" / "Rels"
-THERMO = NA / "ProcessedData" / "RelsWithThermoFiles"
 ENERGIES = NA / "ProcessedData" / "SI" / "full"

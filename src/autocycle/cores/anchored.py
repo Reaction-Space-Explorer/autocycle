@@ -43,13 +43,11 @@ def graph(by_rxn, food=FOOD):
 def anchors(by_rxn, food=FOOD):
     """Reactions that could amplify inside some core.
 
-    Lemma 2 gives a column of the core submatrix whose sum is positive, and that
-    sum runs over the core species, not over every non-food species. A reaction
-    can amplify inside a core and still lose that sum to non-food species outside
-    it, so testing the wider sum drops cores. Inside a core a reaction consumes at
-    least one core species, at a coefficient of -1 or less, so its core sum is at
-    most P - 1, where P counts the non-food species it produces. Every amplifying
-    reaction therefore has P >= 2, which is a superset and is the test used here.
+    Lemma 2's positive column sum is over the core species, not over all non-food
+    species, and a reaction can amplify inside a core while losing that sum to
+    non-food species outside it, so the wider test drops cores. A reaction in a
+    core consumes a core species at -1 or less, so its core sum is at most P - 1
+    where P is what it produces, and amplifying implies P >= 2.
     """
     return [r for r, d in by_rxn.items()
             if sum(c for s, c in d.items() if s not in food and c > 0) >= 2]
@@ -143,6 +141,7 @@ if __name__ == "__main__":
     t0 = time.time()
     by_rxn = load(path)
     found, seen = enumerate_cores(by_rxn, n)
+    print(f"  food {sorted(FOOD)}")      # a count without its food set is arbitrary
     print(f"  {len(by_rxn)} reactions | {len(anchors(by_rxn))} amplifying")
     print(f"  candidates streamed: {seen}")
     print(f"  cores {len(found)} | distinct {len(distinct(by_rxn, found))}  "
