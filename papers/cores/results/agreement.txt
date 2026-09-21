@@ -1,0 +1,22 @@
+  network              reactions  apart   n  brute anchored  agree
+  formose G3                 580      0   2      0        0  True
+  formose G3                 580      0   3     24       24  True
+  formose G3                 580      0   4      0        0  True
+  glucose G2                 213     24   2      0        0  True
+  glucose G2                 213     24   3      2        2  True
+  glucose G2                 213     24   4      0        0  True
+  glucose G3               2,239    146   2      0        0  True
+  glucose G3               2,239    146   3      9        9  True
+  glucose G3               2,239    146   4    153      153  True
+  glucose+ammonia G2         284     26   2      0        0  True
+  glucose+ammonia G2         284     26   3      2        2  True
+  glucose+ammonia G2         284     26   4      0        0  True
+  glucose+ammonia G3       3,949    262   2      0        0  True
+  glucose+ammonia G3       3,949    262   3      9        9  True
+  glucose+ammonia G3       3,949    262   4    165      165  True
+  formose+ammonia G3       1,795     46   2      0        0  True
+  formose+ammonia G3       1,795     46   3     38       38  True
+  formose+ammonia G3       1,795     46   4     38       38  True
+  pyruvic acid G3            239      0   2      0        0  True
+  pyruvic acid G3            239      0   3      1        1  True
+  pyruvic acid G3            239      0   4      0        0  True
