@@ -37,8 +37,10 @@ def line_numbers(section):
     section._sectPr.append(ln)
 
 
-def style_run(r, bold=False, italic=False, mono=False):
+def style_run(r, bold=False, italic=False, mono=False, sup=False):
     r.bold, r.italic = bold, italic
+    if sup:
+        r.font.superscript = True
     r.font.name = "Courier New" if mono else BODY
     r.font.size = Pt(9.5) if mono else SIZE
     if not mono:                       # so the font survives on machines without Roboto
@@ -46,10 +48,13 @@ def style_run(r, bold=False, italic=False, mono=False):
 
 
 def runs(par, text, bold=False):
-    for piece in re.split(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`)", text):
+    for piece in re.split(r"(\*\*[^*]+\*\*|\*[^*]+\*|`[^`]+`|\^[^\s^]+\^)", text):
         if not piece:
             continue
-        if piece.startswith("**"):
+        piece = piece.replace("\\*", "*")      # an escaped asterisk is a literal one
+        if piece.startswith("^") and piece.endswith("^") and len(piece) > 2:
+            style_run(par.add_run(piece[1:-1]), sup=True)
+        elif piece.startswith("**"):
             style_run(par.add_run(piece[2:-2]), bold=True)
         elif piece.startswith("*"):
             style_run(par.add_run(piece[1:-1]), italic=True)
