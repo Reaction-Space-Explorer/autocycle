@@ -11,7 +11,6 @@ Reports how many mechanisms each network has, how many it shares with each other
 network, and how many are common to all five.
 """
 import collections
-import itertools
 
 from _common import FOOD, NETS
 
