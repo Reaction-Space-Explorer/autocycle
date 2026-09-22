@@ -1,0 +1,6 @@
+  network                cores  scored  mech   within  overall  ratio  null ratio       p
+  glucose G5             1,024     887    18     17.9     23.7   0.76    shuffled  0.0005
+  glucose+ammonia G4     2,145   1,710    49      8.6     16.1   0.53    shuffled  0.0005
+  formose G6             2,050   1,470    31     18.1     24.4   0.74    shuffled  0.0005
+  formose+ammonia G4    10,925   5,004   212      6.0     36.1   0.16    shuffled  0.0005
+  pyruvic acid G6          861     655    27     17.1     25.3   0.68    shuffled  0.0005
