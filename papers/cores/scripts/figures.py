@@ -220,5 +220,73 @@ def fig3_paired():
     print("  fig3_paired.png")
 
 
+def fig_bound():
+    """What the free-energy filter can and cannot decide, per network.
+
+    Table 5 as a picture: the resolved spontaneous fraction, the interval the
+    unresolved cores leave it in, and the half-way mark the conclusion turns on.
+    """
+    import re
+    rows = []
+    for block in (OUT.parent / "results" / "paper_numbers.txt").read_text().split("=== ")[1:]:
+        name = block.split(" ===")[0]
+        th = {(k, st): int(v) for k, st, v in re.findall(
+            r"^\s+(serious|conditional|artefact)\s+(spontaneous|not|no estimate)\s+(\d+)",
+            block, re.M)}
+        sp, no = th.get(("serious", "spontaneous"), 0), th.get(("serious", "not"), 0)
+        bl = th.get(("serious", "no estimate"), 0)
+        rows.append((name.replace("+", " + "), sp, bl, sp + no + bl))
+
+    fig, ax = plt.subplots(figsize=(6.6, 2.9))
+    y = np.arange(len(rows))[::-1]
+    for i, (_, sp, bl, tot) in zip(y, rows, strict=True):
+        lo, hi = 100 * sp / tot, 100 * (sp + bl) / tot
+        decided = hi < 50
+        ax.plot([lo, hi], [i, i], lw=7, solid_capstyle="butt",
+                color=PS.GREEN_2 if decided else PS.NEUTRAL, zorder=2)
+        ax.plot([lo], [i], "o", ms=7, color=BLUE, zorder=3)
+        ax.text(hi + 1.5, i, f"{lo:.0f} to {hi:.0f}%", va="center", fontsize=8,
+                color=INK if decided else MUTED)
+    ax.axvline(50, color=PS.RED_STRONG, lw=1.2, ls="--", zorder=1)
+    ax.text(51.5, len(rows) - 0.42, "half", ha="left", fontsize=8, color=PS.RED_STRONG)
+    ax.set_yticks(y); ax.set_yticklabels([r[0] for r in rows], fontsize=9)
+    ax.set_xlabel("serious cores that are spontaneous (%)")
+    ax.set_xlim(0, 104); ax.set_ylim(-0.6, len(rows) - 0.05)
+    ax.set_title("Two networks the filter cannot decide either way")
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.tick_params(axis="y", length=0)
+    fig.tight_layout(); fig.savefig(OUT / "fig_bound.png", dpi=300)
+    print("  fig_bound.png")
+
+
+def fig_coresize():
+    """The ladder against the number of species admitted to a core."""
+    import re
+    txt = (OUT.parent / "results" / "ladder.txt").read_text()
+    got = {}
+    for m in re.finditer(r"(\w+)Rels_\d+\s+n=(\d+)\s+cores (\d+)\s+distinct (\d+)"
+                         r"\s+motifs (\d+)\s+mechanisms (\d+)", txt.replace("\n", " ")):
+        got[(m.group(1), int(m.group(2)))] = tuple(int(g) for g in m.groups()[2:])
+    nets = ["Glucose", "Formose", "PyruvicAcid"]
+    label = {"Glucose": "glucose G5", "Formose": "formose G6", "PyruvicAcid": "pyruvate G6"}
+    fig, ax = plt.subplots(figsize=(6.0, 3.3))
+    for net, colour, mark in zip(nets, (BLUE, TEAL, PS.RED_STRONG), ("o", "s", "^"), strict=True):
+        ns = [n for n in (3, 4, 5) if (net, n) in got]
+        ratio = [got[(net, n)][0] / got[(net, n)][3] for n in ns]
+        ax.plot(ns, ratio, marker=mark, color=colour, lw=2, ms=6, label=label[net])
+        ax.annotate(f"{ratio[-1]:.0f}:1", (ns[-1], ratio[-1]), textcoords="offset points",
+                    xytext=(6, -2), fontsize=8, color=colour)
+    ax.set_yscale("log")
+    ax.set_xticks([3, 4, 5]); ax.set_xlim(2.85, 5.4)
+    ax.set_xlabel("species admitted to a core")
+    ax.set_ylabel("cores per mechanism (log)")
+    ax.set_title("The collapse widens with core size")
+    ax.legend(frameon=False, fontsize=8, loc="upper left")
+    ax.spines[["top", "right"]].set_visible(False)
+    fig.tight_layout(); fig.savefig(OUT / "fig_coresize.png", dpi=300)
+    print("  fig_coresize.png")
+
+
 if __name__ == "__main__":
     fig1_ladder(); fig3_paired(); fig4_triage_thermo(); fig5_depth(); fig6_rule_removal()
+    fig_bound(); fig_coresize()

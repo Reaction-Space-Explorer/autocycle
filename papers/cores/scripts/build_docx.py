@@ -21,10 +21,12 @@ FIGS = {                      # numbered by order of first citation, not by file
     1: ("fig1_ladder.png", 6.3),
     2: ("fig3_paired.png", 6.5),
     3: ("fig6_rule_removal.png", 5.8),
-    4: ("fig4_triage_thermo.png", 6.3),
-    5: ("fig5_depth.png", 6.3),
-    6: ("fig7_calvin_core.png", 5.2),
-    7: ("fig2_formose_core.png", 5.4),
+    4: ("fig_bound.png", 6.1),
+    5: ("fig4_triage_thermo.png", 6.3),
+    6: ("fig5_depth.png", 6.3),
+    7: ("fig_coresize.png", 5.6),
+    8: ("fig7_calvin_core.png", 4.2),
+    9: ("fig2_formose_core.png", 3.6),
 }
 BODY, SIZE = "Roboto", Pt(11)
 
