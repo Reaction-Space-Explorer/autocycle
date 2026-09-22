@@ -1,5 +1,10 @@
 """Do the five chemistries draw on one vocabulary of mechanisms, or five?
 
+Uses the general walker rather than the unrolled one. The two are verified to
+agree core for core, but the unrolled n=3 branch rescans the predecessor list per
+candidate and defers the canonical-anchor test to emission, which is slow on a
+network carrying tens of thousands of anchors.
+
 A mechanism is a multiset of step descriptions, each the formula change a step
 makes to the ring plus what it takes in and lets out. That description carries no
 rule name and no substrate, so the same label in two networks means the same
@@ -16,7 +21,7 @@ from pathlib import Path
 
 from _common import FOOD, NETS
 
-from autocycle.cores.anchored import enumerate_cores
+from autocycle.cores.search import enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif
 from autocycle.cores.paths import RELS
