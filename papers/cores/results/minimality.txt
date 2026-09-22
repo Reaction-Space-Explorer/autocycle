@@ -1,0 +1,6 @@
+  network                raw  minimal  dropped  mech  serious   cond  artefact      I  II/III    IV    V
+  glucose G5           23358    23299       59   189    16242   6878       179   9500   13743    56    0
+
+  glucose only: formose and pyruvic acid are unaffected by the corrected anchor,
+  which selects the identical reaction set in both, so their rows stand from the
+  earlier run: 39,885 of 40,218 and 17,837 of 17,921.
