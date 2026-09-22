@@ -29,6 +29,7 @@ FIGS = {                      # numbered by order of first citation, not by file
     9: ("fig2_formose_core.png", 3.6),
 }
 BODY, SIZE = "Roboto", Pt(11)
+LINE = 1.03                   # as the nucleoside-analogue manuscript is set
 
 
 def line_numbers(section):
@@ -87,17 +88,23 @@ def main(src="MANUSCRIPT.md", out=None):
         captions[int(m.group(1))] = " ".join(m.group(0).split())
     placed = set()
 
-    def para(t, indent=True, bold=False, before=0, align=None):
+    def para(t, bold=False, before=0, align=None, gap=False):
+        """One paragraph, laid out as the nucleoside-analogue manuscript is.
+
+        Justified, no first-line indent, line spacing 1.03, and paragraphs
+        separated by a blank paragraph rather than by space after.
+        """
         p = doc.add_paragraph()
         pf = p.paragraph_format
-        pf.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
+        pf.line_spacing = LINE
         pf.space_after = Pt(0)
         pf.space_before = Pt(before)
-        if indent:
-            pf.first_line_indent = Inches(0.3)
-        if align:
-            p.alignment = align
+        p.alignment = align if align is not None else WD_ALIGN_PARAGRAPH.JUSTIFY
         runs(p, t, bold=bold)
+        if gap:
+            g = doc.add_paragraph()
+            g.paragraph_format.line_spacing = LINE
+            g.paragraph_format.space_after = Pt(0)
         return p
 
     def place_figure(k):
@@ -149,10 +156,10 @@ def main(src="MANUSCRIPT.md", out=None):
             continue
         m = re.match(r"^(#{1,3}) (.+)$", b)
         if m:
-            para(m.group(2), indent=False, bold=True, before=12 if len(m.group(1)) > 1 else 0)
+            para(m.group(2), bold=True, before=12 if len(m.group(1)) > 1 else 0, gap=True)
             continue
         flat = b.replace("\n", " ")
-        para(flat, indent=not flat.startswith(("**Table", "*Proof", ">")))
+        para(flat, gap=True)
         for k in sorted(FIGS):
             if re.search(rf"Figure {k}\b", flat) and k not in placed:
                 place_figure(k)
