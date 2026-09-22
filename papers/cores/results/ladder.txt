@@ -1,6 +1,6 @@
   GlucoseRels_5  n=3
-    cores 1024  distinct 289  motifs 73  mechanisms 24
-    cores per mechanism 43:1   types {'I': 695, 'II/III': 329}   4s
+  cores 1024  distinct 289  motifs 73  mechanisms 24
+    cores per mechanism 43:1   types {'I': 695, 'II/III': 329}   2s
   PyruvicAcidRels_6  n=3
     cores 861  distinct 338  motifs 109  mechanisms 41
     cores per mechanism 21:1   types {'I': 608, 'II/III': 253}   5s
@@ -8,8 +8,8 @@
     cores 2050  distinct 963  motifs 131  mechanisms 40
     cores per mechanism 51:1   types {'I': 1140, 'II/III': 910}   18s
   GlucoseRels_5  n=4
-    cores 23350  distinct 4558  motifs 768  mechanisms 190
-    cores per mechanism 123:1   types {'I': 9500, 'II/III': 13743, 'IV': 103, 'V': 4}   33s
+  cores 23358  distinct 4566  motifs 770  mechanisms 191
+    cores per mechanism 122:1   types {'I': 9500, 'II/III': 13751, 'IV': 103, 'V': 4}   37s
   PyruvicAcidRels_6  n=4
     cores 17921  distinct 4456  motifs 1193  mechanisms 313
     cores per mechanism 57:1   types {'I': 6067, 'II/III': 11722, 'IV': 132}   23s
@@ -17,8 +17,8 @@
     cores 40218  distinct 14422  motifs 1664  mechanisms 320
     cores per mechanism 126:1   types {'I': 10621, 'II/III': 29217, 'IV': 380}   114s
   GlucoseRels_5  n=5
-    cores 1380354  distinct 174143  motifs 10738  mechanisms 979
-    cores per mechanism 1410:1   types {'I': 220239, 'II/III': 1083917, 'IV': 74286, 'V': 1912}   1083s
+  cores 1380554  distinct 174319  motifs 10747  mechanisms 985
+    cores per mechanism 1402:1   types {'I': 220239, 'II/III': 1084117, 'IV': 74286, 'V': 1912}   1884s
   PyruvicAcidRels_6  n=5
     cores 938930  distinct 190480  motifs 19775  mechanisms 1737
     cores per mechanism 541:1   types {'I': 54661, 'II/III': 831525, 'IV': 51609, 'V': 1135}   92s
