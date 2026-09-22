@@ -21,12 +21,13 @@ FIGS = {                      # numbered by order of first citation, not by file
     1: ("fig1_ladder.png", 6.3),
     2: ("fig3_paired.png", 6.5),
     3: ("fig6_rule_removal.png", 5.8),
-    4: ("fig_bound.png", 6.1),
-    5: ("fig4_triage_thermo.png", 6.3),
-    6: ("fig5_depth.png", 6.3),
-    7: ("fig_coresize.png", 5.6),
-    8: ("fig7_calvin_core.png", 4.2),
-    9: ("fig2_formose_core.png", 3.6),
+    4: ("fig_shared.png", 6.4),
+    5: ("fig_bound.png", 6.1),
+    6: ("fig4_triage_thermo.png", 6.3),
+    7: ("fig5_depth.png", 6.3),
+    8: ("fig_coresize.png", 5.6),
+    9: ("fig7_calvin_core.png", 4.2),
+    10: ("fig2_formose_core.png", 3.6),
 }
 BODY, SIZE = "Roboto", Pt(11)
 LINE = 1.03                   # as the nucleoside-analogue manuscript is set
@@ -84,7 +85,7 @@ def main(src="MANUSCRIPT.md", out=None):
         line_numbers(s)
 
     captions = {}
-    for m in re.finditer(r"\*\*Figure (\d)\.\*\* (.+?)(?=\n\n)", text, re.S):
+    for m in re.finditer(r"\*\*Figure (\d+)\.\*\* (.+?)(?=\n\n)", text, re.S):
         captions[int(m.group(1))] = " ".join(m.group(0).split())
     placed = set()
 

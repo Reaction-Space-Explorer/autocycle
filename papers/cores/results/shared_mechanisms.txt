@@ -1,0 +1,32 @@
+  glucose G5            1,024 cores    24 mechanisms  (cached)
+  glucose+ammonia G4    2,145 cores    67 mechanisms
+  formose G6            2,050 cores    40 mechanisms
+  formose+ammonia G4   10,925 cores   542 mechanisms
+  pyruvic acid G6         861 cores    41 mechanisms
+
+  shared mechanisms, pairwise (glucose|glucose+ammonia|formose|formose+ammonia|pyruvic):
+                        glucose glucose+  formose formose+  pyruvic
+  glucose G5                 24       18       17        9       17
+  glucose+ammonia G4         18       67       12       33       12
+  formose G6                 17       12       40       10       37
+  formose+ammonia G4          9       33       10      542       10
+  pyruvic acid G6            17       12       37       10       41
+
+  608 distinct mechanisms across all five networks
+  9 common to all five (1.5% of the union)
+    in 5 networks:     9 mechanisms,   2,089 cores (12.3%)
+    in 4 networks:     3 mechanisms,   1,268 cores (7.5%)
+    in 3 networks:     6 mechanisms,     242 cores (1.4%)
+    in 2 networks:    49 mechanisms,   1,586 cores (9.3%)
+    in 1 network :   541 mechanisms,  11,820 cores (69.5%)
+
+  the mechanisms common to all five, by total cores carried:
+       624  C+5|in:C5|out:-  C-2|in:-|out:-  C-3|in:-|out:C3
+       402  C+5|in:C5|out:-  C-2|in:-|out:C2  C-3|in:-|out:C3
+       337  C+4|in:C4|out:-  C-2|in:-|out:-  C-2|in:-|out:C2
+       229  C+4|in:C4|out:-  C-1|in:-|out:C1  C-3|in:-|out:-
+       121  C+4|in:C4|out:-  C-2|in:-|out:C2  C-2|in:-|out:C2
+       119  C+3|in:C3|out:-  C-1|in:-|out:C1  C-2|in:-|out:-
+       116  C+1|in:C1|out:-  C+2|in:C2|out:-  C-3|in:-|out:-
+        84  C+0|in:C0|out:-  C+3|in:C3|out:-  C-3|in:-|out:-
+        57  C+0|in:-|out:C0  C+3|in:C3|out:-  C-3|in:-|out:-

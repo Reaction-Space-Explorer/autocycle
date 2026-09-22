@@ -287,6 +287,63 @@ def fig_coresize():
     print("  fig_coresize.png")
 
 
+def fig_shared():
+    """How far the mechanism vocabulary is shared, and how much it carries.
+
+    A mechanism label carries no rule name and no substrate, so the same label in
+    two networks is the same transformation reached by different chemistry. Panel
+    a counts mechanisms against the cores they carry; panel b is the pairwise
+    overlap.
+    """
+    import re
+    txt = (OUT.parent / "results" / "shared_mechanisms.txt").read_text()
+
+    rows = re.findall(r"in (\d) networks?\s*:\s*(\d+) mechanisms,\s*([\d,]+) cores", txt)
+    k = [int(a) for a, _, _ in rows]
+    mech = [int(b) for _, b, _ in rows]
+    cores = [int(c.replace(",", "")) for _, _, c in rows]
+
+    names = ["glucose\nG5", "glucose+NH$_3$\nG4", "formose\nG6",
+             "formose+NH$_3$\nG4", "pyruvate\nG6"]
+    block = txt.split("pairwise")[1].split("\n\n")[0].strip().split("\n")[2:]
+    M = np.array([[int(x.replace(",", "")) for x in re.findall(r"\s(\d[\d,]*)", r)]
+                  for r in block if r.strip()])
+
+    fig, (ax, bx) = plt.subplots(1, 2, figsize=(7.4, 3.2),
+                                 gridspec_kw={"width_ratios": [1.15, 1]})
+    x = np.arange(len(k))
+    w = 0.38
+    ax.bar(x - w / 2, mech, w, color=PS.NEUTRAL, label="mechanisms")
+    ax.bar(x + w / 2, cores, w, color=BLUE, label="cores they carry")
+    ax.set_yscale("log")
+    ax.set_xticks(x); ax.set_xticklabels([f"{i}" for i in k])
+    ax.set_xlabel("networks a mechanism appears in")
+    ax.set_ylabel("count (log scale)")
+    ax.set_title("A small shared vocabulary, heavily used", fontsize=10)
+    ax.legend(frameon=False, fontsize=8)
+    ax.spines[["top", "right"]].set_visible(False)
+
+    # the diagonal is each network's own count and would swamp the scale; the
+    # off-diagonal sharing is what the panel is for
+    off = M.astype(float).copy()
+    np.fill_diagonal(off, np.nan)
+    short = ["glucose", "gluc+NH$_3$", "formose", "form+NH$_3$", "pyruvate"]
+    im = bx.imshow(off, cmap="Blues", vmin=0, vmax=np.nanmax(off))
+    bx.set_xticks(range(5)); bx.set_xticklabels(short, fontsize=7, rotation=40, ha="right")
+    bx.set_yticks(range(5)); bx.set_yticklabels(short, fontsize=7)
+    for i in range(5):
+        for j in range(5):
+            if i == j:
+                bx.text(j, i, M[i, j], ha="center", va="center", fontsize=7, color=MUTED)
+            else:
+                bx.text(j, i, M[i, j], ha="center", va="center", fontsize=7,
+                        color="white" if M[i, j] > np.nanmax(off) * 0.6 else INK)
+    bx.set_title("Mechanisms shared, pairwise", fontsize=10)
+    fig.colorbar(im, ax=bx, fraction=0.046, pad=0.04)
+    fig.tight_layout(); fig.savefig(OUT / "fig_shared.png", dpi=300)
+    print("  fig_shared.png")
+
+
 if __name__ == "__main__":
     fig1_ladder(); fig3_paired(); fig4_triage_thermo(); fig5_depth(); fig6_rule_removal()
-    fig_bound(); fig_coresize()
+    fig_bound(); fig_coresize(); fig_shared()

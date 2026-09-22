@@ -22,6 +22,8 @@ QUOTED = {
              "and not recomputed here",
     "5,921": "the sum of formose+ammonia's serious and conditional no-estimate "
              "counts in paper_numbers.txt; update when that file is regenerated",
+    "17,005": "the five ladder core counts of Table 1 added together, "
+              "1,024 + 2,145 + 2,050 + 10,925 + 861",
 }
 
 
