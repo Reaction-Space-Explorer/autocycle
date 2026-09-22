@@ -19,12 +19,24 @@ from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif
 from autocycle.cores.paths import RELS
 
+# one network takes an hour, and the machine has gone down mid-run before, so each
+# is cached as it finishes and a rerun picks up where the last one stopped
+CACHE = Path(__file__).resolve().parents[1] / "results" / "shared_mechanisms_cache.json"
+cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
+
 mech, cores = {}, {}
 for name, (rel, _) in NETS.items():
+    if name in cache:
+        counts = collections.Counter({tuple(k.split("\t")): v for k, v in cache[name]["m"].items()})
+        mech[name], cores[name] = counts, cache[name]["n"]
+        print(f"  {name:<20} {cores[name]:>6,} cores  {len(counts):>4} mechanisms  (cached)", flush=True)
+        continue
     by = load(RELS / rel)
     found, _ = enumerate_cores(by, 3, food=FOOD)
     counts = collections.Counter(coarse_motif(by, sp, rx) for sp, rx, _ in found)
     mech[name], cores[name] = counts, len(found)
+    cache[name] = {"n": len(found), "m": {"\t".join(k): v for k, v in counts.items()}}
+    CACHE.write_text(json.dumps(cache))
     print(f"  {name:<20} {len(found):>6,} cores  {len(counts):>4} mechanisms", flush=True)
 
 names = list(mech)
