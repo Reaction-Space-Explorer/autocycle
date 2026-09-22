@@ -42,9 +42,21 @@ def verdict(e):
     return "downhill" if float(e["dG_prime_kJ_mol"]) < 0 else "uphill"
 
 
+def seed(pattern):
+    """What the generator started from, read off generation one.
+
+    The food set of the core analysis is what the environment buffers, not what
+    the expansion was seeded with: formose needs an initiator, and the run stalls
+    at five species without it. Discovering it from the first generation's
+    reactants keeps this network-agnostic.
+    """
+    by = load(RELS / (pattern % 1))
+    return {s for d in by.values() for s, c in d.items() if c < 0}
+
+
 def replay(pattern, stem, top, admit_undecidable):
     en = energies(stem)
-    have = set(FOOD) | set(BASE)
+    have = set(FOOD) | set(BASE) | seed(pattern)
     kept = 0
     for g in range(1, top + 1):
         by = load(RELS / (pattern % g))
