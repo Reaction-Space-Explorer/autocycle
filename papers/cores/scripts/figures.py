@@ -186,10 +186,18 @@ def fig3_paired():
     """
     import matplotlib.image as mpimg
     panels = [(OUT / "fig3_serious_retroaldol.png", "a",
-               "serious: aldol with retro-aldol cleavage"),
+               "serious: retro-aldol cleavage"),
               (OUT / "fig3_artefact_methanol_shuttle.png", "b",
-               "artefact: the methanol shuttle")]
-    imgs = [mpimg.imread(p) for p, _, _ in panels]
+               "artefact: methanol shuttle")]
+    def crop(i, pad=8):
+        """Drop the white border. Cropping does not rescale, so bond lengths hold."""
+        ink = (i[:, :, :3] < 0.99).any(axis=2)
+        rows, cols = np.where(ink.any(axis=1))[0], np.where(ink.any(axis=0))[0]
+        r0, r1 = max(rows[0] - pad, 0), min(rows[-1] + pad + 1, i.shape[0])
+        c0, c1 = max(cols[0] - pad, 0), min(cols[-1] + pad + 1, i.shape[1])
+        return i[r0:r1, c0:c1]
+
+    imgs = [crop(mpimg.imread(p)) for p, _, _ in panels]
     h = max(i.shape[0] for i in imgs)
     w = max(i.shape[1] for i in imgs)
     padded = []
@@ -199,14 +207,15 @@ def fig3_paired():
         left = (w - i.shape[1]) // 2
         canvas[top:top + i.shape[0], left:left + i.shape[1]] = i
         padded.append(canvas)
-    fig, axes = plt.subplots(1, 2, figsize=(7.6, 3.9))
+    fig, axes = plt.subplots(1, 2, figsize=(7.6, 7.6 * h / (2 * w) + 0.35))
     for ax, img, (_, tag, title) in zip(axes, padded, panels, strict=False):
         ax.imshow(img)
         ax.axis("off")
-        ax.set_title(title, fontsize=9)
+        # leading space keeps the title clear of the panel letter
+        ax.set_title("    " + title, fontsize=9, loc="left")
         ax.text(0.0, 1.0, tag, transform=ax.transAxes, fontsize=11,
                 fontweight="bold", va="bottom", ha="left")
-    fig.subplots_adjust(wspace=0.02)
+    fig.subplots_adjust(wspace=0.06)
     fig.savefig(OUT / "fig3_paired.png", dpi=300, bbox_inches="tight")
     print("  fig3_paired.png")
 

@@ -11,6 +11,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from PIL import Image
+
 ROOT = Path(__file__).resolve().parents[1]
 SPECS = ROOT / "figures" / "specs"
 CANVAS = "13"                 # wide enough that every cycle here draws at one scale
@@ -39,6 +41,21 @@ def autocycle():
     return exe
 
 
+def trim(path: Path, pad: int = 8) -> None:
+    """Drop the white border autocycle leaves around a cycle.
+
+    Cropping removes margin without resampling, so the bond length in the file is
+    untouched; it is the page that shows the same drawing larger.
+    """
+    im = Image.open(path).convert("RGB")
+    bbox = Image.eval(im, lambda v: 255 - v).getbbox()
+    if not bbox:
+        return
+    x0, y0, x1, y1 = bbox
+    im.crop((max(x0 - pad, 0), max(y0 - pad, 0),
+             min(x1 + pad, im.width), min(y1 + pad, im.height))).save(path)
+
+
 def main():
     exe = autocycle()
     log = []
@@ -49,8 +66,10 @@ def main():
         status = v.stdout.split("\n")[0]
         if "autocatalytic" not in status:
             sys.exit(f"{stem}: {status.strip()}, expected autocatalytic")
-        subprocess.run([exe, "draw", str(spec), "-o", str(ROOT / "figures" / png), *STYLE],
+        out = ROOT / "figures" / png
+        subprocess.run([exe, "draw", str(spec), "-o", str(out), *STYLE],
                        check=True, capture_output=True)
+        trim(out)
         print(f"  {png:34s} {status.strip()}")
     (ROOT / "results" / "cycle_verify.txt").write_text("\n\n".join(log) + "\n")
     print("  verify output -> results/cycle_verify.txt")
