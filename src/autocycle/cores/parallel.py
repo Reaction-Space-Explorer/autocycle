@@ -68,7 +68,7 @@ def _one(r0):
     return _check(by, batch), len(batch)
 
 def enumerate_cores(by_rxn, n, *, food=FOOD, workers=None):
-    workers = workers or os.cpu_count()
+    workers = ceiling(workers)
     amp = sorted(anchors(by_rxn, food))
     found, seen = [], 0
     with Pool(workers, initializer=_init, initargs=(by_rxn, n, food)) as pool:
@@ -96,6 +96,18 @@ if __name__ == "__main__":
 SHARD_ABOVE = 20_000     # anchors; see the note in auto()
 
 
+def ceiling(workers=None):
+    """How many workers to use, respecting AUTOCYCLE_WORKERS.
+
+    The default is every core, which is right for one job on an idle machine and
+    wrong for two. Setting AUTOCYCLE_WORKERS caps every enumerator at once, so a
+    shared box can be held to a share without editing each script.
+    """
+    cap = os.environ.get("AUTOCYCLE_WORKERS")
+    want = workers or os.cpu_count()
+    return min(want, int(cap)) if cap else want
+
+
 def auto(by_rxn, n, *, food=FOOD, workers=None):
     """Enumerate, sharding only when the network is big enough to pay for it.
 
@@ -106,6 +118,6 @@ def auto(by_rxn, n, *, food=FOOD, workers=None):
     measured optimum, and a caller who knows better should call the enumerator it
     wants directly.
     """
-    if workers == 1 or len(anchors(by_rxn, food)) < SHARD_ABOVE:
+    if ceiling(workers) == 1 or len(anchors(by_rxn, food)) < SHARD_ABOVE:
         return single(by_rxn, n, food=food)
     return enumerate_cores(by_rxn, n, food=food, workers=workers)
