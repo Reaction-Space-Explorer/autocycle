@@ -74,7 +74,7 @@ def candidates(by_rxn, n, food=FOOD):
                             yield spec, fr + tuple(reversed(br)) + (r0,)
 
 
-def enumerate_cores(by_rxn, n, chunk=CHUNK, food=FOOD):
+def enumerate_cores(by_rxn, n, *, food=FOOD, chunk=CHUNK):
     found, batch, seen = [], [], 0
     for cand in candidates(by_rxn, n, food):
         batch.append(cand)

@@ -127,7 +127,7 @@ def _check(by_rxn, batch):
     return out
 
 
-def enumerate_cores(by_rxn, n, chunk=CHUNK, food=FOOD):
+def enumerate_cores(by_rxn, n, *, food=FOOD, chunk=CHUNK):
     """Stream the candidates and keep only the cores. Memory is O(chunk)."""
     found, batch, seen = [], [], 0
     for cand in candidates(by_rxn, n, food):

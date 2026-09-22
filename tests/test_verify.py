@@ -1,82 +1,85 @@
 import pytest
 
 from autocycle.io_spec import load_yaml
-from autocycle.spec import Cycle, Mol, Side, Step
-from autocycle.verify import AUTOCATALYTIC, CANDIDATE, INCOMPLETE, SIMPLE, verify
+from autocycle.spec import Cycle, Mol, Shunt, Side, SpecError, Step
+from autocycle.verify import AUTOCATALYTIC, CANDIDATE, INCOMPLETE, SIMPLE, TOPOLOGICAL, verify
+
+FEED = [["C=O"], [], []]
+BACK = [[], [], ["OCC=O"]]
 
 
-def _cycle(seed=0, consumes=(), produces=()):
+def _cycle(seed=0, consumes=(), produces=(), shunt=None):
     nodes = [Mol("OCC=O"), Mol("OCC(O)C=O"), Mol("OCC(O)C(O)C=O")]
     steps = [Step(f"r{i}") for i in range(3)]
     for i, group in enumerate(consumes):
         steps[i].consumes = [Side(s) for s in group]
     for i, group in enumerate(produces):
         steps[i].produces = [Side(*g) if isinstance(g, tuple) else Side(g) for g in group]
-    return Cycle(nodes=nodes, steps=steps, seed=seed)
+    c = Cycle(nodes=nodes, steps=steps, seed=seed)
+    if shunt:
+        c.shunt = shunt
+    return c
 
 
-def test_extra_yield_of_the_seed_is_autocatalytic():
-    c = _cycle(consumes=[["C=O"], [], []], produces=[[], [], ["OCC=O"]])
-    v = verify(c)
-    assert v.conditions["extra_yield"] == "yes"
-    assert v.status == AUTOCATALYTIC
-    assert v.seed_yield == 2.0
+# one row per verdict the criterion can reach, which is what the table is for:
+# a change that collapses two verdicts shows up as a row that stops passing
+VERDICTS = [
+    ("an extra copy of the seed is autocatalytic", dict(consumes=FEED, produces=BACK),
+     AUTOCATALYTIC, {"extra_yield": "yes"}),
+    ("no stated coefficient leaves the yield unknown", dict(consumes=FEED),
+     CANDIDATE, {"extra_yield": "unknown"}),
+    ("no feeder is incomplete", {},
+     INCOMPLETE, {"feeder": "no"}),
+    ("a ring species is not a feeder", dict(consumes=[["OCC(O)C=O"], [], []]),
+     INCOMPLETE, {"feeder": "no"}),
+    ("an outlet is reported on its own", dict(consumes=FEED, produces=[[], ["O=C=O"], []]),
+     CANDIDATE, {"outlet": "yes"}),
+    ("no outlet is reported as such", dict(consumes=FEED),
+     CANDIDATE, {"outlet": "no"}),
+    ("a shunt carries the topological criterion",
+     dict(consumes=FEED, shunt=Shunt(from_node=1, steps=[Step("s1")])),
+     TOPOLOGICAL, {"shunt": "yes", "extra_yield": "unknown"}),
+    ("a stated coefficient outranks a shunt",
+     dict(consumes=FEED, produces=BACK, shunt=Shunt(from_node=1, steps=[Step("s1")])),
+     AUTOCATALYTIC, {"shunt": "yes"}),
+    ("no shunt is reported as such", dict(consumes=FEED),
+     CANDIDATE, {"shunt": "no"}),
+]
 
 
-def test_no_extra_copy_is_a_candidate_not_a_simple_cycle():
-    """Absent coefficients the yield is unknown, so it must not be called simple."""
-    c = _cycle(consumes=[["C=O"], [], []])
-    v = verify(c)
-    assert v.conditions["extra_yield"] == "unknown"
-    assert v.status == CANDIDATE
-    assert v.status != SIMPLE
+@pytest.mark.parametrize("why,kw,status,conditions",
+                         VERDICTS, ids=[v[0] for v in VERDICTS])
+def test_verdicts(why, kw, status, conditions):
+    v = verify(_cycle(**kw))
+    assert v.status == status
+    for k, want in conditions.items():
+        assert v.conditions[k] == want
 
 
-def test_a_cycle_with_no_feeder_is_incomplete():
-    v = verify(_cycle())
-    assert v.conditions["feeder"] == "no"
-    assert v.status == INCOMPLETE
+def test_a_cycle_with_no_extra_copy_is_never_called_simple():
+    """Absent coefficients the yield is unknown, which is not the same as n = 1."""
+    assert verify(_cycle(consumes=FEED)).status != SIMPLE
 
 
-def test_no_seed_is_incomplete():
-    c = _cycle(consumes=[["C=O"], [], []])
+@pytest.mark.parametrize("produces,yield_", [(BACK, 2.0), ([[], [], [("OCC=O", 2)]], 3.0)])
+def test_the_stated_coefficient_is_the_yield(produces, yield_):
+    assert verify(_cycle(consumes=FEED, produces=produces)).seed_yield == yield_
+
+
+def test_no_seed_is_incomplete_and_has_no_yield():
+    c = _cycle(consumes=FEED)
     object.__setattr__(c, "seed", None)
     v = verify(c)
-    assert v.conditions["seed_identified"] == "no"
     assert v.status == INCOMPLETE
+    assert v.conditions["seed_identified"] == "no"
     assert v.seed_yield is None
 
 
-def test_stoichiometric_count_is_honoured():
-    c = _cycle(consumes=[["C=O"], [], []], produces=[[], [], [("OCC=O", 2)]])
-    assert verify(c).seed_yield == 3.0
-
-
-def test_ring_species_do_not_count_as_feeders():
-    """A species already on the ring is not an external feeder."""
-    c = _cycle(consumes=[["OCC(O)C=O"], [], []])
-    assert verify(c).conditions["feeder"] == "no"
-
-
-def test_outlet_is_reported_separately():
-    c = _cycle(consumes=[["C=O"], [], []], produces=[[], ["O=C=O"], []])
-    v = verify(c)
-    assert v.conditions["outlet"] == "yes"
-    assert verify(_cycle(consumes=[["C=O"], [], []])).conditions["outlet"] == "no"
-
-
-def test_declared_gain_without_support_is_flagged():
-    c = _cycle(consumes=[["C=O"], [], []])
+@pytest.mark.parametrize("produces,flagged", [((), True), (BACK, False)])
+def test_a_declared_gain_is_flagged_only_without_support(produces, flagged):
+    c = _cycle(consumes=FEED, produces=produces)
     c.steps[2].gain = True
-    v = verify(c)
-    assert v.declared_gain
-    assert v.disagrees_with_declaration
-
-
-def test_declared_gain_with_support_is_not_flagged():
-    c = _cycle(consumes=[["C=O"], [], []], produces=[[], [], ["OCC=O"]])
-    c.steps[2].gain = True
-    assert not verify(c).disagrees_with_declaration
+    assert verify(c).disagrees_with_declaration is flagged
 
 
 def test_summary_lists_every_condition():
@@ -85,36 +88,7 @@ def test_summary_lists_every_condition():
         assert cond in s
 
 
-def test_a_shunt_carries_the_topological_criterion():
-    from autocycle.spec import Shunt
-    from autocycle.verify import TOPOLOGICAL
-
-    c = _cycle(consumes=[["C=O"], [], []])
-    c.shunt = Shunt(from_node=1, steps=[Step("s1")])
-    v = verify(c)
-    assert v.conditions["shunt"] == "yes"
-    assert v.conditions["extra_yield"] == "unknown"
-    assert v.status == TOPOLOGICAL
-
-
-def test_a_stated_coefficient_outranks_a_shunt():
-    from autocycle.spec import Shunt
-
-    c = _cycle(consumes=[["C=O"], [], []], produces=[[], [], ["OCC=O"]])
-    c.shunt = Shunt(from_node=1, steps=[Step("s1")])
-    assert verify(c).status == AUTOCATALYTIC
-
-
-def test_no_shunt_is_reported_as_such():
-    assert verify(_cycle(consumes=[["C=O"], [], []])).conditions["shunt"] == "no"
-
-
 def test_shunt_out_of_range_rejected():
-    from autocycle.spec import Cycle, Shunt, SpecError
-
     with pytest.raises(SpecError, match="shunt from_node"):
-        Cycle(
-            nodes=[Mol("OCC=O"), Mol("OCC(O)C=O")],
-            steps=[Step("a"), Step("b")],
-            shunt=Shunt(from_node=9, steps=[Step("s")]),
-        )
+        Cycle(nodes=[Mol("OCC=O"), Mol("OCC(O)C=O")], steps=[Step("a"), Step("b")],
+              shunt=Shunt(from_node=9, steps=[Step("s")]))

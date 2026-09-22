@@ -67,7 +67,7 @@ def _one(r0):
                         batch.append((spec, fr + tuple(reversed(br)) + (r0,)))
     return _check(by, batch), len(batch)
 
-def enumerate_cores(by_rxn, n, food=FOOD, workers=None):
+def enumerate_cores(by_rxn, n, *, food=FOOD, workers=None):
     workers = workers or os.cpu_count()
     amp = sorted(anchors(by_rxn, food))
     found, seen = [], 0
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     food = {"O", "C=O", "C(=O)=O", "N"}
     by = load(path)
     t0 = time.time()
-    found, seen = enumerate_cores(by, n, food, w)
+    found, seen = enumerate_cores(by, n, food=food, workers=w)
     t = collections.Counter(x[2] for x in found)
     print(f"  {Path(path).stem}  n={n}  workers={w or os.cpu_count()}")
     print(f"    reactions {len(by)}  anchors {len(anchors(by, food))}  "
@@ -96,7 +96,7 @@ if __name__ == "__main__":
 SHARD_ABOVE = 20_000     # anchors; see the note in auto()
 
 
-def auto(by_rxn, n, food=FOOD, workers=None):
+def auto(by_rxn, n, *, food=FOOD, workers=None):
     """Enumerate, sharding only when the network is big enough to pay for it.
 
     Starting a pool copies the reaction table to every worker, which costs more
@@ -107,5 +107,5 @@ def auto(by_rxn, n, food=FOOD, workers=None):
     wants directly.
     """
     if workers == 1 or len(anchors(by_rxn, food)) < SHARD_ABOVE:
-        return single(by_rxn, n, food=food)   # third positional is chunk, not food
-    return enumerate_cores(by_rxn, n, food, workers)
+        return single(by_rxn, n, food=food)
+    return enumerate_cores(by_rxn, n, food=food, workers=workers)
