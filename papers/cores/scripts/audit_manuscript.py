@@ -11,8 +11,26 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CORPUS = "\n".join(p.read_text(errors="replace") for p in (ROOT / "results").iterdir()
-                   if p.is_file())
+
+# Only these files may vouch for a number. The audit used to read everything in
+# results/, which meant a file left over from before a change could still vouch
+# for a figure that change had moved: after the anchor condition was corrected,
+# deep_survey.txt went on offering 6,671 cores for a network that now has 10,925.
+# A result that is not on this list is a note, not evidence, and adding a file
+# here is a claim that it was produced by the code as it currently stands.
+AUTHORITATIVE = [
+    "paper_numbers.txt", "blindness.txt", "bound.txt", "ladder.txt",
+    "algorithm_numbers.txt", "anchor_condition.txt", "agreement.txt",
+    "circuit_scope.txt", "shared_mechanisms.txt", "mechanism_dg.txt",
+    "pruned_expansion.txt", "rule_removal.txt", "foodset.txt", "metabolic.txt",
+    "raf_check.txt", "flow_enum.txt", "cycle_verify.txt", "deep_survey.txt",
+    "depth_scaling.txt", "fork_check.txt", "triage.txt", "aliasing.txt",
+]
+missing = [f for f in AUTHORITATIVE if not (ROOT / "results" / f).exists()]
+if missing:
+    raise SystemExit(f"  declared but absent from results/: {', '.join(missing)}")
+CORPUS = "\n".join((ROOT / "results" / f).read_text(errors="replace")
+                   for f in AUTHORITATIVE)
 
 
 # figures that are not measurements recorded here, declared rather than left as
@@ -24,6 +42,8 @@ QUOTED = {
              "counts in paper_numbers.txt; update when that file is regenerated",
     "17,005": "the five ladder core counts of Table 1 added together, "
               "1,024 + 2,145 + 2,050 + 10,925 + 861",
+    "48,403": "Arya et al. 2022, quoted: their compound count",
+    "100,268": "Arya et al. 2022, quoted: their reaction count",
 }
 
 
