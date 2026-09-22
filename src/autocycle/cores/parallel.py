@@ -107,5 +107,5 @@ def auto(by_rxn, n, food=FOOD, workers=None):
     wants directly.
     """
     if workers == 1 or len(anchors(by_rxn, food)) < SHARD_ABOVE:
-        return single(by_rxn, n, food)
+        return single(by_rxn, n, food=food)   # third positional is chunk, not food
     return enumerate_cores(by_rxn, n, food, workers)

@@ -90,3 +90,25 @@ def test_the_unrolled_walk_agrees_per_anchor(net):
            for r0 in amp for sp, rx in from_anchor(r0, net, 3, FOOD, succ, pred, amp)}
     whole = {(tuple(sp), tuple(rx)) for sp, rx in anchored.candidates(net, 3, food=FOOD)}
     assert one == whole
+
+
+AMMONIA = RELS / "GlucoseAmm/GlucoseAmmRels_3.tsv"
+
+
+@pytest.mark.parametrize("workers", [1, 2])
+def test_auto_respects_the_food_set(workers):
+    """auto() once passed the food set positionally, where chunk sits.
+
+    The failure was silent: the enumeration ran under the library default of water
+    and formaldehyde and returned a plausible number for a different question. It
+    has to be checked on a network where the two food sets disagree, which formose
+    does not: only the ammonia-fed one separates 17 cores from 9.
+    """
+    if not AMMONIA.exists():
+        pytest.skip("network data not checked out")
+    from autocycle.cores.parallel import auto
+    g = load(AMMONIA)
+    assert keys(auto(g, 3, food=FOOD, workers=workers)[0]) == \
+           keys(anchored.enumerate_cores(g, 3, food=FOOD)[0])
+    assert len(auto(g, 3, food={"O", "C=O"}, workers=workers)[0]) == 17
+    assert len(auto(g, 3, food=FOOD, workers=workers)[0]) == 9
