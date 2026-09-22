@@ -1,0 +1,5 @@
+  network    undecidable  species reached   of full  methanol
+  formose    admitted              95,450     81.0%       yes
+  formose    refused               61,320     52.0%       yes
+  glucose    admitted              37,400     77.3%       yes
+  glucose    refused               23,543     48.6%       yes
