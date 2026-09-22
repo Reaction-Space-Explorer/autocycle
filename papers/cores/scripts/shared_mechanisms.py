@@ -1,8 +1,8 @@
 """Do the five chemistries draw on one vocabulary of mechanisms, or five?
 
-Sharded over the anchors, since the partition is what makes that safe: a core is
-emitted only from its least amplifying reaction, so no two shards can produce the
-same one.
+Sharded over the anchors where that pays, which the partition makes safe: a core
+is emitted only from its least amplifying reaction, so no two shards can produce
+the same one.
 
 A mechanism is a multiset of step descriptions, each the formula change a step
 makes to the ring plus what it takes in and lets out. That description carries no
@@ -20,7 +20,7 @@ from pathlib import Path
 
 from _common import FOOD, NETS
 
-from autocycle.cores.parallel import enumerate_cores
+from autocycle.cores.parallel import auto as enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif
 from autocycle.cores.paths import RELS

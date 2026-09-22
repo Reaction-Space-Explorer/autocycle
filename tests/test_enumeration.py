@@ -6,7 +6,7 @@ brute-force enumeration over all cycles.
 """
 import pytest
 
-from autocycle.cores import anchored, search
+from autocycle.cores import anchored, parallel, search
 from autocycle.cores.enumerate_cores import cycles, keep_cores, load
 from autocycle.cores.paths import RELS
 
@@ -68,3 +68,25 @@ def test_enlarging_the_food_set_cannot_add_cores(net):
     small, _ = anchored.enumerate_cores(net, 3, food={"O", "C=O"})
     large, _ = anchored.enumerate_cores(net, 3, food=FOOD)
     assert keys(large) <= keys(small)
+
+
+@pytest.mark.parametrize("n", [2, 3, 4])
+def test_sharding_returns_what_one_process_returns(net, n):
+    """The anchors partition the search, so a shard per anchor must lose nothing.
+
+    This path was untested, and it had quietly diverged: the shards ran the
+    general walker while a single process ran the unrolled one.
+    """
+    assert keys(parallel.enumerate_cores(net, n, food=FOOD, workers=2)[0]) == \
+           keys(anchored.enumerate_cores(net, n, food=FOOD)[0])
+
+
+def test_the_unrolled_walk_agrees_per_anchor(net):
+    """from_anchor is the shard body and the loop body of candidates()."""
+    from autocycle.cores.anchored import anchors, from_anchor, graph
+    succ, pred = graph(net, FOOD)
+    amp = set(anchors(net, FOOD))
+    one = {(tuple(sp), tuple(rx))
+           for r0 in amp for sp, rx in from_anchor(r0, net, 3, FOOD, succ, pred, amp)}
+    whole = {(tuple(sp), tuple(rx)) for sp, rx in anchored.candidates(net, 3, food=FOOD)}
+    assert one == whole

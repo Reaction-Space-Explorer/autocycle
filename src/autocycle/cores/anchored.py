@@ -53,52 +53,62 @@ def anchors(by_rxn, food=FOOD):
             if sum(c for s, c in d.items() if s not in food and c > 0) >= 2]
 
 
+def from_anchor(r0, by_rxn, n, food, succ, pred, amp):
+    """Yield the n-cycles anchored at r0, once each.
+
+    Split out of candidates() so the sharded enumerator runs the same unrolled
+    walk rather than the general one, which is several times slower at this size.
+    """
+    def first(rxns):
+        """Keep the cycle only at its smallest amplifying reaction."""
+        return min(r for r in rxns if r in amp) == r0
+
+    d = by_rxn[r0]
+    starts = [s for s, c in d.items() if c > 0 and s not in food]
+    ends = [s for s, c in d.items() if c < 0 and s not in food]
+    for v1 in starts:
+        for vn in ends:
+            if n == 2:
+                if v1 == vn:
+                    continue
+                for p, r in succ.get(v1, ()):
+                    if p == vn and r != r0 and first((r, r0)):
+                        yield (v1, vn), (r, r0)
+            elif n == 3:
+                tail = collections.defaultdict(list)
+                for q, r in pred.get(vn, ()):
+                    tail[q].append(r)
+                for v2, r1 in succ.get(v1, ()):
+                    if v2 in (v1, vn) or r1 == r0:
+                        continue
+                    for r2 in tail.get(v2, ()):
+                        if r2 not in (r0, r1) and first((r1, r2, r0)):
+                            yield (v1, v2, vn), (r1, r2, r0)
+            elif n == 4:
+                mid = collections.defaultdict(list)
+                for q, r in pred.get(vn, ()):
+                    mid[q].append(r)
+                for v2, r1 in succ.get(v1, ()):
+                    if v2 in (v1, vn) or r1 == r0:
+                        continue
+                    for v3, r2 in succ.get(v2, ()):
+                        if v3 in (v1, v2, vn) or r2 in (r0, r1):
+                            continue
+                        for r3 in mid.get(v3, ()):
+                            if r3 in (r0, r1, r2):
+                                continue
+                            if first((r1, r2, r3, r0)):
+                                yield (v1, v2, v3, vn), (r1, r2, r3, r0)
+            else:
+                raise ValueError(f"cycle length {n} not implemented")
+
+
 def candidates(by_rxn, n, food=FOOD):
     """Yield each n-species cycle containing an amplifying reaction, once."""
     succ, pred = graph(by_rxn, food)
     amp = set(anchors(by_rxn, food))
-
-    def first(rxns, r0):
-        """Keep the cycle only at its smallest amplifying reaction."""
-        return min(r for r in rxns if r in amp) == r0
-
     for r0 in sorted(amp):
-        d = by_rxn[r0]
-        starts = [s for s, c in d.items() if c > 0 and s not in food]
-        ends = [s for s, c in d.items() if c < 0 and s not in food]
-        for v1 in starts:
-            for vn in ends:
-                if n == 2:
-                    if v1 == vn:
-                        continue
-                    for p, r in succ.get(v1, ()):
-                        if p == vn and r != r0 and first((r, r0), r0):
-                            yield (v1, vn), (r, r0)
-                elif n == 3:
-                    for v2, r1 in succ.get(v1, ()):
-                        if v2 in (v1, vn) or r1 == r0:
-                            continue
-                        for q, r2 in pred.get(vn, ()):
-                            if q == v2 and r2 not in (r0, r1) and first((r1, r2, r0), r0):
-                                yield (v1, v2, vn), (r1, r2, r0)
-                elif n == 4:
-                    mid = collections.defaultdict(list)
-                    for q, r in pred.get(vn, ()):
-                        mid[q].append(r)
-                    for v2, r1 in succ.get(v1, ()):
-                        if v2 in (v1, vn) or r1 == r0:
-                            continue
-                        for v3, r2 in succ.get(v2, ()):
-                            if v3 in (v1, v2, vn) or r2 in (r0, r1):
-                                continue
-                            for r3 in mid.get(v3, ()):
-                                if r3 in (r0, r1, r2):
-                                    continue
-                                if first((r1, r2, r3, r0), r0):
-                                    yield (v1, v2, v3, vn), (r1, r2, r3, r0)
-                else:
-                    raise ValueError(f"cycle length {n} not implemented")
-
+        yield from from_anchor(r0, by_rxn, n, food, succ, pred, amp)
 
 def _check(by_rxn, batch):
     """Batched determinant first, then the program only for what survives."""
