@@ -1,9 +1,8 @@
 """Do the five chemistries draw on one vocabulary of mechanisms, or five?
 
-Uses the general walker rather than the unrolled one. The two are verified to
-agree core for core, but the unrolled n=3 branch rescans the predecessor list per
-candidate and defers the canonical-anchor test to emission, which is slow on a
-network carrying tens of thousands of anchors.
+Sharded over the anchors, since the partition is what makes that safe: a core is
+emitted only from its least amplifying reaction, so no two shards can produce the
+same one.
 
 A mechanism is a multiset of step descriptions, each the formula change a step
 makes to the ring plus what it takes in and lets out. That description carries no
@@ -21,7 +20,7 @@ from pathlib import Path
 
 from _common import FOOD, NETS
 
-from autocycle.cores.search import enumerate_cores
+from autocycle.cores.parallel import enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif
 from autocycle.cores.paths import RELS
