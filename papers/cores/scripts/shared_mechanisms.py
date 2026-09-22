@@ -20,9 +20,9 @@ from pathlib import Path
 
 from _common import FOOD, NETS
 
-from autocycle.cores.parallel import auto as enumerate_cores
 from autocycle.cores.enumerate_cores import load
 from autocycle.cores.motifs import coarse_motif
+from autocycle.cores.parallel import auto as enumerate_cores
 from autocycle.cores.paths import RELS
 
 # one network takes an hour, and the machine has gone down mid-run before, so each

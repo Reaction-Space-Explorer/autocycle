@@ -303,8 +303,6 @@ def fig_shared():
     mech = [int(b) for _, b, _ in rows]
     cores = [int(c.replace(",", "")) for _, _, c in rows]
 
-    names = ["glucose\nG5", "glucose+NH$_3$\nG4", "formose\nG6",
-             "formose+NH$_3$\nG4", "pyruvate\nG6"]
     block = txt.split("pairwise")[1].split("\n\n")[0].strip().split("\n")[2:]
     M = np.array([[int(x.replace(",", "")) for x in re.findall(r"\s(\d[\d,]*)", r)]
                   for r in block if r.strip()])
