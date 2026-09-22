@@ -4,3 +4,6 @@
   glucose+ammonia G2    3          2         2       0      0                 0
   glucose+ammonia G2    4          0         0       0      0                 0
   glucose G3            3          9         9       0      0                 0
+  glucose G3            4        176       153      27      4                 4
+  formose+ammonia G3    3         38        38       0      0                 0
+  formose+ammonia G3    4         38        38       0      0                 0
