@@ -1,0 +1,11 @@
+  network               n   cores  types (graph cycles)   forks agree
+  glucose G5            3   1,024  I:695  II/III:329      1024 agree / 0 disagree
+  glucose G5            4  23,358  I:9500  II/III:13751  IV:103  V:4 23350 agree / 8 disagree
+  glucose+ammonia G4    3   2,145  I:622  II/III:1523     2145 agree / 0 disagree
+  glucose+ammonia G4    4 831,726  I:11953  II/III:814234  IV:2450  V:3089 828633 agree / 3093 disagree
+  formose G6            3   2,050  I:1140  II/III:910     2050 agree / 0 disagree
+  formose G6            4  40,218  I:10621  II/III:29217  IV:380 40218 agree / 0 disagree
+  formose+ammonia G4    3  10,925  I:1911  II/III:9012  IV:2 10925 agree / 0 disagree
+
+  pyruvic acid G6 and formose+ammonia G4 at four species were not reached
+  before the run was stopped.
