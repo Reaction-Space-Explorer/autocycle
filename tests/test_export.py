@@ -37,6 +37,7 @@ def test_homebrew_libcairo_is_found_without_a_preset_env(monkeypatch):
         (pathlib.Path(d) / "libcairo.2.dylib").exists() for d in export.BREW_LIB
     ):
         pytest.skip("not macOS with a Homebrew libcairo")
+    pytest.importorskip("cairosvg")
     monkeypatch.delenv("DYLD_FALLBACK_LIBRARY_PATH", raising=False)
     assert _load_cairosvg() is not None
 
