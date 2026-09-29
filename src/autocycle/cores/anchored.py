@@ -104,7 +104,16 @@ def from_anchor(r0, by_rxn, n, food, succ, pred, amp):
 
 
 def candidates(by_rxn, n, food=FOOD):
-    """Yield each n-species cycle containing an amplifying reaction, once."""
+    """Yield each n-species cycle containing an amplifying reaction, once.
+
+    The walk here is unrolled to n <= 4. Above that the general meet-in-the-middle
+    walk is the only one that runs, and search imports this module, so the import
+    is deferred.
+    """
+    if n > 4:
+        from autocycle.cores.search import candidates as general
+        yield from general(by_rxn, n, food)
+        return
     succ, pred = graph(by_rxn, food)
     amp = set(anchors(by_rxn, food))
     for r0 in sorted(amp):

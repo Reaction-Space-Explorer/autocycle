@@ -112,3 +112,14 @@ def test_auto_respects_the_food_set(workers):
            keys(anchored.enumerate_cores(g, 3, food=FOOD)[0])
     assert len(auto(g, 3, food={"O", "C=O"}, workers=workers)[0]) == 17
     assert len(auto(g, 3, food=FOOD, workers=workers)[0]) == 9
+
+
+@pytest.mark.parametrize("n", [5, 6])
+def test_auto_enumerates_above_the_unrolled_limit(net, n):
+    """auto sends a small network to the single-process walker, which only
+
+    unrolls to four species, so anything deeper used to raise there while the
+    sharded path handled it.
+    """
+    assert keys(parallel.auto(net, n, food=FOOD)[0]) == \
+           keys(search.enumerate_cores(net, n, food=FOOD)[0])
