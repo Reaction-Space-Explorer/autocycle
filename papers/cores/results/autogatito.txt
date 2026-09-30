@@ -1,8 +1,10 @@
 autogatito, the implementation Golnik and co-workers publish with the circuit
-method, run on formose G3 converted to SBML. Its cores are sorted into single
-circuits and superpositions by papers/cores/scripts/autogatito_check.py, and the
-circuits are then compared against the enumeration here core for core, on the
-species and the reactions both, not on counts.
+method, run on three networks converted to SBML. Its cores are sorted into single
+circuits and superpositions by papers/cores/scripts/autogatito_check.py, then
+compared against the enumeration here core for core, on the species and the
+reactions both, not on counts.
+
+formose G3, unbounded (-b 1000 -e 1000)
 
    n   autogatito   circuits   superpositions   ours   identical
    2            0          0                0      0   yes
@@ -17,23 +19,64 @@ species and the reactions both, not on counts.
   11          408        286              122
   12          230        114              116
 
-1,901 cores in all, to twelve species. At three, five and six species nothing is
-on either side alone. The first superpositions appear at six, and by twelve they
-are half of what is found, which dates the caveat that the counts above three
-species are counts of cores that are single circuits.
+1,901 cores in all, to twelve species. At three, five and six species nothing is on
+either side alone. The first superpositions appear at six, and by twelve they are
+half of what is found, which dates the caveat that the counts above three species
+are counts of cores that are single circuits. formose G3 is not in
+circuit_scope.txt and five and six species are not tested there, so this extends
+that comparison to a fifth network and two further sizes.
 
-formose G3 is not in circuit_scope.txt and five and six species are not tested
-there, so this extends that comparison to a fifth network and to two further
-sizes.
+glucose G3 and formose+ammonia G3, bounded (-b 8 -e 16)
 
-The conversion writes 578 of the 580 reactions. The two it drops have no non-food
-reactant or no non-food product, and a core reaction must both consume and produce
-a non-food core species, so neither can sit in a core. glucose G3 drops none.
+  network              n   autogatito   circuits   superpositions   ours
+  glucose G3           3            9          9                0      9
+  glucose G3           4          172        145               27    176 exhaustive
+  formose+ammonia G3   3           38         38                0     38
+  formose+ammonia G3   4           38         38                0     38
+
+formose+ammonia G3 agrees exactly at both sizes, which confirms the two rows
+circuit_scope.txt already reports for it with the authors' own code.
+
+glucose G3 at four species does not agree, and the disagreement is specific. Its
+172 are a strict subset of the 176 the exhaustive search finds: four cores are
+found here and not there, and nothing is found there and not here. Those four are
+one species set under four reaction assignments, every reaction consuming one core
+species, and all four are circuits this search returns, which is why the circuit
+counts stand at 145 against 149. The 27 superpositions are exactly the 27 that
+circuit_scope.txt records as missed, so the two searches agree on what a circuit
+search cannot reach.
+
+The four are cores. Checked from first principles rather than from is_core, the
+matrix is square with determinant -3 and the program of Proposition 4 returns
+t* = 0.125 at v = (0.375, 0.25, 0.125, 0.25), giving net production 0.125 on every
+core species, so every one of them is strictly amplified.
+
+What separates them is the determinant. Every core autogatito returns for glucose
+G3 at four species has |det| 1 or 2, 128 and 44 of them, and the four it does not
+return are the only ones with |det| 3. Across every comparison that agreed, no core
+has |det| above 2: glucose G3 at three species is 9 cores all at 1, formose G3 at
+three, five and six species is 24, 16 and 57 all at 1, and formose+ammonia G3 at
+four species is 26 at 1 and 12 at 2. The only comparison containing a |det| 3 core
+is the only one that disagrees. A reaction returning two copies of a core species
+is what raises the determinant, and it is the last row of the matrix above.
+
+The bound is not the explanation. formose+ammonia G3 was run under the same
+-b 8 -e 16 at the same core size and returned all 38, so a bound that leaves that
+network complete at four species is not what removes four cores from glucose.
+
+This is a pattern across seven comparisons with a visible mechanism, not a proof
+about their algorithm, and it is reported as such.
+
+The conversion writes 578 of the 580 reactions for formose G3 and 1,793 of the
+1,795 for formose+ammonia G3. The dropped reactions have no non-food reactant or no
+non-food product, and a core reaction must both consume and produce a non-food core
+species, so none can sit in a core. glucose G3 drops none.
 
 Run as:
-  python partitionNetwork.py -i net.xml -t 4 -o name
+  python partitionNetwork.py -i net.xml -t 16 -o name
   AUTOGATITO_DUMP=cores.pkl python partitionAnalysis.py -x net.xml \
-      -i PickleFiles/name/partitionTree0.pkl -b 1000 -n True -s name \
-      -t 4 -e 1000 -c -p -o cycleData
+      -i PickleFiles/name/partitionTree0.pkl -b 8 -n True -s name \
+      -t 16 -e 16 -c -p -o cycleData
 -e bounds the size of the cycles assembled, not -b, and leaving it at 1000 sets
-that bound to 500, which is why a network the size of glucose G3 does not finish.
+that bound to 500, which is why glucose G3 does not finish unbounded. Note that -p
+spawns far more workers than -t asks for.

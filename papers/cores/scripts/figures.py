@@ -342,6 +342,82 @@ def fig_shared():
     print("  fig_shared.png")
 
 
+
+def _bistable():
+    """The pair screen, read out of results/bistable_pairs.txt rather than held here."""
+    text = (OUT.parent / "results" / "bistable_pairs.txt").read_text()
+    rows = {}
+    for line in text.splitlines():
+        m = re.match(r"\s+(\S.*?\S)\s{2,}([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+"
+                     r"([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s*$", line)
+        if m:
+            rows[m.group(1)] = [int(v.replace(",", "")) for v in m.groups()[1:]]
+    return rows
+
+
+def fig_bistable():
+    rows = _bistable()
+    order = ["glucose G5", "glucose+ammonia G4", "formose G6",
+             "formose+ammonia G4", "pyruvic acid G6"]
+    stages = ["disjoint", "competing", "annihilating", "all four"]
+    cols = [3, 4, 5, 6]                      # into the parsed row
+    fig, ax = plt.subplots(figsize=(6.6, 3.6))
+    x = np.arange(len(order))
+    w = 0.2
+    for i, (lab, c) in enumerate(zip(stages, cols, strict=True)):
+        ax.bar(x + (i - 1.5) * w, [rows[n][c] for n in order], w, label=lab,
+               color=RUNG[i % len(RUNG)], edgecolor="white", linewidth=0.5)
+    ax.set_yscale("log")
+    ax.set_xticks(x); ax.set_xticklabels(NETS)
+    ax.set_ylabel("pairs of cores (log scale)")
+    ax.set_title("Competition, not annihilation, decides how many pairs survive")
+    ax.legend(frameon=False, ncol=4, loc="upper center", bbox_to_anchor=(0.5, -0.13))
+    for i, n in enumerate(order):
+        drop = rows[n][3] / rows[n][4]
+        ax.text(i, rows[n][3] * 1.6, f"{drop:.0f}x", ha="center", fontsize=8, color=MUTED)
+    ax.set_ylim(10, 2e6)
+    ax.spines[["top", "right"]].set_visible(False)
+    fig.tight_layout(); fig.savefig(OUT / "fig_bistable.png", dpi=300)
+    print("  fig_bistable.png")
+
+
+def _autogatito():
+    """Circuits and superpositions by core size, from results/autogatito.txt."""
+    text = (OUT.parent / "results" / "autogatito.txt").read_text()
+    rows = []
+    for line in text.splitlines():
+        m = re.match(r"\s+(\d+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s*(?:\S.*)?$", line)
+        if m:
+            rows.append([int(v.replace(",", "")) for v in m.groups()])
+    return [r for r in rows if r[0] >= 3]   # n=4 is a real zero, keep the axis continuous
+
+
+def fig_autogatito():
+    rows = _autogatito()
+    n = [r[0] for r in rows]
+    circ = [r[2] for r in rows]
+    sup = [r[3] for r in rows]
+    fig, ax = plt.subplots(figsize=(6.6, 3.4))
+    x = np.arange(len(n))
+    ax.bar(x, circ, 0.62, label="single circuits", color=BLUE,
+           edgecolor="white", linewidth=0.5)
+    ax.bar(x, sup, 0.62, bottom=circ, label="superpositions", color=PS.GREEN_2,
+           edgecolor="white", linewidth=0.5)
+    ax.set_xticks(x); ax.set_xticklabels(n)
+    ax.set_xlabel("species in the core")
+    ax.set_ylabel("cores found by autogatito")
+    ax.set_title("The circuit search is complete to five species, and loses ground above")
+    ax.legend(frameon=False, ncol=2, loc="upper left")
+    for i, (c, sp) in enumerate(zip(circ, sup, strict=True)):
+        if sp == 0 and c:
+            ax.text(i, c + 18, "all", ha="center", fontsize=7.5, color=MUTED)
+        elif not c and not sp:
+            ax.text(i, 12, "none", ha="center", fontsize=7.5, color=MUTED)
+    ax.spines[["top", "right"]].set_visible(False)
+    fig.tight_layout(); fig.savefig(OUT / "fig_autogatito.png", dpi=300)
+    print("  fig_autogatito.png")
+
+
 if __name__ == "__main__":
     fig1_ladder(); fig3_paired(); fig4_triage_thermo(); fig5_depth(); fig6_rule_removal()
-    fig_bound(); fig_coresize(); fig_shared()
+    fig_bound(); fig_coresize(); fig_shared(); fig_bistable(); fig_autogatito()
