@@ -1,0 +1,39 @@
+autogatito, the implementation Golnik and co-workers publish with the circuit
+method, run on formose G3 converted to SBML. Its cores are sorted into single
+circuits and superpositions by papers/cores/scripts/autogatito_check.py, and the
+circuits are then compared against the enumeration here core for core, on the
+species and the reactions both, not on counts.
+
+   n   autogatito   circuits   superpositions   ours   identical
+   2            0          0                0      0   yes
+   3           24         24                0     24   24 of 24
+   4            0          0                0      0   yes
+   5           16         16                0     16   16 of 16
+   6           95         57               38     57   57 of 57
+   7          103         71               32
+   8          143         93               50
+   9          308        242               66
+  10          574        294              280
+  11          408        286              122
+  12          230        114              116
+
+1,901 cores in all, to twelve species. At three, five and six species nothing is
+on either side alone. The first superpositions appear at six, and by twelve they
+are half of what is found, which dates the caveat that the counts above three
+species are counts of cores that are single circuits.
+
+formose G3 is not in circuit_scope.txt and five and six species are not tested
+there, so this extends that comparison to a fifth network and to two further
+sizes.
+
+The conversion writes 578 of the 580 reactions. The two it drops have no non-food
+reactant or no non-food product, and a core reaction must both consume and produce
+a non-food core species, so neither can sit in a core. glucose G3 drops none.
+
+Run as:
+  python partitionNetwork.py -i net.xml -t 4 -o name
+  AUTOGATITO_DUMP=cores.pkl python partitionAnalysis.py -x net.xml \
+      -i PickleFiles/name/partitionTree0.pkl -b 1000 -n True -s name \
+      -t 4 -e 1000 -c -p -o cycleData
+-e bounds the size of the cycles assembled, not -b, and leaving it at 1000 sets
+that bound to 500, which is why a network the size of glucose G3 does not finish.
