@@ -25,7 +25,7 @@ AUTHORITATIVE = [
     "pruned_expansion.txt", "rule_removal.txt", "foodset.txt", "metabolic.txt",
     "raf_check.txt", "flow_enum.txt", "cycle_verify.txt", "deep_survey.txt",
     "depth_scaling.txt", "fork_check.txt", "triage.txt", "aliasing.txt", "minimality.txt", "type_check.txt",
-    "autogatito.txt",
+    "autogatito.txt", "bistable_pairs.txt",
 ]
 missing = [f for f in AUTHORITATIVE if not (ROOT / "results" / f).exists()]
 if missing:
